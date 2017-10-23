@@ -38,7 +38,10 @@
     <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-    <div id="full-screen-dom" style="display: block;"></div>
+    <div id="full-screen-dom" style="display: block;">
+        <h2 style="padding-left:50px;padding-top:200px;">Hope you do not find any special pixel on this screen!</h2>
+        <h1 style="padding-left:50px;color:blue">Click on the screen to start...</h1>
+    </div>
     <script src="js/jquery.js"></script>
     <script>
         state = 0;
@@ -67,6 +70,8 @@
             }
         }
         function startDetector() {
+            var fullScreenDOM = document.getElementById("full-screen-dom");
+            fullScreenDOM.innerHTML = "";
             $("body").bind("keydown", function (event) {
                 nextColor(event);
             });
