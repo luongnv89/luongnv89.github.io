@@ -46,6 +46,7 @@
     <script>
         state = 0;
         bgColor = ["#000000", "#ff0000", "#00ff00", "#0000ff", "#ffffff"];
+
         function fullScreenMode() {
             var fullScreenDOM = document.getElementById("full-screen-dom");
             if (!document.mozFullScreen && !document.webkitFullScreen)
@@ -59,6 +60,7 @@
             else
                 document.webkitCancelFullScreen();
         }
+
         function nextColor(event) {
             if (event.which == 1 || event.which == 32) {
                 $("#full-screen-dom").css("background-color", bgColor[state]);
@@ -69,6 +71,7 @@
                 fullScreenMode();
             }
         }
+
         function startDetector() {
             var fullScreenDOM = document.getElementById("full-screen-dom");
             fullScreenDOM.innerHTML = "";
