@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Dead pixel detector</title>
+    <meta name="description" content="Dead pixel detector for LCD screen">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            margin: 0px 0px 0px 0px;
+            padding: 0px 0px 0px 0px;
+            background-color: #f0f0f0;
+            font-size: 12pt;
+            font-family: 'PT Sans', sans-serif;
+        }
+
+        #full-screen-dom {
+            display: none;
+            position: absolute;
+            z-index: 5;
+            top: 0px;
+            left: 0px;
+            bottom: 0px;
+            right: 0px;
+            background-color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <div id="full-screen-dom" style="display: block;"></div>
+    <script src="js/jquery.js"></script>
+    <script>
+        state = 0;
+        bgColor = ["#000000", "#ff0000", "#00ff00", "#0000ff", "#ffffff"];
+        function fullScreenMode() {
+            var fullScreenDOM = document.getElementById("full-screen-dom");
+            if (!document.mozFullScreen && !document.webkitFullScreen)
+                if (fullScreenDOM.mozRequestFullScreen)
+                    fullScreenDOM.mozRequestFullScreen();
+                else
+                    fullScreenDOM.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
+            else
+            if (document.mozCancelFullScreen)
+                document.mozCancelFullScreen();
+            else
+                document.webkitCancelFullScreen();
+        }
+        function nextColor(event) {
+            if (event.which == 1 || event.which == 32) {
+                $("#full-screen-dom").css("background-color", bgColor[state]);
+                state = (state + 1) % 5;
+            } else if (event.which == 27) {
+                $("body").unbind("keydown");
+                $("#full-screen-dom").css("display", "none");
+                fullScreenMode();
+            }
+        }
+        function startDetector() {
+            $("body").bind("keydown", function (event) {
+                nextColor(event);
+            });
+            $("#full-screen-dom").css("display", "block");
+            fullScreenMode();
+        }
+
+        $(document).ready(function () {
+            $("#full-screen-dom").bind("click", function (event) {
+                nextColor(event);
+            });
+        });
+        document.addEventListener("click", startDetector);
+    </script>
+</body>
+
+</html>
