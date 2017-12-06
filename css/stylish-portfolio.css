@@ -50,6 +50,7 @@ body {
     border-radius: 0;
     color: #333;
     background-color: rgb(255, 255, 255);
+    width: 80%;
 }
 
 .btn-light:hover,
