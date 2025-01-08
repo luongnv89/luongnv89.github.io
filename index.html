@@ -9,7 +9,7 @@
     <meta name="description" content="Profile page of Luong NGUYEN">
     <meta name="author" content="Luong NGUYEN">
 
-    <title>Hi! My name is Luong!</title>
+    <title>Hi there! This is @luongnv89!</title>
 
     <!-- Bootstrap CSS -->
     <!-- Latest compiled and minified CSS -->
@@ -31,6 +31,35 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style>
+        .btn-linkedin {
+            background-color: #0077b5;
+            color: white;
+        }
+        .btn-twitter {
+            background-color: #1DA1F2;
+            color: white;
+        }
+        .btn-github {
+            background-color: #333;
+            color: white;
+        }
+        .social-buttons {
+            margin-top: 20px;
+        }
+        .social-buttons .btn {
+            margin: 0 5px;
+            transition: opacity 0.3s;
+        }
+        .social-buttons .btn:hover {
+            opacity: 0.8;
+            color: white;
+        }
+        #quote-contents {
+            font-size: 1.5em;
+            font-style: italic;
+        }
+    </style>
 </head>
 
 <body>
@@ -40,7 +69,19 @@
             <h1>@luongnv89</h1>
             <h3>life is a journey ...</h3>
             <br>
-            <a href="#about" class="btn btn-dark btn-lg">Let's go</a>
+            <div>
+                <div class="social-buttons">
+                    <a href="https://linkedin.com/in/luongnv89" target="_blank" class="btn btn-linkedin">
+                        <i class="fa fa-linkedin fa-fw"></i>
+                    </a>
+                    <a href="https://twitter.com/luongnv89" target="_blank" class="btn btn-twitter">
+                        <i class="fa fa-twitter fa-fw"></i>
+                    </a>
+                    <a href="https://github.com/luongnv89" target="_blank" class="btn btn-github">
+                        <i class="fa fa-github fa-fw"></i>
+                    </a>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -49,8 +90,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h3 id="quote-contents"> Your work is going to fill a large part of your life, and the only way to be truly satisfied is to do
-                        what you believe is great work. And the only way to do great work is to love what you do</h3>
+                    <p id="quote-contents"> Your work is going to fill a large part of your life, and the only way to be truly satisfied is to do
+                        what you believe is great work. And the only way to do great work is to love what you do</p>
                     <p class="lead text-right">- Steve Jobs - </p>
                 </div>
             </div>
@@ -76,7 +117,7 @@
                                 <h4>
                                     <strong>Online Radio</strong>
                                 </h4>
-                                <p>I like to listen radio but I do not like to install any radio application</p>
+                                <p>I dig radio, but installing apps? Nah.</p>
                                 <a href="/radio" class="btn btn-success">Listen</a>
                             </div>
                         </div>
@@ -87,9 +128,9 @@
                                     <i class="fa fa-photo fa-stack-1x text-primary"></i>
                                 </span>
                                 <h4>
-                                    <strong>My views of the World</strong>
+                                    <strong>JAVO</strong>
                                 </h4>
-                                <p>Sometime I like to just go nowhere with my camera</p>
+                                <p>Sometimes I just wanna wander with my camera</p>
                                 <a href="https://photos-luongnv89.tumblr.com" class="btn btn-success">See</a>
                             </div>
                         </div>
@@ -102,7 +143,7 @@
                                 <h4>
                                     <strong>Dead Pixel detector</strong>
                                 </h4>
-                                <p>Detect dead pixel on your LCD screen</p>
+                                <p>Check your screen for dead pixels!</p>
                                 <a href="/deadpixel.html" class="btn btn-success">Start</a>
                             </div>
                         </div>
@@ -115,7 +156,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1 text-center">
-                    <p class="text-muted">Copyright &copy; Luong NGUYEN</p>
+                    <p class="text-muted">Copyright © Luong NGUYEN - <script>document.write(new Date().getFullYear());</script></p>
                 </div>
             </div>
         </div>
