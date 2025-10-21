@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLMs in Security Testing and Monitoring</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f1419 0%, #1e2a3a 50%, #2c3e50 100%);
+            color: #f8f9fa;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+        }
+
+        .presentation {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slide {
+            display: none;
+            width: 90%;
+            max-width: 1200px;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            color: #2c3e50;
+            border: 3px solid #3498db;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 15px 40px rgba(52, 152, 219, 0.2), 0 5px 15px rgba(0, 0, 0, 0.1);
+            animation: slideIn 0.5s ease-out;
+        }
+
+        /* Fullscreen slide styles */
+        .presentation:fullscreen .slide,
+        .presentation:-webkit-full-screen .slide,
+        .presentation:-moz-full-screen .slide {
+            width: 100vw;
+            max-width: none;
+            height: 100vh;
+            border: none;
+            border-radius: 0;
+            padding: 60px;
+            box-shadow: none;
+            background: rgba(255, 255, 255, 1);
+            overflow-y: auto;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #2c3e50;
+            text-shadow: 2px 2px 4px rgba(52, 152, 219, 0.1);
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 25px;
+            color: #2c3e50;
+            border-bottom: 4px solid #3498db;
+            padding-bottom: 12px;
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: #34495e;
+            font-weight: 600;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        li {
+            margin: 15px 0;
+            padding: 12px 0 12px 35px;
+            position: relative;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #2c3e50;
+        }
+
+        li:before {
+            content: "▶";
+            position: absolute;
+            left: 0;
+            color: #3498db;
+            font-size: 1.3rem;
+            text-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.3), 0 3px 10px rgba(0, 0, 0, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 20px 0;
+        }
+
+        .card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            padding: 25px;
+            border-radius: 18px;
+            border: 2px solid #e3f2fd;
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.1), 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(52, 152, 219, 0.15), 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .score-display {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+
+        .score-item {
+            text-align: center;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            padding: 18px;
+            border-radius: 15px;
+            border: 2px solid #3498db;
+            min-width: 130px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.1);
+        }
+
+        .score-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.2);
+        }
+
+        .score-value {
+            font-size: 1.9rem;
+            font-weight: bold;
+            color: #2c3e50;
+            text-shadow: 0 1px 3px rgba(52, 152, 219, 0.2);
+        }
+
+        .score-label {
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+
+        .navigation {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            z-index: 1002;
+        }
+
+        /* Fullscreen navigation styles */
+        .presentation:fullscreen .navigation,
+        .presentation:-webkit-full-screen .navigation,
+        .presentation:-moz-full-screen .navigation {
+            bottom: 40px;
+        }
+
+        .presentation:fullscreen .nav-btn,
+        .presentation:-webkit-full-screen .nav-btn,
+        .presentation:-moz-full-screen .nav-btn {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            font-size: 1.1rem;
+            padding: 15px 30px;
+        }
+
+        .presentation:fullscreen .nav-btn:hover,
+        .presentation:-webkit-full-screen .nav-btn:hover,
+        .presentation:-moz-full-screen .nav-btn:hover {
+            background: rgba(0, 0, 0, 0.9);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+
+        .nav-btn {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            border: 2px solid #2980b9;
+            color: white;
+            padding: 14px 28px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        .nav-btn:hover {
+            background: linear-gradient(135deg, #2980b9 0%, #1f5f8b 100%);
+            border-color: #1f5f8b;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+        }
+
+        .slide-counter {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            z-index: 1002;
+            font-weight: bold;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        /* Fullscreen slide counter styles */
+        .presentation:fullscreen .slide-counter,
+        .presentation:-webkit-full-screen .slide-counter,
+        .presentation:-moz-full-screen .slide-counter {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            font-size: 1.1rem;
+        }
+
+        .authors {
+            text-align: center;
+            font-size: 1.1rem;
+            margin: 20px 0;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+
+        .icon-title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .icon-title .emoji {
+            font-size: 2.5rem;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+        }
+
+        .bullet-icon {
+            font-size: 1.2rem;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .section-header .emoji {
+            font-size: 1.5rem;
+        }
+
+        .methodology-flow {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 30px 0;
+        }
+
+        .flow-item {
+            background: rgba(156, 39, 176, 0.2);
+            border: 2px solid #9c27b0;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            flex: 1;
+            margin: 0 10px;
+        }
+
+        .flow-arrow {
+            color: #4fc3f7;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .comparison-table th {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            font-weight: bold;
+        }
+
+        .best-score {
+            background: linear-gradient(135deg, #27ae60 0%, #219a52 100%);
+            color: white;
+            font-weight: bold;
+        }
+
+        .logo-section {
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .project-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .project-logos img {
+            height: 80px;
+            max-width: 160px;
+            object-fit: contain;
+            filter: brightness(1.1) contrast(1.1);
+            transition: transform 0.3s ease;
+        }
+
+        .project-logos img:hover {
+            transform: scale(1.15);
+        }
+
+        .company-logo {
+            margin: 30px 0;
+        }
+
+        .company-logo img {
+            height: 120px;
+            max-width: 280px;
+            object-fit: contain;
+            filter: brightness(1.1) contrast(1.1);
+        }
+
+        .logo-divider {
+            width: 60%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #666, transparent);
+            margin: 20px auto;
+        }
+
+        .fullscreen-btn {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            background: linear-gradient(135deg, #27ae60 0%, #219a52 100%);
+            border: 2px solid #219a52;
+            color: white;
+            padding: 12px 18px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            z-index: 1003;
+            box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+        }
+
+        /* Fullscreen button styles in fullscreen mode */
+        .presentation:fullscreen .fullscreen-btn,
+        .presentation:-webkit-full-screen .fullscreen-btn,
+        .presentation:-moz-full-screen .fullscreen-btn {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .fullscreen-btn:hover {
+            background: linear-gradient(135deg, #219a52 0%, #1e8449 100%);
+            border-color: #1e8449;
+            transform: scale(1.08);
+            box-shadow: 0 6px 20px rgba(39, 174, 96, 0.4);
+        }
+
+        /* Fullscreen styles */
+        .presentation:-webkit-full-screen {
+            width: 100vw;
+            height: 100vh;
+            background: #000;
+        }
+
+        .presentation:-moz-full-screen {
+            width: 100vw;
+            height: 100vh;
+            background: #000;
+        }
+
+        .presentation:fullscreen {
+            width: 100vw;
+            height: 100vh;
+            background: #000;
+        }
+
+        /* Hide scrollbars in fullscreen */
+        .presentation:fullscreen,
+        .presentation:-webkit-full-screen,
+        .presentation:-moz-full-screen {
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation">
+        <!-- Slide 1: Title -->
+        <div class="slide active">
+            <h1>LLMs in Security Testing and Monitoring: An Initial Study</h1>
+            <div class="authors">
+                <p><strong>Luong Nguyen, Manh-Dung Nguyen, Anh Hao Bui, Ana Rosa Cavalli, Edgardo Montes de Oca</strong></p>
+                <p>Montimage EURL, Paris, France</p>
+            </div>
+            
+            <div class="logo-section">
+                <div class="company-logo">
+                    <img src="logo_montimage_large.png" alt="Montimage Logo">
+                </div>
+                
+                <div class="logo-divider"></div>
+                
+                <div class="project-logos">
+                    <img src="project-logos/AI4CYBER_logo.png" alt="AI4CYBER Project">
+                    <img src="project-logos/cyber-suite.png" alt="Cyber Suite">
+                    <img src="project-logos/intact.png" alt="INTACT Project">
+                    <img src="project-logos/nero.png" alt="NERO Project">
+                </div>
+            </div>
+            
+            <div class="highlight">
+                <h3>Focus: LLM-Based Security Alert Analysis</h3>
+                <p>Comparative evaluation of Mistral-7B, Qwen3-8B, and Llama3.1-8B for enhancing cybersecurity workflows</p>
+            </div>
+        </div>
+
+        <!-- Slide 2: Problem Statement -->
+        <div class="slide">
+            <div class="icon-title">
+                <span class="emoji">⚠️</span>
+                <h2>The Challenge: Security Alert Overload</h2>
+                <span class="emoji">🚨</span>
+            </div>
+            <div class="grid">
+                <div class="card">
+                    <h3>Traditional Systems Limitations</h3>
+                    <ul>
+                        <li>High false positive rates</li>
+                        <li>Lack contextual understanding</li>
+                        <li>Rule-based detection struggles with evolving threats</li>
+                        <li>Complex alerts difficult for non-experts</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>The LLM Opportunity</h3>
+                    <ul>
+                        <li>Natural language understanding</li>
+                        <li>Pattern recognition capabilities</li>
+                        <li>Contextual threat analysis</li>
+                        <li>Improved accessibility for security teams</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Research Contributions -->
+        <div class="slide">
+            <div class="icon-title">
+                <span class="emoji">🎯</span>
+                <h2>Our Contributions</h2>
+                <span class="emoji">🔬</span>
+            </div>
+            <ul>
+                <li><strong>Comprehensive Survey:</strong> LLM-based approaches in cybersecurity testing, network monitoring, and threat detection</li>
+                <li><span class="bullet-icon">🔍</span><strong>Comparative LLM Analysis:</strong> First systematic evaluation of Mistral-7B, Qwen3-8B, and Llama3.1-8B for security alert analysis</li>
+                <li><span class="bullet-icon">📊</span><strong>Multi-Dimensional Evaluation:</strong> Comprehensive assessment across 5 key criteria with real-world security alerts</li>
+                <li><span class="bullet-icon">⚙️</span><strong>Practical Implementation:</strong> Actionable insights for security operations centers and threat detection systems</li>
+            </ul>
+        </div>
+
+        <!-- Slide 4: Methodology Overview -->
+        <div class="slide">
+            <div class="icon-title">
+                <span class="emoji">🔬</span>
+                <h2>Evaluation Framework & Methodology</h2>
+                <span class="emoji">📋</span>
+            </div>
+            <div class="methodology-flow">
+                <div class="flow-item">
+                    <h3>Alert Ingestion</h3>
+                    <p>Collection & normalization from MMT, Snort, Suricata</p>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-item">
+                    <h3>LLM Analysis</h3>
+                    <p>Processing with Mistral-7B, Qwen3-8B, Llama3.1-8B</p>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-item">
+                    <h3>Quality Evaluation</h3>
+                    <p>5 criteria assessment framework</p>
+                </div>
+            </div>
+            <div class="highlight">
+                <strong>Dataset:</strong> 144 security alerts (24 MMT, 45 Snort, 45 Suricata, 30 Suricata-CSV)
+            </div>
+            <div class="card" style="margin-top: 25px;">
+                <h3>Model Selection Criteria</h3>
+                <ul>
+                    <li><strong>Local Deployment:</strong> Small enough to run locally for practical implementation</li>
+                    <li><strong>Tool Integration:</strong> Capability for tool use and API integration</li>
+                    <li><strong>Open Source:</strong> Transparent, auditable models for security applications</li>
+                    <li><strong>Geographic Diversity:</strong> 1 US model (Llama3.1-8B), 1 EU model (Mistral-7B), 1 non-US/EU model (Qwen3-8B)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 5: Security Tools Used -->
+        <div class="slide">
+            <div class="icon-title">
+                <span class="emoji">🛡️</span>
+                <h2>Security Monitoring Tools Evaluated</h2>
+                <span class="emoji">🔧</span>
+            </div>
+            <div class="highlight" style="margin-bottom: 25px;">
+                <h3>Tool Selection Criteria</h3>
+                <ul style="margin: 0; padding-left: 20px;">
+                    <li><span class="bullet-icon">🌐</span><strong>Network Monitoring Focus:</strong> Tools specialized in network traffic analysis</li>
+                    <li><span class="bullet-icon">🛡️</span><strong>IDS Capability:</strong> Intrusion Detection System functionality</li>
+                    <li><span class="bullet-icon">🔓</span><strong>Open Source:</strong> Transparent, community-driven development</li>
+                    <li><span class="bullet-icon">🏭</span><strong>Industry Relevance:</strong> MMT (our in-house Montimage tool), Suricata/Snort (top popular open-source tools)</li>
+                </ul>
+            </div>
+            <div class="grid">
+                <div class="card">
+                    <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                        <img src="tool-logos/montimage.svg" alt="MMT Logo" style="height: 60px; width: auto; margin-right: 20px;">
+                        <h3 style="margin: 0;">MMT (Montimage Monitoring Tool)</h3>
+                    </div>
+                    <p><strong>Our in-house tool:</strong> Flexible network monitoring framework with real-time traffic analysis using protocol-specific models</p>
+                    <p><strong>Alert Types:</strong> Network anomalies, protocol violations, traffic pattern analysis</p>
+                </div>
+                <div class="card">
+                    <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                        <img src="tool-logos/snort.png" alt="Snort Logo" style="height: 60px; width: auto; margin-right: 20px;">
+                        <h3 style="margin: 0;">Snort</h3>
+                    </div>
+                    <p><strong>Industry standard:</strong> Signature-based intrusion detection and prevention system known for efficiency in detecting known threats</p>
+                    <p><strong>Alert Types:</strong> Known attack signatures, malware detection, policy violations</p>
+                </div>
+            </div>
+            <div class="card" style="margin-top: 20px;">
+                <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                    <img src="tool-logos/suricata.png" alt="Suricata Logo" style="height: 60px; width: auto; margin-right: 20px;">
+                    <h3 style="margin: 0;">Suricata (Network IDS/IPS)</h3>
+                </div>
+                <p><strong>Modern leader:</strong> Advanced IDS/IPS and network security monitoring engine with multi-threading and deep packet inspection capabilities</p>
+                <p><strong>Alert Types:</strong> Intrusion attempts, malware communication, advanced persistent threats</p>
+            </div>
+        </div>
+
+        <!-- Slide 6: Evaluation Criteria -->
+        <div class="slide">
+            <div class="icon-title">
+                <span class="emoji">📏</span>
+                <h2>Five Key Evaluation Criteria</h2>
+                <span class="emoji">✅</span>
+            </div>
+            <ul>
+                <li><span class="bullet-icon">🎯</span><strong>Accuracy:</strong> Correctness of threat assessment and classification</li>
+                <li><span class="bullet-icon">💡</span><strong>Clarity:</strong> How well the analysis explains the security implications</li>
+                <li><span class="bullet-icon">📋</span><strong>Completeness:</strong> Coverage of all relevant security aspects</li>
+                <li><span class="bullet-icon">🔧</span><strong>Actionability:</strong> Quality of mitigation recommendations and next steps</li>
+                <li><span class="bullet-icon">❌</span><strong>False Positive Assessment:</strong> Ability to determine alert legitimacy and reduce false alarms</li>
+            </ul>
+            <div class="highlight">
+                <p>Each criterion scored on a scale of 1-5, with comprehensive evaluation across all alert types</p>
+            </div>
+        </div>
+
+        <!-- Slide 7: Overall Results -->
+        <div class="slide">
+            <h2>🏆 LLM Performance Championship</h2>
+            <div class="score-display">
+                <div class="score-item" style="background: linear-gradient(135deg, #ffd700, #ffed4e); color: #333; border: 3px solid #ffd700; transform: scale(1.1); box-shadow: 0 8px 16px rgba(255, 215, 0, 0.3);">
+                    <div style="font-size: 2.5rem; margin-bottom: 5px;">🥇</div>
+                    <div class="score-value" style="color: #333;">4.08</div>
+                    <div class="score-label" style="color: #333;"><strong>1st Place</strong><br>Qwen3-8B</div>
+                </div>
+                <div class="score-item" style="background: linear-gradient(135deg, #c0c0c0, #e8e8e8); color: #333; border: 3px solid #c0c0c0; transform: scale(1.05); box-shadow: 0 6px 12px rgba(192, 192, 192, 0.3);">
+                    <div style="font-size: 2.2rem; margin-bottom: 5px;">🥈</div>
+                    <div class="score-value" style="color: #333;">3.85</div>
+                    <div class="score-label" style="color: #333;"><strong>2nd Place</strong><br>Llama3.1-8B</div>
+                </div>
+                <div class="score-item" style="background: linear-gradient(135deg, #cd7f32, #daa520); color: #fff; border: 3px solid #cd7f32; box-shadow: 0 4px 8px rgba(205, 127, 50, 0.3);">
+                    <div style="font-size: 2rem; margin-bottom: 5px;">🥉</div>
+                    <div class="score-value">3.72</div>
+                    <div class="score-label"><strong>3rd Place</strong><br>Mistral-7B</div>
+                </div>
+            </div>
+            <div class="highlight">
+                <h3>🏆 Champion Performance:</h3>
+                <p>Qwen3-8B takes the gold with exceptional completeness (4.50/5) and clarity (4.46/5) scores!</p>
+            </div>
+        </div>
+
+        <!-- Slide 8: Performance by Alert Type -->
+        <div class="slide">
+            <div class="icon-title">
+                <span class="emoji">📊</span>
+                <h2>Performance by Alert Type</h2>
+                <span class="emoji">🔍</span>
+            </div>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Alert Type</th>
+                        <th>Mistral-7B</th>
+                        <th>Qwen3-8B</th>
+                        <th>Llama3.1-8B</th>
+                        <th>Average</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>MMT</td>
+                        <td>3.52</td>
+                        <td class="best-score">4.33</td>
+                        <td>3.85</td>
+                        <td>3.90</td>
+                    </tr>
+                    <tr>
+                        <td>Snort</td>
+                        <td>3.89</td>
+                        <td class="best-score">4.09</td>
+                        <td>4.02</td>
+                        <td class="best-score">4.00</td>
+                    </tr>
+                    <tr>
+                        <td>Suricata</td>
+                        <td>3.65</td>
+                        <td>3.75</td>
+                        <td>3.70</td>
+                        <td>3.70</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="highlight">
+                <p><strong>Insights:</strong> Snort alerts handled most effectively across all models. Qwen3-8B excelled with MMT alerts, showing superior ability to interpret complex network traffic patterns.</p>
+            </div>
+        </div>
+
+        <!-- Slide 9: Performance by Criteria -->
+        <div class="slide">
+            <div class="icon-title">
+                <span class="emoji">📈</span>
+                <h2>Performance Breakdown by Criteria</h2>
+                <span class="emoji">⚖️</span>
+            </div>
+            <div class="grid">
+                <div class="card">
+                    <h3>Strongest Performance</h3>
+                    <ul>
+                        <li><span class="bullet-icon">💡</span><strong>Clarity:</strong> 4.50/5 average across all models</li>
+                        <li><span class="bullet-icon">📋</span><strong>Completeness:</strong> 4.10/5 average</li>
+                        <li><span class="bullet-icon">🎯</span><strong>Accuracy:</strong> 3.95/5 average</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Immediate Impact</h3>
+                    <ul>
+                        <li><span class="bullet-icon">😌</span><strong>Reduced Alert Fatigue:</strong> 60-80% reduction in manual analysis time</li>
+                        <li><span class="bullet-icon">🏃‍♂️</span><strong>Faster Response:</strong> Automated initial triage and prioritization</li>
+                        <li><span class="bullet-icon">📐</span><strong>Consistent Quality:</strong> Standardized analysis format across all alerts</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="highlight">
+                <p><strong>Key Correlation:</strong> Accuracy and completeness showed positive correlation (0.68), suggesting more thorough analyses tend to be more accurate</p>
+            </div>
+        </div>
+
+        <!-- Slide 9: NEW EXPERIMENTAL RESULTS (Beyond Article) -->
+        <div class="slide">
+            <div class="highlight" style="background: linear-gradient(120deg, #d32f2f 0%, #f44336 100%); margin-bottom: 20px;">
+                <h3>🆕 NEW EXPERIMENTAL RESULTS</h3>
+                <p><strong>Extended Study Beyond Original Article</strong> - 337 alerts analyzed with 7 models</p>
+            </div>
+            <h2>🏆 Extended Championship Results (7 Models)</h2>
+            <div class="score-display" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; justify-items: center;">
+                <div class="score-item" style="background: linear-gradient(135deg, #ffd700, #ffed4e); color: #333; border: 3px solid #ffd700; transform: scale(1.15); box-shadow: 0 10px 20px rgba(255, 215, 0, 0.4);">
+                    <div style="font-size: 2.2rem; margin-bottom: 3px;">🥇</div>
+                    <div class="score-value" style="color: #333; font-size: 1.6rem;">4.81</div>
+                    <div class="score-label" style="color: #333; font-size: 0.8rem;"><strong>1st</strong><br>GPT-OSS-20B<br><span style="color: #666;">(New Model)</span></div>
+                </div>
+                <div class="score-item" style="background: linear-gradient(135deg, #c0c0c0, #e8e8e8); color: #333; border: 3px solid #c0c0c0; transform: scale(1.08); box-shadow: 0 8px 16px rgba(192, 192, 192, 0.4);">
+                    <div style="font-size: 2.0rem; margin-bottom: 3px;">🥈</div>
+                    <div class="score-value" style="color: #333; font-size: 1.6rem;">4.64</div>
+                    <div class="score-label" style="color: #333; font-size: 0.8rem;"><strong>2nd</strong><br>Qwen3-14B<br><span style="color: #666;">(New Model)</span></div>
+                </div>
+                <div class="score-item" style="background: linear-gradient(135deg, #cd7f32, #daa520); color: #fff; border: 3px solid #cd7f32; transform: scale(1.02); box-shadow: 0 6px 12px rgba(205, 127, 50, 0.4);">
+                    <div style="font-size: 1.8rem; margin-bottom: 3px;">🥉</div>
+                    <div class="score-value" style="font-size: 1.6rem;">4.58</div>
+                    <div class="score-label" style="font-size: 0.8rem;"><strong>3rd</strong><br>Mistral-Small-22B<br><span style="color: #ddd;">(New Model)</span></div>
+                </div>
+                <div class="score-item" style="background: rgba(0, 0, 0, 0.1); color: #333; border: 2px solid #999; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+                    <div style="font-size: 1.6rem; margin-bottom: 3px;">4️⃣</div>
+                    <div class="score-value" style="font-size: 1.6rem;">4.45</div>
+                    <div class="score-label" style="font-size: 0.8rem;"><strong>4th</strong><br>Mistral-Small-3.2<br><span style="color: #666;">(New Model)</span></div>
+                </div>
+                <div class="score-item" style="background: rgba(76, 175, 80, 0.2); color: #333; border: 2px solid #4caf50; box-shadow: 0 4px 8px rgba(76, 175, 80, 0.2);">
+                    <div style="font-size: 1.6rem; margin-bottom: 3px;">5️⃣</div>
+                    <div class="score-value" style="font-size: 1.6rem;">4.08</div>
+                    <div class="score-label" style="font-size: 0.8rem;"><strong>5th</strong><br>Qwen3-8B<br><span style="color: #4caf50;">📊 Original #1</span></div>
+                </div>
+                <div class="score-item" style="background: rgba(33, 150, 243, 0.2); color: #333; border: 2px solid #2196f3; box-shadow: 0 4px 8px rgba(33, 150, 243, 0.2);">
+                    <div style="font-size: 1.6rem; margin-bottom: 3px;">6️⃣</div>
+                    <div class="score-value" style="font-size: 1.6rem;">3.85</div>
+                    <div class="score-label" style="font-size: 0.8rem;"><strong>6th</strong><br>Llama3.1-8B<br><span style="color: #2196f3;">📊 Original #2</span></div>
+                </div>
+                <div class="score-item" style="background: rgba(255, 152, 0, 0.2); color: #333; border: 2px solid #ff9800; box-shadow: 0 4px 8px rgba(255, 152, 0, 0.2);">
+                    <div style="font-size: 1.6rem; margin-bottom: 3px;">7️⃣</div>
+                    <div class="score-value" style="font-size: 1.6rem;">3.72</div>
+                    <div class="score-label" style="font-size: 0.8rem;"><strong>7th</strong><br>Mistral-7B<br><span style="color: #ff9800;">📊 Original #3</span></div>
+                </div>
+            </div>
+            <div class="grid" style="margin-top: 25px;">
+                <div class="card">
+                    <h3>Key Insights from Extended Study</h3>
+                    <ul>
+                        <li><strong>GPT-OSS-20B</strong> dominates across all criteria (4.90 accuracy)</li>
+                        <li><strong>Suricata-CSV</strong> alerts handled best (4.36 avg score)</li>
+                        <li><strong>Clarity</strong> remains strongest criterion (4.66/5)</li>
+                        <li><strong>False Positive Assessment</strong> weakest area (3.62/5)</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <img src="new-data/model_by_alert_type.png" alt="Model Performance by Alert Type" style="width: 100%; height: auto; border-radius: 8px;">
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 11: Key Insights -->
+        <div class="slide">
+            <div class="icon-title">
+                <span class="emoji">💡</span>
+                <h2>Key Insights from Our Evaluation</h2>
+                <span class="emoji">🔑</span>
+            </div>
+            <div class="grid">
+                <div class="card">
+                    <h3>Original Study Insights</h3>
+                    <ul>
+                        <li><span class="bullet-icon">🎯</span><strong>Model Specialization Matters:</strong> Different LLMs excel in different security domains</li>
+                        <li><span class="bullet-icon">🧠</span><strong>Context is King:</strong> Models with better contextual understanding produce superior analyses</li>
+                        <li><span class="bullet-icon">⚖️</span><strong>Balanced Performance:</strong> Top performers maintain consistency across all evaluation criteria</li>
+                        <li><span class="bullet-icon">🔄</span><strong>Alert Type Sensitivity:</strong> Performance varies significantly based on alert complexity and domain</li>
+                        <li><span class="bullet-icon">🚀</span><strong>Practical Deployment Ready:</strong> Leading models demonstrate production-level reliability</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>🆕 Extended Study Insights</h3>
+                    <ul>
+                        <li><strong>Scale Matters:</strong> Larger models (GPT-OSS-20B, Qwen3-14B) significantly outperform smaller ones</li>
+                        <li><strong>Performance Gap:</strong> 1.09 point difference between best (4.81) and worst (3.72) performers</li>
+                        <li><strong>Consistency Patterns:</strong> Qwen3-14B shows most consistent performance across alert types</li>
+                        <li><strong>Alert Type Sensitivity:</strong> Suricata-CSV alerts handled best (4.36 avg), Suricata worst (4.26 avg)</li>
+                        <li><strong>Criteria Hierarchy:</strong> Clarity remains strongest (4.66/5), FP assessment weakest (3.62/5)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="highlight">
+                <h3>🔍 Key Discovery:</h3>
+                <p>Extended evaluation with 7 models reveals that <strong>model architecture and size</strong> are more critical factors than geographic origin for security alert analysis performance.</p>
+            </div>
+        </div>
+
+        <!-- Slide 12: Practical Benefits -->
+        <div class="slide">
+            <div class="icon-title">
+                <span class="emoji">🎁</span>
+                <h2>Practical Benefits for Security Operations</h2>
+                <span class="emoji">🏢</span>
+            </div>
+            <div class="grid">
+                <div class="card">
+                    <h3>For Security Analysts</h3>
+                    <ul>
+                        <li>Reduced alert fatigue</li>
+                        <li>Faster threat comprehension</li>
+                        <li>Enhanced decision-making support</li>
+                        <li>Improved response times</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>For Organizations</h3>
+                    <ul>
+                        <li>More accessible security tools for non-experts</li>
+                        <li>Better resource allocation</li>
+                        <li>Enhanced overall security posture</li>
+                        <li>Reduced dependency on specialized expertise</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 13: Future Directions -->
+        <div class="slide">
+            <div class="icon-title">
+                <span class="emoji">🚀</span>
+                <h2>Future Research Directions</h2>
+                <span class="emoji">🔮</span>
+            </div>
+            <div class="grid">
+                <div class="card">
+                    <div class="section-header">
+                        <span class="emoji">🔬</span>
+                        <h3>Model Scaling & Evaluation</h3>
+                    </div>
+                    <ul>
+                        <li><span class="bullet-icon">🦣</span><strong>Larger Open Models:</strong> Test GPT-OSS-120B, Qwen3-235B, Mistral-Large-123B, Llama3.3-70B</li>
+                        <li><span class="bullet-icon">🏢</span><strong>Closed-Source Models:</strong> Evaluate GPT-4o, Grok-4, Claude-Sonnet-4, Gemini-2.5-Pro</li>
+                        <li><span class="bullet-icon">🎯</span><strong>Specialized Fine-tuning:</strong> Create security-focused models using synthetic data generation (teacher-student approach)</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="section-header">
+                        <span class="emoji">🔗</span>
+                        <h3>Advanced Integration</h3>
+                    </div>
+                    <ul>
+                        <li><span class="bullet-icon">🤖</span><strong>Agentic Workflows:</strong> Multi-step analysis with URL/domain verification, MITRE ATT&CK, and CVE integration</li>
+                        <li><span class="bullet-icon">🧠</span><strong>Enhanced Context:</strong> Automated threat intelligence gathering for comprehensive alert analysis</li>
+                        <li><span class="bullet-icon">⚙️</span><strong>SOAR Integration:</strong> Extend LLMs for Security Orchestration, Automation, and Response platforms</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 14: Conclusion -->
+        <div class="slide">
+            <div class="icon-title">
+                <span class="emoji">🎯</span>
+                <h2>Conclusion</h2>
+                <span class="emoji">✨</span>
+            </div>
+            <div class="highlight">
+                <h3>LLMs show significant potential as valuable assistants to security analysts</h3>
+            </div>
+            <ul>
+                <li><span class="bullet-icon">✅</span><strong>Demonstrated Effectiveness:</strong> Comparative analysis shows clear benefits over traditional approaches</li>
+                <li><span class="bullet-icon">🎯</span><strong>Practical Impact:</strong> Enhanced alert clarity, reduced analyst fatigue, improved response times</li>
+                <li><span class="bullet-icon">🔍</span><strong>Model Selection Critical:</strong> Different LLMs excel in different scenarios - evaluation frameworks essential</li>
+                <li><span class="bullet-icon">🛤️</span><strong>Path Forward:</strong> Integration challenges addressable through continued research and development</li>
+            </ul>
+            <div class="card" style="margin-top: 30px;">
+                <div class="section-header">
+                    <span class="emoji">🙏</span>
+                    <h3>Thank You - Questions?</h3>
+                    <span class="emoji">❓</span>
+                </div>
+                <p><span class="bullet-icon">📧</span><strong>Contact:</strong> Luong NGUYEN - luong.nguyen@montimage.eu</p>
+                <p><span class="bullet-icon">🏢</span>Montimage EURL, Paris, France</p>
+            </div>
+        </div>
+    </div>
+
+    <button class="fullscreen-btn" id="fullscreen-btn" onclick="toggleFullscreen()">📺 Fullscreen</button>
+
+    <div class="slide-counter">
+        <span id="current-slide">1</span> / <span id="total-slides">14</span>
+    </div>
+
+    <div class="navigation">
+        <button class="nav-btn" id="prev-btn" onclick="previousSlide()">← Previous</button>
+        <button class="nav-btn" id="next-btn" onclick="nextSlide()">Next →</button>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = document.querySelectorAll('.slide').length;
+
+        document.getElementById('total-slides').textContent = totalSlides;
+
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.slide');
+
+            if (n > totalSlides) currentSlide = 1;
+            if (n < 1) currentSlide = totalSlides;
+
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[currentSlide - 1].classList.add('active');
+
+            document.getElementById('current-slide').textContent = currentSlide;
+
+            // Update navigation buttons
+            document.getElementById('prev-btn').style.opacity = currentSlide === 1 ? '0.5' : '1';
+            document.getElementById('next-btn').style.opacity = currentSlide === totalSlides ? '0.5' : '1';
+        }
+
+        function nextSlide() {
+            currentSlide++;
+            showSlide(currentSlide);
+        }
+
+        function previousSlide() {
+            currentSlide--;
+            showSlide(currentSlide);
+        }
+
+        // Fullscreen functionality
+        function toggleFullscreen() {
+            const presentation = document.querySelector('.presentation');
+            const btn = document.getElementById('fullscreen-btn');
+            
+            if (!document.fullscreenElement) {
+                presentation.requestFullscreen().then(() => {
+                    btn.textContent = '🔲 Exit Fullscreen';
+                }).catch(err => {
+                    console.log('Error attempting to enable fullscreen:', err);
+                });
+            } else {
+                document.exitFullscreen().then(() => {
+                    btn.textContent = '📺 Fullscreen';
+                });
+            }
+        }
+
+        // Listen for fullscreen changes
+        document.addEventListener('fullscreenchange', function() {
+            const btn = document.getElementById('fullscreen-btn');
+            if (document.fullscreenElement) {
+                btn.textContent = '🔲 Exit Fullscreen';
+            } else {
+                btn.textContent = '📺 Fullscreen';
+            }
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowRight' || event.key === ' ') {
+                nextSlide();
+            } else if (event.key === 'ArrowLeft') {
+                previousSlide();
+            } else if (event.key === 'F11') {
+                event.preventDefault();
+                toggleFullscreen();
+            } else if (event.key === 'Escape' && document.fullscreenElement) {
+                document.exitFullscreen();
+            }
+        });
+
+        // Initialize
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>
