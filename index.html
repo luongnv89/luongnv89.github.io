@@ -6,24 +6,24 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Profile page of Luong NGUYEN">
+    <meta name="description" content="Profile page of Luong NGUYEN - Software Engineer & Developer">
     <meta name="author" content="Luong NGUYEN">
 
     <title>Hi there! This is @luongnv89!</title>
 
-    <!-- Bootstrap CSS -->
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-    crossorigin="anonymous">
-
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
-    crossorigin="anonymous">
-
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
     <link href="css/stylish-portfolio.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -32,32 +32,771 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <style>
-        .btn-linkedin {
-            background-color: #0077b5;
-            color: white;
+        :root {
+            --primary-color: #00ff41;
+            --secondary-color: #00cc33;
+            --accent-color: #06b6d4;
+            --dark-color: #1f2937;
+            --light-gray: #f8fafc;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --border-radius: 12px;
+            --shadow-soft: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
         }
-        .btn-twitter {
-            background-color: #1DA1F2;
-            color: white;
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .btn-github {
-            background-color: #333;
-            color: white;
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            overflow-x: hidden;
         }
-        .social-buttons {
-            margin-top: 20px;
+        
+        .hero-section {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            --crack-x: 50%;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('img/background.jpg') center/cover;
         }
-        .social-buttons .btn {
-            margin: 0 5px;
-            transition: opacity 0.3s;
+        
+        
+        
+        .crack-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 3;
         }
-        .social-buttons .btn:hover {
+        
+        .crack-svg {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .crack-path {
+            stroke: rgba(255, 255, 255, 0.9);
+            stroke-width: 3;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.9)) drop-shadow(0 0 15px rgba(255, 255, 255, 0.6));
+            animation: crackDraw 6s ease-out infinite;
+        }
+        
+        .crack-branch {
+            stroke-width: 2;
             opacity: 0.8;
+        }
+        
+        #crackBranch1 {
+            animation: crackDraw1 6s ease-out infinite;
+        }
+        
+        #crackBranch2 {
+            animation: crackDraw2 6s ease-out infinite;
+        }
+        
+        #crackBranch3 {
+            animation: crackDraw3 6s ease-out infinite;
+        }
+        
+        #crackBranch4 {
+            animation: crackDraw4 6s ease-out infinite;
+        }
+        
+        @keyframes crackDraw {
+            0%, 66.666% {
+                opacity: 0;
+                stroke-dashoffset: var(--crack-length, 1000);
+            }
+            70% {
+                opacity: 1;
+            }
+            83.333% {
+                opacity: 1;
+                stroke-dashoffset: 0;
+            }
+            100% {
+                opacity: 0;
+                stroke-dashoffset: 0;
+            }
+        }
+        
+        @keyframes crackDraw1 {
+            0%, 68% {
+                opacity: 0;
+                stroke-dashoffset: var(--branch1-length, 500);
+            }
+            71% {
+                opacity: 1;
+            }
+            78% {
+                opacity: 1;
+                stroke-dashoffset: 0;
+            }
+            100% {
+                opacity: 0;
+                stroke-dashoffset: 0;
+            }
+        }
+        
+        @keyframes crackDraw2 {
+            0%, 69% {
+                opacity: 0;
+                stroke-dashoffset: var(--branch2-length, 500);
+            }
+            72% {
+                opacity: 1;
+            }
+            80% {
+                opacity: 1;
+                stroke-dashoffset: 0;
+            }
+            100% {
+                opacity: 0;
+                stroke-dashoffset: 0;
+            }
+        }
+        
+        @keyframes crackDraw3 {
+            0%, 70% {
+                opacity: 0;
+                stroke-dashoffset: var(--branch3-length, 500);
+            }
+            73% {
+                opacity: 1;
+            }
+            81% {
+                opacity: 1;
+                stroke-dashoffset: 0;
+            }
+            100% {
+                opacity: 0;
+                stroke-dashoffset: 0;
+            }
+        }
+        
+        @keyframes crackDraw4 {
+            0%, 71% {
+                opacity: 0;
+                stroke-dashoffset: var(--branch4-length, 500);
+            }
+            74% {
+                opacity: 1;
+            }
+            82% {
+                opacity: 1;
+                stroke-dashoffset: 0;
+            }
+            100% {
+                opacity: 0;
+                stroke-dashoffset: 0;
+            }
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            100% { transform: translateY(-100px) rotate(360deg); }
+        }
+        
+        .hero-content {
+            text-align: center;
+            color: white;
+            z-index: 10;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+        }
+        
+        .avatar-container {
+            margin-bottom: 2rem;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+        
+        .avatar-shake {
+            animation: shakePhase 6s ease-in-out infinite;
+        }
+        
+        .avatar-jump {
+            animation: jumpPhase 6s ease-in-out infinite;
+        }
+        
+        .avatar-spin {
+            animation: spinPhase 6s ease-in-out infinite;
+            transform-style: preserve-3d;
+        }
+        
+        .profile-image {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            box-shadow: var(--shadow-soft);
+            display: block;
+            filter: grayscale(100%);
+        }
+        
+        .profile-image:hover {
+            animation: none;
+            transform: scale(1.05);
+            transition: all 0.3s ease;
+            filter: grayscale(0%);
+        }
+        
+        /* Shake Phase: 0-1s (0-16.666%) */
+        @keyframes shakePhase {
+            0% {
+                transform: translateX(0) rotate(0deg);
+            }
+            2.78% {
+                transform: translateX(-3px) rotate(-2deg);
+            }
+            5.56% {
+                transform: translateX(3px) rotate(2deg);
+            }
+            8.33% {
+                transform: translateX(-3px) rotate(-2deg);
+            }
+            11.11% {
+                transform: translateX(3px) rotate(2deg);
+            }
+            16.666% {
+                transform: translateX(0) rotate(0deg);
+            }
+            100% {
+                transform: translateX(0) rotate(0deg);
+            }
+        }
+        
+        /* Jump Phase: 1-2s (16.666-33.333%) */
+        @keyframes jumpPhase {
+            0%, 16.666% {
+                transform: translateY(0) scaleY(1);
+            }
+            19.44% {
+                transform: translateY(0) scaleY(0.9);
+            }
+            25% {
+                transform: translateY(-50px) scaleY(1.1);
+            }
+            30.56% {
+                transform: translateY(0) scaleY(0.95);
+            }
+            33.333% {
+                transform: translateY(0) scaleY(1);
+            }
+            100% {
+                transform: translateY(0) scaleY(1);
+            }
+        }
+        
+        /* Spin Phase: 2-4s (33.333-66.666%) */
+        @keyframes spinPhase {
+            0%, 33.333% {
+                transform: rotateY(0deg);
+            }
+            50% {
+                transform: rotateY(360deg);
+            }
+            66.666% {
+                transform: rotateY(720deg);
+            }
+            100% {
+                transform: rotateY(720deg);
+            }
+        }
+        
+        .hero-title {
+            margin-bottom: 1rem;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(40px) saturate(180%);
+            -webkit-backdrop-filter: blur(40px) saturate(180%);
+            padding: 0.5rem 2rem;
+            border-radius: 24px;
+            border: 1.5px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 
+                0 8px 32px 0 rgba(0, 0, 0, 0.15),
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.4),
+                inset 0 -1px 0 0 rgba(255, 255, 255, 0.1);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            font-weight: 300;
+            margin-bottom: 3rem;
+            opacity: 1;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(40px) saturate(180%);
+            -webkit-backdrop-filter: blur(40px) saturate(180%);
+            padding: 0.8rem 2rem;
+            border-radius: 24px;
+            border: 1.5px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 
+                0 8px 32px 0 rgba(0, 0, 0, 0.15),
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.4),
+                inset 0 -1px 0 0 rgba(255, 255, 255, 0.1);
+        }
+        
+        .social-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.12);
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(40px) saturate(180%);
+            -webkit-backdrop-filter: blur(40px) saturate(180%);
+            border: 1.5px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 
+                0 8px 32px 0 rgba(0, 0, 0, 0.15),
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.4),
+                inset 0 -1px 0 0 rgba(255, 255, 255, 0.1);
+        }
+        
+        .social-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            box-shadow: 
+                0 12px 40px 0 rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.5),
+                inset 0 -1px 0 0 rgba(255, 255, 255, 0.15);
+        }
+        
+        .social-btn.linkedin:hover { background: #0077b5; }
+        .social-btn.twitter:hover { background: #1DA1F2; }
+        .social-btn.github:hover { background: #333; }
+        
+        .quote-section {
+            padding: 2rem 0;
+            background: transparent;
+            z-index: 10;
+            position: relative;
+        }
+        
+        .quote-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(40px) saturate(180%);
+            -webkit-backdrop-filter: blur(40px) saturate(180%);
+            border-radius: 30px;
+            border: 1.5px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 
+                0 8px 32px 0 rgba(0, 0, 0, 0.15),
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.4),
+                inset 0 -1px 0 0 rgba(255, 255, 255, 0.1);
+        }
+        
+        .quote-text {
+            font-size: 1.2rem;
+            font-weight: 300;
+            font-style: italic;
+            color: white;
+            line-height: 1.5;
+            margin-bottom: 0.8rem;
+            position: relative;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+        }
+        
+        .quote-text::before,
+        .quote-text::after {
+            content: '"';
+            font-size: 2rem;
+            color: white;
+            opacity: 0.6;
+            font-family: Georgia, serif;
+        }
+        
+        .quote-author {
+            font-size: 0.95rem;
+            color: white;
+            font-weight: 500;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+            opacity: 0.9;
+        }
+        
+        .services-section {
+            display: none;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 4rem;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-soft);
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            height: 100%;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 2rem;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+        }
+        
+        .service-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        
+        .service-description {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .service-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.8rem 2rem;
+            background: var(--gradient);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .service-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-soft);
             color: white;
         }
-        #quote-contents {
-            font-size: 1.5em;
-            font-style: italic;
+        
+        .footer {
+            display: none;
+        }
+        
+        .back-to-top {
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .quote-text {
+                font-size: 1rem;
+            }
+            
+            .quote-author {
+                font-size: 0.85rem;
+            }
+            
+            .quote-section {
+                padding: 1.5rem 0;
+            }
+            
+            .social-buttons {
+                gap: 0.8rem;
+            }
+            
+            .social-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+        }
+        
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .fade-up.aos-animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .word-highlight {
+            display: inline-block;
+        }
+        
+        .char-fade {
+            display: inline;
+            animation: charFade 0.15s ease-out forwards;
+        }
+        
+        @keyframes charFade {
+            from {
+                opacity: 0;
+                transform: translateY(2px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        
+        .char-hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .char-appear {
+            animation: charAppear 0.5s ease-out forwards;
+        }
+        
+        @keyframes charAppear {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .pacman-move {
+            animation: pacmanRun 0.8s ease-in-out forwards;
+        }
+        
+        @keyframes pacmanRun {
+            from {
+                left: 0;
+            }
+            to {
+                left: 100%;
+            }
+        }
+        
+        .title-char {
+            display: inline-block;
+            min-width: 1em;
+        }
+        
+        /* Dark Mode Toggle Button */
+        .theme-toggle {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(40px) saturate(180%);
+            -webkit-backdrop-filter: blur(40px) saturate(180%);
+            border: 1.5px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 
+                0 8px 32px 0 rgba(0, 0, 0, 0.15),
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.4),
+                inset 0 -1px 0 0 rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Dark Mode Styles */
+        body.dark-mode .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url('img/background.jpg') center/cover;
+        }
+        
+        body.dark-mode .avatar-container,
+        body.dark-mode .avatar-shake,
+        body.dark-mode .avatar-jump,
+        body.dark-mode .avatar-spin {
+            filter: drop-shadow(0 0 2px rgba(0, 255, 65, 0.6)) 
+                    drop-shadow(0 0 4px rgba(0, 255, 65, 0.4));
+        }
+        
+        body.dark-mode .profile-image {
+            border: 2px solid #00ff41 !important;
+            box-shadow: 
+                0 0 2px rgba(0, 255, 65, 0.6),
+                0 0 4px rgba(0, 255, 65, 0.4),
+                0 0 6px rgba(0, 255, 65, 0.2),
+                inset 0 0 2px   rgba(0, 255, 65, 0.1) !important;
+        }
+        
+        body.dark-mode .profile-image:hover {
+            border: 2px solid #00ff41 !important;
+            box-shadow: 
+                0 0 30px rgba(0, 255, 65, 0.8),
+                0 0 60px rgba(0, 255, 65, 0.6),
+                0 0 90px rgba(0, 255, 65, 0.4),
+                inset 0 0 30px rgba(0, 255, 65, 0.2) !important;
+        }
+        
+        body.dark-mode .crack-path {
+            stroke: #00ff41;
+            filter: drop-shadow(0 0 10px #00ff41) drop-shadow(0 0 20px #00ff41);
+        }
+        
+        body.dark-mode .crack-branch {
+            stroke: #00ff41;
+        }
+        
+        body.dark-mode .hero-title {
+            background: rgba(0, 0, 0, 0.4);
+            border: 2px solid #00ff41;
+            color: #00ff41 !important;
+            text-shadow: 0 0 10px #00ff41, 0 0 20px #00ff41, 0 0 30px #00ff41;
+            box-shadow: 
+                0 8px 32px 0 rgba(0, 255, 65, 0.3),
+                inset 0 1px 0 0 rgba(0, 255, 65, 0.3),
+                inset 0 -1px 0 0 rgba(0, 255, 65, 0.1);
+        }
+        
+        body.dark-mode .hero-subtitle {
+            background: rgba(0, 0, 0, 0.4);
+            border: 2px solid #00ff41;
+            color: #00ff41 !important;
+            text-shadow: 0 0 10px #00ff41, 0 0 20px #00ff41;
+            box-shadow: 
+                0 8px 32px 0 rgba(0, 255, 65, 0.3),
+                inset 0 1px 0 0 rgba(0, 255, 65, 0.3),
+                inset 0 -1px 0 0 rgba(0, 255, 65, 0.1);
+        }
+        
+        body.dark-mode .social-btn {
+            background: rgba(0, 0, 0, 0.4);
+            border: 2px solid #00ff41;
+            color: #00ff41;
+            box-shadow: 
+                0 8px 32px 0 rgba(0, 255, 65, 0.3),
+                inset 0 1px 0 0 rgba(0, 255, 65, 0.3),
+                inset 0 -1px 0 0 rgba(0, 255, 65, 0.1);
+        }
+        
+        body.dark-mode .social-btn:hover {
+            background: rgba(0, 0, 0, 0.6);
+            color: #00ff41;
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 
+                0 0 20px rgba(0, 255, 65, 0.6),
+                0 0 40px rgba(0, 255, 65, 0.4),
+                inset 0 1px 0 0 rgba(0, 255, 65, 0.4),
+                inset 0 -1px 0 0 rgba(0, 255, 65, 0.2);
+        }
+        
+        body.dark-mode .social-btn i {
+            filter: drop-shadow(0 0 5px #00ff41);
+        }
+        
+        body.dark-mode .quote-content {
+            background: rgba(0, 0, 0, 0.4);
+            border: 2px solid #00ff41;
+            box-shadow: 
+                0 8px 32px 0 rgba(0, 255, 65, 0.3),
+                inset 0 1px 0 0 rgba(0, 255, 65, 0.3),
+                inset 0 -1px 0 0 rgba(0, 255, 65, 0.1);
+        }
+        
+        body.dark-mode .quote-text {
+            color: #00ff41;
+            text-shadow: 0 0 10px #00ff41, 0 0 20px #00ff41;
+        }
+        
+        body.dark-mode .quote-text::before,
+        body.dark-mode .quote-text::after {
+            color: #00ff41;
+            filter: drop-shadow(0 0 5px #00ff41);
+        }
+        
+        body.dark-mode .quote-author {
+            color: #00ff41;
+            text-shadow: 0 0 8px #00ff41;
+        }
+        
+        body.dark-mode .theme-toggle {
+            background: rgba(0, 0, 0, 0.4);
+            border: 2px solid #00ff41;
+            color: #00ff41;
+            box-shadow: 
+                0 0 20px rgba(0, 255, 65, 0.4),
+                inset 0 1px 0 0 rgba(0, 255, 65, 0.3),
+                inset 0 -1px 0 0 rgba(0, 255, 65, 0.1);
+        }
+        
+        body.dark-mode .theme-toggle:hover {
+            background: rgba(0, 0, 0, 0.6);
+            box-shadow: 
+                0 0 30px rgba(0, 255, 65, 0.6),
+                0 0 50px rgba(0, 255, 65, 0.4);
         }
     </style>
     <!-- Google tag (gtag.js) -->
@@ -72,128 +811,536 @@
 </head>
 
 <body>
-    <!-- Header -->
-    <header id="top" class="header">
-        <div class="text-vertical-center">
-            <img src="https://media.licdn.com/dms/image/v2/D5603AQFYZlOflRmuMA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1727897455939?e=1741824000&v=beta&t=59Gx6VXOvyK7F4bJ4LZWRHUyGXV0hDqOER7tXbUT97A" alt="Luong Nguyen Avatar" class="img-circle" width="150" height="150">
-            <h1>@luongnv89</h1>
-            <h3>life is a journey ...</h3>
-            <br>
-            <div>
-                <div class="social-buttons">
-                    <a href="https://linkedin.com/in/luongnv89" target="_blank" class="btn btn-linkedin">
-                        <i class="fa fa-linkedin fa-fw"></i>
-                    </a>
-                    <a href="https://twitter.com/luongnv89" target="_blank" class="btn btn-twitter">
-                        <i class="fa fa-twitter fa-fw"></i>
-                    </a>
-                    <a href="https://github.com/luongnv89" target="_blank" class="btn btn-github">
-                        <i class="fa fa-github fa-fw"></i>
-                    </a>
-                </div>
-            </div>
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="Toggle Dark Mode">
+        <i class="fas fa-moon" id="themeIcon"></i>
+    </button>
+    
+    <!-- Hero Section -->
+    <section id="top" class="hero-section">
+        <!-- Crack overlay -->
+        <div class="crack-layer">
+            <svg class="crack-svg" id="crackSvg">
+                <polyline class="crack-path" id="crackPath" points=""></polyline>
+                <polyline class="crack-path crack-branch" id="crackBranch1" points=""></polyline>
+                <polyline class="crack-path crack-branch" id="crackBranch2" points=""></polyline>
+                <polyline class="crack-path crack-branch" id="crackBranch3" points=""></polyline>
+                <polyline class="crack-path crack-branch" id="crackBranch4" points=""></polyline>
+                <polyline class="crack-path crack-branch" id="crackBranchLeft" points=""></polyline>
+                <polyline class="crack-path crack-branch" id="crackBranchRight" points=""></polyline>
+                <polyline class="crack-path crack-branch" id="crackBranchTop" points=""></polyline>
+            </svg>
         </div>
-    </header>
-
-    <!-- About -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <p id="quote-contents"> Your work is going to fill a large part of your life, and the only way to be truly satisfied is to do
-                        what you believe is great work. And the only way to do great work is to love what you do</p>
-                        <p class="lead text-right">- Steve Jobs - </p>
-                    </div>
-                </div>
-                <!-- /.row -->
-            </div>
-            <!-- /.container -->
-        </section>
-
-        <!-- Services -->
-        <section id="services" class="services bg-primary">
-            <div class="container">
-                <div class="row text-center">
-                    <div class="col-lg-10 col-lg-offset-1">
-                        <h2>My utils</h2>
-                        <hr class="small">
-                        <div class="row">
-                            <div class="col-md-4 col-sm-6">
-                                <div class="service-item">
-                                    <span class="fa-stack fa-4x">
-                                        <i class="fa fa-circle fa-stack-2x"></i>
-                                        <i class="fa fa-podcast fa-stack-1x text-primary"></i>
-                                    </span>
-                                    <h4>
-                                        <strong>Online Radio</strong>
-                                    </h4>
-                                    <p>I dig radio, but installing apps? Nah.</p>
-                                    <a href="/radio" class="btn btn-success">Listen</a>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-sm-6">
-                                <div class="service-item">
-                                    <span class="fa-stack fa-4x">
-                                        <i class="fa fa-circle fa-stack-2x"></i>
-                                        <i class="fa fa-photo fa-stack-1x text-primary"></i>
-                                    </span>
-                                    <h4>
-                                        <strong>JAVO</strong>
-                                    </h4>
-                                    <p>Sometimes I just wanna wander with my camera</p>
-                                    <a href="https://photos-luongnv89.tumblr.com" class="btn btn-success">See</a>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-sm-6">
-                                <div class="service-item">
-                                    <span class="fa-stack fa-4x">
-                                        <i class="fa fa-circle fa-stack-2x"></i>
-                                        <i class="fa fa-television fa-stack-1x text-primary"></i>
-                                    </span>
-                                    <h4>
-                                        <strong>Dead Pixel detector</strong>
-                                    </h4>
-                                    <p>Check your screen for dead pixels!</p>
-                                    <a href="/deadpixel.html" class="btn btn-success">Start</a>
-                                </div>
-                            </div>
+        
+        <div class="hero-content">
+            <div class="avatar-container" data-aos="fade-up" data-aos-delay="100">
+                <div class="avatar-shake">
+                    <div class="avatar-jump">
+                        <div class="avatar-spin">
+                            <img src="img/avatar.png" alt="Luong Nguyen - Father, Software Engineer, AI & CyberSecurity Engineer" class="profile-image" id="avatarImg">
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-        <footer>
+            <div data-aos="fade-up" data-aos-delay="200">
+                <h1 class="hero-title" style="color: #fff; font-size: 3.5rem; font-weight: 700;">@luongnv89</h1>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="300">
+                <p class="hero-subtitle" id="animatedSubtitle">
+                    Father
+                </p>
+            </div>
+            <div class="social-buttons" data-aos="fade-up" data-aos-delay="400">
+                <a href="https://linkedin.com/in/luongnv89" target="_blank" class="social-btn linkedin" title="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://twitter.com/luongnv89" target="_blank" class="social-btn twitter" title="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://github.com/luongnv89" target="_blank" class="social-btn github" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Quote Section -->
+        <section id="about" class="quote-section">
             <div class="container">
-                <div class="row">
-                    <div class="col-lg-10 col-lg-offset-1 text-center">
-                        <p class="text-muted">Copyright © Luong NGUYEN - <script>document.write(new Date().getFullYear());</script></p>
-                    </div>
+                <div class="quote-content" data-aos="fade-up">
+                    <p class="quote-text" id="quoteText">
+                        Your work is going to fill a large part of your life, and the only way to be truly satisfied is to do what you believe is great work. And the only way to do great work is to love what you do.
+                    </p>
+                    <p class="quote-author" id="quoteAuthor">— Steve Jobs</p>
                 </div>
             </div>
-            <a id="to-top" href="#top" class="btn btn-dark btn-lg">
-                <i class="fa fa-chevron-up fa-fw fa-1x"></i>
-            </a>
-        </footer>
+        </section>
+    </section>
 
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-        <!-- Latest compiled and minified JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-        crossorigin="anonymous"></script>
-        <!--  Inspired quote -->
-        <script src="http://inspired.louis-ng.com/inspired.js?token=faafawef"></script>
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-51957988-9"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag() { dataLayer.push(arguments); }
-            gtag('js', new Date());
-
-            gtag('config', 'UA-51957988-9');
-        </script>
-
-    </body>
-
-    </html>
+    <!-- JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        // Dark Mode Toggle
+        function toggleTheme() {
+            const body = document.body;
+            const themeIcon = document.getElementById('themeIcon');
+            
+            body.classList.toggle('dark-mode');
+            
+            // Change icon
+            if (body.classList.contains('dark-mode')) {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+                localStorage.setItem('theme', 'light');
+            }
+        }
+        
+        // Load saved theme on page load
+        window.addEventListener('load', function() {
+            const savedTheme = localStorage.getItem('theme');
+            const themeIcon = document.getElementById('themeIcon');
+            
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            }
+        });
+        
+        // Inspirational quotes array
+        const quotes = [
+            {
+                text: "Your work is going to fill a large part of your life, and the only way to be truly satisfied is to do what you believe is great work. And the only way to do great work is to love what you do.",
+                author: "Steve Jobs"
+            },
+            {
+                text: "The only way to do great work is to love what you do.",
+                author: "Steve Jobs"
+            },
+            {
+                text: "Stay hungry, stay foolish.",
+                author: "Steve Jobs"
+            },
+            {
+                text: "Be yourself; everyone else is already taken.",
+                author: "Oscar Wilde"
+            },
+            {
+                text: "Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.",
+                author: "Albert Einstein"
+            },
+            {
+                text: "The future belongs to those who believe in the beauty of their dreams.",
+                author: "Eleanor Roosevelt"
+            },
+            {
+                text: "It is during our darkest moments that we must focus to see the light.",
+                author: "Aristotle"
+            },
+            {
+                text: "The only impossible journey is the one you never begin.",
+                author: "Tony Robbins"
+            },
+            {
+                text: "Life is what happens when you're busy making other plans.",
+                author: "John Lennon"
+            },
+            {
+                text: "In the end, we will remember not the words of our enemies, but the silence of our friends.",
+                author: "Martin Luther King Jr."
+            },
+            {
+                text: "The best time to plant a tree was 20 years ago. The second best time is now.",
+                author: "Chinese Proverb"
+            },
+            {
+                text: "Success is not final, failure is not fatal: it is the courage to continue that counts.",
+                author: "Winston Churchill"
+            },
+            {
+                text: "I have not failed. I've just found 10,000 ways that won't work.",
+                author: "Thomas Edison"
+            },
+            {
+                text: "A person who never made a mistake never tried anything new.",
+                author: "Albert Einstein"
+            },
+            {
+                text: "The way to get started is to quit talking and begin doing.",
+                author: "Walt Disney"
+            },
+            {
+                text: "Don't watch the clock; do what it does. Keep going.",
+                author: "Sam Levenson"
+            },
+            {
+                text: "The future depends on what you do today.",
+                author: "Mahatma Gandhi"
+            },
+            {
+                text: "Everything you've ever wanted is on the other side of fear.",
+                author: "George Addair"
+            },
+            {
+                text: "Believe you can and you're halfway there.",
+                author: "Theodore Roosevelt"
+            },
+            {
+                text: "The only person you are destined to become is the person you decide to be.",
+                author: "Ralph Waldo Emerson"
+            },
+            {
+                text: "It does not matter how slowly you go as long as you do not stop.",
+                author: "Confucius"
+            },
+            {
+                text: "Everything has beauty, but not everyone can see.",
+                author: "Confucius"
+            },
+            {
+                text: "The mind is everything. What you think you become.",
+                author: "Buddha"
+            },
+            {
+                text: "The best revenge is massive success.",
+                author: "Frank Sinatra"
+            },
+            {
+                text: "You miss 100% of the shots you don't take.",
+                author: "Wayne Gretzky"
+            },
+            {
+                text: "Whether you think you can or you think you can't, you're right.",
+                author: "Henry Ford"
+            },
+            {
+                text: "I alone cannot change the world, but I can cast a stone across the water to create many ripples.",
+                author: "Mother Teresa"
+            },
+            {
+                text: "What we think, we become.",
+                author: "Buddha"
+            },
+            {
+                text: "Do what you can, with what you have, where you are.",
+                author: "Theodore Roosevelt"
+            },
+            {
+                text: "If you can dream it, you can do it.",
+                author: "Walt Disney"
+            },
+            {
+                text: "It always seems impossible until it's done.",
+                author: "Nelson Mandela"
+            }
+        ];
+        
+        // Function to load a random quote
+        function loadRandomQuote() {
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            const selectedQuote = quotes[randomIndex];
+            
+            const quoteText = document.getElementById('quoteText');
+            const quoteAuthor = document.getElementById('quoteAuthor');
+            
+            if (quoteText && quoteAuthor) {
+                quoteText.textContent = selectedQuote.text;
+                quoteAuthor.textContent = '— ' + selectedQuote.author;
+            }
+        }
+        
+        // Load random quote on page load
+        window.addEventListener('load', loadRandomQuote);
+        
+        // Change quote every 30 seconds (30000 milliseconds)
+        setInterval(loadRandomQuote, 30000);
+        
+        // Animated subtitle text
+        const subtitleElement = document.getElementById('animatedSubtitle');
+        const words = ['Software Engineer', 'AI & CyberSecurity Engineer', 'Life Explorer'];
+        let wordIndex = 0;
+        
+        function addCharacterWithAnimation(text, targetElement) {
+            let charIdx = 0;
+            
+            function addChar() {
+                if (charIdx < text.length) {
+                    const span = document.createElement('span');
+                    span.className = 'char-fade';
+                    span.style.animationDelay = (charIdx * 0.05) + 's';
+                    span.textContent = text[charIdx];
+                    targetElement.appendChild(span);
+                    charIdx++;
+                    setTimeout(addChar, 50);
+                }
+            }
+            
+            addChar();
+        }
+        
+        function animateSubtitle() {
+            if (wordIndex < words.length) {
+                // Add separator if not first word
+                if (wordIndex > 0) {
+                    const separator = document.createTextNode(' • ');
+                    subtitleElement.appendChild(separator);
+                } else {
+                    const separator = document.createTextNode('• ');
+                    subtitleElement.appendChild(separator);
+                }
+                
+                // Create span for the word
+                const span = document.createElement('span');
+                span.className = 'word-highlight';
+                subtitleElement.appendChild(span);
+                
+                // Add characters with animation
+                addCharacterWithAnimation(words[wordIndex], span);
+                
+                wordIndex++;
+                // Calculate delay based on word length (each character takes ~50ms + animation time)
+                const charDelay = words[wordIndex - 1].length * 50;
+                setTimeout(animateSubtitle, charDelay + 800);
+            } else {
+                // Reset animation after all words appear
+                setTimeout(() => {
+                    wordIndex = 0;
+                    subtitleElement.innerHTML = 'Father';
+                    setTimeout(animateSubtitle, 500);
+                }, 2000);
+            }
+        }
+        
+        // Start animation when page loads
+        window.addEventListener('load', animateSubtitle);
+        
+        // Crack effect
+        const heroSection = document.getElementById('top');
+        const crackPath = document.getElementById('crackPath');
+        const avatarImg = document.getElementById('avatarImg');
+        const titleElement = document.querySelector('.hero-title');
+        const branches = [
+            document.getElementById('crackBranch1'),
+            document.getElementById('crackBranch2'),
+            document.getElementById('crackBranch3'),
+            document.getElementById('crackBranch4')
+        ];
+        const branchLeft = document.getElementById('crackBranchLeft');
+        const branchRight = document.getElementById('crackBranchRight');
+        const branchTop = document.getElementById('crackBranchTop');
+        
+        function generateCrackPath() {
+            if (!avatarImg || !heroSection || !crackPath) return;
+            
+            const heroRect = heroSection.getBoundingClientRect();
+            const avatarRect = avatarImg.getBoundingClientRect();
+            
+            // Random X position across the width (20% to 80% of screen width)
+            const startX = heroRect.width * (0.2 + Math.random() * 0.6);
+            // Start from top of page
+            const startY = 0;
+            
+            // Target: center of avatar for main crack to aim towards
+            const avatarCenterX = avatarRect.left + avatarRect.width / 2 - heroRect.left;
+            const avatarCenterY = avatarRect.top + avatarRect.height / 2 - heroRect.top;
+            
+            // Set crack-x CSS variable for background split
+            heroSection.style.setProperty('--crack-x', startX + 'px');
+            
+            // Generate main crack path from top towards avatar with zigzag
+            const points = [[startX, startY]];
+            let currentX = startX;
+            let currentY = startY;
+            const segments = 12;
+            const targetY = avatarCenterY + 100; // Go past avatar
+            const segmentHeight = targetY / segments;
+            
+            // Calculate general direction towards avatar
+            const directionX = (avatarCenterX - startX) / segments;
+            
+            for (let i = 1; i <= segments; i++) {
+                currentY += segmentHeight;
+                // Move generally towards avatar X position
+                currentX += directionX;
+                // Add random horizontal jitter for lightning effect
+                currentX += (Math.random() - 0.5) * 40;
+                // Keep within screen bounds
+                currentX = Math.max(50, Math.min(heroRect.width - 50, currentX));
+                points.push([currentX, currentY]);
+            }
+            
+            // Set main crack path points
+            const pointsStr = points.map(p => p.join(',')).join(' ');
+            crackPath.setAttribute('points', pointsStr);
+            
+            // Calculate main path length for animation
+            const length = crackPath.getTotalLength();
+            crackPath.style.strokeDasharray = length;
+            crackPath.style.strokeDashoffset = length;
+            heroSection.style.setProperty('--crack-length', length);
+            
+            // Generate lightning branches in random directions
+            branches.forEach((branch, idx) => {
+                if (!branch) return;
+                
+                // Pick a random point along the main crack to branch from
+                const branchFromIndex = Math.floor(Math.random() * (points.length - 4)) + 2;
+                const branchStart = points[branchFromIndex];
+                
+                // Random direction: -1 for left, 1 for right
+                const direction = Math.random() > 0.5 ? 1 : -1;
+                
+                // Generate branch path
+                const branchPoints = [[branchStart[0], branchStart[1]]];
+                let branchX = branchStart[0];
+                let branchY = branchStart[1];
+                const branchSegments = 4 + Math.floor(Math.random() * 4); // 4-7 segments
+                
+                for (let i = 1; i <= branchSegments; i++) {
+                    // Move diagonally in the chosen direction
+                    branchX += direction * (20 + Math.random() * 30);
+                    branchY += 30 + Math.random() * 40;
+                    
+                    // Add some jitter
+                    branchX += (Math.random() - 0.5) * 15;
+                    
+                    // Keep within screen bounds
+                    branchX = Math.max(50, Math.min(heroRect.width - 50, branchX));
+                    branchY = Math.min(heroRect.height, branchY);
+                    
+                    branchPoints.push([branchX, branchY]);
+                }
+                
+                const branchPointsStr = branchPoints.map(p => p.join(',')).join(' ');
+                branch.setAttribute('points', branchPointsStr);
+                
+                // Calculate branch length
+                const branchLength = branch.getTotalLength();
+                branch.style.strokeDasharray = branchLength;
+                branch.style.strokeDashoffset = branchLength;
+                heroSection.style.setProperty(`--branch${idx + 1}-length`, branchLength);
+            });
+            
+            // Generate special directional branches
+            // Left branch - goes horizontally left
+            if (branchLeft) {
+                const leftStart = points[Math.floor(points.length * 0.3)];
+                const leftPoints = [[leftStart[0], leftStart[1]]];
+                let leftX = leftStart[0];
+                let leftY = leftStart[1];
+                
+                for (let i = 1; i <= 6; i++) {
+                    leftX -= 40 + Math.random() * 30;
+                    leftY += (Math.random() - 0.5) * 20;
+                    leftX = Math.max(0, leftX);
+                    leftPoints.push([leftX, leftY]);
+                }
+                
+                branchLeft.setAttribute('points', leftPoints.map(p => p.join(',')).join(' '));
+                const leftLength = branchLeft.getTotalLength();
+                branchLeft.style.strokeDasharray = leftLength;
+                branchLeft.style.strokeDashoffset = leftLength;
+            }
+            
+            // Right branch - goes horizontally right
+            if (branchRight) {
+                const rightStart = points[Math.floor(points.length * 0.5)];
+                const rightPoints = [[rightStart[0], rightStart[1]]];
+                let rightX = rightStart[0];
+                let rightY = rightStart[1];
+                
+                for (let i = 1; i <= 6; i++) {
+                    rightX += 40 + Math.random() * 30;
+                    rightY += (Math.random() - 0.5) * 20;
+                    rightX = Math.min(heroRect.width, rightX);
+                    rightPoints.push([rightX, rightY]);
+                }
+                
+                branchRight.setAttribute('points', rightPoints.map(p => p.join(',')).join(' '));
+                const rightLength = branchRight.getTotalLength();
+                branchRight.style.strokeDasharray = rightLength;
+                branchRight.style.strokeDashoffset = rightLength;
+            }
+            
+            // Top branch - goes upward from avatar
+            if (branchTop) {
+                const topPoints = [[startX, startY]];
+                let topX = startX;
+                let topY = startY;
+                
+                for (let i = 1; i <= 8; i++) {
+                    topY -= 30 + Math.random() * 20;
+                    topX += (Math.random() - 0.5) * 25;
+                    topY = Math.max(0, topY);
+                    topPoints.push([topX, topY]);
+                }
+                
+                branchTop.setAttribute('points', topPoints.map(p => p.join(',')).join(' '));
+                const topLength = branchTop.getTotalLength();
+                branchTop.style.strokeDasharray = topLength;
+                branchTop.style.strokeDashoffset = topLength;
+            }
+        }
+        
+        // Generate crack on load and resize
+        window.addEventListener('load', generateCrackPath);
+        window.addEventListener('resize', generateCrackPath);
+        
+        // Regenerate crack on each animation cycle for variety
+        if (avatarImg) {
+            avatarImg.addEventListener('animationiteration', generateCrackPath);
+        }
+        
+        // Initialize AOS animations
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out-sine',
+            delay: 100,
+            once: true
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Back to top button functionality
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+        
+        // Show/hide back to top button
+        window.addEventListener('scroll', function() {
+            const backToTop = document.getElementById('backToTop');
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+        
+        // Add loading animation
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '1';
+        });
+    </script>
+</body>
+</html>
