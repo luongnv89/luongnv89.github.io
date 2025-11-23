@@ -1,0 +1,929 @@
+<!DOCTYPE html><html><head>
+      <title>02-memory</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:////Users/montimage/.vscode-insiders/extensions/shd101wyy.markdown-preview-enhanced-0.8.20/crossnote/dependencies/katex/katex.min.css">
+      
+      
+      <script type="text/javascript" src="file:////Users/montimage/.vscode-insiders/extensions/shd101wyy.markdown-preview-enhanced-0.8.20/crossnote/dependencies/mermaid/mermaid.min.js" charset="UTF-8"></script>
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<h1 id="discovering-claude-code-memory---teaching-claude-your-projects-dna">Discovering Claude Code: Memory - Teaching Claude Your Project's DNA </h1>
+<p><em>This is Part 2 of my series on discovering and learning Claude Code. In <a href="01-slash-commands.md">Part 1, I explored Slash Commands</a>. I had promised to dive into Sub Agents next, but then I asked Claude itself: "What's the best learning path?" Claude showed me a different roadmap — one that made much more sense pedagogically. Instead of jumping to the complexity of Sub Agents, it recommended <strong>Memory</strong> as the second step.</em></p>
+<p><strong>Why?</strong> Because Memory is the foundation that makes all other features powerful. Before you delegate tasks to Sub Agents or automate workflows with Skills, you need a way to persist context, standards, and preferences across sessions. Memory is that foundation.</p>
+<p>So here we are — learning Memory before Sub Agents, following Claude's own recommendation for the optimal learning path.</p>
+<h2 id="the-groundhog-day-problem">The "Groundhog Day" Problem </h2>
+<p>Here's a frustration I experienced repeatedly in my early Claude Code days:</p>
+<p><strong>Monday</strong>: "Remember, we use 2-space indentation, not 4."<br>
+<strong>Tuesday</strong>: Claude uses 4-space indentation again.<br>
+<strong>Wednesday</strong>: "We use async/await, not callbacks."<br>
+<strong>Thursday</strong>: Claude suggests callback-based code.<br>
+<strong>Friday</strong>: I give up and start copy-pasting preferences into every conversation.</p>
+<p>Sound familiar? I was stuck in a loop, re-teaching Claude the same preferences every session.</p>
+<p>Then I discovered <strong>Memory</strong> — and everything changed.</p>
+<h2 id="what-is-memory">What Is Memory? </h2>
+<p>Memory in Claude Code comes in two forms:</p>
+<h3 id="1-automatic-memory-claude-webdesktop">1. <strong>Automatic Memory</strong> (Claude Web/Desktop) </h3>
+<p>Claude automatically synthesizes information from your conversations every 24 hours. You don't manage it; Claude remembers context about you, your projects, and your preferences.</p>
+<h3 id="2-filesystem-based-memory-claude-code">2. <strong>Filesystem-Based Memory</strong> (Claude Code) </h3>
+<p>In Claude Code, memory is explicit: <code>CLAUDE.md</code> files that you create and version control. They live in your repository and define project standards, architecture, and preferences.</p>
+<p>This post focuses on the second type — <strong>filesystem-based memory in Claude Code</strong>.</p>
+<h2 id="the-power-of-claudemd-files">The Power of <a href="http://CLAUDE.md">CLAUDE.md</a> Files </h2>
+<p>A <code>CLAUDE.md</code> file is like a README for Claude. It contains everything Claude needs to know about your project:</p>
+<ul>
+<li>Coding standards</li>
+<li>Architecture decisions</li>
+<li>Team conventions</li>
+<li>Common commands</li>
+<li>Known issues and workarounds</li>
+</ul>
+<p>The genius? <strong>It's version-controlled and shared with your team.</strong> Everyone's Claude assistant reads the same standards.</p>
+<h2 id="quick-memory-commands-your-new-best-friends">Quick Memory Commands: Your New Best Friends </h2>
+<p>Before diving into the details, let me show you the tools that make memory management effortless:</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>What It Does</th>
+<th>When to Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/init</code></td>
+<td>Creates <a href="http://CLAUDE.md">CLAUDE.md</a> automatically</td>
+<td>Starting new project</td>
+</tr>
+<tr>
+<td><code>/memory</code></td>
+<td>Opens editor to modify memory</td>
+<td>Making extensive updates</td>
+</tr>
+<tr>
+<td><code># rule here</code></td>
+<td>Quick add during conversation</td>
+<td>Adding single rules on the fly</td>
+</tr>
+</tbody>
+</table>
+<p>These three commands transformed how I work with memory. Let me show you how.</p>
+<h2 id="memory-hierarchy-the-four-tier-system">Memory Hierarchy: The Four-Tier System </h2>
+<p>Claude Code uses a sophisticated 4-tier memory hierarchy. Understanding this changed everything for me:</p>
+<h3 id="the-complete-hierarchy">The Complete Hierarchy </h3>
+<div class="mermaid">graph TB
+    Start["Claude Code Session Starts"]
+    Enterprise["1. Enterprise Policy&lt;br/&gt;/Library/Application Support/ClaudeCode/CLAUDE.md&lt;br/&gt;🏆 Highest Priority"]
+    Project["2. Project Memory&lt;br/&gt;./CLAUDE.md&lt;br/&gt;🥇 High Priority"]
+    Dir["3. Directory Memory&lt;br/&gt;./subdir/CLAUDE.md&lt;br/&gt;🥈 Medium Priority"]
+    Personal["4. User Memory&lt;br/&gt;~/.claude/CLAUDE.md&lt;br/&gt;🥉 Lower Priority"]
+    Merge["Merged Context&lt;br/&gt;Enterprise &gt; Project &gt; Dir &gt; Personal"]
+
+    Start --&gt; Enterprise
+    Start --&gt; Project
+    Start --&gt; Dir
+    Start --&gt; Personal
+    Enterprise --&gt; Merge
+    Project --&gt; Merge
+    Dir --&gt; Merge
+    Personal --&gt; Merge
+
+    style Enterprise fill:#E91E63
+    style Project fill:#4CAF50
+    style Dir fill:#FFC107
+    style Personal fill:#2196F3
+</div><h3 id="memory-type-comparison">Memory Type Comparison </h3>
+<table>
+<thead>
+<tr>
+<th>Memory Type</th>
+<th>Location</th>
+<th>Scope</th>
+<th>Priority</th>
+<th>Version Control</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Enterprise</strong></td>
+<td><code>/Library/Application Support/ClaudeCode/CLAUDE.md</code> (macOS), <code>/etc/claude-code/CLAUDE.md</code> (Linux), <code>C:\ProgramData\ClaudeCode\CLAUDE.md</code> (Windows)</td>
+<td>Organization</td>
+<td>🏆 Highest</td>
+<td>System</td>
+<td>Company-wide policies, security standards</td>
+</tr>
+<tr>
+<td><strong>Project</strong></td>
+<td><code>./CLAUDE.md</code></td>
+<td>Team/Project</td>
+<td>🥇 High</td>
+<td>✅ Yes (git)</td>
+<td>Team standards, architecture</td>
+</tr>
+<tr>
+<td><strong>Directory</strong></td>
+<td><code>./subdir/CLAUDE.md</code></td>
+<td>Module/Folder</td>
+<td>🥈 Medium</td>
+<td>✅ Yes (git)</td>
+<td>Module-specific rules</td>
+</tr>
+<tr>
+<td><strong>Personal</strong></td>
+<td><code>~/.claude/CLAUDE.md</code></td>
+<td>Individual User</td>
+<td>🥉 Lower</td>
+<td>❌ No</td>
+<td>Personal preferences</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Why this matters:</strong></p>
+<ul>
+<li><strong>Enterprise memory</strong>: Company-wide policies that apply everywhere</li>
+<li><strong>Project memory</strong>: Team standards (version-controlled, shared via git)</li>
+<li><strong>Directory memory</strong>: Module-specific rules that override project defaults</li>
+<li><strong>Personal memory</strong>: Your individual preferences across all projects</li>
+</ul>
+<h3 id="memory-loading-sequence">Memory Loading Sequence </h3>
+<div class="mermaid">sequenceDiagram
+    participant User
+    participant Claude as Claude Code
+    participant Project as ./CLAUDE.md
+    participant Dir as ./src/api/CLAUDE.md
+    participant Personal as ~/.claude/CLAUDE.md
+
+    User-&gt;&gt;Claude: Start session in /src/api/
+    Claude-&gt;&gt;Project: Load project memory
+    Project--&gt;&gt;Claude: Team standards
+    Claude-&gt;&gt;Dir: Load directory memory
+    Dir--&gt;&gt;Claude: API-specific rules
+    Claude-&gt;&gt;Personal: Load personal memory
+    Personal--&gt;&gt;Claude: User preferences
+    Claude-&gt;&gt;Claude: Merge (Project &gt; Dir &gt; Personal)
+    Claude--&gt;&gt;User: Ready with full context
+</div><h2 id="the-three-ways-to-manage-memory">The Three Ways to Manage Memory </h2>
+<h3 id="method-1-init---the-fast-start">Method 1: <code>/init</code> - The Fast Start </h3>
+<p>The first time I discovered <code>/init</code>, I was shocked at how simple it was:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token comment"># In your project directory</span>
+/init
+</code></pre><p>That's it. Claude analyzes your project and creates a complete <a href="http://CLAUDE.md">CLAUDE.md</a> file with:</p>
+<ul>
+<li>Detected technology stack</li>
+<li>Common patterns from your codebase</li>
+<li>Suggested coding standards</li>
+<li>Project-specific configurations</li>
+</ul>
+<p><strong>My experience:</strong> I ran <code>/init</code> in a Node.js project. In 30 seconds, Claude had created a comprehensive <a href="http://CLAUDE.md">CLAUDE.md</a> that detected:</p>
+<ul>
+<li>Express.js with TypeScript</li>
+<li>Jest for testing</li>
+<li>ESLint configuration</li>
+<li>Git workflow patterns</li>
+</ul>
+<p>It wasn't perfect, but it gave me an 80% complete starting point that I could refine.</p>
+<h3 id="method-2-memory---the-editor-approach">Method 2: <code>/memory</code> - The Editor Approach </h3>
+<p>When you need to make extensive updates, use <code>/memory</code>:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>/memory
+</code></pre><p>Claude opens your system's default editor with the memory file. You can:</p>
+<ul>
+<li>Review existing memory content</li>
+<li>Make bulk changes</li>
+<li>Reorganize sections</li>
+<li>Add detailed documentation</li>
+</ul>
+<p><strong>When I use it:</strong> Every few weeks, I run <code>/memory</code> to review and update project standards as our team's practices evolve.</p>
+<h3 id="method-3----the-quick-add">Method 3: <code>#</code> - The Quick Add </h3>
+<p>This is my favorite for daily use. During any conversation, just start with <code>#</code>:</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code># Always use TypeScript strict mode in this project
+</code></pre><p>Claude immediately asks which memory file to update, adds your rule, and continues the conversation.</p>
+<p><strong>Real example from last week:</strong></p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>Me: # Prefer async/await over promise chains
+
+Claude: I'm saving this rule to memory. Which file?
+        1. Project memory (./CLAUDE.md)
+        2. Personal memory (~/.claude/CLAUDE.md)
+
+Me: 1
+
+Claude: ✅ Memory saved! Now, about that API endpoint you asked about...
+</code></pre><p>No interruption. No context switching. Just instant memory update.</p>
+<p><strong>Alternative patterns that work:</strong></p>
+<ul>
+<li><code># new rule into memory: Always validate input with Zod</code></li>
+<li><code># remember this: Run tests before every commit</code></li>
+<li><code># add to memory: Use kebab-case for file names</code></li>
+</ul>
+<h3 id="which-method-should-you-use">Which Method Should You Use? </h3>
+<table>
+<thead>
+<tr>
+<th>Situation</th>
+<th>Best Method</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Starting new project</td>
+<td><code>/init</code></td>
+<td>Gets 80% done automatically</td>
+</tr>
+<tr>
+<td>Major restructure</td>
+<td><code>/memory</code></td>
+<td>Full editor control</td>
+</tr>
+<tr>
+<td>Quick daily updates</td>
+<td><code>#</code> prefix</td>
+<td>Zero friction, no context switch</td>
+</tr>
+<tr>
+<td>Reviewing all memory</td>
+<td><code>/memory</code></td>
+<td>See everything at once</td>
+</tr>
+<tr>
+<td>Adding single rule</td>
+<td><code>#</code> prefix</td>
+<td>Fastest possible</td>
+</tr>
+</tbody>
+</table>
+<h2 id="my-first-claudemd-project-memory">My First <a href="http://CLAUDE.md">CLAUDE.md</a>: Project Memory </h2>
+<p>Here's the <code>CLAUDE.md</code> file I created (with help from <code>/init</code>) for an e-commerce project. It transformed how Claude worked with our codebase:</p>
+<pre data-role="codeBlock" data-info="markdown" class="language-markdown markdown"><code><span class="token title important"><span class="token punctuation">#</span> Project Configuration</span>
+
+<span class="token title important"><span class="token punctuation">##</span> Project Overview</span>
+<span class="token list punctuation">-</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Tech Stack</span><span class="token punctuation">**</span></span>: Node.js, PostgreSQL, React 18, Docker
+<span class="token list punctuation">-</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Team Size</span><span class="token punctuation">**</span></span>: 5 developers
+<span class="token list punctuation">-</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Coding Standard</span><span class="token punctuation">**</span></span>: ESLint (airbnb config), Prettier
+
+<span class="token title important"><span class="token punctuation">##</span> Development Standards</span>
+
+<span class="token title important"><span class="token punctuation">###</span> Code Style</span>
+<span class="token list punctuation">-</span> Use 2-space indentation
+<span class="token list punctuation">-</span> Maximum line length: 100 characters
+<span class="token list punctuation">-</span> Use async/await (not callbacks)
+<span class="token list punctuation">-</span> Prefer functional components with hooks (not classes)
+
+<span class="token title important"><span class="token punctuation">###</span> Naming Conventions</span>
+<span class="token list punctuation">-</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Files</span><span class="token punctuation">**</span></span>: kebab-case (user-controller.js)
+<span class="token list punctuation">-</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Classes</span><span class="token punctuation">**</span></span>: PascalCase (UserService)
+<span class="token list punctuation">-</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Functions/Variables</span><span class="token punctuation">**</span></span>: camelCase (getUserById)
+<span class="token list punctuation">-</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Constants</span><span class="token punctuation">**</span></span>: UPPER_SNAKE_CASE (API_BASE_URL)
+<span class="token list punctuation">-</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Database Tables</span><span class="token punctuation">**</span></span>: snake_case (user_accounts)
+
+<span class="token title important"><span class="token punctuation">###</span> Git Workflow</span>
+<span class="token list punctuation">-</span> Branch names: <span class="token code-snippet code keyword">`feature/description`</span> or <span class="token code-snippet code keyword">`fix/description`</span>
+<span class="token list punctuation">-</span> Commit messages: Follow conventional commits
+<span class="token list punctuation">-</span> PR required before merge
+<span class="token list punctuation">-</span> Minimum 1 approval required
+
+<span class="token title important"><span class="token punctuation">###</span> Testing Requirements</span>
+<span class="token list punctuation">-</span> Minimum 80% code coverage
+<span class="token list punctuation">-</span> All critical paths must have tests
+<span class="token list punctuation">-</span> Use Jest for unit tests
+<span class="token list punctuation">-</span> Use Cypress for E2E tests
+
+<span class="token title important"><span class="token punctuation">###</span> API Standards</span>
+<span class="token list punctuation">-</span> RESTful endpoints only
+<span class="token list punctuation">-</span> JSON request/response
+<span class="token list punctuation">-</span> Version endpoints: <span class="token code-snippet code keyword">`/api/v1/`</span>
+<span class="token list punctuation">-</span> Document all endpoints with examples
+
+<span class="token title important"><span class="token punctuation">###</span> Database</span>
+<span class="token list punctuation">-</span> Use migrations for schema changes
+<span class="token list punctuation">-</span> Never hardcode credentials
+<span class="token list punctuation">-</span> Use connection pooling
+<span class="token list punctuation">-</span> Enable query logging in development
+
+<span class="token title important"><span class="token punctuation">##</span> Common Commands</span>
+
+<span class="token table"><span class="token table-header-row"><span class="token punctuation">|</span><span class="token table-header important"> Command </span><span class="token punctuation">|</span><span class="token table-header important"> Purpose </span><span class="token punctuation">|</span>
+</span><span class="token table-line"><span class="token punctuation">|</span><span class="token punctuation">---------</span><span class="token punctuation">|</span><span class="token punctuation">---------</span><span class="token punctuation">|</span>
+</span><span class="token table-data-rows"><span class="token punctuation">|</span><span class="token table-data"> <span class="token code-snippet code keyword">`npm run dev`</span> </span><span class="token punctuation">|</span><span class="token table-data"> Start development server </span><span class="token punctuation">|</span>
+<span class="token punctuation">|</span><span class="token table-data"> <span class="token code-snippet code keyword">`npm test`</span> </span><span class="token punctuation">|</span><span class="token table-data"> Run test suite </span><span class="token punctuation">|</span>
+<span class="token punctuation">|</span><span class="token table-data"> <span class="token code-snippet code keyword">`npm run lint`</span> </span><span class="token punctuation">|</span><span class="token table-data"> Check code style </span><span class="token punctuation">|</span>
+<span class="token punctuation">|</span><span class="token table-data"> <span class="token code-snippet code keyword">`npm run build`</span> </span><span class="token punctuation">|</span><span class="token table-data"> Build for production </span><span class="token punctuation">|</span>
+</span></span>
+<span class="token title important"><span class="token punctuation">##</span> Known Issues &amp; Workarounds</span>
+<span class="token list punctuation">-</span> Safari 14 compatibility issues with async generators
+<span class="token list punctuation">-</span> Workaround: Use Babel transpiler
+</code></pre><p><strong>The result?</strong> Claude immediately started:</p>
+<ul>
+<li>Using correct indentation</li>
+<li>Following naming conventions</li>
+<li>Suggesting appropriate testing approaches</li>
+<li>Respecting our API standards</li>
+</ul>
+<p>No more repeating myself. Ever.</p>
+<h2 id="real-example-the-transformation">Real Example: The Transformation </h2>
+<p><strong>Before <a href="http://CLAUDE.md">CLAUDE.md</a></strong>:</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>Me: Create a new API endpoint for user registration
+
+Claude: [Creates endpoint with 4-space indentation,
+         callback-based code, no tests, doesn't follow our
+         API versioning or error format]
+
+Me: Actually, we use 2-space indentation, async/await,
+    and our endpoints should be /api/v1/...
+
+Claude: [Fixes it]
+
+Me: Also, we need tests with 80% coverage
+
+Claude: [Adds tests]
+
+Me: And please follow our error response format...
+
+[Repeat forever]
+</code></pre><p><strong>After <a href="http://CLAUDE.md">CLAUDE.md</a></strong>:</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>Me: Create a new API endpoint for user registration
+
+Claude: [Creates endpoint with:
+  ✅ 2-space indentation
+  ✅ Async/await
+  ✅ /api/v1/register path
+  ✅ Correct error response format
+  ✅ Input validation with Zod
+  ✅ Jest tests with 85% coverage
+  ✅ API documentation]
+
+Me: Perfect.
+</code></pre><p>Same request. Completely different outcome.</p>
+<h2 id="directory-specific-memory-module-rules">Directory-Specific Memory: Module Rules </h2>
+<p>As projects grew, I discovered the power of directory-specific memory. Here's an example for our API module:</p>
+<p><strong>File</strong>: <code>./src/api/CLAUDE.md</code></p>
+<pre data-role="codeBlock" data-info="markdown" class="language-markdown markdown"><code><span class="token title important"><span class="token punctuation">#</span> API Module Standards</span>
+
+This overrides root CLAUDE.md for everything in /src/api/
+
+<span class="token title important"><span class="token punctuation">##</span> Request Validation</span>
+<span class="token list punctuation">-</span> Use Zod for schema validation
+<span class="token list punctuation">-</span> Always validate input
+<span class="token list punctuation">-</span> Return 400 with field-level validation errors
+
+<span class="token title important"><span class="token punctuation">##</span> Response Format</span>
+
+All responses follow this structure:
+
+```json
+{
+  "success": true,
+  "data": { /<span class="token italic"><span class="token punctuation">*</span><span class="token content"> actual data </span><span class="token punctuation">*</span></span>/ },
+  "timestamp": "2025-11-08T10:30:00Z",
+  "version": "1.0"
+}
+</code></pre><p>Error responses:</p>
+<pre data-role="codeBlock" data-info="json" class="language-json json"><code><span class="token punctuation">{</span>
+  <span class="token property">"success"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+  <span class="token property">"error"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"code"</span><span class="token operator">:</span> <span class="token string">"VALIDATION_ERROR"</span><span class="token punctuation">,</span>
+    <span class="token property">"message"</span><span class="token operator">:</span> <span class="token string">"User-friendly message"</span><span class="token punctuation">,</span>
+    <span class="token property">"details"</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token comment">/* field errors */</span> <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">"timestamp"</span><span class="token operator">:</span> <span class="token string">"2025-11-08T10:30:00Z"</span>
+<span class="token punctuation">}</span>
+</code></pre><h2>Pagination</h2>
+<ul>
+<li>Use cursor-based pagination (not offset)</li>
+<li>Include <code>hasMore</code> boolean</li>
+<li>Limit max page size to 100</li>
+<li>Default page size: 20</li>
+</ul>
+<h2>Rate Limiting</h2>
+<ul>
+<li>1000 requests/hour for authenticated users</li>
+<li>100 requests/hour for public endpoints</li>
+<li>Return 429 when exceeded</li>
+</ul>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>Now, when working in the `/src/api/` directory, Claude automatically applies these API-specific rules without me saying a word.
+
+## Personal Memory: My Preferences {#personal-memory-my-preferences }
+
+Personal memory (`~/.claude/CLAUDE.md`) stores preferences that follow you across all projects:
+
+```markdown
+# My Development Preferences
+
+## About Me
+- **Preferred Languages**: JavaScript, Python
+- **Communication Style**: Direct, with examples
+- **Learning Style**: Show code first, explain after
+
+## Code Preferences
+
+### Error Handling
+I prefer explicit try-catch blocks with meaningful error messages.
+Always log errors for debugging.
+
+### Comments
+Use comments for WHY, not WHAT. Code should be self-documenting.
+
+### Testing
+I prefer TDD (test-driven development).
+Write tests first, then implementation.
+
+### Debugging
+- Use console.log with prefix: `[DEBUG]`
+- Include context: function name, relevant variables
+- Always include timestamps
+
+## Communication
+- Explain complex concepts with diagrams when possible
+- Show concrete examples before theory
+- Include before/after code snippets
+- Summarize key points at the end
+</code></pre><p>This travels with you. Every project, every session, Claude remembers these preferences.</p>
+<h2 id="importing-external-documentation-the--syntax">Importing External Documentation: The <code>@</code> Syntax </h2>
+<p>Here's a powerful feature I discovered: you can import external documentation into memory using the <code>@path/to/file</code> syntax:</p>
+<pre data-role="codeBlock" data-info="markdown" class="language-markdown markdown"><code><span class="token title important"><span class="token punctuation">#</span> Project Configuration</span>
+
+<span class="token title important"><span class="token punctuation">##</span> Architecture</span>
+@docs/architecture.md
+@docs/api-standards.md
+@docs/database-schema.md
+
+<span class="token title important"><span class="token punctuation">##</span> Commands Reference</span>
+@package.json
+@README.md
+</code></pre><p><strong>How it works:</strong></p>
+<ul>
+<li>Claude automatically includes the referenced file's content in its context</li>
+<li>Supports both relative and absolute paths</li>
+<li>Enables recursive nesting up to 5 levels deep</li>
+<li>Avoids duplication across memory files</li>
+</ul>
+<p><strong>Real-world example:</strong></p>
+<p>Instead of copying your entire README into <a href="http://CLAUDE.md">CLAUDE.md</a>, just reference it:</p>
+<pre data-role="codeBlock" data-info="markdown" class="language-markdown markdown"><code><span class="token title important"><span class="token punctuation">#</span> Project Overview</span>
+See @README.md for full project description and setup instructions
+
+<span class="token title important"><span class="token punctuation">#</span> Available Commands</span>
+See @package.json for all npm scripts
+
+<span class="token title important"><span class="token punctuation">#</span> Architecture Decisions</span>
+See @docs/adr/001-database-choice.md
+See @docs/adr/002-auth-strategy.md
+</code></pre><p><strong>Why this is brilliant:</strong></p>
+<ol>
+<li><strong>Single source of truth</strong>: Update README once, Claude sees the changes</li>
+<li><strong>No duplication</strong>: Keep your documentation DRY</li>
+<li><strong>Team consistency</strong>: Everyone references the same docs</li>
+<li><strong>Maintainable</strong>: As docs evolve, memory stays current</li>
+</ol>
+<p><strong>Import nesting example:</strong></p>
+<p>You can nest imports up to 5 levels:</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>CLAUDE.md
+  └─&gt; @docs/architecture.md
+       └─&gt; @docs/database.md
+            └─&gt; @docs/migrations.md
+                 └─&gt; @docs/versioning.md
+                      └─&gt; @docs/rollback.md  (Level 5 - maximum)
+</code></pre><p>This changed how I structure project documentation. Now my <a href="http://CLAUDE.md">CLAUDE.md</a> is a roadmap to documentation, not the documentation itself.</p>
+<h2 id="how-memory-loads-automatically">How Memory Loads Automatically </h2>
+<p>One of the best parts? <strong>You don't have to do anything for memory to load.</strong></p>
+<p>When Claude Code starts:</p>
+<ol>
+<li>It traverses upward from your current directory</li>
+<li>Discovers all <a href="http://CLAUDE.md">CLAUDE.md</a> files in the hierarchy</li>
+<li>Loads them automatically with the correct precedence</li>
+<li>Merges them into a unified context</li>
+</ol>
+<p><strong>Example:</strong> If I'm working in <code>/project/src/api/endpoints/</code>:</p>
+<pre data-role="codeBlock" data-info="text" class="language-text text"><code>Claude discovers and loads:
+1. /Library/Application Support/ClaudeCode/CLAUDE.md (Enterprise)
+2. /project/CLAUDE.md (Project)
+3. /project/src/api/CLAUDE.md (API module)
+4. ~/.claude/CLAUDE.md (Personal)
+
+Result: All four contexts merged with proper precedence
+</code></pre><p>No commands. No configuration. Just works.</p>
+<h2 id="memory-content-organization">Memory Content Organization </h2>
+<h3 id="recommended-structure-for-project-memory">Recommended Structure for Project Memory </h3>
+<table>
+<thead>
+<tr>
+<th>Section</th>
+<th>Content Type</th>
+<th>Priority</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Project Overview</strong></td>
+<td>Tech stack, team size</td>
+<td>🏆 High</td>
+<td>Node.js, React, 5 devs</td>
+</tr>
+<tr>
+<td><strong>Coding Standards</strong></td>
+<td>Style, conventions</td>
+<td>🏆 High</td>
+<td>2-space indent, async/await</td>
+</tr>
+<tr>
+<td><strong>Architecture</strong></td>
+<td>Design decisions</td>
+<td>🥈 Medium</td>
+<td>Microservices, Event-driven</td>
+</tr>
+<tr>
+<td><strong>Testing Requirements</strong></td>
+<td>Coverage, frameworks</td>
+<td>🥈 Medium</td>
+<td>80% coverage, Jest</td>
+</tr>
+<tr>
+<td><strong>Common Commands</strong></td>
+<td>Frequently used CLI</td>
+<td>🥉 Low</td>
+<td>npm test, npm build</td>
+</tr>
+<tr>
+<td><strong>Known Issues</strong></td>
+<td>Workarounds, gotchas</td>
+<td>🥉 Low</td>
+<td>Safari async generators</td>
+</tr>
+</tbody>
+</table>
+<h3 id="content-type-decision-matrix">Content Type Decision Matrix </h3>
+<div class="mermaid">graph TD
+    A{Is it...?}
+    A --&gt;|Team standard| B["✅ Project Memory&lt;br/&gt;./CLAUDE.md"]
+    A --&gt;|Module-specific| C["✅ Directory Memory&lt;br/&gt;./module/CLAUDE.md"]
+    A --&gt;|Personal preference| D["✅ Personal Memory&lt;br/&gt;~/.claude/CLAUDE.md"]
+    A --&gt;|Secret/Credential| E["❌ Don't Include&lt;br/&gt;Use .env instead"]
+    A --&gt;|Temporary| F["❌ Don't Include&lt;br/&gt;Too volatile"]
+</div><h2 id="what-to-include-and-what-to-skip">What to Include (and What to Skip) </h2>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Include?</th>
+<th>Where</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Coding standards</strong></td>
+<td>✅ Yes</td>
+<td>Project Memory</td>
+<td>Team consistency</td>
+</tr>
+<tr>
+<td><strong>Architecture decisions</strong></td>
+<td>✅ Yes</td>
+<td>Project Memory</td>
+<td>Understanding context</td>
+</tr>
+<tr>
+<td><strong>Testing requirements</strong></td>
+<td>✅ Yes</td>
+<td>Project Memory</td>
+<td>Quality standards</td>
+</tr>
+<tr>
+<td><strong>Common commands</strong></td>
+<td>✅ Yes</td>
+<td>Project Memory</td>
+<td>Quick reference</td>
+</tr>
+<tr>
+<td><strong>Personal preferences</strong></td>
+<td>✅ Yes</td>
+<td>Personal Memory</td>
+<td>Individual style</td>
+</tr>
+<tr>
+<td><strong>Module-specific rules</strong></td>
+<td>✅ Yes</td>
+<td>Directory Memory</td>
+<td>Scoped conventions</td>
+</tr>
+<tr>
+<td><strong>API keys/secrets</strong></td>
+<td>❌ Never</td>
+<td>Use .env</td>
+<td>Security risk</td>
+</tr>
+<tr>
+<td><strong>PII/private data</strong></td>
+<td>❌ Never</td>
+<td>N/A</td>
+<td>Privacy violation</td>
+</tr>
+<tr>
+<td><strong>Implementation details</strong></td>
+<td>⚠️ Minimal</td>
+<td>Project Memory</td>
+<td>Keep concise</td>
+</tr>
+<tr>
+<td><strong>Temporary information</strong></td>
+<td>❌ Never</td>
+<td>N/A</td>
+<td>Changes frequently</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-do-include">✅ <strong>Do Include</strong>: </h3>
+<ul>
+<li>Coding standards and conventions</li>
+<li>Architecture decisions</li>
+<li>Team workflows</li>
+<li>Testing requirements</li>
+<li>Common commands</li>
+<li>Known issues with workarounds</li>
+<li>Technology stack details</li>
+</ul>
+<h3 id="-dont-include">❌ <strong>Don't Include</strong>: </h3>
+<ul>
+<li>Secrets or API keys (never!)</li>
+<li>PII or private information</li>
+<li>Overly detailed implementation (keep it concise)</li>
+<li>Temporary information that changes frequently</li>
+</ul>
+<h2 id="installation-getting-started">Installation: Getting Started </h2>
+<h3 id="method-1-use-init-recommended">Method 1: Use <code>/init</code> (Recommended) </h3>
+<p>The fastest way to get started:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token comment"># In your project root directory</span>
+/init
+</code></pre><p>That's it! Claude analyzes your project and generates a complete <a href="http://CLAUDE.md">CLAUDE.md</a> with:</p>
+<ul>
+<li>Detected technology stack</li>
+<li>Common patterns in your codebase</li>
+<li>Suggested coding standards</li>
+<li>Project-specific configurations</li>
+</ul>
+<p><strong>My workflow:</strong></p>
+<ol>
+<li>Run <code>/init</code> to get 80% done automatically</li>
+<li>Review the generated file</li>
+<li>Customize to match your team's needs</li>
+<li>Commit to git: <code>git add CLAUDE.md &amp;&amp; git commit -m "Initialize project memory"</code></li>
+</ol>
+<h3 id="method-2-use-memory-for-ongoing-updates">Method 2: Use <code>/memory</code> (For Ongoing Updates) </h3>
+<p>Once you have a <a href="http://CLAUDE.md">CLAUDE.md</a> file, use <code>/memory</code> to edit it:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>/memory
+</code></pre><p>This opens your system's default editor. Make changes, save, and close. Claude automatically reloads.</p>
+<h3 id="method-3-manual-creation-if-you-prefer">Method 3: Manual Creation (If You Prefer) </h3>
+<p><strong>Project Memory</strong> (shared with team):</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token comment"># Create in project root</span>
+<span class="token function">touch</span> CLAUDE.md
+
+<span class="token comment"># Add your standards with your editor</span>
+<span class="token function">vi</span> CLAUDE.md
+
+<span class="token comment"># Commit to version control</span>
+<span class="token function">git</span> <span class="token function">add</span> CLAUDE.md
+<span class="token function">git</span> commit <span class="token parameter variable">-m</span> <span class="token string">"Add project memory configuration"</span>
+</code></pre><p><strong>Personal Memory</strong> (just for you):</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token comment"># Create personal memory directory</span>
+<span class="token function">mkdir</span> <span class="token parameter variable">-p</span> ~/.claude
+
+<span class="token comment"># Create personal memory file</span>
+<span class="token function">touch</span> ~/.claude/CLAUDE.md
+
+<span class="token comment"># Add your preferences</span>
+<span class="token function">vi</span> ~/.claude/CLAUDE.md
+</code></pre><p><strong>Enterprise Memory</strong> (system administrators):</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token comment"># macOS</span>
+<span class="token function">sudo</span> <span class="token function">vi</span> <span class="token string">"/Library/Application Support/ClaudeCode/CLAUDE.md"</span>
+
+<span class="token comment"># Linux</span>
+<span class="token function">sudo</span> <span class="token function">vi</span> /etc/claude-code/CLAUDE.md
+
+<span class="token comment"># Windows (as Administrator)</span>
+notepad <span class="token string">"C:\ProgramData\ClaudeCode\CLAUDE.md"</span>
+</code></pre><h3 id="quick-updates-during-sessions">Quick Updates During Sessions </h3>
+<p>Once memory is set up, add rules on the fly:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token comment"># Just start your message with #</span>
+<span class="token comment"># Use semantic versioning for all releases</span>
+
+<span class="token comment"># Or be more explicit</span>
+<span class="token comment"># new rule into memory: Always run tests before committing</span>
+</code></pre><p>Claude handles the rest automatically.</p>
+<h2 id="the-compounding-effect">The Compounding Effect </h2>
+<p>Here's what I didn't expect: <strong>Memory compounds</strong>.</p>
+<p>Week 1: I add basic coding standards.<br>
+Week 2: I add testing requirements.<br>
+Week 3: I add API conventions.<br>
+Week 4: I add known issues and workarounds.</p>
+<p>By month 2, Claude knows my project better than most new team members. Every new detail adds to the foundation.</p>
+<h2 id="best-practices">Best Practices </h2>
+<table>
+<thead>
+<tr>
+<th>✅ Do</th>
+<th>❌ Don't</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Start simple, expand gradually</td>
+<td>Create 500-line memory files immediately</td>
+</tr>
+<tr>
+<td>Version control project memory</td>
+<td>Keep everything in personal memory</td>
+</tr>
+<tr>
+<td>Use clear section headers</td>
+<td>Write unstructured prose</td>
+</tr>
+<tr>
+<td>Keep memory concise and scannable</td>
+<td>Include verbose implementation details</td>
+</tr>
+<tr>
+<td>Update memory when standards change</td>
+<td>Let memory become stale</td>
+</tr>
+<tr>
+<td>Organize by priority (important first)</td>
+<td>Randomize content order</td>
+</tr>
+<tr>
+<td>Use examples for complex rules</td>
+<td>Only describe rules abstractly</td>
+</tr>
+<tr>
+<td>Review and trim periodically</td>
+<td>Never delete outdated content</td>
+</tr>
+</tbody>
+</table>
+<h2 id="troubleshooting">Troubleshooting </h2>
+<h3 id="memory-not-being-applied">Memory Not Being Applied </h3>
+<p><strong>Problem:</strong> Claude doesn't follow <a href="http://CLAUDE.md">CLAUDE.md</a> rules</p>
+<p><strong>Solutions:</strong></p>
+<ul>
+<li>Verify file is named <code>CLAUDE.md</code> (case-sensitive)</li>
+<li>Check file is in correct directory</li>
+<li>Ensure Claude Code session loaded after file creation</li>
+<li>Review memory file for syntax errors</li>
+<li>Restart Claude Code session</li>
+</ul>
+<h3 id="conflicting-memory-rules">Conflicting Memory Rules </h3>
+<p><strong>Problem:</strong> Different memory files conflict</p>
+<p><strong>Solutions:</strong></p>
+<ul>
+<li>Remember hierarchy: Project &gt; Directory &gt; Personal</li>
+<li>Check which memory takes precedence</li>
+<li>Explicitly override in higher-priority file</li>
+<li>Document intentional overrides</li>
+</ul>
+<h3 id="memory-file-too-large">Memory File Too Large </h3>
+<p><strong>Problem:</strong> Claude struggles with very large memory files</p>
+<p><strong>Solutions:</strong></p>
+<ul>
+<li>Trim to essential information only</li>
+<li>Move detailed docs to external files (@import)</li>
+<li>Split into directory-specific memories</li>
+<li>Target 100-300 lines maximum</li>
+</ul>
+<h3 id="memory-not-updating">Memory Not Updating </h3>
+<p><strong>Problem:</strong> Changes to <a href="http://CLAUDE.md">CLAUDE.md</a> don't take effect</p>
+<p><strong>Solutions:</strong></p>
+<ul>
+<li>Restart Claude Code session</li>
+<li>Verify file was saved</li>
+<li>Check for syntax errors in YAML/Markdown</li>
+<li>Clear cache: <code>rm -rf ~/.claude/cache</code></li>
+</ul>
+<h2 id="directory-structure-example">Directory Structure Example </h2>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>project/
+├── CLAUDE.md                    # Project-wide standards
+├── src/
+│   ├── api/
+│   │   ├── CLAUDE.md           # API-specific rules
+│   │   └── endpoints/
+│   ├── database/
+│   │   ├── CLAUDE.md           # Database-specific rules
+│   │   └── migrations/
+│   └── frontend/
+│       ├── CLAUDE.md           # Frontend-specific rules
+│       └── components/
+└── ~/.claude/
+    └── CLAUDE.md               # Personal preferences
+</code></pre><h2 id="the-honest-truth">The Honest Truth </h2>
+<p>As always, transparency: <strong>The <a href="http://CLAUDE.md">CLAUDE.md</a> examples in my repository were drafted by Claude</strong>, based on real project patterns and refined through actual use.</p>
+<p>I started with simple standards, asked Claude to help structure them, tested what worked, and iterated. The examples you see are the polished results of that experimentation.</p>
+<p>Some memory configurations were immediately effective. Others needed refinement. A few were too verbose and got trimmed down. That's the learning process.</p>
+<h2 id="key-takeaways">Key Takeaways </h2>
+<p><strong>Memory Commands:</strong></p>
+<ul>
+<li><code>/init</code> - Fast start, auto-generates <a href="http://CLAUDE.md">CLAUDE.md</a></li>
+<li><code>/memory</code> - Full editor access for extensive updates</li>
+<li><code># your rule</code> - Quick updates during conversations</li>
+</ul>
+<p><strong>Memory Hierarchy (highest to lowest):</strong></p>
+<ol>
+<li>Enterprise Policy - Company-wide standards</li>
+<li>Project Memory - Team conventions (git-tracked)</li>
+<li>Directory Memory - Module-specific rules</li>
+<li>Personal Memory - Individual preferences</li>
+</ol>
+<p><strong>Import Syntax:</strong></p>
+<ul>
+<li>Use <code>@path/to/file</code> to reference external docs</li>
+<li>Supports up to 5 levels of nesting</li>
+<li>Keeps documentation DRY and maintainable</li>
+</ul>
+<p><strong>Best Practices:</strong></p>
+<ul>
+<li>Start with <code>/init</code>, customize from there</li>
+<li>Use <code>#</code> for quick daily updates</li>
+<li>Use <code>/memory</code> for major restructures</li>
+<li>Import external docs instead of duplicating</li>
+<li>Version control project memory (commit to git)</li>
+<li>Keep memory files under 500 lines</li>
+</ul>
+<h2 id="official-documentation">Official Documentation </h2>
+<p>This blog post is based on official Claude Code documentation. For the latest information:</p>
+<ul>
+<li><strong><a href="https://code.claude.com/docs/en/memory.md">Memory Documentation</a></strong> - Complete memory system reference</li>
+<li><strong><a href="https://code.claude.com/docs/en/slash-commands.md">Slash Commands Reference</a></strong> - All built-in commands</li>
+<li><strong><a href="https://code.claude.com/docs/en/quickstart.md">Quickstart Guide</a></strong> - Getting started with Claude Code</li>
+</ul>
+<h2 id="whats-next">What's Next </h2>
+<p>In the next post, I'll explore <strong>Skills</strong> — how to create reusable, autonomous workflows that leverage the memory system we just learned. Skills are where Claude Code really starts to feel like magic.</p>
+<h2 id="resources">Resources </h2>
+<ul>
+<li><strong>Memory Examples</strong>: <a href="https://github.com/luongnv89/claude-howto/tree/main/02-memory">github.com/luongnv89/claude-howto/02-memory</a></li>
+<li><strong>Repository</strong>: <a href="https://github.com/luongnv89/claude-howto">github.com/luongnv89/claude-howto</a></li>
+<li><strong>Official Claude Code Docs</strong>: <a href="https://code.claude.com/docs">code.claude.com/docs</a></li>
+</ul>
+<hr>
+<p><em>What's in your <a href="http://CLAUDE.md">CLAUDE.md</a>? Share your project memory patterns in the comments — I'm always looking for new ideas!</em></p>
+<p><strong>Next in series</strong>: <em>Part 3 - Skills: The Art of Autonomous Assistance</em></p>
+
+      </div>
+      
+      
+    
+    
+    <script type="module">
+// TODO: If ZenUML gets integrated into mermaid in the future,
+//      we can remove the following lines.
+
+
+var MERMAID_CONFIG = ({"startOnLoad":false});
+if (typeof MERMAID_CONFIG !== 'undefined') {
+  MERMAID_CONFIG.startOnLoad = false
+  MERMAID_CONFIG.cloneCssStyles = false
+  MERMAID_CONFIG.theme = "default"
+}
+
+mermaid.initialize(MERMAID_CONFIG || {})
+if (typeof(window['Reveal']) !== 'undefined') {
+  function mermaidRevealHelper(event) {
+    var currentSlide = event.currentSlide
+    var diagrams = currentSlide.querySelectorAll('.mermaid')
+    for (var i = 0; i < diagrams.length; i++) {
+      var diagram = diagrams[i]
+      if (!diagram.hasAttribute('data-processed')) {
+        mermaid.init(null, diagram, ()=> {
+          Reveal.slide(event.indexh, event.indexv)
+        })
+      }
+    }
+  }
+  Reveal.addEventListener('slidetransitionend', mermaidRevealHelper)
+  Reveal.addEventListener('ready', mermaidRevealHelper)
+  await mermaid.run({
+    nodes: document.querySelectorAll('.mermaid')
+  })
+} else {
+  await mermaid.run({
+    nodes: document.querySelectorAll('.mermaid')
+  })
+}
+</script>
+    
+    
+    
+  
+    </body></html>
