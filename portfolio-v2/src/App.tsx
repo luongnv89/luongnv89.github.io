@@ -1,5 +1,6 @@
 import { ThemeToggle } from './components/ThemeToggle'
 import { MatrixBackground } from './components/MatrixBackground'
+import { ScrollToTop } from './components/ScrollToTop'
 import { Hero } from './components/Hero'
 import { About } from './components/About'
 import { Projects } from './components/Projects'
@@ -13,6 +14,7 @@ function App() {
     <div className="min-h-screen bg-[var(--bg-primary)] relative">
       <MatrixBackground />
       <ThemeToggle />
+      <ScrollToTop />
       <main className="relative z-10">
         <Hero />
         <About />
