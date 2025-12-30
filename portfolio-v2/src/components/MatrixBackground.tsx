@@ -50,8 +50,13 @@ export function MatrixBackground() {
     // Array to track opacity of each column (for depth effect)
     const opacities: number[] = Array(columns).fill(0).map(() => Math.random() * 0.5 + 0.3)
 
+    // Store current characters for each column to keep them stable when paused
+    const currentChars: string[] = Array(columns).fill('').map(() =>
+      charArray[Math.floor(Math.random() * charArray.length)]
+    )
+
     const draw = () => {
-      // Skip drawing if paused
+      // When paused, don't update anything - keep current frame frozen
       if (isPaused) return
 
       // Semi-transparent background to create trail effect
@@ -61,8 +66,11 @@ export function MatrixBackground() {
       ctx.font = `${fontSize}px monospace`
 
       for (let i = 0; i < drops.length; i++) {
-        // Random character
-        const char = charArray[Math.floor(Math.random() * charArray.length)]
+        // Update character randomly
+        if (Math.random() > 0.95) {
+          currentChars[i] = charArray[Math.floor(Math.random() * charArray.length)]
+        }
+        const char = currentChars[i]
 
         // Calculate x position
         const x = i * fontSize
