@@ -112,8 +112,8 @@ export function MatrixBackground() {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 z-0 pointer-events-none"
-      style={{ opacity: 0.15 }}
+      className="fixed inset-0 z-0 pointer-events-none transition-opacity duration-300"
+      style={{ opacity: isDark ? 0.15 : 0.05 }}
     />
   )
 }
