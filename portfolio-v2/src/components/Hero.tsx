@@ -1,6 +1,7 @@
 import { Github, Linkedin, Twitter, Star, Users, FolderGit2 } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { fetchGitHubStats, type GitHubStats } from '@/lib/github'
+import { useMatrixPause } from '@/hooks/useMatrixPause'
 
 // Bluesky icon component (not in lucide-react)
 function BlueskyIcon({ size = 18 }: { size?: number }) {
@@ -26,6 +27,7 @@ const socials = [
 
 export function Hero() {
   const [stats, setStats] = useState<GitHubStats | null>(null)
+  const { isPaused, setIsPaused } = useMatrixPause()
 
   useEffect(() => {
     fetchGitHubStats('luongnv89').then(setStats)
@@ -33,12 +35,22 @@ export function Hero() {
 
   return (
     <section className="min-h-screen flex flex-col items-center justify-center py-20 px-4">
-      <img
-        src="/avatar.png"
-        alt="Luong Nguyen"
-        className="w-32 h-32 md:w-40 md:h-40 rounded-full border-2 border-[var(--border)]
-                   hover:border-accent transition-all duration-300"
-      />
+      <button
+        onClick={() => setIsPaused(!isPaused)}
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+        onFocus={() => setIsPaused(true)}
+        onBlur={() => setIsPaused(false)}
+        className="focus-ring rounded-full"
+        aria-label="Toggle matrix animation"
+      >
+        <img
+          src="/avatar.png"
+          alt="Luong Nguyen"
+          className="w-32 h-32 md:w-40 md:h-40 rounded-full border-2 border-[var(--border)]
+                     hover:border-accent transition-all duration-300 cursor-pointer"
+        />
+      </button>
 
       <h1 className="mt-6 text-4xl md:text-5xl font-bold text-center">
         <span className="text-accent">@</span>luongnv89

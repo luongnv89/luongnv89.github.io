@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { ThemeToggle } from './components/ThemeToggle'
 import { MatrixBackground } from './components/MatrixBackground'
 import { ScrollToTop } from './components/ScrollToTop'
@@ -8,23 +9,28 @@ import { Skills } from './components/Skills'
 import { Blog } from './components/Blog'
 import { Contact } from './components/Contact'
 import { Footer } from './components/layout/Footer'
+import { MatrixPauseContext } from './hooks/useMatrixPause'
 
 function App() {
+  const [isPaused, setIsPaused] = useState(false)
+
   return (
-    <div className="min-h-screen bg-[var(--bg-primary)] relative">
-      <MatrixBackground />
-      <ThemeToggle />
-      <ScrollToTop />
-      <main className="relative z-10">
-        <Hero />
+    <MatrixPauseContext.Provider value={{ isPaused, setIsPaused }}>
+      <div className="min-h-screen bg-[var(--bg-primary)] relative">
+        <MatrixBackground />
+        <ThemeToggle />
+        <ScrollToTop />
+        <main className="relative z-10">
+          <Hero />
         <About />
         <Projects />
         <Skills />
         <Blog />
         <Contact />
-      </main>
-      <Footer className="relative z-10" />
-    </div>
+        </main>
+        <Footer className="relative z-10" />
+      </div>
+    </MatrixPauseContext.Provider>
   )
 }
 

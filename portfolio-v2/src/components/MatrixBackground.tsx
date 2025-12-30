@@ -1,8 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
+import { useMatrixPause } from '@/hooks/useMatrixPause'
 
 export function MatrixBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const [isDark, setIsDark] = useState(true)
+  const { isPaused } = useMatrixPause()
 
   // Watch for theme changes
   useEffect(() => {
@@ -49,6 +51,9 @@ export function MatrixBackground() {
     const opacities: number[] = Array(columns).fill(0).map(() => Math.random() * 0.5 + 0.3)
 
     const draw = () => {
+      // Skip drawing if paused
+      if (isPaused) return
+
       // Semi-transparent background to create trail effect
       ctx.fillStyle = isDark ? 'rgba(10, 10, 10, 0.05)' : 'rgba(255, 255, 255, 0.05)'
       ctx.fillRect(0, 0, canvas.width, canvas.height)
@@ -107,7 +112,7 @@ export function MatrixBackground() {
       clearInterval(interval)
       window.removeEventListener('resize', resizeCanvas)
     }
-  }, [isDark])
+  }, [isDark, isPaused])
 
   return (
     <canvas
