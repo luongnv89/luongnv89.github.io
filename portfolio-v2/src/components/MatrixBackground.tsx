@@ -32,8 +32,8 @@ export function MatrixBackground() {
     resizeCanvas()
     window.addEventListener('resize', resizeCanvas)
 
-    // Matrix characters (mix of katakana, numbers, and symbols)
-    const chars = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEF<>{}[]|/\\@#$%^&*'
+    // Characters from welcome message
+    const chars = 'welcome to my website @luongnv89'
     const charArray = chars.split('')
 
     const fontSize = 14
