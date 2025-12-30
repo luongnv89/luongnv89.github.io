@@ -2,22 +2,40 @@ import { ArrowRight, Calendar } from 'lucide-react'
 
 const posts = [
   {
-    title: 'Getting Started with Claude Code',
-    date: '2024-12-15',
-    excerpt: 'A comprehensive guide to using Claude Code for your development workflow.',
-    url: 'https://github.com/luongnv89/claude-howto',
+    title: '4 Essential Slash Commands I Use in Every Project',
+    date: '2025-12-26',
+    excerpt: 'Building on the Discovering Claude Code Slash Commands article, focusing on practical workflow commands.',
+    url: 'https://medium.com/@luongnv89/4-essential-slash-commands-i-use-in-every-project-2330d87f801f',
   },
   {
-    title: 'Building RAG Systems for Documentation',
-    date: '2024-11-20',
-    excerpt: 'How to create effective retrieval-augmented generation systems for code documentation.',
-    url: 'https://github.com/luongnv89/doc-bases',
+    title: 'Claude Code: Memory — Teaching Claude Your Project\'s DNA',
+    date: '2025-11-24',
+    excerpt: 'Part 2 of the series on discovering and learning Claude Code, exploring how to teach Claude your project context.',
+    url: 'https://medium.com/@luongnv89/claude-code-memory-teaching-claude-your-projects-dna-45c4beca6121',
   },
   {
-    title: 'LLMs in Security Testing and Monitoring',
-    date: '2024-10-10',
-    excerpt: 'Exploring the intersection of AI and cybersecurity in modern applications.',
-    url: '/2025-ares/',
+    title: 'Zero-Downtime Development: Run 2 Claude Code Instances in Parallel',
+    date: '2025-11-20',
+    excerpt: 'How to run two Claude Code instances in parallel to navigate complex architecture decisions.',
+    url: 'https://medium.com/@luongnv89/zero-downtime-development-running-claude-code-max-and-minimax-m2-in-parallel-9fa2828ff3ca',
+  },
+  {
+    title: 'Setting Up Claude Code Locally with Open-Source Models',
+    date: '2025-11-20',
+    excerpt: 'A step-by-step guide for Mac users to set up Claude Code locally with powerful open-source models.',
+    url: 'https://medium.com/@luongnv89/setting-up-claude-code-locally-with-a-powerful-open-source-model-a-step-by-step-guide-for-mac-84cf9ab7302f',
+  },
+  {
+    title: 'Discovering Claude Code: Slash Commands',
+    date: '2025-11-08',
+    excerpt: 'Part 1 of the series exploring powerful features for AI-assisted development with Claude Code.',
+    url: 'https://medium.com/@luongnv89/discovering-claude-code-slash-commands-cdc17f0dfb29',
+  },
+  {
+    title: 'Demystifying Network Traffic on macOS with MMT',
+    date: '2025-05-02',
+    excerpt: 'A Docker-based approach to analyzing network traffic using MMT deep packet inspection tools.',
+    url: 'https://medium.com/@luongnv89/demystifying-your-network-traffic-on-macos-a-docker-based-approach-with-mmt-e9d595034c36',
   },
 ]
 
@@ -30,8 +48,8 @@ export function Blog() {
           Thoughts on AI, security, and software engineering.
         </p>
 
-        <div className="grid md:grid-cols-3 gap-6">
-          {posts.map(({ title, date, excerpt, url }) => (
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {posts.slice(0, 6).map(({ title, date, excerpt, url }) => (
             <a
               key={title}
               href={url}
@@ -63,6 +81,17 @@ export function Blog() {
               </div>
             </a>
           ))}
+        </div>
+
+        <div className="mt-12 text-center">
+          <a
+            href="https://medium.com/@luongnv89"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary inline-flex items-center gap-2"
+          >
+            View All Articles on Medium
+          </a>
         </div>
       </div>
     </section>
