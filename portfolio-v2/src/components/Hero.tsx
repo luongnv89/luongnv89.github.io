@@ -37,7 +37,7 @@ export function Hero() {
         src="/avatar.png"
         alt="Luong Nguyen"
         className="w-32 h-32 md:w-40 md:h-40 rounded-full border-2 border-[var(--border)]
-                   grayscale hover:grayscale-0 hover:border-accent transition-all duration-300"
+                   hover:border-accent transition-all duration-300"
       />
 
       <h1 className="mt-6 text-4xl md:text-5xl font-bold text-center">
