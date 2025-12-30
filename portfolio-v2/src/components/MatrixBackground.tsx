@@ -1,0 +1,119 @@
+import { useEffect, useRef, useState } from 'react'
+
+export function MatrixBackground() {
+  const canvasRef = useRef<HTMLCanvasElement>(null)
+  const [isDark, setIsDark] = useState(true)
+
+  // Watch for theme changes
+  useEffect(() => {
+    const checkTheme = () => {
+      setIsDark(document.documentElement.classList.contains('dark'))
+    }
+    checkTheme()
+
+    const observer = new MutationObserver(checkTheme)
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] })
+
+    return () => observer.disconnect()
+  }, [])
+
+  useEffect(() => {
+    const canvas = canvasRef.current
+    if (!canvas) return
+
+    const ctx = canvas.getContext('2d')
+    if (!ctx) return
+
+    // Set canvas size
+    const resizeCanvas = () => {
+      canvas.width = window.innerWidth
+      canvas.height = window.innerHeight
+    }
+    resizeCanvas()
+    window.addEventListener('resize', resizeCanvas)
+
+    // Matrix characters (mix of katakana, numbers, and symbols)
+    const chars = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEF<>{}[]|/\\@#$%^&*'
+    const charArray = chars.split('')
+
+    const fontSize = 14
+    const columns = Math.floor(canvas.width / fontSize)
+
+    // Array to track the y position of each column
+    const drops: number[] = Array(columns).fill(1)
+
+    // Array to track the speed of each column (for depth effect)
+    const speeds: number[] = Array(columns).fill(0).map(() => Math.random() * 0.5 + 0.5)
+
+    // Array to track opacity of each column (for depth effect)
+    const opacities: number[] = Array(columns).fill(0).map(() => Math.random() * 0.5 + 0.3)
+
+    const draw = () => {
+      // Semi-transparent background to create trail effect
+      ctx.fillStyle = isDark ? 'rgba(10, 10, 10, 0.05)' : 'rgba(255, 255, 255, 0.05)'
+      ctx.fillRect(0, 0, canvas.width, canvas.height)
+
+      ctx.font = `${fontSize}px monospace`
+
+      for (let i = 0; i < drops.length; i++) {
+        // Random character
+        const char = charArray[Math.floor(Math.random() * charArray.length)]
+
+        // Calculate x position
+        const x = i * fontSize
+        const y = drops[i] * fontSize
+
+        // Depth-based color (brighter = closer, dimmer = further)
+        const brightness = opacities[i]
+        const green = Math.floor(255 * brightness)
+        const glow = brightness > 0.6
+
+        // Draw glow effect for closer characters
+        if (glow && isDark) {
+          ctx.shadowBlur = 10
+          ctx.shadowColor = '#00ff41'
+        } else {
+          ctx.shadowBlur = 0
+        }
+
+        // Set color with depth-based opacity
+        if (isDark) {
+          ctx.fillStyle = `rgba(0, ${green}, ${Math.floor(green * 0.25)}, ${brightness})`
+        } else {
+          // Lighter green for light mode
+          ctx.fillStyle = `rgba(0, ${Math.floor(green * 0.6)}, ${Math.floor(green * 0.15)}, ${brightness * 0.5})`
+        }
+        ctx.fillText(char, x, y)
+
+        // Reset shadow
+        ctx.shadowBlur = 0
+
+        // Reset drop when it reaches bottom or randomly
+        if (y > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0
+          speeds[i] = Math.random() * 0.5 + 0.5
+          opacities[i] = Math.random() * 0.5 + 0.3
+        }
+
+        // Move drop down based on speed
+        drops[i] += speeds[i]
+      }
+    }
+
+    // Animation loop
+    const interval = setInterval(draw, 50)
+
+    return () => {
+      clearInterval(interval)
+      window.removeEventListener('resize', resizeCanvas)
+    }
+  }, [isDark])
+
+  return (
+    <canvas
+      ref={canvasRef}
+      className="fixed inset-0 z-0 pointer-events-none"
+      style={{ opacity: 0.15 }}
+    />
+  )
+}

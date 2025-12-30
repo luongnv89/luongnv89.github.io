@@ -1,4 +1,5 @@
 import { ThemeToggle } from './components/ThemeToggle'
+import { MatrixBackground } from './components/MatrixBackground'
 import { Hero } from './components/Hero'
 import { About } from './components/About'
 import { Projects } from './components/Projects'
@@ -9,9 +10,10 @@ import { Footer } from './components/layout/Footer'
 
 function App() {
   return (
-    <div className="min-h-screen bg-[var(--bg-primary)]">
+    <div className="min-h-screen bg-[var(--bg-primary)] relative">
+      <MatrixBackground />
       <ThemeToggle />
-      <main>
+      <main className="relative z-10">
         <Hero />
         <About />
         <Projects />
@@ -19,7 +21,7 @@ function App() {
         <Blog />
         <Contact />
       </main>
-      <Footer />
+      <Footer className="relative z-10" />
     </div>
   )
 }

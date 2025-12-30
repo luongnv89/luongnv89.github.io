@@ -6,11 +6,15 @@ const links = [
   { label: 'Contact', href: '#contact' },
 ]
 
-export function Footer() {
+interface FooterProps {
+  className?: string
+}
+
+export function Footer({ className = '' }: FooterProps) {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="py-8 border-t border-[var(--border)]">
+    <footer className={`py-8 border-t border-[var(--border)] ${className}`}>
       <div className="container-custom">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="text-sm text-[var(--text-muted)]">
