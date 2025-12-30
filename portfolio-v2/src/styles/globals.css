@@ -32,6 +32,11 @@
     scroll-behavior: smooth;
   }
 
+  /* Scroll margin for anchor links */
+  section[id] {
+    scroll-margin-top: 2rem;
+  }
+
   body {
     @apply antialiased;
     background-color: var(--bg-primary);
