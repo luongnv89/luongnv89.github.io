@@ -80,8 +80,8 @@ export function MatrixBackground() {
         if (isDark) {
           ctx.fillStyle = `rgba(0, ${green}, ${Math.floor(green * 0.25)}, ${brightness})`
         } else {
-          // Lighter green for light mode
-          ctx.fillStyle = `rgba(0, ${Math.floor(green * 0.6)}, ${Math.floor(green * 0.15)}, ${brightness * 0.5})`
+          // Darker green for light mode - more visible
+          ctx.fillStyle = `rgba(0, ${Math.floor(green * 0.8)}, ${Math.floor(green * 0.2)}, ${brightness})`
         }
         ctx.fillText(char, x, y)
 
@@ -113,7 +113,7 @@ export function MatrixBackground() {
     <canvas
       ref={canvasRef}
       className="fixed inset-0 z-0 pointer-events-none transition-opacity duration-300"
-      style={{ opacity: isDark ? 0.15 : 0.05 }}
+      style={{ opacity: isDark ? 0.15 : 0.12 }}
     />
   )
 }
