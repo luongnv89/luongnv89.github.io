@@ -1,4 +1,4 @@
-import { Github, Linkedin, Twitter, Star, Users, FolderGit2 } from 'lucide-react'
+import { Github, Linkedin, Twitter, Star, Users, FolderGit2, Loader2 } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { fetchGitHubStats, type GitHubStats } from '@/lib/github'
 import { useMatrixPause } from '@/hooks/useMatrixPause'
@@ -27,10 +27,13 @@ const socials = [
 
 export function Hero() {
   const [stats, setStats] = useState<GitHubStats | null>(null)
+  const [isLoading, setIsLoading] = useState(true)
   const { isPaused, setIsPaused } = useMatrixPause()
 
   useEffect(() => {
-    fetchGitHubStats('luongnv89').then(setStats)
+    fetchGitHubStats('luongnv89')
+      .then(setStats)
+      .finally(() => setIsLoading(false))
   }, [])
 
   return (
@@ -62,22 +65,29 @@ export function Hero() {
       </p>
 
       {/* GitHub Stats */}
-      {stats && (
-        <div className="flex gap-6 mt-6 text-sm text-[var(--text-muted)]">
-          <div className="flex items-center gap-1.5">
-            <Star size={16} className="text-accent" />
-            <span>{stats.totalStars} stars</span>
+      <div className="flex gap-6 mt-6 text-sm text-[var(--text-muted)] h-6">
+        {isLoading ? (
+          <div className="flex items-center gap-2">
+            <Loader2 size={16} className="animate-spin text-accent" />
+            <span>Loading stats...</span>
           </div>
-          <div className="flex items-center gap-1.5">
-            <Users size={16} />
-            <span>{stats.followers} followers</span>
-          </div>
-          <div className="flex items-center gap-1.5">
-            <FolderGit2 size={16} />
-            <span>{stats.publicRepos} repos</span>
-          </div>
-        </div>
-      )}
+        ) : stats ? (
+          <>
+            <div className="flex items-center gap-1.5">
+              <Star size={16} className="text-accent" />
+              <span>{stats.totalStars} stars</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <Users size={16} />
+              <span>{stats.followers} followers</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <FolderGit2 size={16} />
+              <span>{stats.publicRepos} repos</span>
+            </div>
+          </>
+        ) : null}
+      </div>
 
       {/* Social Links */}
       <div className="flex gap-4 mt-8">
