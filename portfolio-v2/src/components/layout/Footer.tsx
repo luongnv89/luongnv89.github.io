@@ -1,5 +1,3 @@
-import { Heart } from 'lucide-react'
-
 const links = [
   { label: 'About', href: '#about' },
   { label: 'Projects', href: '#projects' },
@@ -15,10 +13,8 @@ export function Footer() {
     <footer className="py-8 border-t border-[var(--border)]">
       <div className="container-custom">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-1 text-sm text-[var(--text-muted)]">
-            <span>&copy; {currentYear} Luong Nguyen. Built with</span>
-            <Heart size={14} className="text-accent" />
-            <span>and React.</span>
+          <div className="text-sm text-[var(--text-muted)]">
+            &copy; {currentYear} Luong Nguyen
           </div>
 
           <nav className="flex items-center gap-6">
