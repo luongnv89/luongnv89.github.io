@@ -1,7 +1,7 @@
 const skillCategories = [
   {
     title: 'AI & Machine Learning',
-    skills: ['LLM Integration', 'Claude API', 'RAG Systems', 'Voice Synthesis', 'Prompt Engineering'],
+    skills: ['LLM Integration', 'Langchain/Langgraph', 'AI Agents', 'RAG Systems', 'Finetune', 'AI Coding Tools', 'Spec Driven Development'],
   },
   {
     title: 'Cybersecurity',
@@ -13,7 +13,7 @@ const skillCategories = [
   },
   {
     title: 'Tools & Platforms',
-    skills: ['Git', 'Linux', 'GitHub Actions', 'AWS', 'CLI Development'],
+    skills: ['Git', 'Linux', 'GitHub Actions', 'CLI Development'],
   },
 ]
 
