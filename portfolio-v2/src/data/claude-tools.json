@@ -1,0 +1,32 @@
+{
+  "tools": [
+    {
+      "id": "custats",
+      "name": "CUStats",
+      "description": "macOS menubar app that monitors Claude API usage limits in real-time with live dashboard, session history, and trend analytics.",
+      "screenshots": ["/images/tools/custats-thumb.png"],
+      "websiteUrl": "https://custats.info",
+      "appStoreUrl": "https://apps.apple.com/us/app/custats/id6756333957?mt=12",
+      "tags": ["macOS", "Monitoring", "Dashboard"],
+      "showGithub": false
+    },
+    {
+      "id": "claude-howto",
+      "name": "Claude-Howto",
+      "description": "Complete collection of practical examples for Claude Code - learn by doing with 50+ real-world usage patterns, from basic commands to advanced workflows.",
+      "screenshots": [],
+      "githubUrl": "https://github.com/luongnv89/claude-howto",
+      "tags": ["Examples", "Documentation", "Learning"],
+      "showGithub": true
+    },
+    {
+      "id": "claude-statusline",
+      "name": "Claude-Statusline",
+      "description": "Customize the status line in Claude Code with your own scripts and information. Display git status, system info, or any custom data.",
+      "screenshots": ["/images/tools/claude-statusline-thumb.png"],
+      "githubUrl": "https://github.com/luongnv89/claude-statusline",
+      "tags": ["CLI", "Customization", "Productivity"],
+      "showGithub": true
+    }
+  ]
+}

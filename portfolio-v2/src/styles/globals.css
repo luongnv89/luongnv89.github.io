@@ -151,3 +151,23 @@ html.transitioning *::after {
 .dark::-webkit-scrollbar-thumb:hover {
   background: #444444;
 }
+
+/* Gift icon bounce animation */
+@keyframes gift-bounce {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+  }
+  25% {
+    transform: scale(1.1) rotate(-5deg);
+  }
+  50% {
+    transform: scale(1.15) rotate(0deg);
+  }
+  75% {
+    transform: scale(1.1) rotate(5deg);
+  }
+}
+
+.animate-gift-bounce {
+  animation: gift-bounce 2s ease-in-out infinite;
+}

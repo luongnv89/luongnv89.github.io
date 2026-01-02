@@ -1,9 +1,18 @@
-const links = [
+import { Link } from 'react-router-dom'
+
+interface NavLink {
+  label: string
+  href: string
+  isRoute?: boolean
+}
+
+const links: NavLink[] = [
   { label: 'About', href: '#about' },
   { label: 'Projects', href: '#projects' },
   { label: 'Skills', href: '#skills' },
   { label: 'Blog', href: '#blog' },
   { label: 'Contact', href: '#contact' },
+  { label: 'For Claude Users', href: '/claude-tools', isRoute: true },
 ]
 
 interface FooterProps {
@@ -24,15 +33,25 @@ export function Footer({ className = '' }: FooterProps) {
           </div>
 
           <nav className="flex items-center gap-6">
-            {links.map(({ label, href }) => (
-              <a
-                key={label}
-                href={href}
-                className="text-sm text-[var(--text-secondary)] hover:text-accent transition-colors"
-              >
-                {label}
-              </a>
-            ))}
+            {links.map(({ label, href, isRoute }) =>
+              isRoute ? (
+                <Link
+                  key={label}
+                  to={href}
+                  className="text-sm text-[var(--text-secondary)] hover:text-accent transition-colors"
+                >
+                  {label}
+                </Link>
+              ) : (
+                <a
+                  key={label}
+                  href={href}
+                  className="text-sm text-[var(--text-secondary)] hover:text-accent transition-colors"
+                >
+                  {label}
+                </a>
+              )
+            )}
           </nav>
         </div>
       </div>
