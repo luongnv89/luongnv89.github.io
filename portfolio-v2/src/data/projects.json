@@ -2,31 +2,17 @@
   "projects": [
     {
       "name": "claude-howto",
-      "description": "Complete collection of examples for Claude Code",
+      "description": "Visual, example-driven guide to Claude Code — from basic concepts to advanced agents, with 50+ copy-paste templates",
       "language": "Python",
       "stars": 769,
       "url": "https://github.com/luongnv89/claude-howto"
     },
     {
-      "name": "claude-statusline",
-      "description": "Customize status line in Claude Code",
-      "language": "Shell",
+      "name": "cc-context-stats",
+      "description": "Real-time Claude Code context usage monitoring — track session tokens across three operational zones to prevent performance degradation",
+      "language": "Python",
       "stars": 38,
-      "url": "https://github.com/luongnv89/claude-statusline"
-    },
-    {
-      "name": "voice-cloner",
-      "description": "Voice synthesis using Coqui TTS",
-      "language": "Python",
-      "stars": 7,
-      "url": "https://github.com/luongnv89/voice-cloner"
-    },
-    {
-      "name": "doc-bases",
-      "description": "RAG system for GitHub repositories",
-      "language": "Python",
-      "stars": 2,
-      "url": "https://github.com/luongnv89/doc-bases"
+      "url": "https://github.com/luongnv89/cc-context-stats"
     },
     {
       "name": "music-cli",
@@ -41,6 +27,20 @@
       "language": "C",
       "stars": 8,
       "url": "https://github.com/Montimage/mmt-dpi"
+    },
+    {
+      "name": "voice-cast",
+      "description": "Voice cloning and text-to-speech with multiple engines — clone any voice from a short audio sample and generate speech in that voice",
+      "language": "Python",
+      "stars": 7,
+      "url": "https://github.com/luongnv89/voice-cast"
+    },
+    {
+      "name": "doc-bases",
+      "description": "RAG system for GitHub repositories",
+      "language": "Python",
+      "stars": 2,
+      "url": "https://github.com/luongnv89/doc-bases"
     }
   ]
 }

@@ -35,11 +35,6 @@ export function Contact() {
           <div className="flex items-center justify-center gap-2 text-[var(--text-secondary)] mb-8">
             <MapPin size={16} className="text-accent" />
             <span>Paris, France</span>
-            <span className="text-[var(--text-muted)]">•</span>
-            <span className="inline-flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-              Available for opportunities
-            </span>
           </div>
 
           <a

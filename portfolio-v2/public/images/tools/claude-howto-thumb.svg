@@ -1,0 +1,98 @@
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#141e30;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1f35;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="800" fill="url(#bgGrad)"/>
+
+  <!-- Grid pattern -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#3a3a4a" stroke-width="1" opacity="0.3"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="800" fill="url(#grid)" />
+
+  <!-- Main card background -->
+  <rect x="60" y="60" width="1080" height="680" rx="30" fill="#232339" stroke="url(#accentGrad)" stroke-width="3"/>
+
+  <!-- Title -->
+  <text x="100" y="150" font-family="Arial, sans-serif" font-size="56" font-weight="bold" fill="#e0d5ff">
+    Claude-Howto
+  </text>
+
+  <!-- Subtitle -->
+  <text x="100" y="210" font-family="Arial, sans-serif" font-size="28" fill="#b0a0d0">
+    Complete Guide to Claude Code
+  </text>
+
+  <!-- Feature boxes -->
+  <g id="features">
+    <!-- Box 1: Examples -->
+    <rect x="100" y="280" width="200" height="100" rx="12" fill="#2a2a40" stroke="#6366f1" stroke-width="2"/>
+    <text x="130" y="330" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#6366f1">
+      50+ Examples
+    </text>
+
+    <!-- Box 2: Commands -->
+    <rect x="340" y="280" width="200" height="100" rx="12" fill="#2a2a40" stroke="#10b981" stroke-width="2"/>
+    <text x="360" y="330" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#10b981">
+      Slash Commands
+    </text>
+
+    <!-- Box 3: Agents -->
+    <rect x="580" y="280" width="200" height="100" rx="12" fill="#2a2a40" stroke="#f59e0b" stroke-width="2"/>
+    <text x="610" y="330" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#f59e0b">
+      Agents &amp; Skills
+    </text>
+
+    <!-- Box 4: MCP -->
+    <rect x="820" y="280" width="200" height="100" rx="12" fill="#2a2a40" stroke="#ec4899" stroke-width="2"/>
+    <text x="860" y="330" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ec4899">
+      MCP Protocol
+    </text>
+
+    <!-- Box 5: Workflows -->
+    <rect x="100" y="420" width="200" height="100" rx="12" fill="#2a2a40" stroke="#06b6d4" stroke-width="2"/>
+    <text x="130" y="470" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#06b6d4">
+      Workflows
+    </text>
+
+    <!-- Box 6: Memory -->
+    <rect x="340" y="420" width="200" height="100" rx="12" fill="#2a2a40" stroke="#8b5cf6" stroke-width="2"/>
+    <text x="380" y="470" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#8b5cf6">
+      Memory &amp; Hooks
+    </text>
+
+    <!-- Box 7: Learning -->
+    <rect x="580" y="420" width="200" height="100" rx="12" fill="#2a2a40" stroke="#14b8a6" stroke-width="2"/>
+    <text x="610" y="470" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#14b8a6">
+      Learning Path
+    </text>
+
+    <!-- Box 8: Advanced -->
+    <rect x="820" y="420" width="200" height="100" rx="12" fill="#2a2a40" stroke="#f97316" stroke-width="2"/>
+    <text x="850" y="470" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#f97316">
+      Advanced Topics
+    </text>
+  </g>
+
+  <!-- Footer text -->
+  <text x="100" y="600" font-family="Arial, sans-serif" font-size="18" fill="#a0a0c0">
+    Learn Claude Code from basics to advanced agent development
+  </text>
+
+  <!-- Stats -->
+  <text x="100" y="660" font-family="Arial, sans-serif" font-size="16" fill="#8080a0">
+    769 Stars • Visual Guide • Copy-Paste Templates
+  </text>
+</svg>

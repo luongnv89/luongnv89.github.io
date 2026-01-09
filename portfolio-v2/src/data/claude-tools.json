@@ -13,19 +13,19 @@
     {
       "id": "claude-howto",
       "name": "Claude-Howto",
-      "description": "Complete collection of practical examples for Claude Code - learn by doing with 50+ real-world usage patterns, from basic commands to advanced workflows.",
-      "screenshots": [],
+      "description": "Visual, example-driven guide to Claude Code with 50+ real-world usage patterns. Covers slash commands, memory, skills, subagents, MCP protocol, hooks, plugins, and advanced workflows. Structured learning path from beginner to advanced agent development.",
+      "screenshots": ["/images/tools/claude-howto-logo-dark.svg"],
       "githubUrl": "https://github.com/luongnv89/claude-howto",
-      "tags": ["Examples", "Documentation", "Learning"],
+      "tags": ["Examples", "Documentation", "Learning", "Guide"],
       "showGithub": true
     },
     {
-      "id": "claude-statusline",
-      "name": "Claude-Statusline",
-      "description": "Customize the status line in Claude Code with your own scripts and information. Display git status, system info, or any custom data.",
-      "screenshots": ["/images/tools/claude-statusline-thumb.png"],
-      "githubUrl": "https://github.com/luongnv89/claude-statusline",
-      "tags": ["CLI", "Customization", "Productivity"],
+      "id": "cc-context-stats",
+      "name": "CC Context Stats",
+      "description": "Real-time Claude Code session context usage monitoring. Track tokens across three operational zones (Smart, Dumb, Wrap Up) with live dashboard graphs and status line integration. Prevents performance degradation by visualizing context growth per interaction.",
+      "screenshots": ["/images/tools/context-status-dumbzone.png"],
+      "githubUrl": "https://github.com/luongnv89/cc-context-stats",
+      "tags": ["Monitoring", "Dashboard", "Context Management", "CLI"],
       "showGithub": true
     }
   ]

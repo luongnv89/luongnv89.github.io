@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowLeft, Github, ExternalLink, Terminal, BookOpen, BarChart3, ChevronLeft, ChevronRight, X } from 'lucide-react'
 import toolsData from '@/data/claude-tools.json'
+import { Footer } from '@/components/layout/Footer'
 
 interface ClaudeTool {
   id: string
@@ -369,6 +370,8 @@ export function ClaudeToolsPage() {
           name={modalState.name}
         />
       )}
+
+      <Footer />
     </div>
   )
 }
