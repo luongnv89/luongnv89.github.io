@@ -1,4 +1,4 @@
-import { Mail, Github, Linkedin, Twitter, MapPin } from 'lucide-react'
+import { Mail, Github, Linkedin, Twitter, MapPin, FileText, Download } from 'lucide-react'
 
 // Bluesky icon component (not in lucide-react)
 function BlueskyIcon({ size = 20 }: { size?: number }) {
@@ -44,6 +44,27 @@ export function Contact() {
             <Mail size={18} />
             Say Hello
           </a>
+
+          {/* CV Links */}
+          <div className="flex justify-center gap-4 mt-6 flex-wrap">
+            <a
+              href="/cv/cv.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-secondary inline-flex items-center gap-2"
+            >
+              <FileText size={18} />
+              View CV
+            </a>
+            <a
+              href="/cv/Luong_NGUYEN_CV.pdf"
+              download="Luong_NGUYEN_CV.pdf"
+              className="btn-secondary inline-flex items-center gap-2"
+            >
+              <Download size={18} />
+              Download PDF
+            </a>
+          </div>
 
           <div className="flex justify-center gap-4 mt-12">
             {socials.map(({ icon: Icon, url, label }) => (
