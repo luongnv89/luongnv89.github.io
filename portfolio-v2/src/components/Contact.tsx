@@ -52,14 +52,16 @@ export function Contact() {
               target="_blank"
               rel="noopener noreferrer"
               className="btn-secondary inline-flex items-center gap-2"
+              aria-label="View CV"
             >
               <FileText size={18} />
               View CV
             </a>
             <a
               href="/cv/Luong_NGUYEN_CV.pdf"
-              download="Luong_NGUYEN_CV.pdf"
+              download
               className="btn-secondary inline-flex items-center gap-2"
+              aria-label="Download CV as PDF"
             >
               <Download size={18} />
               Download PDF

@@ -1,1 +1,4 @@
 .DS_Store
+
+# Generated CV files (copied from submodule during build)
+portfolio-v2/public/cv/
