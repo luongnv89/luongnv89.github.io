@@ -6,6 +6,7 @@ on:
       - master
     paths:
       - 'portfolio-v2/**'
+      - 'cv/**'
       - '.github/workflows/deploy.yml'
   workflow_dispatch:
 
@@ -47,6 +48,7 @@ jobs:
           cp -r img portfolio-v2/dist/ 2>/dev/null || true
           cp -r font-awesome portfolio-v2/dist/ 2>/dev/null || true
           cp -r blogs portfolio-v2/dist/ 2>/dev/null || true
+          cp -r cv portfolio-v2/dist/ 2>/dev/null || true
 
       - name: Setup Pages
         uses: actions/configure-pages@v4

@@ -13,7 +13,7 @@ const cvSourceDir = path.resolve(projectRoot, '..', 'cv');
 const cvPublicDir = path.resolve(projectRoot, 'public', 'cv');
 
 // Files to copy
-const filesToCopy = ['cv.html', 'Luong_NGUYEN_CV.pdf', 'Luong_NGUYEN_CV.html'];
+const filesToCopy = ['cv.html', 'Luong_NGUYEN_CV.pdf', 'Luong_NGUYEN_CV.html', 'a8.png'];
 
 // Ensure cv directory exists in public
 if (!fs.existsSync(cvPublicDir)) {
