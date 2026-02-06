@@ -4,21 +4,21 @@
       "name": "claude-howto",
       "description": "Visual, example-driven guide to Claude Code — from basic concepts to advanced agents, with 50+ copy-paste templates",
       "language": "Python",
-      "stars": 914,
+      "stars": 958,
       "url": "https://github.com/luongnv89/claude-howto"
     },
     {
       "name": "cc-context-stats",
       "description": "Real-time Claude Code context usage monitoring — track session tokens across three operational zones to prevent performance degradation",
       "language": "Python",
-      "stars": 46,
+      "stars": 48,
       "url": "https://github.com/luongnv89/cc-context-stats"
     },
     {
       "name": "music-cli",
       "description": "Command-line music player for developers",
       "language": "Python",
-      "stars": 43,
+      "stars": 46,
       "url": "https://github.com/luongnv89/music-cli"
     },
     {
