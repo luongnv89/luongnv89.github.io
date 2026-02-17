@@ -6,6 +6,7 @@ export interface Project {
   language: string
   stars: number
   url: string
+  icon?: string
 }
 
 interface ProjectCardProps {
@@ -24,7 +25,7 @@ const languageColors: Record<string, string> = {
 }
 
 export function ProjectCard({ project }: ProjectCardProps) {
-  const { name, description, language, stars, url } = project
+  const { name, description, language, stars, url, icon } = project
 
   return (
     <a
@@ -34,7 +35,11 @@ export function ProjectCard({ project }: ProjectCardProps) {
       className="group card p-6 flex flex-col h-full focus-ring"
     >
       <div className="flex items-start justify-between mb-3">
-        <Folder className="w-5 h-5 text-accent" />
+        {icon ? (
+          <img src={icon} alt={`${name} logo`} className="w-6 h-6 rounded" />
+        ) : (
+          <Folder className="w-5 h-5 text-accent" />
+        )}
         <div className="flex items-center gap-4 text-sm text-[var(--text-muted)]">
           <div className="flex items-center gap-1">
             <Star className="w-4 h-4" />

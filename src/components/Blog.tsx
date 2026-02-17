@@ -2,6 +2,12 @@ import { ArrowRight, Calendar } from 'lucide-react'
 
 const posts = [
   {
+    title: 'Run Claude Code on Local/Cloud Models in 5 Minutes',
+    date: '2026-02-17',
+    excerpt: 'Quick guide to running Claude Code with Ollama, OpenRouter, and Llama.cpp — local and cloud model setups.',
+    url: 'https://medium.com/@luongnv89/run-claude-code-on-local-cloud-models-in-5-minutes-ollama-openrouter-llama-cpp-6dfeaee03cda',
+  },
+  {
     title: '4 Essential Slash Commands I Use in Every Project',
     date: '2025-12-26',
     excerpt: 'Building on the Discovering Claude Code Slash Commands article, focusing on practical workflow commands.',

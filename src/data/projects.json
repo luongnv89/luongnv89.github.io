@@ -5,7 +5,8 @@
       "description": "Visual, example-driven guide to Claude Code — from basic concepts to advanced agents, with 50+ copy-paste templates",
       "language": "Python",
       "stars": 978,
-      "url": "https://github.com/luongnv89/claude-howto"
+      "url": "https://github.com/luongnv89/claude-howto",
+      "icon": "/images/projects/claude-howto.svg"
     },
     {
       "name": "cc-context-stats",
@@ -19,7 +20,8 @@
       "description": "Command-line music player for developers",
       "language": "Python",
       "stars": 45,
-      "url": "https://github.com/luongnv89/music-cli"
+      "url": "https://github.com/luongnv89/music-cli",
+      "icon": "/images/projects/music-cli.svg"
     },
     {
       "name": "mmt-dpi",
@@ -33,7 +35,8 @@
       "description": "Voice cloning and text-to-speech with multiple engines — clone any voice from a short audio sample and generate speech in that voice",
       "language": "Python",
       "stars": 9,
-      "url": "https://github.com/luongnv89/voice-cast"
+      "url": "https://github.com/luongnv89/voice-cast",
+      "icon": "/images/projects/voice-cast.svg"
     },
     {
       "name": "doc-bases",
@@ -54,21 +57,24 @@
       "description": "Clean, minimal markdown preview for VS Code inspired by Zed — syntax highlighting, Mermaid diagrams, KaTeX math, and export to HTML/PDF",
       "language": "TypeScript",
       "stars": 0,
-      "url": "https://github.com/luongnv89/vscode-markdown-preview"
+      "url": "https://github.com/luongnv89/vscode-markdown-preview",
+      "icon": "/images/projects/vscode-markdown-preview.png"
     },
     {
       "name": "mdoctor",
       "description": "Keep your Mac healthy — comprehensive CLI to diagnose, clean, fix, and benchmark your macOS system. Pure Bash, zero dependencies",
       "language": "Shell",
       "stars": 0,
-      "url": "https://github.com/luongnv89/mdoctor"
+      "url": "https://github.com/luongnv89/mdoctor",
+      "icon": "/images/projects/mdoctor.svg"
     },
     {
       "name": "git-auto-switch",
       "description": "Manage multiple GitHub accounts with automatic identity switching based on workspace folders",
       "language": "Shell",
       "stars": 0,
-      "url": "https://github.com/luongnv89/git-auto-switch"
+      "url": "https://github.com/luongnv89/git-auto-switch",
+      "icon": "/images/projects/git-auto-switch.svg"
     },
     {
       "name": "yt-search-lib",
