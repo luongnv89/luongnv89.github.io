@@ -8,47 +8,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Custom palette
         accent: {
-          DEFAULT: '#00ff41',
-          hover: '#00cc33',
-          glow: 'rgba(0,255,65,0.15)',
-        },
-        bg: {
-          primary: {
-            light: '#ffffff',
-            dark: '#0a0a0a',
-          },
-          secondary: {
-            light: '#f9fafb',
-            dark: '#111111',
-          },
-          tertiary: {
-            light: '#f3f4f6',
-            dark: '#1a1a1a',
-          },
-        },
-        text: {
-          primary: {
-            light: '#111111',
-            dark: '#fafafa',
-          },
-          secondary: {
-            light: '#6b7280',
-            dark: '#a1a1a1',
-          },
-          muted: {
-            light: '#9ca3af',
-            dark: '#737373',
-          },
-        },
-        border: {
-          DEFAULT: '#e5e7eb',
-          dark: '#262626',
-          hover: {
-            light: '#d1d5db',
-            dark: '#404040',
-          },
+          DEFAULT: 'var(--accent)',
+          hover: 'var(--accent-hover)',
+          glow: 'var(--accent-glow)',
         },
       },
       fontFamily: {
@@ -56,8 +19,8 @@ export default {
         mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
       },
       boxShadow: {
-        'accent': '0 0 20px rgba(0,255,65,0.15)',
-        'accent-lg': '0 0 30px rgba(0,255,65,0.25)',
+        'accent': '0 0 20px var(--accent-glow)',
+        'accent-lg': '0 0 30px var(--accent-glow)',
       },
     },
   },
