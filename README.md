@@ -25,25 +25,25 @@ Personal portfolio website for **Luong Nguyen** - Senior AI & Cybersecurity Engi
 
 ```
 .
-├── portfolio-v2/          # React source code
-│   ├── src/
-│   │   ├── components/    # React components
-│   │   ├── hooks/         # Custom React hooks
-│   │   ├── lib/           # Utilities
-│   │   ├── data/          # Static data (projects)
-│   │   └── styles/        # Global CSS
-│   ├── public/            # Static assets
-│   └── package.json
+├── src/
+│   ├── components/        # React components
+│   ├── hooks/             # Custom React hooks
+│   ├── lib/               # Utilities
+│   ├── data/              # Static data (projects)
+│   └── styles/            # Global CSS
+├── public/                # Static assets
+├── scripts/               # Build scripts
 ├── .github/workflows/     # GitHub Actions CI/CD
 ├── 2025-ares/             # LLM Security presentation
 ├── img/                   # Shared images
+├── package.json
+├── vite.config.ts
 └── CNAME                  # Custom domain config
 ```
 
 ## Development
 
 ```bash
-cd portfolio-v2
 npm install
 npm run dev     # Start dev server at localhost:5173
 npm run build   # Build for production

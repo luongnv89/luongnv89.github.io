@@ -1,4 +1,28 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
 .DS_Store
+Thumbs.db
+
+# Vite cache
+.vite/
+
+# TypeScript build info
+*.tsbuildinfo
+vite.config.js
+vite.config.d.ts
 
 # Generated CV files (copied from submodule during build)
-portfolio-v2/public/cv/
+public/cv/

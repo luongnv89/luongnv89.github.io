@@ -9,7 +9,7 @@ const __dirname = path.dirname(__filename);
 
 // Paths
 const projectRoot = path.resolve(__dirname, '..');
-const cvSourceDir = path.resolve(projectRoot, '..', 'cv');
+const cvSourceDir = path.resolve(projectRoot, 'cv');
 const cvPublicDir = path.resolve(projectRoot, 'public', 'cv');
 
 // Files to copy

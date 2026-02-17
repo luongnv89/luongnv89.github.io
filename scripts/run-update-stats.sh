@@ -6,8 +6,7 @@ set -euo pipefail
 
 ENV_FILE="$HOME/.config/devstats/api.env"
 REPO_DIR="/home/luongnv/workspace/luongnv89.github.io"
-APP_DIR="$REPO_DIR/portfolio-v2"
-LOG_DIR="$APP_DIR/logs"
+LOG_DIR="$REPO_DIR/logs"
 
 mkdir -p "$LOG_DIR"
 
@@ -17,17 +16,15 @@ if [[ -f "$ENV_FILE" ]]; then
   set +a
 fi
 
-cd "$APP_DIR"
+cd "$REPO_DIR"
 
 # Ensure deps (assumes already installed; uncomment if needed)
 # npm ci
 
 npm run update-stats
 
-cd "$REPO_DIR"
-
-if ! git diff --quiet -- portfolio-v2/src/data/projects.json; then
-  git add portfolio-v2/src/data/projects.json
+if ! git diff --quiet -- src/data/projects.json; then
+  git add src/data/projects.json
   git commit -m "chore(portfolio): update GitHub stats" || true
 
   # Push using the configured SSH key for workspace repos
