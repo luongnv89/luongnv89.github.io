@@ -93,8 +93,8 @@ export function MatrixBackground() {
         if (isDark) {
           ctx.fillStyle = `rgba(0, ${green}, ${Math.floor(green * 0.25)}, ${brightness})`
         } else {
-          // Darker green for light mode - more visible
-          ctx.fillStyle = `rgba(0, ${Math.floor(green * 0.8)}, ${Math.floor(green * 0.2)}, ${brightness})`
+          // Darker green for light mode - matches --accent: #059033
+          ctx.fillStyle = `rgba(5, ${Math.floor(144 * brightness)}, ${Math.floor(51 * brightness)}, ${brightness * 0.9})`
         }
         ctx.fillText(char, x, y)
 

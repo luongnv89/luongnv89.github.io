@@ -26,6 +26,9 @@
     --text-muted: #737373;
     --border: #262626;
     --border-hover: #404040;
+    --accent: #00ff41;
+    --accent-hover: #00cc33;
+    --accent-glow: rgba(0, 255, 65, 0.15);
   }
 
   html {
