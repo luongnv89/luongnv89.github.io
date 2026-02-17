@@ -174,3 +174,31 @@ html.transitioning *::after {
 .animate-gift-bounce {
   animation: gift-bounce 2s ease-in-out infinite;
 }
+
+/* 3D Flip Card */
+.perspective-card {
+  perspective: 800px;
+  aspect-ratio: 1;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 600ms ease;
+  transform-style: preserve-3d;
+}
+
+.flip-card-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120" width="400" height="120">
+  <defs>
+    <style>
+      .wordmark { font-family: 'Inter', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; }
+    </style>
+  </defs>
+  <!-- Background -->
+  <rect width="400" height="120" fill="#FFFFFF" rx="4"/>
+  <!-- Slide icon -->
+  <rect x="20" y="20" width="72" height="54" rx="4" fill="none" stroke="#000000" stroke-width="3"/>
+  <!-- Slide content lines -->
+  <line x1="32" y1="36" x2="64" y2="36" stroke="#6B7280" stroke-width="2" stroke-linecap="round"/>
+  <line x1="32" y1="46" x2="56" y2="46" stroke="#6B7280" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="32" y1="54" x2="60" y2="54" stroke="#6B7280" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- Slide stand -->
+  <line x1="56" y1="74" x2="56" y2="86" stroke="#000000" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="42" y1="86" x2="70" y2="86" stroke="#000000" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Sound wave arcs -->
+  <path d="M 78 38 Q 86 47 78 56" fill="none" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M 84 32 Q 96 47 84 62" fill="none" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M 90 26 Q 106 47 90 68" fill="none" stroke="#22C55E" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+  <!-- Wordmark -->
+  <text x="118" y="58" class="wordmark" font-size="32" font-weight="700" fill="#000000" letter-spacing="-0.5">slide</text>
+  <text x="118" y="58" class="wordmark" font-size="32" font-weight="700" fill="#000000" letter-spacing="-0.5">slide</text>
+  <text x="193" y="58" class="wordmark" font-size="32" font-weight="700" fill="#22C55E" letter-spacing="-0.5">-speech</text>
+  <!-- Tagline -->
+  <text x="118" y="78" class="wordmark" font-size="11" font-weight="400" fill="#6B7280" letter-spacing="0.5">Automated Presentation Sync</text>
+</svg>

@@ -12,7 +12,7 @@ export function Projects() {
   const hasMore = projects.length > INITIAL_COUNT
 
   return (
-    <section id="projects" className="section bg-[var(--bg-secondary)]">
+    <section id="projects" className="section">
       <div className="container-custom">
         <h2 className="section-title">Featured Projects</h2>
         <p className="section-subtitle max-w-2xl">

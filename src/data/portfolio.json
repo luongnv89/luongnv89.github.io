@@ -1,0 +1,100 @@
+{
+  "projects": [
+    {
+      "name": "claude-howto",
+      "description": "A visual, example-driven guide to Claude Code — from basic concepts to advanced agents, with copy-paste templates that bring immediate value",
+      "language": "Python",
+      "stars": 983,
+      "url": "https://github.com/luongnv89/claude-howto",
+      "logo": "/images/projects/claude-howto.svg"
+    },
+    {
+      "name": "skills",
+      "description": "Supercharge your AI agents/bots with reusable skills",
+      "language": "Python",
+      "stars": 0,
+      "url": "https://github.com/luongnv89/skills",
+      "logo": "/images/projects/skills.svg"
+    },
+    {
+      "name": "llm-cli",
+      "description": "A wrapper of llama.cpp for easier use: find, download a model from Hugging Face, chat, get info, benchmark it",
+      "language": "Shell",
+      "stars": 1,
+      "url": "https://github.com/luongnv89/llm-cli",
+      "logo": "/images/projects/llm-cli.svg"
+    },
+    {
+      "name": "doc-bases",
+      "description": "Intelligent answers from any document",
+      "language": "Python",
+      "stars": 2,
+      "url": "https://github.com/luongnv89/doc-bases",
+      "logo": "/images/projects/doc-bases.svg"
+    },
+    {
+      "name": "voice-cast",
+      "description": "Your words, any voice. Voice cloning and text-to-speech with multiple TTS engines — clone any voice from a short audio sample",
+      "language": "Python",
+      "stars": 9,
+      "url": "https://github.com/luongnv89/voice-cast",
+      "logo": "/images/projects/voice-cast.svg"
+    },
+    {
+      "name": "mdoctor",
+      "description": "Keep your Mac healthy — comprehensive CLI to diagnose, clean, fix, and benchmark macOS",
+      "language": "Shell",
+      "stars": 0,
+      "url": "https://github.com/luongnv89/mdoctor",
+      "logo": "/images/projects/mdoctor.svg"
+    },
+    {
+      "name": "git-auto-switch",
+      "description": "A CLI tool for managing multiple GitHub accounts with automatic identity switching based on workspace folders",
+      "language": "Shell",
+      "stars": 0,
+      "url": "https://github.com/luongnv89/git-auto-switch",
+      "logo": "/images/projects/git-auto-switch.svg"
+    },
+    {
+      "name": "music-cli",
+      "description": "A command-line music player for coders — background daemon with radio streaming, local MP3s, and AI-generated music",
+      "language": "Python",
+      "stars": 45,
+      "url": "https://github.com/luongnv89/music-cli",
+      "logo": "/images/projects/music-cli.svg"
+    },
+    {
+      "name": "slide-speech",
+      "description": "Automate presentations — play synced audio for each slide of a PDF or PPTX, timed to each audio file's duration",
+      "language": "Python",
+      "stars": 3,
+      "url": "https://github.com/luongnv89/slide-speech",
+      "logo": "/images/projects/slide-speech.svg"
+    },
+    {
+      "name": "cc-context-stats",
+      "description": "Know your zone. Ship with confidence — real-time Claude Code context usage monitoring across three operational zones",
+      "language": "Python",
+      "stars": 52,
+      "url": "https://github.com/luongnv89/cc-context-stats",
+      "logo": "/images/projects/cc-context-stats.svg"
+    },
+    {
+      "name": "inbash",
+      "description": "Bootstrap your dev environment in a single command",
+      "language": "Shell",
+      "stars": 1,
+      "url": "https://github.com/luongnv89/inbash",
+      "logo": "/images/projects/inbash.svg"
+    },
+    {
+      "name": "vscode-markdown-preview",
+      "description": "Clean, minimal markdown preview for VS Code inspired by Zed — syntax highlighting, Mermaid diagrams, KaTeX math, and interactive features",
+      "language": "TypeScript",
+      "stars": 0,
+      "url": "https://github.com/luongnv89/vscode-markdown-preview",
+      "logo": "/images/projects/vscode-markdown-preview.svg"
+    }
+  ]
+}
