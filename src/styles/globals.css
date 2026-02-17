@@ -12,9 +12,9 @@
     --text-muted: #9ca3af;
     --border: #e5e7eb;
     --border-hover: #d1d5db;
-    --accent: #00ff41;
-    --accent-hover: #00cc33;
-    --accent-glow: rgba(0, 255, 65, 0.15);
+    --accent: #059033;
+    --accent-hover: #047528;
+    --accent-glow: rgba(5, 144, 51, 0.12);
   }
 
   .dark {
