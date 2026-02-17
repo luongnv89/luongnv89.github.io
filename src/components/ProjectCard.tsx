@@ -1,4 +1,4 @@
-import { Folder, Star, ExternalLink } from 'lucide-react'
+import { Star, ExternalLink } from 'lucide-react'
 
 export interface Project {
   name: string
@@ -24,47 +24,92 @@ const languageColors: Record<string, string> = {
   Go: '#00ADD8',
 }
 
+function getInitials(name: string): string {
+  return name
+    .split(/[-_]/)
+    .slice(0, 2)
+    .map((w) => w[0]?.toUpperCase() || '')
+    .join('')
+}
+
 export function ProjectCard({ project }: ProjectCardProps) {
   const { name, description, language, stars, url, icon } = project
+  const langColor = languageColors[language] || '#666'
 
   return (
     <a
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className="group card p-6 flex flex-col h-full focus-ring"
+      className="group card flex flex-col h-full focus-ring overflow-hidden"
     >
-      <div className="flex items-start justify-between mb-3">
+      {/* Hero zone — logo showcase */}
+      <div className="relative h-32 flex items-center justify-center bg-[var(--bg-tertiary)] overflow-hidden">
+        {/* Dot grid pattern */}
+        <div
+          className="absolute inset-0 opacity-[0.07]"
+          style={{
+            backgroundImage: `radial-gradient(circle, var(--text-muted) 1px, transparent 1px)`,
+            backgroundSize: '16px 16px',
+          }}
+        />
+
+        {/* Hover glow */}
+        <div
+          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+          style={{
+            background: `radial-gradient(circle at 50% 80%, ${icon ? 'var(--accent-glow)' : langColor + '22'}, transparent 70%)`,
+          }}
+        />
+
         {icon ? (
-          <img src={icon} alt={`${name} logo`} className="w-6 h-6 rounded" />
+          <img
+            src={icon}
+            alt={`${name} logo`}
+            className="relative w-16 h-16 object-contain drop-shadow-lg transition-transform duration-300 group-hover:scale-110"
+          />
         ) : (
-          <Folder className="w-5 h-5 text-accent" />
-        )}
-        <div className="flex items-center gap-4 text-sm text-[var(--text-muted)]">
-          <div className="flex items-center gap-1">
-            <Star className="w-4 h-4" />
-            <span>{stars}</span>
+          <div
+            className="relative w-16 h-16 rounded-2xl flex items-center justify-center text-xl font-bold tracking-tight transition-transform duration-300 group-hover:scale-110"
+            style={{
+              backgroundColor: langColor + '18',
+              color: langColor,
+              border: `1.5px solid ${langColor}44`,
+            }}
+          >
+            {getInitials(name)}
           </div>
-          <ExternalLink className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
-        </div>
+        )}
       </div>
 
-      <h3 className="font-semibold text-[var(--text-primary)] group-hover:text-accent transition-colors">
-        {name}
-      </h3>
+      {/* Content */}
+      <div className="flex flex-col flex-1 p-5">
+        <div className="flex items-start justify-between gap-2 mb-2">
+          <h3 className="font-semibold text-[var(--text-primary)] group-hover:text-accent transition-colors leading-snug">
+            {name}
+          </h3>
+          <ExternalLink className="w-4 h-4 shrink-0 mt-0.5 text-[var(--text-muted)] opacity-0 group-hover:opacity-100 transition-opacity" />
+        </div>
 
-      <p className="text-sm text-[var(--text-secondary)] mt-2 line-clamp-2 flex-1">
-        {description}
-      </p>
+        <p className="text-sm text-[var(--text-secondary)] line-clamp-2 flex-1">
+          {description}
+        </p>
 
-      <div className="mt-4">
-        <span className="inline-flex items-center gap-1.5 text-xs text-[var(--text-muted)]">
-          <span
-            className="w-2.5 h-2.5 rounded-full"
-            style={{ backgroundColor: languageColors[language] || '#666' }}
-          />
-          {language}
-        </span>
+        <div className="flex items-center justify-between mt-4 pt-3 border-t border-[var(--border)]">
+          <span className="inline-flex items-center gap-1.5 text-xs text-[var(--text-muted)]">
+            <span
+              className="w-2.5 h-2.5 rounded-full"
+              style={{ backgroundColor: langColor }}
+            />
+            {language}
+          </span>
+          {stars > 0 && (
+            <span className="inline-flex items-center gap-1 text-xs text-[var(--text-muted)]">
+              <Star className="w-3.5 h-3.5" />
+              {stars}
+            </span>
+          )}
+        </div>
       </div>
     </a>
   )
