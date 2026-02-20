@@ -1,0 +1,36 @@
+{
+  "projects": [
+    {
+      "name": "blogs",
+      "description": "A personal writing workspace for developer-focused blog posts.",
+      "language": "HTML",
+      "stars": 0,
+      "url": "https://github.com/luongnv89/blogs",
+      "logo": "/images/projects-private/blogs.svg"
+    },
+    {
+      "name": "ideas",
+      "description": "A collection of Claude Code skills that transform raw ideas into production-ready Product Requirements Documents and actionable development tasks.",
+      "language": "TypeScript",
+      "stars": 1,
+      "url": "https://github.com/luongnv89/ideas",
+      "logo": "/images/projects-private/ideas.svg"
+    },
+    {
+      "name": "notes",
+      "description": "Your second brain, version-controlled.",
+      "language": "JavaScript",
+      "stars": 0,
+      "url": "https://github.com/luongnv89/notes",
+      "logo": "/images/projects-private/notes.svg"
+    },
+    {
+      "name": "travels",
+      "description": "Plan it. Pack it. Live it.",
+      "language": "Markdown",
+      "stars": 0,
+      "url": "https://github.com/luongnv89/travels",
+      "logo": "/images/projects-private/travels.svg"
+    }
+  ]
+}
