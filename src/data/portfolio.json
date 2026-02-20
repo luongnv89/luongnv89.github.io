@@ -30,7 +30,7 @@
       "language": "Python",
       "stars": 2,
       "url": "https://github.com/luongnv89/doc-bases",
-      "logo": "/images/projects/doc-bases.svg"
+      "logo": "/images/projects/doc-bases-icon.svg"
     },
     {
       "name": "voice-cast",
@@ -70,7 +70,7 @@
       "language": "Python",
       "stars": 3,
       "url": "https://github.com/luongnv89/slide-speech",
-      "logo": "/images/projects/slide-speech.svg"
+      "logo": "/images/projects/slide-speech-icon.svg"
     },
     {
       "name": "cc-context-stats",
