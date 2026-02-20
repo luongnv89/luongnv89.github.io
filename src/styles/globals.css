@@ -178,6 +178,7 @@ html.transitioning *::after {
 /* 3D Flip Card */
 .perspective-card {
   perspective: 800px;
+  -webkit-perspective: 800px;
   aspect-ratio: 1;
 }
 
@@ -187,18 +188,31 @@ html.transitioning *::after {
   height: 100%;
   transition: transform 600ms ease;
   transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  will-change: transform;
 }
 
 .flip-card-face {
   position: absolute;
   inset: 0;
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  overflow: hidden;
+}
+
+.flip-card-face:not(.flip-card-back) {
+  transform: rotateY(0deg);
+  -webkit-transform: rotateY(0deg);
 }
 
 .flip-card-back {
   transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
 }
 
 .rotate-y-180 {
   transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
 }
