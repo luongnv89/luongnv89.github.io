@@ -22,7 +22,7 @@ export function Portfolio() {
 
           <div>
             <p className="section-subtitle max-w-2xl mb-6">
-              Private repositories (logo from <code>assets/logo</code>, tagline extracted from each README).
+              Some private projects.
             </p>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
               {privatePortfolioData.projects.map((project) => (
