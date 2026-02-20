@@ -18,6 +18,7 @@ const languageColors: Record<string, string> = {
   C: '#555555',
   HTML: '#E34C26',
   Markdown: '#083FA1',
+  Swift: '#F05138',
 }
 
 export function PortfolioCard({ project }: { project: PortfolioProject }) {

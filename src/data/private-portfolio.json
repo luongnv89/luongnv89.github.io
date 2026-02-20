@@ -9,6 +9,14 @@
       "logo": "/images/projects-private/blogs.svg"
     },
     {
+      "name": "custats",
+      "description": "Claude & Codex Usage Monitor for macOS, iOS & Android.",
+      "language": "Swift",
+      "stars": 0,
+      "url": "https://github.com/luongnv89/custats",
+      "logo": "/images/projects-private/custats.svg"
+    },
+    {
       "name": "ideas",
       "description": "A collection of Claude Code skills that transform raw ideas into production-ready Product Requirements Documents and actionable development tasks.",
       "language": "TypeScript",
