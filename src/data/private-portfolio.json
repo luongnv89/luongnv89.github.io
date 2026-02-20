@@ -6,7 +6,8 @@
       "language": "HTML",
       "stars": 0,
       "url": "https://github.com/luongnv89/blogs",
-      "logo": "/images/projects-private/blogs.svg"
+      "logo": "/images/projects-private/blogs.svg",
+      "showLink": false
     },
     {
       "name": "custats",
@@ -14,7 +15,8 @@
       "language": "Swift",
       "stars": 0,
       "url": "https://github.com/luongnv89/custats",
-      "logo": "/images/projects-private/custats.svg"
+      "logo": "/images/projects-private/custats.svg",
+      "showLink": false
     },
     {
       "name": "ideas",
@@ -22,7 +24,8 @@
       "language": "TypeScript",
       "stars": 1,
       "url": "https://github.com/luongnv89/ideas",
-      "logo": "/images/projects-private/ideas.svg"
+      "logo": "/images/projects-private/ideas.svg",
+      "showLink": false
     },
     {
       "name": "notes",
@@ -30,7 +33,8 @@
       "language": "JavaScript",
       "stars": 0,
       "url": "https://github.com/luongnv89/notes",
-      "logo": "/images/projects-private/notes.svg"
+      "logo": "/images/projects-private/notes.svg",
+      "showLink": false
     },
     {
       "name": "travels",
@@ -38,7 +42,8 @@
       "language": "Markdown",
       "stars": 0,
       "url": "https://github.com/luongnv89/travels",
-      "logo": "/images/projects-private/travels.svg"
+      "logo": "/images/projects-private/travels.svg",
+      "showLink": false
     }
   ]
 }

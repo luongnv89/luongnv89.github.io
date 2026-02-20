@@ -8,6 +8,7 @@ interface PortfolioProject {
   stars: number
   url: string
   logo: string
+  showLink?: boolean
 }
 
 const languageColors: Record<string, string> = {
@@ -88,16 +89,22 @@ export function PortfolioCard({ project }: { project: PortfolioProject }) {
             </div>
 
             <div className="flex items-center justify-between">
-              <a
-                href={project.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={(e) => e.stopPropagation()}
-                className="inline-flex items-center gap-1.5 text-xs font-medium text-accent hover:underline"
-              >
-                <ExternalLink size={12} />
-                GitHub
-              </a>
+              {project.showLink === false ? (
+                <span className="inline-flex items-center gap-1.5 text-xs font-medium text-[var(--text-muted)]">
+                  Private repo
+                </span>
+              ) : (
+                <a
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                  className="inline-flex items-center gap-1.5 text-xs font-medium text-accent hover:underline"
+                >
+                  <ExternalLink size={12} />
+                  GitHub
+                </a>
+              )}
               <RotateCcw size={14} className="text-[var(--text-muted)]" />
             </div>
           </div>
