@@ -2,10 +2,22 @@ import { ArrowRight, Calendar } from 'lucide-react'
 
 const posts = [
   {
-    title: 'Run Claude Code on Local/Cloud Models in 5 Minutes',
-    date: '2026-02-17',
-    excerpt: 'Quick guide to running Claude Code with Ollama, OpenRouter, and Llama.cpp — local and cloud model setups.',
+    title: 'Compatibility Debt Is Killing Perfectly Good Devices',
+    date: '2026-02-18',
+    excerpt: 'How one Vite compatibility tweak revived an iPad mini 2, and why intentional legacy support still matters for real users.',
+    url: 'https://x.com/luongnv89/status/2024141687384060382?s=20',
+  },
+  {
+    title: 'Run Claude Code with Local & Cloud Models in 5 Minutes (Ollama, LM Studio, llama.cpp, OpenRouter)',
+    date: '2026-01-31',
+    excerpt: 'An updated, practical guide to run Claude Code with local and cloud models using Ollama, LM Studio, llama.cpp, and OpenRouter.',
     url: 'https://medium.com/@luongnv89/run-claude-code-on-local-cloud-models-in-5-minutes-ollama-openrouter-llama-cpp-6dfeaee03cda',
+  },
+  {
+    title: 'Closing the Gap Between MVP and Production with feature-dev (an official plugin from Anthropic)',
+    date: '2025-12-28',
+    excerpt: 'How feature-dev helps bridge MVP to production with tests, CI/CD, linting, and docs in a structured workflow.',
+    url: 'https://medium.com/@luongnv89/closing-the-gap-between-mvp-and-production-with-feature-dev-an-official-plugin-from-anthropic-444e2f00a0ad',
   },
   {
     title: '4 Essential Slash Commands I Use in Every Project',
