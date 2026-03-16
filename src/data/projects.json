@@ -4,7 +4,7 @@
       "name": "claude-howto",
       "description": "Visual, example-driven guide to Claude Code — from basic concepts to advanced agents, with 50+ copy-paste templates",
       "language": "Python",
-      "stars": 978,
+      "stars": 1086,
       "url": "https://github.com/luongnv89/claude-howto",
       "icon": "/images/projects/claude-howto.svg"
     },
@@ -12,14 +12,14 @@
       "name": "cc-context-stats",
       "description": "Real-time Claude Code context usage monitoring — track session tokens across three operational zones to prevent performance degradation",
       "language": "Python",
-      "stars": 51,
+      "stars": 55,
       "url": "https://github.com/luongnv89/cc-context-stats"
     },
     {
       "name": "music-cli",
       "description": "Command-line music player for developers",
       "language": "Python",
-      "stars": 45,
+      "stars": 48,
       "url": "https://github.com/luongnv89/music-cli",
       "icon": "/images/projects/music-cli.svg"
     },
@@ -27,14 +27,14 @@
       "name": "mmt-dpi",
       "description": "Network packet data extraction library",
       "language": "C",
-      "stars": 8,
+      "stars": 9,
       "url": "https://github.com/Montimage/mmt-dpi"
     },
     {
       "name": "voice-cast",
       "description": "Voice cloning and text-to-speech with multiple engines — clone any voice from a short audio sample and generate speech in that voice",
       "language": "Python",
-      "stars": 9,
+      "stars": 11,
       "url": "https://github.com/luongnv89/voice-cast",
       "icon": "/images/projects/voice-cast.svg"
     },
@@ -56,7 +56,7 @@
       "name": "vscode-markdown-preview",
       "description": "Clean, minimal markdown preview for VS Code inspired by Zed — syntax highlighting, Mermaid diagrams, KaTeX math, and export to HTML/PDF",
       "language": "TypeScript",
-      "stars": 0,
+      "stars": 10,
       "url": "https://github.com/luongnv89/vscode-markdown-preview",
       "icon": "/images/projects/vscode-markdown-preview.png"
     },
