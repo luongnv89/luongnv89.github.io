@@ -2,6 +2,16 @@ import { ArrowRight, Calendar } from 'lucide-react'
 
 const posts = [
   {
+    title: "gstack Is Not a Dev Tool. It's Garry Tan's Brain on AI",
+    date: '2026-03-18',
+    excerpt: 'Why gstack is more than a developer tool — it encodes Garry Tan\'s startup philosophy into an AI-powered workflow.',
+    url: 'https://x.com/luongnv89/status/2034387319289950323',
+    extraLinks: [
+      { label: 'Medium', url: 'https://medium.com/@luongnv89/gstack-is-not-a-dev-tool-its-garry-tan-s-brain-on-ai-b813e09b32c7' },
+      { label: 'Substack', url: 'https://open.substack.com/pub/luongnv89/p/gstack-is-not-a-dev-tool-its-garry' },
+    ],
+  },
+  {
     title: 'Compatibility Debt Is Killing Perfectly Good Devices',
     date: '2026-02-18',
     excerpt: 'How one Vite compatibility tweak revived an iPad mini 2, and why intentional legacy support still matters for real users.',
@@ -67,18 +77,15 @@ export function Blog() {
         </p>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {posts.slice(0, 6).map(({ title, date, excerpt, url }) => (
-            <a
-              key={title}
-              href={url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group card p-6 flex flex-col focus-ring"
+          {posts.slice(0, 6).map((post) => (
+            <div
+              key={post.title}
+              className="group card p-6 flex flex-col"
             >
               <div className="flex items-center gap-2 text-sm text-[var(--text-muted)] mb-3">
                 <Calendar size={14} />
-                <time dateTime={date}>
-                  {new Date(date).toLocaleDateString('en-US', {
+                <time dateTime={post.date}>
+                  {new Date(post.date).toLocaleDateString('en-US', {
                     month: 'short',
                     day: 'numeric',
                     year: 'numeric',
@@ -86,18 +93,43 @@ export function Blog() {
                 </time>
               </div>
 
-              <h3 className="font-semibold text-[var(--text-primary)] group-hover:text-accent transition-colors">
-                {title}
-              </h3>
+              <a
+                href={post.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="focus-ring"
+              >
+                <h3 className="font-semibold text-[var(--text-primary)] group-hover:text-accent transition-colors">
+                  {post.title}
+                </h3>
+              </a>
 
               <p className="text-sm text-[var(--text-secondary)] mt-2 flex-1">
-                {excerpt}
+                {post.excerpt}
               </p>
 
-              <div className="mt-4 flex items-center gap-1 text-sm text-accent opacity-0 group-hover:opacity-100 transition-opacity">
-                Read more <ArrowRight size={14} />
+              <div className="mt-4 flex items-center gap-2 text-sm">
+                <a
+                  href={post.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-accent hover:underline font-medium"
+                >
+                  Read more <ArrowRight size={14} />
+                </a>
+                {post.extraLinks?.map((link) => (
+                  <a
+                    key={link.label}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[var(--text-muted)] hover:text-accent transition-colors hover:underline"
+                  >
+                    {link.label}
+                  </a>
+                ))}
               </div>
-            </a>
+            </div>
           ))}
         </div>
 
