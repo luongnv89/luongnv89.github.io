@@ -57,36 +57,12 @@
       "logo": "/images/projects/vscode-markdown-preview.svg"
     },
     {
-      "name": "gstack",
-      "description": "Use Garry Tan's exact Claude Code setup — 6 opinionated tools that serve as CEO, Eng Manager, Release Manager and QA Engineer",
-      "language": "TypeScript",
-      "stars": 0,
-      "url": "https://github.com/luongnv89/gstack",
-      "logo": "/images/projects/gstack.svg"
-    },
-    {
-      "name": "App-Store-Connect-CLI",
-      "description": "Fast, scriptable CLI for the App Store Connect API — automate TestFlight, builds, submissions, signing, analytics, and more",
-      "language": "Go",
-      "stars": 0,
-      "url": "https://github.com/luongnv89/App-Store-Connect-CLI",
-      "logo": "/images/projects/app-store-connect-cli.svg"
-    },
-    {
       "name": "repo-insights",
       "description": "Generate comprehensive GitHub repo insights — real users vs bots, traffic, referrers, package stats",
       "language": "Shell",
       "stars": 0,
       "url": "https://github.com/luongnv89/repo-insights",
       "logo": "/images/projects/repo-insights.svg"
-    },
-    {
-      "name": "vibe-coding",
-      "description": "A living repository for vibe coders — resources, tips, and tools for the modern developer experience",
-      "language": "Markdown",
-      "stars": 5,
-      "url": "https://github.com/luongnv89/vibe-coding",
-      "logo": "/images/projects/vibe-coding.svg"
     },
     {
       "name": "llm-cli",
