@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <rect width="512" height="512" rx="112" fill="#0A0A0A"/>
+
+  <!-- Video frame (left) -->
+  <rect x="60" y="160" width="160" height="120" rx="12" fill="#111111" stroke="#374151" stroke-width="3"/>
+  <!-- Play button -->
+  <polygon points="120,200 120,250 158,225" fill="#22C55E"/>
+
+  <!-- Arrow -->
+  <line x1="240" y1="220" x2="290" y2="220" stroke="#22C55E" stroke-width="8" stroke-linecap="round"/>
+  <polygon points="290,205 320,220 290,235" fill="#22C55E"/>
+
+  <!-- GIF frame (right) with sparkle -->
+  <rect x="340" y="160" width="120" height="120" rx="12" fill="#111111" stroke="#22C55E" stroke-width="3"/>
+  <text x="400" y="228" text-anchor="middle" fill="#22C55E" font-family="monospace" font-size="28" font-weight="bold">GIF</text>
+
+  <!-- Film strip decoration -->
+  <rect x="100" y="340" width="312" height="48" rx="8" fill="#111111" stroke="#374151" stroke-width="2"/>
+  <rect x="116" y="350" width="28" height="28" rx="4" fill="#22C55E" opacity="0.3"/>
+  <rect x="156" y="350" width="28" height="28" rx="4" fill="#22C55E" opacity="0.4"/>
+  <rect x="196" y="350" width="28" height="28" rx="4" fill="#22C55E" opacity="0.5"/>
+  <rect x="236" y="350" width="28" height="28" rx="4" fill="#22C55E" opacity="0.6"/>
+  <rect x="276" y="350" width="28" height="28" rx="4" fill="#22C55E" opacity="0.7"/>
+  <rect x="316" y="350" width="28" height="28" rx="4" fill="#22C55E" opacity="0.8"/>
+  <rect x="356" y="350" width="28" height="28" rx="4" fill="#22C55E" opacity="0.9"/>
+</svg>

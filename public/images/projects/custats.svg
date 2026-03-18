@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <rect width="512" height="512" rx="112" fill="#0A0A0A"/>
+
+  <!-- Menubar indicator -->
+  <rect x="80" y="80" width="352" height="32" rx="8" fill="#1A1A1A"/>
+  <circle cx="416" cy="96" r="8" fill="#22C55E"/>
+  <rect x="360" y="92" width="40" height="8" rx="4" fill="#374151"/>
+
+  <!-- Usage meter ring -->
+  <circle cx="256" cy="270" r="120" stroke="#1A1A1A" stroke-width="24" fill="none"/>
+  <circle cx="256" cy="270" r="120" stroke="#22C55E" stroke-width="24" fill="none" stroke-dasharray="502 754" stroke-linecap="round" transform="rotate(-90 256 270)"/>
+
+  <!-- Percentage text -->
+  <text x="256" y="260" text-anchor="middle" fill="#FFFFFF" font-family="monospace" font-size="48" font-weight="bold">67%</text>
+  <text x="256" y="295" text-anchor="middle" fill="#374151" font-family="monospace" font-size="16">USAGE</text>
+
+  <!-- Countdown -->
+  <rect x="180" y="420" width="152" height="32" rx="8" fill="#111111" stroke="#374151" stroke-width="2"/>
+  <text x="256" y="442" text-anchor="middle" fill="#22C55E" font-family="monospace" font-size="14">04:32:15</text>
+</svg>

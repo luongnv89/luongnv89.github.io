@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <rect width="512" height="512" rx="112" fill="#0A0A0A"/>
+
+  <!-- Orbit rings -->
+  <ellipse cx="256" cy="256" rx="180" ry="80" stroke="#374151" stroke-width="3" fill="none" transform="rotate(-20 256 256)"/>
+  <ellipse cx="256" cy="256" rx="180" ry="80" stroke="#374151" stroke-width="3" fill="none" transform="rotate(40 256 256)"/>
+  <ellipse cx="256" cy="256" rx="180" ry="80" stroke="#374151" stroke-width="3" fill="none" transform="rotate(100 256 256)"/>
+
+  <!-- Center planet -->
+  <circle cx="256" cy="256" r="40" fill="#22C55E"/>
+  <circle cx="256" cy="256" r="24" fill="#0A0A0A"/>
+  <circle cx="256" cy="256" r="12" fill="#22C55E"/>
+
+  <!-- Orbiting metric dots -->
+  <circle cx="140" cy="190" r="10" fill="#22C55E" opacity="0.8"/>
+  <circle cx="380" cy="210" r="8" fill="#F59E0B"/>
+  <circle cx="300" cy="360" r="9" fill="#3178C6"/>
+
+  <!-- Metric bars at bottom -->
+  <rect x="140" y="420" width="40" height="20" rx="4" fill="#22C55E" opacity="0.6"/>
+  <rect x="196" y="410" width="40" height="30" rx="4" fill="#22C55E" opacity="0.8"/>
+  <rect x="252" y="400" width="40" height="40" rx="4" fill="#22C55E"/>
+  <rect x="308" y="415" width="40" height="25" rx="4" fill="#22C55E" opacity="0.7"/>
+  <rect x="364" y="425" width="40" height="15" rx="4" fill="#22C55E" opacity="0.4"/>
+</svg>

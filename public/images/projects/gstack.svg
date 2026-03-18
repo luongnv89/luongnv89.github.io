@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <rect width="512" height="512" rx="112" fill="#0A0A0A"/>
+
+  <!-- Stacked layers -->
+  <path d="M256 140 L420 210 L256 280 L92 210 Z" fill="#22C55E" opacity="0.3" stroke="#22C55E" stroke-width="3"/>
+  <path d="M256 190 L420 260 L256 330 L92 260 Z" fill="#22C55E" opacity="0.5" stroke="#22C55E" stroke-width="3"/>
+  <path d="M256 240 L420 310 L256 380 L92 310 Z" fill="#22C55E" opacity="0.8" stroke="#22C55E" stroke-width="3"/>
+
+  <!-- G letter overlay -->
+  <text x="256" y="335" text-anchor="middle" fill="#0A0A0A" font-family="monospace" font-size="80" font-weight="900">G</text>
+
+  <!-- Sparkle dots -->
+  <circle cx="180" cy="150" r="5" fill="#22C55E"/>
+  <circle cx="340" cy="160" r="4" fill="#22C55E" opacity="0.6"/>
+  <circle cx="140" cy="380" r="3" fill="#22C55E" opacity="0.4"/>
+  <circle cx="380" cy="370" r="4" fill="#22C55E" opacity="0.5"/>
+
+  <!-- Label -->
+  <rect x="180" y="410" width="152" height="32" rx="8" fill="#111111" stroke="#22C55E" stroke-width="2"/>
+  <text x="256" y="432" text-anchor="middle" fill="#22C55E" font-family="monospace" font-size="14" font-weight="bold">GSTACK</text>
+</svg>

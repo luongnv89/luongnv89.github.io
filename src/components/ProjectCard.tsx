@@ -22,6 +22,7 @@ const languageColors: Record<string, string> = {
   'C++': '#f34b7d',
   Rust: '#dea584',
   Go: '#00ADD8',
+  Markdown: '#083FA1',
 }
 
 function getInitials(name: string): string {

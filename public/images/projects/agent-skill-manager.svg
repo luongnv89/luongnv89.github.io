@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <rect width="512" height="512" rx="112" fill="#0A0A0A"/>
+
+  <!-- Universal globe ring -->
+  <circle cx="256" cy="240" r="120" stroke="#22C55E" stroke-width="8" fill="none"/>
+  <ellipse cx="256" cy="240" rx="60" ry="120" stroke="#22C55E" stroke-width="5" fill="none"/>
+  <line x1="136" y1="240" x2="376" y2="240" stroke="#22C55E" stroke-width="5"/>
+  <line x1="152" y1="190" x2="360" y2="190" stroke="#374151" stroke-width="4"/>
+  <line x1="152" y1="290" x2="360" y2="290" stroke="#374151" stroke-width="4"/>
+
+  <!-- Skills nodes around -->
+  <circle cx="256" cy="120" r="14" fill="#22C55E"/>
+  <circle cx="376" cy="240" r="14" fill="#22C55E"/>
+  <circle cx="136" cy="240" r="14" fill="#22C55E"/>
+  <circle cx="256" cy="360" r="14" fill="#22C55E"/>
+
+  <!-- Center agent core -->
+  <circle cx="256" cy="240" r="28" fill="#22C55E"/>
+  <circle cx="256" cy="240" r="16" fill="#0A0A0A"/>
+
+  <!-- Label bar -->
+  <rect x="160" y="400" width="192" height="36" rx="8" fill="#111111" stroke="#22C55E" stroke-width="2"/>
+  <text x="256" y="424" text-anchor="middle" fill="#22C55E" font-family="monospace" font-size="16" font-weight="bold">ASM</text>
+</svg>

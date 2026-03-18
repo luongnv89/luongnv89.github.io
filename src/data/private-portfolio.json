@@ -37,6 +37,33 @@
       "showLink": false
     },
     {
+      "name": "devstats",
+      "description": "See your GitHub stats — contributions, streaks, language breakdown, and activity insights in a beautiful dashboard.",
+      "language": "TypeScript",
+      "stars": 0,
+      "url": "https://github.com/luongnv89/devstats",
+      "logo": "/images/projects-private/devstats.svg",
+      "showLink": false
+    },
+    {
+      "name": "git-mark",
+      "description": "Your GitHub stars, finally organised — a native macOS app to bookmark, tag, and search your starred repositories.",
+      "language": "Swift",
+      "stars": 0,
+      "url": "https://github.com/luongnv89/git-mark",
+      "logo": "/images/projects-private/git-mark.svg",
+      "showLink": false
+    },
+    {
+      "name": "orbitmetric",
+      "description": "Lightweight, cross-platform telemetry tool that visualizes real-time and historical application performance with zero overhead.",
+      "language": "Svelte",
+      "stars": 0,
+      "url": "https://github.com/luongnv89/orbitmetric",
+      "logo": "/images/projects-private/orbitmetric.svg",
+      "showLink": false
+    },
+    {
       "name": "travels",
       "description": "Plan it. Pack it. Live it.",
       "language": "Markdown",
