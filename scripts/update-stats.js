@@ -7,9 +7,9 @@
  *   node scripts/update-stats.js
  *
  * This script:
- * 1. Fetches the latest star counts for all projects in projects.json
- * 2. Updates the projects.json file with the new star counts
- * 3. Optionally updates a stats.json file with GitHub user stats
+ * 1. Fetches the latest star counts for GitHub-backed projects
+ * 2. Updates the data files that power the portfolio/project sections
+ * 3. Prints GitHub user stats for visibility in cron logs
  */
 
 import { readFileSync, writeFileSync } from 'fs';
@@ -20,13 +20,21 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const GITHUB_USERNAME = 'luongnv89';
-const PROJECTS_FILE = join(__dirname, '../src/data/projects.json');
+const DATA_FILES = [
+  join(__dirname, '../src/data/projects.json'),
+  join(__dirname, '../src/data/portfolio.json'),
+];
 
 // Parse GitHub repo URL to get owner and repo name
 function parseGitHubUrl(url) {
   const match = url.match(/github\.com\/([^/]+)\/([^/]+)/);
   if (!match) return null;
   return { owner: match[1], repo: match[2] };
+}
+
+function repoKeyFromUrl(url) {
+  const parsed = parseGitHubUrl(url);
+  return parsed ? `${parsed.owner}/${parsed.repo}` : null;
 }
 
 // Fetch repo stats from GitHub API
@@ -109,12 +117,26 @@ async function fetchTotalStars(username) {
 async function main() {
   console.log('🔄 Updating project stats from GitHub...\n');
 
-  // Read current projects
-  const projectsData = JSON.parse(readFileSync(PROJECTS_FILE, 'utf-8'));
-  let updated = false;
+  const datasets = DATA_FILES.map((file) => ({
+    file,
+    data: JSON.parse(readFileSync(file, 'utf-8')),
+    updated: false,
+  }));
 
-  // Update each project
-  for (const project of projectsData.projects) {
+  const repoStars = new Map();
+  const seenRepos = [];
+
+  for (const { data } of datasets) {
+    for (const project of data.projects) {
+      const key = repoKeyFromUrl(project.url);
+      if (key && !repoStars.has(key)) {
+        repoStars.set(key, null);
+        seenRepos.push({ key, project });
+      }
+    }
+  }
+
+  for (const { key, project } of seenRepos) {
     const parsed = parseGitHubUrl(project.url);
     if (!parsed) {
       console.log(`⚠️  Skipping ${project.name}: Invalid GitHub URL`);
@@ -123,30 +145,39 @@ async function main() {
 
     const stats = await fetchRepoStats(parsed.owner, parsed.repo);
     if (stats) {
-      const oldStars = project.stars;
-      const newStars = stats.stargazers_count;
-
-      if (oldStars !== newStars) {
-        project.stars = newStars;
-        const diff = newStars - oldStars;
-        const diffStr = diff > 0 ? `+${diff}` : `${diff}`;
-        console.log(`⭐ ${project.name}: ${oldStars} → ${newStars} (${diffStr})`);
-        updated = true;
-      } else {
-        console.log(`✓  ${project.name}: ${newStars} stars (no change)`);
-      }
+      repoStars.set(key, stats.stargazers_count);
     }
 
     // Rate limiting: wait 100ms between requests
     await new Promise(resolve => setTimeout(resolve, 100));
   }
 
-  // Save updated projects
-  if (updated) {
-    writeFileSync(PROJECTS_FILE, JSON.stringify(projectsData, null, 2) + '\n');
-    console.log('\n✅ projects.json updated');
-  } else {
-    console.log('\n✓ No changes to projects.json');
+  for (const dataset of datasets) {
+    for (const project of dataset.data.projects) {
+      const key = repoKeyFromUrl(project.url);
+      const newStars = key ? repoStars.get(key) : null;
+      if (newStars == null) continue;
+
+      const oldStars = project.stars;
+      if (oldStars !== newStars) {
+        project.stars = newStars;
+        dataset.updated = true;
+        const diff = newStars - oldStars;
+        const diffStr = diff > 0 ? `+${diff}` : `${diff}`;
+        console.log(`⭐ ${project.name} (${dataset.file.split('/').pop()}): ${oldStars} → ${newStars} (${diffStr})`);
+      } else {
+        console.log(`✓  ${project.name} (${dataset.file.split('/').pop()}): ${newStars} stars (no change)`);
+      }
+    }
+  }
+
+  for (const dataset of datasets) {
+    if (dataset.updated) {
+      writeFileSync(dataset.file, JSON.stringify(dataset.data, null, 2) + '\n');
+      console.log(`\n✅ ${dataset.file.split('/').pop()} updated`);
+    } else {
+      console.log(`\n✓ No changes to ${dataset.file.split('/').pop()}`);
+    }
   }
 
   // Fetch and display user stats
