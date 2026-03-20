@@ -4,7 +4,7 @@
       "name": "claude-howto",
       "description": "Visual, example-driven guide to Claude Code — from basic concepts to advanced agents, with 50+ copy-paste templates",
       "language": "Python",
-      "stars": 1108,
+      "stars": 1109,
       "url": "https://github.com/luongnv89/claude-howto",
       "icon": "/images/projects/claude-howto.svg"
     },
@@ -27,7 +27,7 @@
       "name": "agent-skill-manager",
       "description": "The universal skill manager for AI coding agents — install, audit, and manage reusable skills across Claude Code, Codex, and more",
       "language": "TypeScript",
-      "stars": 67,
+      "stars": 85,
       "url": "https://github.com/luongnv89/agent-skill-manager",
       "icon": "/images/projects/agent-skill-manager.svg"
     },
@@ -111,7 +111,7 @@
       "name": "mdoctor",
       "description": "Keep your Mac healthy — comprehensive CLI to diagnose, clean, fix, and benchmark your macOS system. Pure Bash, zero dependencies",
       "language": "Shell",
-      "stars": 0,
+      "stars": 1,
       "url": "https://github.com/luongnv89/mdoctor",
       "icon": "/images/projects/mdoctor.svg"
     },
