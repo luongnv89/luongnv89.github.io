@@ -60,8 +60,9 @@ export function Hero() {
       </h1>
 
       <p className="mt-4 text-lg text-[var(--text-secondary)] max-w-md text-center leading-relaxed">
-        Software Engineer with 10+ years building secure, scalable systems
-        and AI-powered applications.
+        Software Engineer - AI, Cybersecurity
+        <br />
+        Learn, Build, Share and Connect
       </p>
 
       {/* GitHub Stats */}
