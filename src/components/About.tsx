@@ -1,10 +1,16 @@
-import { MapPin, Briefcase, Code2, Shield, Brain } from 'lucide-react'
+import { MapPin, Code2, Shield, Brain, BookOpen, Hammer, Share2, Users } from 'lucide-react'
 
 const highlights = [
-  { icon: Briefcase, label: '10+ Years Experience' },
-  { icon: Code2, label: 'Backend & Systems' },
-  { icon: Shield, label: 'Cybersecurity' },
-  { icon: Brain, label: 'AI/LLM Applications' },
+  { icon: Code2, label: 'Software Engineer', description: 'Building robust, scalable systems for over a decade' },
+  { icon: Brain, label: 'AI & LLM', description: 'Crafting intelligent applications powered by large language models' },
+  { icon: Shield, label: 'Cybersecurity', description: 'Securing networks and systems through deep packet inspection and beyond' },
+]
+
+const pillars = [
+  { icon: BookOpen, label: 'Learn', description: 'Staying curious — constantly exploring new technologies and ideas' },
+  { icon: Hammer, label: 'Build', description: 'Turning ideas into real tools and open-source projects' },
+  { icon: Share2, label: 'Share', description: 'Writing, speaking, and open-sourcing to give back to the community' },
+  { icon: Users, label: 'Connect', description: 'Collaborating with engineers and researchers around the world' },
 ]
 
 export function About() {
@@ -13,43 +19,64 @@ export function About() {
       <div className="container-custom">
         <h2 className="section-title">About</h2>
         <p className="section-subtitle max-w-2xl">
-          Building the future, one line of code at a time.
+          Software engineer first — driven by curiosity, building with purpose.
         </p>
 
         <div className="grid md:grid-cols-2 gap-12 items-start">
           {/* Bio */}
           <div className="space-y-6">
             <p className="text-[var(--text-secondary)] leading-relaxed">
-              I'm a Senior Software Engineer based in <span className="text-accent inline-flex items-center gap-1"><MapPin size={14} /> Paris, France</span>.
-              With over a decade of experience, I specialize in designing and delivering
-              secure, scalable backend systems and AI-powered applications.
+              I'm a Software Engineer based in <span className="text-accent inline-flex items-center gap-1"><MapPin size={14} /> Paris, France</span>.
+              At my core, I'm an engineer who loves solving hard problems — whether that means
+              building scalable backend systems, training AI models, or hardening networks against attacks.
             </p>
             <p className="text-[var(--text-secondary)] leading-relaxed">
-              My work spans from deep packet inspection and network security tools
-              to modern LLM integrations and developer tooling. I'm passionate about
-              open-source and building tools that make developers' lives easier.
+              My focus areas are <span className="text-accent font-medium">AI</span> and <span className="text-accent font-medium">Cybersecurity</span>.
+              From deep packet inspection and network security tools to LLM-powered applications
+              and developer tooling, I work at the intersection of intelligence and defense.
             </p>
             <p className="text-[var(--text-secondary)] leading-relaxed">
-              When I'm not coding, I'm exploring new technologies, contributing to
-              the community, or spending time with my family.
+              But engineering is only half the story. I believe in a cycle of
+              {' '}<span className="text-accent font-medium">learning</span> new things,
+              {' '}<span className="text-accent font-medium">building</span> real tools,
+              {' '}<span className="text-accent font-medium">sharing</span> knowledge openly, and
+              {' '}<span className="text-accent font-medium">connecting</span> with others who care about the craft.
+              That's what keeps me going.
             </p>
           </div>
 
-          {/* Highlights */}
-          <div className="grid grid-cols-2 gap-4">
-            {highlights.map(({ icon: Icon, label }) => (
-              <div
-                key={label}
-                className="card p-6 flex flex-col items-center text-center gap-3"
-              >
-                <div className="w-12 h-12 rounded-full border border-accent flex items-center justify-center">
-                  <Icon size={20} className="text-accent" />
+          {/* Focus Areas */}
+          <div className="space-y-6">
+            <div className="space-y-3">
+              {highlights.map(({ icon: Icon, label, description }) => (
+                <div
+                  key={label}
+                  className="card p-4 flex items-center gap-4"
+                >
+                  <div className="w-10 h-10 rounded-full border border-accent flex items-center justify-center shrink-0">
+                    <Icon size={18} className="text-accent" />
+                  </div>
+                  <div>
+                    <span className="text-sm font-medium text-[var(--text-primary)]">{label}</span>
+                    <p className="text-xs text-[var(--text-muted)] mt-0.5">{description}</p>
+                  </div>
                 </div>
-                <span className="text-sm font-medium text-[var(--text-primary)]">
-                  {label}
-                </span>
-              </div>
-            ))}
+              ))}
+            </div>
+
+            {/* Pillars */}
+            <div className="grid grid-cols-4 gap-3">
+              {pillars.map(({ icon: Icon, label, description }) => (
+                <div
+                  key={label}
+                  className="card p-3 flex flex-col items-center text-center gap-2"
+                  title={description}
+                >
+                  <Icon size={18} className="text-accent" />
+                  <span className="text-xs font-medium text-[var(--text-primary)]">{label}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
