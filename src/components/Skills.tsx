@@ -1,19 +1,19 @@
 const skillCategories = [
   {
-    title: 'AI & Machine Learning',
-    skills: ['LLM Integration', 'Langchain/Langgraph', 'AI Agents', 'RAG Systems', 'Finetune', 'AI Coding Tools', 'Spec Driven Development'],
+    title: 'AI workflows & agents',
+    skills: ['AI Agents', 'Agent Skills', 'AI Coding Tools', 'Prompt Engineering', 'Langchain/Langgraph', 'Spec Driven Development'],
   },
   {
-    title: 'Cybersecurity',
-    skills: ['DPI', 'Network Security', 'Packet Analysis', 'Threat Detection', 'Security Monitoring'],
+    title: 'Deployment & production',
+    skills: ['Docker', 'CI/CD', 'Release Automation', 'Production Deployments', 'Monitoring', 'Observability', 'Rollbacks'],
   },
   {
-    title: 'Backend & Systems',
-    skills: ['Python', 'C/C++', 'Node.js', 'PostgreSQL', 'Redis', 'Docker'],
+    title: 'Cybersecurity at Montimage',
+    skills: ['DPI', 'Network Security', 'Packet Analysis', 'Threat Detection', 'Security Monitoring', 'Traffic Inspection'],
   },
   {
-    title: 'Tools & Platforms',
-    skills: ['Git', 'Linux', 'GitHub Actions', 'CLI Development'],
+    title: 'CLI & developer tools',
+    skills: ['Python', 'Shell', 'TypeScript', 'Node.js', 'GitHub Actions', 'Linux', 'Automation'],
   },
 ]
 
@@ -23,7 +23,7 @@ export function Skills() {
       <div className="container-custom">
         <h2 className="section-title">Skills & Expertise</h2>
         <p className="section-subtitle max-w-2xl">
-          Technologies and domains I work with.
+          Skills reflected by the projects I actually ship: the full DevOps cycle from AI workflows to deployment, security, and production operations.
         </p>
 
         <div className="grid md:grid-cols-2 gap-8">

@@ -3,6 +3,7 @@ import { Star, ExternalLink, RotateCcw } from 'lucide-react'
 
 interface PortfolioProject {
   name: string
+  displayName?: string
   description: string
   language: string
   stars: number
@@ -27,6 +28,7 @@ const languageColors: Record<string, string> = {
 
 export function PortfolioCard({ project }: { project: PortfolioProject }) {
   const [flipped, setFlipped] = useState(false)
+  const title = project.displayName ?? project.name
 
   return (
     <div
@@ -40,7 +42,7 @@ export function PortfolioCard({ project }: { project: PortfolioProject }) {
       }}
       tabIndex={0}
       role="button"
-      aria-label={`${project.name} — click to ${flipped ? 'see logo' : 'see details'}`}
+      aria-label={`${title} — click to ${flipped ? 'see logo' : 'see details'}`}
     >
       <div className={`flip-card-inner ${flipped ? 'rotate-y-180' : ''}`}>
         {/* Front — Logo */}
@@ -54,12 +56,12 @@ export function PortfolioCard({ project }: { project: PortfolioProject }) {
           >
             <img
               src={project.logo}
-              alt={project.name}
+              alt={title}
               className="w-24 h-24 object-contain relative z-10 drop-shadow-md"
             />
           </div>
           <span className="mt-4 text-sm font-medium text-[var(--text-primary)]">
-            {project.name}
+            {title}
           </span>
         </div>
 
@@ -67,7 +69,7 @@ export function PortfolioCard({ project }: { project: PortfolioProject }) {
         <div className="flip-card-face flip-card-back rounded-xl border border-[var(--accent)] bg-[var(--bg-secondary)] p-5 flex flex-col justify-between">
           <div>
             <h3 className="text-sm font-semibold text-[var(--text-primary)] mb-2">
-              {project.name}
+              {title}
             </h3>
             <p className="text-xs text-[var(--text-secondary)] leading-relaxed line-clamp-3">
               {project.description}

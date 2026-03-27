@@ -1,9 +1,6 @@
-import { Link } from 'react-router-dom'
-
 interface NavLink {
   label: string
   href: string
-  isRoute?: boolean
 }
 
 const links: NavLink[] = [
@@ -12,7 +9,13 @@ const links: NavLink[] = [
   { label: 'Skills', href: '#skills' },
   { label: 'Blog', href: '#blog' },
   { label: 'Contact', href: '#contact' },
-  { label: 'For Claude Users', href: '/claude-tools', isRoute: true },
+]
+
+const externalLinks: NavLink[] = [
+  { label: 'GitHub', href: 'https://github.com/luongnv89' },
+  { label: 'LinkedIn', href: 'https://linkedin.com/in/luongnv89' },
+  { label: 'Medium', href: 'https://medium.com/@luongnv89' },
+  { label: 'Bluesky', href: 'https://bsky.app/profile/luongnv89.bsky.social' },
 ]
 
 interface FooterProps {
@@ -28,33 +31,39 @@ export function Footer({ className = '' }: FooterProps) {
   return (
     <footer className={`py-8 border-t border-[var(--border)] ${className}`}>
       <div className="container-custom">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-3 text-sm text-[var(--text-muted)]">
-            <span>&copy; {currentYear} Luong Nguyen</span>
-            <span className="text-[var(--text-muted)] opacity-50">•</span>
-            <span className="font-mono text-xs">v1.1.0-{typeof __COMMIT_HASH__ !== 'undefined' ? __COMMIT_HASH__ : 'dev'} ({lastUpdated})</span>
-          </div>
+        <div className="space-y-6">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div className="flex items-center gap-3 text-sm text-[var(--text-muted)]">
+              <span>&copy; {currentYear} Luong Nguyen</span>
+              <span className="text-[var(--text-muted)] opacity-50">•</span>
+              <span className="font-mono text-xs">v1.1.0-{typeof __COMMIT_HASH__ !== 'undefined' ? __COMMIT_HASH__ : 'dev'} ({lastUpdated})</span>
+            </div>
 
-          <nav className="flex items-center gap-6">
-            {links.map(({ label, href, isRoute }) =>
-              isRoute ? (
-                <Link
-                  key={label}
-                  to={href}
-                  className="text-sm text-[var(--text-secondary)] hover:text-accent transition-colors"
-                >
-                  {label}
-                </Link>
-              ) : (
+            <div className="flex flex-wrap items-center gap-3">
+              {externalLinks.map(({ label, href }) => (
                 <a
                   key={label}
                   href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-sm text-[var(--text-secondary)] hover:text-accent transition-colors"
                 >
                   {label}
                 </a>
-              )
-            )}
+              ))}
+            </div>
+          </div>
+
+          <nav className="flex flex-wrap items-center gap-x-6 gap-y-2">
+            {links.map(({ label, href }) => (
+              <a
+                key={label}
+                href={href}
+                className="text-sm text-[var(--text-secondary)] hover:text-accent transition-colors"
+              >
+                {label}
+              </a>
+            ))}
           </nav>
         </div>
       </div>
