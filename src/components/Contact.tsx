@@ -15,10 +15,28 @@ function BlueskyIcon({ size = 20 }: { size?: number }) {
   )
 }
 
+function SubstackIcon({ size = 20 }: { size?: number }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M4 5h16v2H4z" />
+      <path d="M4 9h16v2H4z" />
+      <path d="M4 13h10v2H4z" />
+      <path d="M13.5 13h6.5l-3.25 4z" />
+    </svg>
+  )
+}
+
 const socials = [
   { icon: Github, url: 'https://github.com/luongnv89', label: 'GitHub' },
   { icon: Linkedin, url: 'https://linkedin.com/in/luongnv89', label: 'LinkedIn' },
   { icon: Twitter, url: 'https://twitter.com/luongnv89', label: 'Twitter' },
+  { icon: SubstackIcon, url: 'https://luongnv89.substack.com/', label: 'Substack' },
   { icon: BlueskyIcon, url: 'https://bsky.app/profile/luongnv89.bsky.social', label: 'Bluesky' },
 ]
 

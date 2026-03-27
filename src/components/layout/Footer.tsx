@@ -15,6 +15,7 @@ const externalLinks: NavLink[] = [
   { label: 'GitHub', href: 'https://github.com/luongnv89' },
   { label: 'LinkedIn', href: 'https://linkedin.com/in/luongnv89' },
   { label: 'Medium', href: 'https://medium.com/@luongnv89' },
+  { label: 'Substack', href: 'https://luongnv89.substack.com/' },
   { label: 'Bluesky', href: 'https://bsky.app/profile/luongnv89.bsky.social' },
 ]
 
