@@ -2,16 +2,7 @@ import { PortfolioCard } from './PortfolioCard'
 import portfolioData from '@/data/portfolio.json'
 import privatePortfolioData from '@/data/private-portfolio.json'
 
-const featuredOssProjectNames = [
-  'claude-howto',
-  'agent-skill-manager',
-  'skills',
-  'cc-context-stats',
-  'llm-cli',
-  'doc-bases',
-  'voice-cast',
-  'music-cli',
-]
+const FEATURED_OSS_LIMIT = 8
 
 const productProjects = [
   {
@@ -34,23 +25,16 @@ const productProjects = [
 const privateProjectNames = ['travels', 'ideas', 'notes', 'blogs']
 
 export function Portfolio() {
-  const featuredOssProjects = featuredOssProjectNames.flatMap((projectName) => {
-    const project = portfolioData.projects.find(({ name }) => name === projectName)
-    if (!project) {
-      return []
-    }
-
-    return [
-      {
-        ...project,
-        displayName: project.name === 'agent-skill-manager' ? 'asm' : project.name,
-      },
-    ]
-  })
-
-  const remainingOssProjects = portfolioData.projects.filter(
-    ({ name }) => !featuredOssProjectNames.includes(name),
+  const sortedOssProjects = [...portfolioData.projects].sort(
+    (a, b) => (b.stars ?? 0) - (a.stars ?? 0),
   )
+
+  const featuredOssProjects = sortedOssProjects.slice(0, FEATURED_OSS_LIMIT).map((project) => ({
+    ...project,
+    displayName: project.name === 'agent-skill-manager' ? 'asm' : project.name,
+  }))
+
+  const remainingOssProjects = sortedOssProjects.slice(FEATURED_OSS_LIMIT)
 
   const personalFlowProjects = privatePortfolioData.projects.filter(({ name }) =>
     privateProjectNames.includes(name),
