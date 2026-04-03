@@ -130,6 +130,7 @@ export function Blog() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1 text-accent hover:underline font-medium"
+                  aria-label={`Read more about ${post.title}`}
                 >
                   Read more <ArrowRight size={14} />
                 </a>

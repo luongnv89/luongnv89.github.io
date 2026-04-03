@@ -44,7 +44,7 @@ export function PortfolioCard({ project }: { project: PortfolioProject }) {
       }}
       tabIndex={0}
       role="button"
-      aria-label={`${title} — click to ${flipped ? 'see logo' : 'see details'}`}
+      aria-label={title}
     >
       <div className={`flip-card-inner ${flipped ? 'rotate-y-180' : ''}`}>
         {/* Front — Logo */}
@@ -121,7 +121,7 @@ export function PortfolioCard({ project }: { project: PortfolioProject }) {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={(e) => e.stopPropagation()}
-                    className="inline-flex items-center gap-1.5 text-xs font-medium text-accent hover:underline"
+                    className="inline-flex items-center gap-1.5 text-xs font-medium text-accent hover:underline min-h-[24px]"
                   >
                     <ExternalLink size={12} />
                     GitHub
@@ -133,7 +133,7 @@ export function PortfolioCard({ project }: { project: PortfolioProject }) {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={(e) => e.stopPropagation()}
-                    className="inline-flex items-center gap-1.5 text-xs font-medium text-[var(--text-secondary)] hover:text-accent hover:underline"
+                    className="inline-flex items-center gap-1.5 text-xs font-medium text-[var(--text-secondary)] hover:text-accent hover:underline min-h-[24px]"
                   >
                     <ExternalLink size={12} />
                     Website
