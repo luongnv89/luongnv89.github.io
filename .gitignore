@@ -26,3 +26,8 @@ vite.config.d.ts
 
 # Generated CV files (copied from submodule during build)
 public/cv/
+
+# Environment variables
+.env
+.env.local
+.gstack/

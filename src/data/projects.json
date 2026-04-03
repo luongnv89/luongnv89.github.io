@@ -4,32 +4,36 @@
       "name": "claude-howto",
       "description": "Visual, example-driven guide to Claude Code — from basic concepts to advanced agents, with 50+ copy-paste templates",
       "language": "Python",
-      "stars": 15529,
+      "stars": 17258,
       "url": "https://github.com/luongnv89/claude-howto",
-      "icon": "/images/projects/claude-howto.svg"
+      "icon": "/images/projects/claude-howto.svg",
+      "forks": 2036
     },
     {
       "name": "cc-context-stats",
       "description": "Real-time Claude Code context usage monitoring — track session tokens across three operational zones to prevent performance degradation",
       "language": "Python",
-      "stars": 69,
-      "url": "https://github.com/luongnv89/cc-context-stats"
+      "stars": 70,
+      "url": "https://github.com/luongnv89/cc-context-stats",
+      "forks": 4
     },
     {
       "name": "music-cli",
       "description": "Command-line music player for developers — background daemon with radio streaming, local MP3s, and AI-generated music",
       "language": "Python",
-      "stars": 54,
+      "stars": 55,
       "url": "https://github.com/luongnv89/music-cli",
-      "icon": "/images/projects/music-cli.svg"
+      "icon": "/images/projects/music-cli.svg",
+      "forks": 26
     },
     {
       "name": "agent-skill-manager",
       "description": "The universal skill manager for AI coding agents — install, audit, and manage reusable skills across Claude Code, Codex, and more",
       "language": "TypeScript",
-      "stars": 150,
+      "stars": 152,
       "url": "https://github.com/luongnv89/agent-skill-manager",
-      "icon": "/images/projects/agent-skill-manager.svg"
+      "icon": "/images/projects/agent-skill-manager.svg",
+      "forks": 9
     },
     {
       "name": "voice-cast",
@@ -37,7 +41,8 @@
       "language": "Python",
       "stars": 17,
       "url": "https://github.com/luongnv89/voice-cast",
-      "icon": "/images/projects/voice-cast.svg"
+      "icon": "/images/projects/voice-cast.svg",
+      "forks": 1
     },
     {
       "name": "vscode-markdown-preview",
@@ -52,7 +57,8 @@
       "description": "Network packet data extraction library — deep packet inspection in C for high-performance network monitoring",
       "language": "C",
       "stars": 10,
-      "url": "https://github.com/Montimage/mmt-dpi"
+      "url": "https://github.com/Montimage/mmt-dpi",
+      "forks": 1
     },
     {
       "name": "repo-insights",
@@ -90,14 +96,16 @@
       "description": "RAG system for GitHub repositories — intelligent answers from any document",
       "language": "Python",
       "stars": 4,
-      "url": "https://github.com/luongnv89/doc-bases"
+      "url": "https://github.com/luongnv89/doc-bases",
+      "forks": 1
     },
     {
-      "name": "llm-cli",
-      "description": "Modular CLI for managing and running local LLMs with llama.cpp — search, download, chat, benchmark, and serve models",
-      "language": "Shell",
-      "stars": 1,
-      "url": "https://github.com/luongnv89/llm-cli"
+      "name": "sleek-ui",
+      "description": "Modern, minimal UI component library — accessible, themeable, and designed for developers who want beautiful defaults without the bloat",
+      "language": "TypeScript",
+      "stars": 68,
+      "url": "https://github.com/luongnv89/sleek-ui",
+      "forks": 5
     },
     {
       "name": "video-to-gif",
@@ -128,14 +136,24 @@
       "description": "Powerful, purely client-side JavaScript library for searching YouTube videos without an API key — zero dependencies, smart caching",
       "language": "JavaScript",
       "stars": 4,
-      "url": "https://github.com/luongnv89/yt-search-lib"
+      "url": "https://github.com/luongnv89/yt-search-lib",
+      "forks": 7
+    },
+    {
+      "name": "llm-cli",
+      "description": "Modular CLI for managing and running local LLMs with llama.cpp — search, download, chat, benchmark, and serve models",
+      "language": "Shell",
+      "stars": 1,
+      "url": "https://github.com/luongnv89/llm-cli",
+      "forks": 1
     },
     {
       "name": "inbash",
       "description": "Bootstrap your dev environment in a single command",
       "language": "Shell",
       "stars": 1,
-      "url": "https://github.com/luongnv89/inbash"
+      "url": "https://github.com/luongnv89/inbash",
+      "forks": 1
     }
   ]
 }

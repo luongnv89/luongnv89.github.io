@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Star, ExternalLink, RotateCcw } from 'lucide-react'
+import { Star, ExternalLink, RotateCcw, GitFork } from 'lucide-react'
 
 interface PortfolioProject {
   name: string
@@ -7,6 +7,7 @@ interface PortfolioProject {
   description: string
   language: string
   stars: number
+  forks?: number
   url: string
   logo: string
   showLink?: boolean
@@ -48,7 +49,7 @@ export function PortfolioCard({ project }: { project: PortfolioProject }) {
         {/* Front — Logo */}
         <div className="flip-card-face rounded-xl border border-[var(--border)] bg-[var(--bg-secondary)] flex flex-col items-center justify-center p-6 hover:border-[var(--accent)] transition-colors duration-200">
           <div
-            className="relative w-28 h-32 flex items-center justify-center"
+            className="relative w-28 h-24 flex items-center justify-center"
             style={{
               backgroundImage: 'radial-gradient(circle, var(--border) 1px, transparent 1px)',
               backgroundSize: '12px 12px',
@@ -60,9 +61,23 @@ export function PortfolioCard({ project }: { project: PortfolioProject }) {
               className="w-24 h-24 object-contain relative z-10 drop-shadow-md"
             />
           </div>
-          <span className="mt-4 text-sm font-medium text-[var(--text-primary)]">
+          <span className="mt-3 text-sm font-medium text-[var(--text-primary)]">
             {title}
           </span>
+          {(project.stars > 0 || (project.forks !== undefined && project.forks >= 0)) && (
+            <div className="mt-3 flex items-center gap-4 text-xs">
+              <span className="flex items-center gap-1.5 text-accent font-medium">
+                <Star size={14} className="text-accent" />
+                {project.stars}
+              </span>
+              {project.forks !== undefined && (
+                <span className="flex items-center gap-1.5 text-accent font-medium">
+                  <GitFork size={14} className="text-accent" />
+                  {project.forks}
+                </span>
+              )}
+            </div>
+          )}
         </div>
 
         {/* Back — Details */}

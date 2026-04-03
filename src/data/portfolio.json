@@ -4,7 +4,8 @@
       "name": "claude-howto",
       "description": "A visual, example-driven guide to Claude Code — from basic concepts to advanced agents, with copy-paste templates that bring immediate value",
       "language": "Python",
-      "stars": 15529,
+      "stars": 17258,
+      "forks": 2036,
       "url": "https://github.com/luongnv89/claude-howto",
       "logo": "/images/projects/claude-howto.svg"
     },
@@ -12,33 +13,37 @@
       "name": "agent-skill-manager",
       "description": "The universal skill manager for AI coding agents — install, audit, and manage reusable skills across Claude Code, Codex, and more",
       "language": "TypeScript",
-      "stars": 150,
+      "stars": 152,
       "url": "https://github.com/luongnv89/agent-skill-manager",
-      "logo": "/images/projects/agent-skill-manager.svg"
+      "logo": "/images/projects/agent-skill-manager.svg",
+      "forks": 9
     },
     {
       "name": "skills",
       "description": "Supercharge your AI agents/bots with reusable skills",
       "language": "Python",
-      "stars": 24,
+      "stars": 25,
       "url": "https://github.com/luongnv89/skills",
-      "logo": "/images/projects/skills.svg"
+      "logo": "/images/projects/skills.svg",
+      "forks": 4
     },
     {
       "name": "cc-context-stats",
       "description": "Know your zone. Ship with confidence — real-time Claude Code context usage monitoring across three operational zones",
       "language": "Python",
-      "stars": 69,
+      "stars": 70,
       "url": "https://github.com/luongnv89/cc-context-stats",
-      "logo": "/images/projects/cc-context-stats.svg"
+      "logo": "/images/projects/cc-context-stats.svg",
+      "forks": 4
     },
     {
       "name": "music-cli",
       "description": "A command-line music player for coders — background daemon with radio streaming, local MP3s, and AI-generated music",
       "language": "Python",
-      "stars": 54,
+      "stars": 55,
       "url": "https://github.com/luongnv89/music-cli",
-      "logo": "/images/projects/music-cli.svg"
+      "logo": "/images/projects/music-cli.svg",
+      "forks": 26
     },
     {
       "name": "voice-cast",
@@ -46,7 +51,8 @@
       "language": "Python",
       "stars": 17,
       "url": "https://github.com/luongnv89/voice-cast",
-      "logo": "/images/projects/voice-cast.svg"
+      "logo": "/images/projects/voice-cast.svg",
+      "forks": 1
     },
     {
       "name": "vscode-markdown-preview",
@@ -54,7 +60,8 @@
       "language": "TypeScript",
       "stars": 15,
       "url": "https://github.com/luongnv89/vscode-markdown-preview",
-      "logo": "/images/projects/vscode-markdown-preview.svg"
+      "logo": "/images/projects/vscode-markdown-preview.svg",
+      "forks": 0
     },
     {
       "name": "repo-insights",
@@ -62,15 +69,17 @@
       "language": "Shell",
       "stars": 3,
       "url": "https://github.com/luongnv89/repo-insights",
-      "logo": "/images/projects/repo-insights.svg"
+      "logo": "/images/projects/repo-insights.svg",
+      "forks": 0
     },
     {
-      "name": "llm-cli",
-      "description": "A wrapper of llama.cpp for easier use: find, download a model from Hugging Face, chat, get info, benchmark it",
-      "language": "Shell",
-      "stars": 1,
-      "url": "https://github.com/luongnv89/llm-cli",
-      "logo": "/images/projects/llm-cli.svg"
+      "name": "sleek-ui",
+      "description": "Modern, minimal UI component library — accessible, themeable, and designed for developers who want beautiful defaults without the bloat",
+      "language": "TypeScript",
+      "stars": 68,
+      "url": "https://github.com/luongnv89/sleek-ui",
+      "logo": "/images/projects/sleek-ui.svg",
+      "forks": 5
     },
     {
       "name": "doc-bases",
@@ -78,7 +87,8 @@
       "language": "Python",
       "stars": 4,
       "url": "https://github.com/luongnv89/doc-bases",
-      "logo": "/images/projects/doc-bases-icon.svg"
+      "logo": "/images/projects/doc-bases-icon.svg",
+      "forks": 1
     },
     {
       "name": "bluetooth-diagnostic",
@@ -86,7 +96,8 @@
       "language": "Shell",
       "stars": 0,
       "url": "https://github.com/luongnv89/bluetooth-diagnostic",
-      "logo": "/images/projects/bluetooth-diagnostic.svg"
+      "logo": "/images/projects/bluetooth-diagnostic.svg",
+      "forks": 0
     },
     {
       "name": "vscode-theme-neon-green",
@@ -94,7 +105,8 @@
       "language": "JavaScript",
       "stars": 0,
       "url": "https://github.com/luongnv89/vscode-theme-neon-green",
-      "logo": "/images/projects/vscode-theme-neon-green.svg"
+      "logo": "/images/projects/vscode-theme-neon-green.svg",
+      "forks": 0
     },
     {
       "name": "video-to-gif",
@@ -102,7 +114,8 @@
       "language": "JavaScript",
       "stars": 1,
       "url": "https://github.com/luongnv89/video-to-gif",
-      "logo": "/images/projects/video-to-gif.svg"
+      "logo": "/images/projects/video-to-gif.svg",
+      "forks": 0
     },
     {
       "name": "mdoctor",
@@ -110,7 +123,8 @@
       "language": "Shell",
       "stars": 2,
       "url": "https://github.com/luongnv89/mdoctor",
-      "logo": "/images/projects/mdoctor.svg"
+      "logo": "/images/projects/mdoctor.svg",
+      "forks": 0
     },
     {
       "name": "git-auto-switch",
@@ -118,7 +132,8 @@
       "language": "Shell",
       "stars": 0,
       "url": "https://github.com/luongnv89/git-auto-switch",
-      "logo": "/images/projects/git-auto-switch.svg"
+      "logo": "/images/projects/git-auto-switch.svg",
+      "forks": 0
     },
     {
       "name": "slide-speech",
@@ -126,7 +141,8 @@
       "language": "Python",
       "stars": 3,
       "url": "https://github.com/luongnv89/slide-speech",
-      "logo": "/images/projects/slide-speech-icon.svg"
+      "logo": "/images/projects/slide-speech-icon.svg",
+      "forks": 0
     },
     {
       "name": "inbash",
@@ -134,7 +150,17 @@
       "language": "Shell",
       "stars": 1,
       "url": "https://github.com/luongnv89/inbash",
-      "logo": "/images/projects/inbash.svg"
+      "logo": "/images/projects/inbash.svg",
+      "forks": 1
+    },
+    {
+      "name": "llm-cli",
+      "description": "A wrapper of llama.cpp for easier use: find, download a model from Hugging Face, chat, get info, benchmark it",
+      "language": "Shell",
+      "stars": 1,
+      "url": "https://github.com/luongnv89/llm-cli",
+      "logo": "/images/projects/llm-cli.svg",
+      "forks": 1
     }
   ]
 }

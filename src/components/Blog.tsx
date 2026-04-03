@@ -2,6 +2,22 @@ import { ArrowRight, Calendar } from 'lucide-react'
 
 const posts = [
   {
+    title: "How I Debugged Claude Code's 9% Cache Spike in One Prompt",
+    date: '2026-04-02',
+    excerpt: 'One prompt consumed 9% of my session budget. By combining real-time usage tracking and per-interaction cache metrics, I traced the root cause to a 350K token cache recreation after a 13-hour idle gap — and asked Anthropic a hard question about their cache TTL design.',
+    url: 'https://x.com/luongnv89/status/2039682376708637046?s=20',
+  },
+  {
+    title: 'How to Use gstack to Build a MVP Step by Step',
+    date: '2026-03-29',
+    excerpt: 'A practical walkthrough of using gstack to go from idea to working MVP — covering the full workflow from planning to shipping with AI-powered skills.',
+    url: 'https://x.com/luongnv89/status/2038386097563001284?s=20',
+    extraLinks: [
+      { label: 'Medium', url: 'https://medium.com/@luongnv89/how-to-use-gstack-to-build-a-mvp-step-by-step-ceedb6d53f8c' },
+      { label: 'Substack', url: 'https://luongnv89.substack.com/p/how-to-use-gstack-to-build-a-mvp?r=h7mbt' },
+    ],
+  },
+  {
     title: "gstack Is Not a Dev Tool. It's Garry Tan's Brain on AI",
     date: '2026-03-18',
     excerpt: 'Why gstack is more than a developer tool — it encodes Garry Tan\'s startup philosophy into an AI-powered workflow.',

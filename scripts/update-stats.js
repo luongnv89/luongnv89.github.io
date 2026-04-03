@@ -6,15 +6,14 @@
  * Usage:
  *   node scripts/update-stats.js
  *
- * This script:
- * 1. Fetches the latest star counts for GitHub-backed projects
- * 2. Updates the data files that power the portfolio/project sections
- * 3. Prints GitHub user stats for visibility in cron logs
+ * Auth: Uses `gh` CLI token automatically (no .env needed)
+ * Optimization: Deduplicates repos across data files, batches user repo fetch
  */
 
-import { readFileSync, writeFileSync } from 'fs';
+import { readFileSync, writeFileSync, existsSync } from 'fs';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
+import { execSync } from 'child_process';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -25,174 +24,271 @@ const DATA_FILES = [
   join(__dirname, '../src/data/portfolio.json'),
 ];
 
-// Parse GitHub repo URL to get owner and repo name
-function parseGitHubUrl(url) {
-  const match = url.match(/github\.com\/([^/]+)\/([^/]+)/);
-  if (!match) return null;
-  return { owner: match[1], repo: match[2] };
-}
+// Rate limiting configuration
+const RATE_LIMIT_CONFIG = {
+  delayBetweenRequests: 300, // ms between repo requests
+  maxRetries: 4,
+  retryDelay: 2000,
+  backoffMultiplier: 2,
+};
 
-function repoKeyFromUrl(url) {
-  const parsed = parseGitHubUrl(url);
-  return parsed ? `${parsed.owner}/${parsed.repo}` : null;
-}
+// ── Auth ──────────────────────────────────────────────────────────────────────
 
-// Fetch repo stats from GitHub API
-async function fetchRepoStats(owner, repo) {
-  const response = await fetch(`https://api.github.com/repos/${owner}/${repo}`, {
-    headers: {
-      'Accept': 'application/vnd.github.v3+json',
-      'User-Agent': 'update-stats-script',
-      ...(process.env.GITHUB_TOKEN && {
-        'Authorization': `Bearer ${process.env.GITHUB_TOKEN}`
-      })
-    }
-  });
+function getGitHubToken() {
+  // 1. Try gh CLI (preferred — uses machine's authenticated session)
+  try {
+    const token = execSync('gh auth token', { stdio: ['pipe', 'pipe', 'pipe'] })
+      .toString()
+      .trim();
+    if (token) return { token, source: 'gh CLI' };
+  } catch (_) {}
 
-  if (!response.ok) {
-    console.error(`Failed to fetch ${owner}/${repo}: ${response.status}`);
-    return null;
+  // 2. Fall back to environment variable
+  if (process.env.GITHUB_TOKEN) {
+    return { token: process.env.GITHUB_TOKEN, source: 'GITHUB_TOKEN env' };
   }
 
-  return response.json();
+  return { token: null, source: 'none (unauthenticated — rate limit: 60 req/h)' };
 }
 
-// Fetch GitHub user stats
-async function fetchUserStats(username) {
-  const response = await fetch(`https://api.github.com/users/${username}`, {
-    headers: {
-      'Accept': 'application/vnd.github.v3+json',
-      'User-Agent': 'update-stats-script',
-      ...(process.env.GITHUB_TOKEN && {
-        'Authorization': `Bearer ${process.env.GITHUB_TOKEN}`
-      })
-    }
-  });
+// ── HTTP helpers ──────────────────────────────────────────────────────────────
 
-  if (!response.ok) {
-    console.error(`Failed to fetch user stats: ${response.status}`);
-    return null;
+function buildHeaders(token) {
+  return {
+    'Accept': 'application/vnd.github.v3+json',
+    'User-Agent': 'update-stats-script',
+    ...(token ? { 'Authorization': `token ${token}` } : {}),
+  };
+}
+
+async function githubFetch(url, headers, retryCount = 0) {
+  const response = await fetch(url, { headers });
+
+  if (response.status === 429 || (response.status >= 500 && response.status < 600)) {
+    if (retryCount < RATE_LIMIT_CONFIG.maxRetries) {
+      const delayMs = RATE_LIMIT_CONFIG.retryDelay * Math.pow(RATE_LIMIT_CONFIG.backoffMultiplier, retryCount);
+      process.stdout.write(`\r  ⏳ HTTP ${response.status} — retry ${retryCount + 1}/${RATE_LIMIT_CONFIG.maxRetries} in ${delayMs / 1000}s...`);
+      await sleep(delayMs);
+      return githubFetch(url, headers, retryCount + 1);
+    }
   }
 
-  return response.json();
-}
-
-// Fetch all repos to calculate total stars
-async function fetchTotalStars(username) {
-  let page = 1;
-  let totalStars = 0;
-  let hasMore = true;
-
-  while (hasMore) {
-    const response = await fetch(
-      `https://api.github.com/users/${username}/repos?per_page=100&page=${page}`,
-      {
-        headers: {
-          'Accept': 'application/vnd.github.v3+json',
-          'User-Agent': 'update-stats-script',
-          ...(process.env.GITHUB_TOKEN && {
-            'Authorization': `Bearer ${process.env.GITHUB_TOKEN}`
-          })
-        }
+  if (response.status === 403) {
+    const remaining = response.headers.get('x-ratelimit-remaining');
+    const reset = response.headers.get('x-ratelimit-reset');
+    if (remaining === '0' && reset) {
+      const waitMs = (parseInt(reset, 10) * 1000 - Date.now()) + 1000;
+      const waitSec = Math.ceil(waitMs / 1000);
+      if (retryCount < RATE_LIMIT_CONFIG.maxRetries && waitMs < 120_000) {
+        process.stdout.write(`\r  ⏳ Rate limit hit — waiting ${waitSec}s for reset...`);
+        await sleep(waitMs);
+        return githubFetch(url, headers, retryCount + 1);
       }
-    );
-
-    if (!response.ok) {
-      console.error(`Failed to fetch repos page ${page}: ${response.status}`);
-      break;
-    }
-
-    const repos = await response.json();
-    if (repos.length === 0) {
-      hasMore = false;
-    } else {
-      totalStars += repos.reduce((sum, repo) => sum + (repo.stargazers_count || 0), 0);
-      page++;
     }
   }
 
-  return totalStars;
+  return response;
 }
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+// ── GitHub API calls ──────────────────────────────────────────────────────────
+
+function parseGitHubUrl(url) {
+  const match = url.match(/github\.com\/([^/]+)\/([^/\s?#]+)/);
+  if (!match) return null;
+  return { owner: match[1], repo: match[2].replace(/\.git$/, '') };
+}
+
+async function fetchRepoStats(owner, repo, headers) {
+  const response = await githubFetch(`https://api.github.com/repos/${owner}/${repo}`, headers);
+  if (!response.ok) return null;
+  const data = await response.json();
+  return { stars: data.stargazers_count, forks: data.forks_count };
+}
+
+async function fetchUserStats(username, headers) {
+  const response = await githubFetch(`https://api.github.com/users/${username}`, headers);
+  if (!response.ok) return null;
+  return response.json();
+}
+
+async function fetchAllRepos(username, headers) {
+  const all = [];
+  let page = 1;
+  while (true) {
+    const response = await githubFetch(
+      `https://api.github.com/users/${username}/repos?per_page=100&page=${page}`,
+      headers
+    );
+    if (!response.ok) break;
+    const repos = await response.json();
+    if (!repos.length) break;
+    all.push(...repos);
+    if (repos.length < 100) break;
+    page++;
+    await sleep(RATE_LIMIT_CONFIG.delayBetweenRequests);
+  }
+  return all;
+}
+
+// ── Progress display ──────────────────────────────────────────────────────────
+
+function printProgress(current, total, name) {
+  const pct = Math.round((current / total) * 100);
+  const filled = Math.round(pct / 5);
+  const bar = '█'.repeat(filled) + '░'.repeat(20 - filled);
+  process.stdout.write(`\r  [${bar}] ${pct}%  ${current}/${total}  ${name.slice(0, 35).padEnd(35)}`);
+}
+
+function printSummaryTable(results) {
+  const changed = results.filter(r => r.changed);
+  const unchanged = results.filter(r => !r.changed && r.fetched);
+  const failed = results.filter(r => !r.fetched);
+
+  const col1 = Math.max(12, ...results.map(r => r.name.length)) + 2;
+
+  console.log('\n');
+  console.log('┌' + '─'.repeat(col1) + '┬──────────┬──────────┬────────────────┐');
+  console.log('│' + ' Repo'.padEnd(col1) + '│  Stars   │  Forks   │ Change         │');
+  console.log('├' + '─'.repeat(col1) + '┼──────────┼──────────┼────────────────┤');
+
+  for (const r of results) {
+    const name = (' ' + r.name).slice(0, col1).padEnd(col1);
+    if (!r.fetched) {
+      console.log(`│${name}│  ${'N/A'.padEnd(8)}│  ${'N/A'.padEnd(8)}│ ${'⚠ fetch failed'.padEnd(15)}│`);
+    } else {
+      const starDiff = r.newStars - r.oldStars;
+      const forkDiff = r.newForks - r.oldForks;
+      const diffStr = r.changed
+        ? `⭐${starDiff >= 0 ? '+' : ''}${starDiff} 🍴${forkDiff >= 0 ? '+' : ''}${forkDiff}`
+        : '—';
+      console.log(
+        `│${name}│  ${String(r.newStars).padEnd(8)}│  ${String(r.newForks).padEnd(8)}│ ${diffStr.padEnd(15)}│`
+      );
+    }
+  }
+
+  console.log('└' + '─'.repeat(col1) + '┴──────────┴──────────┴────────────────┘');
+  console.log(`\n  Updated: ${changed.length}  |  Unchanged: ${unchanged.length}  |  Failed: ${failed.length}`);
+}
+
+// ── Main ──────────────────────────────────────────────────────────────────────
 
 async function main() {
-  console.log('🔄 Updating project stats from GitHub...\n');
+  const { token, source } = getGitHubToken();
+  const headers = buildHeaders(token);
 
+  console.log('┌─────────────────────────────────────────┐');
+  console.log('│         GitHub Stats Updater             │');
+  console.log('└─────────────────────────────────────────┘');
+  console.log(`  Auth   : ${source}`);
+  console.log(`  User   : ${GITHUB_USERNAME}`);
+  console.log(`  Delay  : ${RATE_LIMIT_CONFIG.delayBetweenRequests}ms between requests`);
+  console.log(`  Retries: up to ${RATE_LIMIT_CONFIG.maxRetries}`);
+  console.log('');
+
+  // Load data files
   const datasets = DATA_FILES.map((file) => ({
     file,
     data: JSON.parse(readFileSync(file, 'utf-8')),
     updated: false,
   }));
 
-  const repoStars = new Map();
-  const seenRepos = [];
-
-  for (const { data } of datasets) {
-    for (const project of data.projects) {
-      const key = repoKeyFromUrl(project.url);
-      if (key && !repoStars.has(key)) {
-        repoStars.set(key, null);
-        seenRepos.push({ key, project });
-      }
-    }
-  }
-
-  for (const { key, project } of seenRepos) {
-    const parsed = parseGitHubUrl(project.url);
-    if (!parsed) {
-      console.log(`⚠️  Skipping ${project.name}: Invalid GitHub URL`);
-      continue;
-    }
-
-    const stats = await fetchRepoStats(parsed.owner, parsed.repo);
-    if (stats) {
-      repoStars.set(key, stats.stargazers_count);
-    }
-
-    // Rate limiting: wait 100ms between requests
-    await new Promise(resolve => setTimeout(resolve, 100));
-  }
-
+  // Collect unique repos across all data files (deduplicate)
+  const repoMap = new Map(); // key → { owner, repo, projects: [{project, dataset}] }
   for (const dataset of datasets) {
     for (const project of dataset.data.projects) {
-      const key = repoKeyFromUrl(project.url);
-      const newStars = key ? repoStars.get(key) : null;
-      if (newStars == null) continue;
+      const parsed = parseGitHubUrl(project.url || '');
+      if (!parsed) continue;
+      const key = `${parsed.owner}/${parsed.repo}`;
+      if (!repoMap.has(key)) {
+        repoMap.set(key, { ...parsed, entries: [] });
+      }
+      repoMap.get(key).entries.push({ project, dataset });
+    }
+  }
 
-      const oldStars = project.stars;
-      if (oldStars !== newStars) {
+  const repos = [...repoMap.entries()];
+  const results = [];
+
+  console.log(`  Fetching stats for ${repos.length} unique repos...\n`);
+
+  for (let i = 0; i < repos.length; i++) {
+    const [key, { owner, repo, entries }] = repos[i];
+    printProgress(i + 1, repos.length, `${owner}/${repo}`);
+
+    const stats = await fetchRepoStats(owner, repo, headers);
+
+    // Track result once per unique repo (for display)
+    let resultAdded = false;
+    for (const { project, dataset } of entries) {
+      const oldStars = project.stars ?? 0;
+      const oldForks = project.forks ?? 0;
+      const newStars = stats?.stars ?? oldStars;
+      const newForks = stats?.forks ?? oldForks;
+      const changed = stats && (oldStars !== newStars || oldForks !== newForks);
+
+      if (!resultAdded) {
+        results.push({ name: `${owner}/${repo}`, oldStars, oldForks, newStars, newForks, changed, fetched: !!stats });
+        resultAdded = true;
+      }
+
+      if (changed) {
         project.stars = newStars;
+        project.forks = newForks;
         dataset.updated = true;
-        const diff = newStars - oldStars;
-        const diffStr = diff > 0 ? `+${diff}` : `${diff}`;
-        console.log(`⭐ ${project.name} (${dataset.file.split('/').pop()}): ${oldStars} → ${newStars} (${diffStr})`);
-      } else {
-        console.log(`✓  ${project.name} (${dataset.file.split('/').pop()}): ${newStars} stars (no change)`);
       }
     }
-  }
 
-  for (const dataset of datasets) {
-    if (dataset.updated) {
-      writeFileSync(dataset.file, JSON.stringify(dataset.data, null, 2) + '\n');
-      console.log(`\n✅ ${dataset.file.split('/').pop()} updated`);
-    } else {
-      console.log(`\n✓ No changes to ${dataset.file.split('/').pop()}`);
+    if (i < repos.length - 1) {
+      await sleep(RATE_LIMIT_CONFIG.delayBetweenRequests);
     }
   }
 
-  // Fetch and display user stats
-  console.log('\n📊 Fetching GitHub user stats...');
-  const userStats = await fetchUserStats(GITHUB_USERNAME);
-  const totalStars = await fetchTotalStars(GITHUB_USERNAME);
+  // Print summary table
+  printSummaryTable(results);
 
-  if (userStats) {
-    console.log(`\n📈 GitHub Stats for @${GITHUB_USERNAME}:`);
-    console.log(`   Followers: ${userStats.followers}`);
-    console.log(`   Public Repos: ${userStats.public_repos}`);
-    console.log(`   Total Stars: ${totalStars}`);
+  // Write updated files
+  console.log('');
+  let anyWritten = false;
+  for (const dataset of datasets) {
+    const name = dataset.file.split('/').pop();
+    if (dataset.updated) {
+      writeFileSync(dataset.file, JSON.stringify(dataset.data, null, 2) + '\n');
+      console.log(`  ✅ ${name} — written`);
+      anyWritten = true;
+    } else {
+      console.log(`  ✓  ${name} — no changes`);
+    }
   }
 
-  console.log('\n🎉 Done!');
+  // Fetch user + total stars (single pass — reuse already-fetched repo list)
+  console.log('\n  Fetching user profile & total star count...');
+  const [userStats, allRepos] = await Promise.all([
+    fetchUserStats(GITHUB_USERNAME, headers),
+    fetchAllRepos(GITHUB_USERNAME, headers),
+  ]);
+
+  const totalStars = allRepos.reduce((s, r) => s + (r.stargazers_count || 0), 0);
+
+  if (userStats) {
+    console.log('');
+    console.log('┌──────────────────────────────────────┐');
+    console.log(`│  @${GITHUB_USERNAME.padEnd(34)}│`);
+    console.log('├──────────────────────────────────────┤');
+    console.log(`│  Followers   : ${String(userStats.followers).padEnd(21)}│`);
+    console.log(`│  Public Repos: ${String(userStats.public_repos).padEnd(21)}│`);
+    console.log(`│  Total Stars : ${String(totalStars).padEnd(21)}│`);
+    console.log('└──────────────────────────────────────┘');
+  }
+
+  console.log('\n  🎉 Done!\n');
 }
 
-main().catch(console.error);
+main().catch(err => {
+  console.error('\n  ❌ Fatal error:', err.message);
+  process.exit(1);
+});
