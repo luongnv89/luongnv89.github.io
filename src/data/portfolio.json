@@ -15,6 +15,7 @@
       "language": "TypeScript",
       "stars": 152,
       "url": "https://github.com/luongnv89/agent-skill-manager",
+      "landingPage": "https://luongnv.com/asm",
       "logo": "/images/projects/agent-skill-manager.svg",
       "forks": 9
     },
@@ -42,6 +43,7 @@
       "language": "Python",
       "stars": 55,
       "url": "https://github.com/luongnv89/music-cli",
+      "landingPage": "https://music-cli.luongnv.com",
       "logo": "/images/projects/music-cli.svg",
       "forks": 26
     },
@@ -60,6 +62,7 @@
       "language": "TypeScript",
       "stars": 15,
       "url": "https://github.com/luongnv89/vscode-markdown-preview",
+      "landingPage": "https://luongnv.com/vscode-markdown-preview",
       "logo": "/images/projects/vscode-markdown-preview.svg",
       "forks": 0
     },
@@ -78,6 +81,7 @@
       "language": "TypeScript",
       "stars": 68,
       "url": "https://github.com/luongnv89/sleek-ui",
+      "landingPage": "https://luongnv.com/sleek-ui",
       "logo": "/images/projects/sleek-ui.svg",
       "forks": 5
     },

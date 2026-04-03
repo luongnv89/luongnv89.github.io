@@ -9,6 +9,7 @@ interface PortfolioProject {
   stars: number
   forks?: number
   url: string
+  landingPage?: string
   logo: string
   showLink?: boolean
 }
@@ -109,22 +110,36 @@ export function PortfolioCard({ project }: { project: PortfolioProject }) {
             </div>
 
             <div className="flex items-center justify-between">
-              {project.showLink === false ? (
-                <span className="inline-flex items-center gap-1.5 text-xs font-medium text-[var(--text-muted)]">
-                  Private repo
-                </span>
-              ) : (
-                <a
-                  href={project.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={(e) => e.stopPropagation()}
-                  className="inline-flex items-center gap-1.5 text-xs font-medium text-accent hover:underline"
-                >
-                  <ExternalLink size={12} />
-                  GitHub
-                </a>
-              )}
+              <div className="flex items-center gap-3">
+                {project.showLink === false ? (
+                  <span className="inline-flex items-center gap-1.5 text-xs font-medium text-[var(--text-muted)]">
+                    Private repo
+                  </span>
+                ) : (
+                  <a
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="inline-flex items-center gap-1.5 text-xs font-medium text-accent hover:underline"
+                  >
+                    <ExternalLink size={12} />
+                    GitHub
+                  </a>
+                )}
+                {project.landingPage && (
+                  <a
+                    href={project.landingPage}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="inline-flex items-center gap-1.5 text-xs font-medium text-[var(--text-secondary)] hover:text-accent hover:underline"
+                  >
+                    <ExternalLink size={12} />
+                    Website
+                  </a>
+                )}
+              </div>
               <RotateCcw size={14} className="text-[var(--text-muted)]" />
             </div>
           </div>
