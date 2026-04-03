@@ -1,0 +1,37 @@
+# Luong Nguyen
+
+> AI & Cybersecurity Engineer based in Paris, France. 10+ years building secure backend systems and AI/LLM-powered tools. Creator of claude-howto (17k+ GitHub stars), agent-skill-manager, and sleek-ui.
+
+## About
+
+Luong Nguyen (luongnv89) is a Senior Engineer at Montimage specializing in AI agent workflows, LLM applications, and network security (deep packet inspection). Active open-source contributor and technical writer focused on Claude Code and AI tooling.
+
+## OSS Projects
+
+- [claude-howto](https://github.com/luongnv89/claude-howto): Visual, example-driven guide to Claude Code — 17k+ stars
+- [agent-skill-manager](https://luongnv.com/asm): Universal skill manager for AI coding agents (Claude Code, Codex, etc.)
+- [sleek-ui](https://luongnv.com/sleek-ui): Modern, minimal UI component library
+- [cc-context-stats](https://github.com/luongnv89/cc-context-stats): Real-time Claude Code context usage monitoring
+- [music-cli](https://music-cli.luongnv.com): Command-line music player for coders
+- [vscode-markdown-preview](https://luongnv.com/vscode-markdown-preview): Clean markdown preview for VS Code
+- [skills](https://github.com/luongnv89/skills): Reusable skill library for AI agents
+
+## Writing
+
+Latest articles on AI, Claude Code, and software engineering:
+
+- [How I Debugged Claude Code's 9% Cache Spike in One Prompt](https://x.com/luongnv89/status/2039682376708637046) — Apr 2026
+- [How to Use gstack to Build a MVP Step by Step](https://medium.com/@luongnv89/how-to-use-gstack-to-build-a-mvp-step-by-step-ceedb6d53f8c) — Mar 2026
+- [gstack Is Not a Dev Tool. It's Garry Tan's Brain on AI](https://medium.com/@luongnv89/gstack-is-not-a-dev-tool-its-garry-tan-s-brain-on-ai-b813e09b32c7) — Mar 2026
+
+Full archive: https://medium.com/@luongnv89 | https://luongnv89.substack.com
+
+## Contact & Social
+
+- Website: https://luongnv.com
+- GitHub: https://github.com/luongnv89
+- LinkedIn: https://linkedin.com/in/luongnv89
+- X / Twitter: https://twitter.com/luongnv89
+- Bluesky: https://bsky.app/profile/luongnv89.bsky.social
+- Medium: https://medium.com/@luongnv89
+- Substack: https://luongnv89.substack.com
