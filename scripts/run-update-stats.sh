@@ -2,7 +2,9 @@
 set -euo pipefail
 
 # Update portfolio stats (stars, followers, total stars) and push if changed.
-# Uses GITHUB_TOKEN from ~/.config/devstats/api.env to avoid duplicating secrets.
+# Auth priority:
+# 1) `gh auth token` from the machine's GitHub CLI session
+# 2) fallback GITHUB_TOKEN from ~/.config/devstats/api.env
 # Hardened for cron usage:
 # - prevent overlapping runs with flock
 # - rebase onto latest origin/master before updating
@@ -22,13 +24,24 @@ if ! flock -n 9; then
   exit 0
 fi
 
-if [[ -f "$ENV_FILE" ]]; then
+AUTH_SOURCE="unauthenticated"
+
+if command -v gh >/dev/null 2>&1; then
+  if GH_TOKEN="$(gh auth token 2>/dev/null)" && [[ -n "$GH_TOKEN" ]]; then
+    export GITHUB_TOKEN="$GH_TOKEN"
+    AUTH_SOURCE="gh"
+  fi
+fi
+
+if [[ "$AUTH_SOURCE" != "gh" && -f "$ENV_FILE" ]]; then
   set -a
   source "$ENV_FILE"
   set +a
+  AUTH_SOURCE="env"
 fi
 
 export GIT_SSH_COMMAND="$SSH_CMD"
+echo "[AUTH] Using ${AUTH_SOURCE} authentication"
 
 cd "$REPO_DIR"
 
