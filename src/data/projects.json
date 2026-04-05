@@ -4,10 +4,10 @@
       "name": "claude-howto",
       "description": "Visual, example-driven guide to Claude Code — from basic concepts to advanced agents, with 50+ copy-paste templates",
       "language": "Python",
-      "stars": 18869,
+      "stars": 19255,
       "url": "https://github.com/luongnv89/claude-howto",
       "icon": "/images/projects/claude-howto.svg",
-      "forks": 2260
+      "forks": 2311
     },
     {
       "name": "cc-context-stats",
@@ -15,7 +15,7 @@
       "language": "Python",
       "stars": 72,
       "url": "https://github.com/luongnv89/cc-context-stats",
-      "forks": 4
+      "forks": 6
     },
     {
       "name": "music-cli",
@@ -48,9 +48,10 @@
       "name": "vscode-markdown-preview",
       "description": "Clean, minimal markdown preview for VS Code inspired by Zed — syntax highlighting, Mermaid diagrams, KaTeX math, and export to HTML/PDF",
       "language": "TypeScript",
-      "stars": 15,
+      "stars": 16,
       "url": "https://github.com/luongnv89/vscode-markdown-preview",
-      "icon": "/images/projects/vscode-markdown-preview.svg"
+      "icon": "/images/projects/vscode-markdown-preview.svg",
+      "forks": 0
     },
     {
       "name": "mmt-dpi",
@@ -103,7 +104,7 @@
       "name": "sleek-ui",
       "description": "Modern, minimal UI component library — accessible, themeable, and designed for developers who want beautiful defaults without the bloat",
       "language": "TypeScript",
-      "stars": 76,
+      "stars": 77,
       "url": "https://github.com/luongnv89/sleek-ui",
       "forks": 6
     },
