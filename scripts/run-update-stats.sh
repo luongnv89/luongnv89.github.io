@@ -7,7 +7,8 @@ set -euo pipefail
 # 2) fallback GITHUB_TOKEN from ~/.config/devstats/api.env
 # Hardened for cron usage:
 # - prevent overlapping runs with flock
-# - rebase onto latest origin/master before updating
+# - recover from stale conflict/rebase state
+# - treat GitHub/master as source of truth for this generated repo
 # - retry once if push is rejected by a non-fast-forward
 
 ENV_FILE="$HOME/.config/devstats/api.env"
@@ -48,21 +49,32 @@ cd "$REPO_DIR"
 # Ensure deps (assumes already installed; uncomment if needed)
 # npm ci
 
+(git rebase --abort >/dev/null 2>&1 || true)
+(git merge --abort >/dev/null 2>&1 || true)
+
 git fetch origin
-git pull --rebase --autostash origin master
+git reset --hard origin/master
+git clean -fd logs
 
 npm run update-stats
 
-if ! git diff --quiet -- src/data/projects.json; then
-  git add src/data/projects.json
+if ! git diff --quiet -- src/data/projects.json src/data/portfolio.json; then
+  git add src/data/projects.json src/data/portfolio.json
   git commit -m "chore(portfolio): update GitHub stats"
 
   if ! git push origin master; then
-    echo "[WARN] Push rejected; rebasing onto latest origin/master and retrying once"
+    echo "[WARN] Push rejected; resetting to latest origin/master and retrying once"
     git fetch origin
-    git pull --rebase --autostash origin master
-    git push origin master
+    git reset --hard origin/master
+    npm run update-stats
+    if ! git diff --quiet -- src/data/projects.json src/data/portfolio.json; then
+      git add src/data/projects.json src/data/portfolio.json
+      git commit -m "chore(portfolio): update GitHub stats"
+      git push origin master
+    else
+      echo "[OK] No changes after retry"
+    fi
   fi
 else
-  echo "[OK] No changes to projects.json"
+  echo "[OK] No changes to project data files"
 fi
