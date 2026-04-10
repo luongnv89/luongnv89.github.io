@@ -49,8 +49,8 @@ cd "$REPO_DIR"
 # Ensure deps (assumes already installed; uncomment if needed)
 # npm ci
 
-(git rebase --abort || true)
-(git merge --abort || true)
+(git rebase --abort >/dev/null 2>&1 || true)
+(git merge --abort >/dev/null 2>&1 || true)
 
 git fetch origin
 git reset --hard origin/master
