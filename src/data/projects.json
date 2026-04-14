@@ -4,10 +4,10 @@
       "name": "claude-howto",
       "description": "Visual, example-driven guide to Claude Code — from basic concepts to advanced agents, with 50+ copy-paste templates",
       "language": "Python",
-      "stars": 26044,
+      "stars": 26385,
       "url": "https://github.com/luongnv89/claude-howto",
       "icon": "/images/projects/claude-howto.svg",
-      "forks": 3156
+      "forks": 3202
     },
     {
       "name": "cc-context-stats",
@@ -15,7 +15,7 @@
       "language": "Python",
       "stars": 82,
       "url": "https://github.com/luongnv89/cc-context-stats",
-      "forks": 6
+      "forks": 7
     },
     {
       "name": "music-cli",
@@ -30,10 +30,10 @@
       "name": "agent-skill-manager",
       "description": "The universal skill manager for AI coding agents — install, audit, and manage reusable skills across Claude Code, Codex, and more",
       "language": "TypeScript",
-      "stars": 185,
+      "stars": 192,
       "url": "https://github.com/luongnv89/agent-skill-manager",
       "icon": "/images/projects/agent-skill-manager.svg",
-      "forks": 11
+      "forks": 12
     },
     {
       "name": "voice-cast",
@@ -106,7 +106,7 @@
       "language": "TypeScript",
       "stars": 107,
       "url": "https://github.com/luongnv89/sleek-ui",
-      "forks": 9
+      "forks": 10
     },
     {
       "name": "video-to-gif",
