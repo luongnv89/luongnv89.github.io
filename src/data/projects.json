@@ -1,27 +1,35 @@
 {
   "projects": [
     {
+      "name": "ccl",
+      "description": "Hit your limit? Need privacy? Just swap the model, everything else stays",
+      "language": "Python",
+      "stars": 3,
+      "url": "https://github.com/luongnv89/ccl",
+      "forks": 0
+    },
+    {
       "name": "claude-howto",
       "description": "Visual, example-driven guide to Claude Code — from basic concepts to advanced agents, with 50+ copy-paste templates",
       "language": "Python",
-      "stars": 26385,
+      "stars": 26623,
       "url": "https://github.com/luongnv89/claude-howto",
       "icon": "/images/projects/claude-howto.svg",
-      "forks": 3202
+      "forks": 3241
     },
     {
       "name": "cc-context-stats",
       "description": "Real-time Claude Code context usage monitoring — track session tokens across three operational zones to prevent performance degradation",
       "language": "Python",
-      "stars": 82,
+      "stars": 83,
       "url": "https://github.com/luongnv89/cc-context-stats",
-      "forks": 7
+      "forks": 8
     },
     {
       "name": "music-cli",
       "description": "Command-line music player for developers — background daemon with radio streaming, local MP3s, and AI-generated music",
       "language": "Python",
-      "stars": 59,
+      "stars": 60,
       "url": "https://github.com/luongnv89/music-cli",
       "icon": "/images/projects/music-cli.svg",
       "forks": 25
@@ -30,7 +38,7 @@
       "name": "agent-skill-manager",
       "description": "The universal skill manager for AI coding agents — install, audit, and manage reusable skills across Claude Code, Codex, and more",
       "language": "TypeScript",
-      "stars": 192,
+      "stars": 193,
       "url": "https://github.com/luongnv89/agent-skill-manager",
       "icon": "/images/projects/agent-skill-manager.svg",
       "forks": 12
@@ -48,7 +56,7 @@
       "name": "vscode-markdown-preview",
       "description": "Clean, minimal markdown preview for VS Code inspired by Zed — syntax highlighting, Mermaid diagrams, KaTeX math, and export to HTML/PDF",
       "language": "TypeScript",
-      "stars": 14,
+      "stars": 15,
       "url": "https://github.com/luongnv89/vscode-markdown-preview",
       "icon": "/images/projects/vscode-markdown-preview.svg",
       "forks": 0
