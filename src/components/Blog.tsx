@@ -2,6 +2,16 @@ import { ArrowRight, Calendar } from 'lucide-react'
 
 const posts = [
   {
+    title: 'How to Run Claude Code & Codex with Local Models via llama.cpp, Ollama, LM Studio, and vLLM (2026)',
+    date: '2026-04-15',
+    excerpt: 'A 2026 hands-on guide to running Claude Code and Codex against local models served by llama.cpp, Ollama, LM Studio, and vLLM — with setup steps, trade-offs, and when to pick each runtime.',
+    url: 'https://medium.com/@luongnv89/how-to-run-claude-code-codex-with-local-models-via-llamacpp-ollama-lmstudio-and-vllm-2026-7d00ba7e63a4',
+    extraLinks: [
+      { label: 'X', url: 'https://x.com/luongnv89/status/2044429396505669844' },
+      { label: 'Substack', url: 'https://luongnv89.substack.com/p/how-to-run-claude-code-codex-with' },
+    ],
+  },
+  {
     title: "How I Debugged Claude Code's 9% Cache Spike in One Prompt",
     date: '2026-04-02',
     excerpt: 'One prompt consumed 9% of my session budget. By combining real-time usage tracking and per-interaction cache metrics, I traced the root cause to a 350K token cache recreation after a 13-hour idle gap — and asked Anthropic a hard question about their cache TTL design.',
