@@ -4,7 +4,7 @@
       "name": "ccl",
       "description": "Hit your limit? Need privacy? Just swap the model, everything else stays",
       "language": "Python",
-      "stars": 10,
+      "stars": 11,
       "url": "https://github.com/luongnv89/ccl",
       "forks": 0
     },
@@ -12,16 +12,16 @@
       "name": "claude-howto",
       "description": "Visual, example-driven guide to Claude Code — from basic concepts to advanced agents, with 50+ copy-paste templates",
       "language": "Python",
-      "stars": 27708,
+      "stars": 28064,
       "url": "https://github.com/luongnv89/claude-howto",
       "icon": "/images/projects/claude-howto.svg",
-      "forks": 3382
+      "forks": 3429
     },
     {
       "name": "cc-context-stats",
       "description": "Real-time Claude Code context usage monitoring — track session tokens across three operational zones to prevent performance degradation",
       "language": "Python",
-      "stars": 91,
+      "stars": 92,
       "url": "https://github.com/luongnv89/cc-context-stats",
       "forks": 8
     },
@@ -38,7 +38,7 @@
       "name": "agent-skill-manager",
       "description": "The universal skill manager for AI coding agents — install, audit, and manage reusable skills across Claude Code, Codex, and more",
       "language": "TypeScript",
-      "stars": 199,
+      "stars": 204,
       "url": "https://github.com/luongnv89/agent-skill-manager",
       "icon": "/images/projects/agent-skill-manager.svg",
       "forks": 13
@@ -67,7 +67,7 @@
       "language": "C",
       "stars": 10,
       "url": "https://github.com/Montimage/mmt-dpi",
-      "forks": 2
+      "forks": 3
     },
     {
       "name": "repo-insights",
