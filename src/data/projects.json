@@ -12,10 +12,10 @@
       "name": "claude-howto",
       "description": "Visual, example-driven guide to Claude Code — from basic concepts to advanced agents, with 50+ copy-paste templates",
       "language": "Python",
-      "stars": 28241,
+      "stars": 28450,
       "url": "https://github.com/luongnv89/claude-howto",
       "icon": "/images/projects/claude-howto.svg",
-      "forks": 3453
+      "forks": 3482
     },
     {
       "name": "cc-context-stats",
@@ -23,7 +23,7 @@
       "language": "Python",
       "stars": 93,
       "url": "https://github.com/luongnv89/cc-context-stats",
-      "forks": 8
+      "forks": 9
     },
     {
       "name": "music-cli",
@@ -38,10 +38,10 @@
       "name": "agent-skill-manager",
       "description": "The universal skill manager for AI coding agents — install, audit, and manage reusable skills across Claude Code, Codex, and more",
       "language": "TypeScript",
-      "stars": 220,
+      "stars": 226,
       "url": "https://github.com/luongnv89/agent-skill-manager",
       "icon": "/images/projects/agent-skill-manager.svg",
-      "forks": 14
+      "forks": 16
     },
     {
       "name": "voice-cast",
@@ -112,7 +112,7 @@
       "name": "sleek-ui",
       "description": "Modern, minimal UI component library — accessible, themeable, and designed for developers who want beautiful defaults without the bloat",
       "language": "TypeScript",
-      "stars": 112,
+      "stars": 115,
       "url": "https://github.com/luongnv89/sleek-ui",
       "forks": 10
     },
