@@ -6,16 +6,16 @@
       "language": "Python",
       "stars": 22,
       "url": "https://github.com/luongnv89/ccl",
-      "forks": 2
+      "forks": 1
     },
     {
       "name": "claude-howto",
       "description": "Visual, example-driven guide to Claude Code — from basic concepts to advanced agents, with 50+ copy-paste templates",
       "language": "Python",
-      "stars": 30309,
+      "stars": 30552,
       "url": "https://github.com/luongnv89/claude-howto",
       "icon": "/images/projects/claude-howto.svg",
-      "forks": 3690
+      "forks": 3733
     },
     {
       "name": "cc-context-stats",
@@ -38,7 +38,7 @@
       "name": "agent-skill-manager",
       "description": "The universal skill manager for AI coding agents — install, audit, and manage reusable skills across Claude Code, Codex, and more",
       "language": "TypeScript",
-      "stars": 245,
+      "stars": 247,
       "url": "https://github.com/luongnv89/agent-skill-manager",
       "icon": "/images/projects/agent-skill-manager.svg",
       "forks": 19
@@ -112,7 +112,7 @@
       "name": "sleek-ui",
       "description": "Modern, minimal UI component library — accessible, themeable, and designed for developers who want beautiful defaults without the bloat",
       "language": "TypeScript",
-      "stars": 120,
+      "stars": 121,
       "url": "https://github.com/luongnv89/sleek-ui",
       "forks": 11
     },
