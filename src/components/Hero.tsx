@@ -47,22 +47,15 @@ export function Hero() {
         className="focus-ring rounded-full"
         aria-label="Toggle matrix animation"
       >
-        <picture>
-          <source
-            type="image/webp"
-            srcSet="/avatar-160.webp 160w, /avatar-320.webp 320w"
-            sizes="(min-width: 768px) 160px, 128px"
-          />
-          <img
-            src="/avatar.png"
-            alt="Luong Nguyen"
-            width={160}
-            height={160}
-            fetchPriority="high"
-            className="w-32 h-32 md:w-40 md:h-40 rounded-full border-2 border-[var(--border)]
-                       hover:border-accent transition-all duration-300 cursor-pointer"
-          />
-        </picture>
+        <img
+          src="/img/friendly-green.jpg"
+          alt="Luong Nguyen"
+          width={160}
+          height={160}
+          fetchPriority="high"
+          className="w-32 h-32 md:w-40 md:h-40 rounded-full border-2 border-[var(--border)]
+                     hover:border-accent transition-all duration-300 cursor-pointer"
+        />
       </button>
 
       <h1 className="mt-6 text-4xl md:text-5xl font-bold text-center">
