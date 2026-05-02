@@ -4,8 +4,8 @@
       "name": "claude-howto",
       "description": "A visual, example-driven guide to Claude Code — from basic concepts to advanced agents, with copy-paste templates that bring immediate value",
       "language": "Python",
-      "stars": 30552,
-      "forks": 3733,
+      "stars": 30668,
+      "forks": 3754,
       "url": "https://github.com/luongnv89/claude-howto",
       "logo": "/images/projects/claude-howto.svg"
     },
@@ -32,7 +32,7 @@
       "name": "cc-context-stats",
       "description": "Know your zone. Ship with confidence — real-time Claude Code context usage monitoring across three operational zones",
       "language": "Python",
-      "stars": 95,
+      "stars": 97,
       "url": "https://github.com/luongnv89/cc-context-stats",
       "logo": "/images/projects/cc-context-stats.svg",
       "forks": 9
@@ -79,7 +79,7 @@
       "name": "sleek-ui",
       "description": "Modern, minimal UI component library — accessible, themeable, and designed for developers who want beautiful defaults without the bloat",
       "language": "TypeScript",
-      "stars": 121,
+      "stars": 122,
       "url": "https://github.com/luongnv89/sleek-ui",
       "landingPage": "https://luongnv.com/sleek-ui",
       "logo": "/images/projects/sleek-ui.svg",
