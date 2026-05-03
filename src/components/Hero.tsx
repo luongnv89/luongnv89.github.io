@@ -48,7 +48,7 @@ export function Hero() {
         aria-label="Toggle matrix animation"
       >
         <img
-          src="/img/friendly-green.jpg"
+          src="/img/cool.jpg"
           alt="Luong Nguyen"
           width={160}
           height={160}
