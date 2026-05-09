@@ -12,16 +12,16 @@
       "name": "claude-howto",
       "description": "Visual, example-driven guide to Claude Code — from basic concepts to advanced agents, with 50+ copy-paste templates",
       "language": "Python",
-      "stars": 31635,
+      "stars": 31853,
       "url": "https://github.com/luongnv89/claude-howto",
       "icon": "/images/projects/claude-howto.svg",
-      "forks": 3862
+      "forks": 3887
     },
     {
       "name": "cc-context-stats",
       "description": "Real-time Claude Code context usage monitoring — track session tokens across three operational zones to prevent performance degradation",
       "language": "Python",
-      "stars": 100,
+      "stars": 101,
       "url": "https://github.com/luongnv89/cc-context-stats",
       "forks": 9
     },
