@@ -4,8 +4,8 @@
       "name": "claude-howto",
       "description": "A visual, example-driven guide to Claude Code — from basic concepts to advanced agents, with copy-paste templates that bring immediate value",
       "language": "Python",
-      "stars": 33035,
-      "forks": 4032,
+      "stars": 33179,
+      "forks": 4056,
       "url": "https://github.com/luongnv89/claude-howto",
       "logo": "/images/projects/claude-howto.svg"
     },
