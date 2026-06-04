@@ -4,8 +4,8 @@
       "name": "claude-howto",
       "description": "A visual, example-driven guide to Claude Code — from basic concepts to advanced agents, with copy-paste templates that bring immediate value",
       "language": "Python",
-      "stars": 34824,
-      "forks": 4242,
+      "stars": 34894,
+      "forks": 4249,
       "url": "https://github.com/luongnv89/claude-howto",
       "logo": "/images/projects/claude-howto.svg"
     },
@@ -23,7 +23,7 @@
       "name": "skills",
       "description": "Supercharge your AI agents/bots with reusable skills",
       "language": "Python",
-      "stars": 80,
+      "stars": 81,
       "url": "https://github.com/luongnv89/skills",
       "logo": "/images/projects/skills.svg",
       "forks": 11
@@ -41,7 +41,7 @@
       "name": "music-cli",
       "description": "A command-line music player for coders — background daemon with radio streaming, local MP3s, and AI-generated music",
       "language": "Python",
-      "stars": 67,
+      "stars": 68,
       "url": "https://github.com/luongnv89/music-cli",
       "landingPage": "https://music-cli.luongnv.com",
       "logo": "/images/projects/music-cli.svg",
