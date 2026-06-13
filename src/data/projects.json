@@ -6,7 +6,8 @@
       "language": "Python",
       "stars": 33,
       "url": "https://github.com/luongnv89/ccl",
-      "forks": 1
+      "forks": 1,
+      "icon": "/images/projects/ccl.svg"
     },
     {
       "name": "claude-howto",
@@ -23,7 +24,8 @@
       "language": "Python",
       "stars": 107,
       "url": "https://github.com/luongnv89/cc-context-stats",
-      "forks": 11
+      "forks": 11,
+      "icon": "/images/projects/cc-context-stats.svg"
     },
     {
       "name": "music-cli",
@@ -98,7 +100,8 @@
       "description": "Automate presentations — play synced audio for each slide, timed to each audio file's duration",
       "language": "Python",
       "stars": 3,
-      "url": "https://github.com/luongnv89/slide-speech"
+      "url": "https://github.com/luongnv89/slide-speech",
+      "icon": "/images/projects/slide-speech.svg"
     },
     {
       "name": "doc-bases",
@@ -106,7 +109,8 @@
       "language": "Python",
       "stars": 4,
       "url": "https://github.com/luongnv89/doc-bases",
-      "forks": 1
+      "forks": 1,
+      "icon": "/images/projects/doc-bases.svg"
     },
     {
       "name": "sleek-ui",
@@ -114,7 +118,8 @@
       "language": "TypeScript",
       "stars": 125,
       "url": "https://github.com/luongnv89/sleek-ui",
-      "forks": 11
+      "forks": 11,
+      "icon": "/images/projects/sleek-ui.svg"
     },
     {
       "name": "video-to-gif",
@@ -154,7 +159,8 @@
       "language": "Shell",
       "stars": 1,
       "url": "https://github.com/luongnv89/llm-cli",
-      "forks": 1
+      "forks": 1,
+      "icon": "/images/projects/llm-cli.svg"
     },
     {
       "name": "inbash",
@@ -162,7 +168,8 @@
       "language": "Shell",
       "stars": 1,
       "url": "https://github.com/luongnv89/inbash",
-      "forks": 1
+      "forks": 1,
+      "icon": "/images/projects/inbash.svg"
     }
   ]
 }
