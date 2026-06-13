@@ -7,6 +7,7 @@
       "stars": 37003,
       "forks": 4462,
       "url": "https://github.com/luongnv89/claude-howto",
+      "landingPage": "https://luongnv.com/claude-howto",
       "logo": "/images/projects/claude-howto.svg"
     },
     {
@@ -34,6 +35,7 @@
       "language": "Python",
       "stars": 107,
       "url": "https://github.com/luongnv89/cc-context-stats",
+      "landingPage": "https://luongnv.com/context-stats",
       "logo": "/images/projects/cc-context-stats.svg",
       "forks": 11
     },
@@ -46,6 +48,36 @@
       "landingPage": "https://music-cli.luongnv.com",
       "logo": "/images/projects/music-cli.svg",
       "forks": 27
+    },
+    {
+      "name": "ccl",
+      "description": "Hit your limit? Need privacy? Just swap the model, everything else stays",
+      "language": "Python",
+      "stars": 33,
+      "url": "https://github.com/luongnv89/ccl",
+      "landingPage": "https://luongnv.com/ccl",
+      "logo": "/images/projects/ccl.svg",
+      "forks": 1
+    },
+    {
+      "name": "sleek-ui",
+      "description": "Modern, minimal UI component library — accessible, themeable, and designed for developers who want beautiful defaults without the bloat",
+      "language": "TypeScript",
+      "stars": 125,
+      "url": "https://github.com/luongnv89/sleek-ui",
+      "landingPage": "https://luongnv.com/sleek-ui",
+      "logo": "/images/projects/sleek-ui.svg",
+      "forks": 11
+    },
+    {
+      "name": "idd",
+      "description": "Turn GitHub Issues into structured, agent-ready work orders",
+      "language": "Shell",
+      "stars": 1,
+      "url": "https://github.com/luongnv89/idd",
+      "landingPage": "https://luongnv.com/idd",
+      "logo": "/images/projects/idd.svg",
+      "forks": 0
     },
     {
       "name": "voice-cast",
@@ -76,22 +108,12 @@
       "forks": 0
     },
     {
-      "name": "sleek-ui",
-      "description": "Modern, minimal UI component library — accessible, themeable, and designed for developers who want beautiful defaults without the bloat",
-      "language": "TypeScript",
-      "stars": 125,
-      "url": "https://github.com/luongnv89/sleek-ui",
-      "landingPage": "https://luongnv.com/sleek-ui",
-      "logo": "/images/projects/sleek-ui.svg",
-      "forks": 11
-    },
-    {
       "name": "doc-bases",
       "description": "Intelligent answers from any document",
       "language": "Python",
       "stars": 4,
       "url": "https://github.com/luongnv89/doc-bases",
-      "logo": "/images/projects/doc-bases-icon.svg",
+      "logo": "/images/projects/doc-bases.svg",
       "forks": 1
     },
     {
@@ -109,6 +131,7 @@
       "language": "JavaScript",
       "stars": 0,
       "url": "https://github.com/luongnv89/vscode-theme-neon-green",
+      "landingPage": "https://luongnv.com/vscode-theme-neon-green",
       "logo": "/images/projects/vscode-theme-neon-green.svg",
       "forks": 0
     },
@@ -145,7 +168,7 @@
       "language": "Python",
       "stars": 3,
       "url": "https://github.com/luongnv89/slide-speech",
-      "logo": "/images/projects/slide-speech-icon.svg",
+      "logo": "/images/projects/slide-speech.svg",
       "forks": 0
     },
     {

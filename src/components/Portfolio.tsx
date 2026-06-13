@@ -2,6 +2,7 @@ import { PortfolioCard } from './PortfolioCard'
 import portfolioData from '@/data/portfolio.json'
 import privatePortfolioData from '@/data/private-portfolio.json'
 
+/** First N entries in portfolio.json are the featured OSS grid; the rest go in "More OSS projects". */
 const FEATURED_OSS_LIMIT = 8
 
 const productProjects = [
@@ -25,16 +26,14 @@ const productProjects = [
 const privateProjectNames = ['travels', 'ideas', 'notes', 'blogs']
 
 export function Portfolio() {
-  const sortedOssProjects = [...portfolioData.projects].sort(
-    (a, b) => (b.stars ?? 0) - (a.stars ?? 0),
-  )
+  const featuredOssProjects = portfolioData.projects
+    .slice(0, FEATURED_OSS_LIMIT)
+    .map((project) => ({
+      ...project,
+      displayName: project.name === 'agent-skill-manager' ? 'asm' : project.name,
+    }))
 
-  const featuredOssProjects = sortedOssProjects.slice(0, FEATURED_OSS_LIMIT).map((project) => ({
-    ...project,
-    displayName: project.name === 'agent-skill-manager' ? 'asm' : project.name,
-  }))
-
-  const remainingOssProjects = sortedOssProjects.slice(FEATURED_OSS_LIMIT)
+  const remainingOssProjects = portfolioData.projects.slice(FEATURED_OSS_LIMIT)
 
   const personalFlowProjects = privatePortfolioData.projects.filter(({ name }) =>
     privateProjectNames.includes(name),
