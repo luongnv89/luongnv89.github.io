@@ -52,6 +52,29 @@ function findLogo(repoDir) {
   return null
 }
 
+/** @returns {{ w: number, h: number } | null} */
+function svgViewBoxSize(filePath) {
+  try {
+    const svg = readFileSync(filePath, 'utf8')
+    const m = svg.match(/viewBox=["']\s*0\s+0\s+([\d.]+)\s+([\d.]+)\s*["']/)
+    if (m) return { w: Number(m[1]), h: Number(m[2]) }
+  } catch {
+    /* ignore */
+  }
+  return null
+}
+
+function warnIfWideWordmark(name, filePath, srcRel) {
+  const size = svgViewBoxSize(filePath)
+  if (!size || size.h <= 0) return
+  const ratio = size.w / size.h
+  if (ratio > 1.35) {
+    console.warn(
+      `⚠ ${name}: wide logo (${size.w}×${size.h}) from ${srcRel} — portfolio cards need a square icon; add assets/logo/logo-icon.svg or a dedicated square SVG`,
+    )
+  }
+}
+
 const portfolio = JSON.parse(readFileSync(PORTFOLIO, 'utf8'))
 const results = []
 
@@ -75,6 +98,8 @@ for (const project of portfolio.projects) {
 
   const destFile = join(DEST, `${project.name}.svg`)
   copyFileSync(src, destFile)
+  const srcRel = src.startsWith(repoDir) ? join(folder, src.slice(repoDir.length + 1)) : src
+  warnIfWideWordmark(project.name, destFile, srcRel)
   project.logo = logoPath
   results.push({ name: project.name, status: 'copied', from: src })
 }
