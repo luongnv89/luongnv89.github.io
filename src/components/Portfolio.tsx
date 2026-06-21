@@ -1,3 +1,4 @@
+import { ArrowUpRight } from 'lucide-react'
 import { PortfolioCard } from './PortfolioCard'
 import portfolioData from '@/data/portfolio.json'
 import privatePortfolioData from '@/data/private-portfolio.json'
@@ -5,21 +6,49 @@ import privatePortfolioData from '@/data/private-portfolio.json'
 /** First N entries in portfolio.json are the featured OSS grid; the rest go in "More OSS projects". */
 const FEATURED_OSS_LIMIT = 8
 
-const productProjects = [
+interface Product {
+  name: string
+  tagline: string
+  description: string
+  url: string
+  logo: string
+}
+
+const productProjects: Product[] = [
+  {
+    name: 'Milo',
+    tagline: 'iOS · Voice AI',
+    description: 'Hands-free AI for Siri & CarPlay — "Hey Siri, ask MILO…" routes your voice to GPT, Claude, Gemini, or 200+ models.',
+    url: 'https://askmilo.pro',
+    logo: '/images/projects/milo.svg',
+  },
+  {
+    name: 'TextWiz',
+    tagline: 'macOS · Writing',
+    description: 'Local-first macOS app that runs AI "wizards" on selected text via a global hotkey (⌘⇧Space). On-device by default, no servers.',
+    url: 'https://www.textwiz.pro',
+    logo: '/images/projects/textwiz.svg',
+  },
   {
     name: 'devstats',
-    description: 'GitHub stats dashboard at devstats.info.',
+    tagline: 'Web · Analytics',
+    description: 'GitHub stats dashboard with contribution graphs, language breakdowns, and shareable profile cards.',
     url: 'https://devstats.info',
+    logo: '/images/projects/devstats.svg',
   },
   {
     name: 'custats',
-    description: 'Claude + Codex usage tracking at custats.info.',
+    tagline: 'Web · Analytics',
+    description: 'Claude + Codex usage tracking — monitor token spend, sessions, and model activity in one dashboard.',
     url: 'https://custats.info',
+    logo: '/images/projects/custats.svg',
   },
   {
     name: 'music',
-    description: 'Music CLI website at music-cli.luongnv.com.',
+    tagline: 'Web · CLI',
+    description: 'A terminal-native music player — the marketing site and docs for the music CLI.',
     url: 'https://music-cli.luongnv.com',
+    logo: '/images/projects/music-cli.svg',
   },
 ]
 
@@ -90,28 +119,67 @@ export function Portfolio() {
             <p className="section-subtitle max-w-2xl mb-6">
               Products.
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {productProjects.map((project) => (
                 <a
                   key={project.name}
                   href={project.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="card p-5 block hover:border-[var(--accent)] transition-colors duration-200 focus-ring"
+                  aria-label={`${project.name} — visit website`}
+                  className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--bg-secondary)] p-5 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--accent)] hover:shadow-[0_18px_40px_-22px_var(--accent-glow)] focus-ring"
                 >
-                  <div className="flex items-start justify-between gap-4">
-                    <div>
-                      <h3 className="text-lg font-semibold text-[var(--text-primary)]">{project.name}</h3>
-                      <p className="mt-2 text-sm text-[var(--text-secondary)] leading-relaxed">
-                        {project.description}
-                      </p>
-                    </div>
-                    <span className="text-xs uppercase tracking-[0.2em] text-[var(--text-muted)]">
-                      Website
+                  {/* Accent wash that fades in on hover */}
+                  <span
+                    aria-hidden="true"
+                    className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                    style={{
+                      background:
+                        'radial-gradient(120% 80% at 0% 0%, var(--accent-glow), transparent 60%)',
+                    }}
+                  />
+
+                  {/* Header: logo tile + name + tagline */}
+                  <div className="relative flex items-center gap-4">
+                    <span
+                      className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-[var(--border)] bg-[var(--bg-primary)] transition-colors duration-300 group-hover:border-[var(--border-hover)]"
+                      style={{
+                        backgroundImage:
+                          'radial-gradient(circle, var(--border) 1px, transparent 1px)',
+                        backgroundSize: '10px 10px',
+                      }}
+                    >
+                      <img
+                        src={project.logo}
+                        alt={project.name}
+                        loading="lazy"
+                        className="h-9 w-9 rounded-lg object-contain drop-shadow-sm"
+                      />
                     </span>
+                    <div className="min-w-0">
+                      <h3 className="truncate text-lg font-semibold text-[var(--text-primary)]">
+                        {project.name}
+                      </h3>
+                      <span className="mt-0.5 inline-block text-[11px] font-medium uppercase tracking-[0.18em] text-[var(--text-muted)]">
+                        {project.tagline}
+                      </span>
+                    </div>
                   </div>
-                  <div className="mt-5 text-sm text-accent font-medium">
-                    {project.url.replace(/^https?:\/\//, '')}
+
+                  {/* Description */}
+                  <p className="relative mt-4 flex-grow text-sm leading-relaxed text-[var(--text-secondary)]">
+                    {project.description}
+                  </p>
+
+                  {/* Footer: domain + arrow */}
+                  <div className="relative mt-5 flex items-center justify-between border-t border-[var(--border)] pt-4">
+                    <span className="truncate font-mono text-sm font-medium text-accent">
+                      {project.url.replace(/^https?:\/\//, '').replace(/\/$/, '')}
+                    </span>
+                    <ArrowUpRight
+                      size={18}
+                      className="shrink-0 text-[var(--text-muted)] transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[var(--accent)]"
+                    />
                   </div>
                 </a>
               ))}

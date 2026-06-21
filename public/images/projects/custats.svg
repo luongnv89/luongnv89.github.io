@@ -1,20 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
-  <rect width="512" height="512" rx="112" fill="#0A0A0A"/>
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="64" cy="64" r="60" fill="#FDF7F5"/>
+  <circle cx="64" cy="64" r="60" stroke="#D97358" stroke-width="2"/>
 
-  <!-- Menubar indicator -->
-  <rect x="80" y="80" width="352" height="32" rx="8" fill="#1A1A1A"/>
-  <circle cx="416" cy="96" r="8" fill="#22C55E"/>
-  <rect x="360" y="92" width="40" height="8" rx="4" fill="#374151"/>
+  <!-- Bar chart representing usage -->
+  <rect x="28" y="72" width="16" height="28" rx="3" fill="#40B89A"/>
+  <rect x="48" y="52" width="16" height="48" rx="3" fill="#F2AD61"/>
+  <rect x="68" y="36" width="16" height="64" rx="3" fill="#D97358"/>
+  <rect x="88" y="56" width="16" height="44" rx="3" fill="#E66B5B"/>
 
-  <!-- Usage meter ring -->
-  <circle cx="256" cy="270" r="120" stroke="#1A1A1A" stroke-width="24" fill="none"/>
-  <circle cx="256" cy="270" r="120" stroke="#22C55E" stroke-width="24" fill="none" stroke-dasharray="502 754" stroke-linecap="round" transform="rotate(-90 256 270)"/>
+  <!-- Sparkle/Claude indicator -->
+  <path d="M64 24L66.5 29.5L72 32L66.5 34.5L64 40L61.5 34.5L56 32L61.5 29.5L64 24Z" fill="#D97358"/>
 
-  <!-- Percentage text -->
-  <text x="256" y="260" text-anchor="middle" fill="#FFFFFF" font-family="monospace" font-size="48" font-weight="bold">67%</text>
-  <text x="256" y="295" text-anchor="middle" fill="#374151" font-family="monospace" font-size="16">USAGE</text>
-
-  <!-- Countdown -->
-  <rect x="180" y="420" width="152" height="32" rx="8" fill="#111111" stroke="#374151" stroke-width="2"/>
-  <text x="256" y="442" text-anchor="middle" fill="#22C55E" font-family="monospace" font-size="14">04:32:15</text>
+  <!-- Small progress indicator dots at top -->
+  <circle cx="40" cy="20" r="3" fill="#40B89A"/>
+  <circle cx="52" cy="20" r="3" fill="#F2AD61"/>
+  <circle cx="64" cy="20" r="3" fill="#D97358"/>
 </svg>
