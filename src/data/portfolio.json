@@ -4,8 +4,8 @@
       "name": "claude-howto",
       "description": "A visual, example-driven guide to Claude Code — from basic concepts to advanced agents, with copy-paste templates that bring immediate value",
       "language": "Python",
-      "stars": 37864,
-      "forks": 4564,
+      "stars": 37998,
+      "forks": 4581,
       "url": "https://github.com/luongnv89/claude-howto",
       "landingPage": "https://luongnv.com/claude-howto",
       "logo": "/images/projects/claude-howto.svg"
@@ -53,7 +53,7 @@
       "name": "ccl",
       "description": "Hit your limit? Need privacy? Just swap the model, everything else stays",
       "language": "Python",
-      "stars": 35,
+      "stars": 36,
       "url": "https://github.com/luongnv89/ccl",
       "landingPage": "https://luongnv.com/ccl",
       "logo": "/images/projects/ccl.svg",
@@ -96,7 +96,7 @@
       "url": "https://github.com/luongnv89/vscode-markdown-preview",
       "landingPage": "https://luongnv.com/vscode-markdown-preview",
       "logo": "/images/projects/vscode-markdown-preview.svg",
-      "forks": 0
+      "forks": 1
     },
     {
       "name": "repo-insights",

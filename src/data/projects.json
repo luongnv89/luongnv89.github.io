@@ -4,7 +4,7 @@
       "name": "ccl",
       "description": "Hit your limit? Need privacy? Just swap the model, everything else stays",
       "language": "Python",
-      "stars": 35,
+      "stars": 36,
       "url": "https://github.com/luongnv89/ccl",
       "forks": 1,
       "icon": "/images/projects/ccl.svg"
@@ -13,10 +13,10 @@
       "name": "claude-howto",
       "description": "Visual, example-driven guide to Claude Code — from basic concepts to advanced agents, with 50+ copy-paste templates",
       "language": "Python",
-      "stars": 37864,
+      "stars": 37998,
       "url": "https://github.com/luongnv89/claude-howto",
       "icon": "/images/projects/claude-howto.svg",
-      "forks": 4564
+      "forks": 4581
     },
     {
       "name": "cc-context-stats",
@@ -61,7 +61,7 @@
       "stars": 18,
       "url": "https://github.com/luongnv89/vscode-markdown-preview",
       "icon": "/images/projects/vscode-markdown-preview.svg",
-      "forks": 0
+      "forks": 1
     },
     {
       "name": "mmt-dpi",
