@@ -13,10 +13,10 @@
       "name": "claude-howto",
       "description": "Visual, example-driven guide to Claude Code — from basic concepts to advanced agents, with 50+ copy-paste templates",
       "language": "Python",
-      "stars": 38817,
+      "stars": 38915,
       "url": "https://github.com/luongnv89/claude-howto",
       "icon": "/images/projects/claude-howto.svg",
-      "forks": 4673
+      "forks": 4685
     },
     {
       "name": "cc-context-stats",
@@ -40,10 +40,10 @@
       "name": "agent-skill-manager",
       "description": "The universal skill manager for AI coding agents — install, audit, and manage reusable skills across Claude Code, Codex, and more",
       "language": "TypeScript",
-      "stars": 668,
+      "stars": 683,
       "url": "https://github.com/luongnv89/agent-skill-manager",
       "icon": "/images/projects/agent-skill-manager.svg",
-      "forks": 51
+      "forks": 53
     },
     {
       "name": "voice-cast",
