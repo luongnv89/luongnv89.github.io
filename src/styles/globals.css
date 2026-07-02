@@ -8,11 +8,12 @@
     --bg-secondary: #ebebeb;
     --bg-tertiary: #e0e0e0;
     --text-primary: #111111;
-    --text-secondary: #6b7280;
-    --text-muted: #9ca3af;
+    --text-secondary: #4b5563;
+    --text-muted: #525c69;
     --border: #e5e7eb;
     --border-hover: #d1d5db;
     --accent: #059033;
+    --accent-text: #046c25;
     --accent-hover: #047528;
     --accent-glow: rgba(5, 144, 51, 0.12);
   }
@@ -27,6 +28,7 @@
     --border: #262626;
     --border-hover: #404040;
     --accent: #00ff41;
+    --accent-text: #00ff41;
     --accent-hover: #00cc33;
     --accent-glow: rgba(0, 255, 65, 0.15);
   }
@@ -72,7 +74,7 @@
   .btn-primary {
     @apply px-4 py-2 rounded-lg border-2 font-medium transition-all duration-200;
     border-color: var(--accent);
-    color: var(--accent);
+    color: var(--accent-text);
   }
 
   .btn-primary:hover {
@@ -88,7 +90,7 @@
 
   .btn-secondary:hover {
     border-color: var(--accent);
-    color: var(--accent);
+    color: var(--accent-text);
   }
 
   .icon-btn {
@@ -97,7 +99,7 @@
 
   .icon-btn:hover {
     border-color: var(--accent);
-    color: var(--accent);
+    color: var(--accent-text);
   }
 
   .badge {
@@ -116,7 +118,7 @@
   }
 
   .text-accent {
-    color: var(--accent);
+    color: var(--accent-text);
   }
 
   .border-accent {

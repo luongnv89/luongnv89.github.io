@@ -95,19 +95,7 @@ export function PortfolioCard({ project }: { project: PortfolioProject }) {
         </a>
 
         {/* Back — full details */}
-        <div
-          className="flip-card-face flip-card-back rounded-xl border border-[var(--accent)] bg-[var(--bg-secondary)] p-5 flex flex-col justify-between cursor-pointer"
-          onClick={() => setFlipped(false)}
-          onKeyDown={(e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-              e.preventDefault()
-              setFlipped(false)
-            }
-          }}
-          tabIndex={flipped ? 0 : -1}
-          role="button"
-          aria-label={`Hide details for ${title}`}
-        >
+        <div className="flip-card-face flip-card-back rounded-xl border border-[var(--accent)] bg-[var(--bg-secondary)] p-5 flex flex-col justify-between">
           <div>
             <h3 className="text-sm font-semibold text-[var(--text-primary)] mb-2">
               {title}
@@ -145,7 +133,6 @@ export function PortfolioCard({ project }: { project: PortfolioProject }) {
                     href={project.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    onClick={(e) => e.stopPropagation()}
                     className="inline-flex items-center gap-1.5 text-xs font-medium text-accent hover:underline min-h-[24px]"
                   >
                     <ExternalLink size={12} />
@@ -157,7 +144,6 @@ export function PortfolioCard({ project }: { project: PortfolioProject }) {
                     href={project.landingPage}
                     target="_blank"
                     rel="noopener noreferrer"
-                    onClick={(e) => e.stopPropagation()}
                     className="inline-flex items-center gap-1.5 text-xs font-medium text-[var(--text-secondary)] hover:text-accent hover:underline min-h-[24px]"
                   >
                     <ExternalLink size={12} />
@@ -165,7 +151,14 @@ export function PortfolioCard({ project }: { project: PortfolioProject }) {
                   </a>
                 )}
               </div>
-              <RotateCcw size={14} className="text-[var(--text-muted)]" />
+              <button
+                type="button"
+                onClick={() => setFlipped(false)}
+                className="inline-flex h-8 w-8 items-center justify-center rounded-full text-[var(--text-muted)] transition-colors hover:bg-[var(--bg-tertiary)] hover:text-accent focus-ring"
+                aria-label={`Hide details for ${title}`}
+              >
+                <RotateCcw size={14} aria-hidden="true" />
+              </button>
             </div>
           </div>
         </div>
