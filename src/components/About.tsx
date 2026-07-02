@@ -1,4 +1,10 @@
 import { MapPin, Code2, Shield, Brain, BookOpen, Hammer, Share2, Users } from 'lucide-react'
+import portfolioData from '@/data/portfolio.json'
+
+// Kept fresh by the daily stats cron that rewrites portfolio.json
+const claudeHowtoStarsK = Math.floor(
+  (portfolioData.projects.find((p) => p.name === 'claude-howto')?.stars ?? 39000) / 1000
+)
 
 const highlights = [
   { icon: Code2, label: 'Software Engineer', description: 'Building robust, scalable systems for over a decade' },
@@ -27,13 +33,16 @@ export function About() {
           <div className="space-y-6">
             <p className="text-[var(--text-secondary)] leading-relaxed">
               I'm a Software Engineer based in <span className="text-accent inline-flex items-center gap-1"><MapPin size={14} /> Paris, France</span>.
-              At my core, I'm an engineer who loves solving hard problems — whether that means
-              building scalable backend systems, training AI models, or hardening networks against attacks.
+              By day I'm a research engineer at <span className="text-accent font-medium">Montimage</span>,
+              hardening networks through deep packet inspection and European cybersecurity research.
+              At my core, I'm an engineer who loves solving hard problems.
             </p>
             <p className="text-[var(--text-secondary)] leading-relaxed">
-              My focus areas are <span className="text-accent font-medium">AI</span> and <span className="text-accent font-medium">Cybersecurity</span>.
-              From deep packet inspection and network security tools to LLM-powered applications
-              and developer tooling, I work at the intersection of intelligence and defense.
+              My moat is the combination of <span className="text-accent font-medium">AI</span> and <span className="text-accent font-medium">Cybersecurity</span>:
+              a decade of network-security engineering paired with AI developer tooling that people
+              actually use — <span className="text-accent font-medium">claude-howto</span>, my visual guide
+              to Claude Code, has grown past <span className="text-accent font-medium">{claudeHowtoStarsK},000 GitHub stars</span>,
+              and tools like asm, Milo, and TextWiz are in developers' hands every day.
             </p>
             <p className="text-[var(--text-secondary)] leading-relaxed">
               But engineering is only half the story. I believe in a cycle of

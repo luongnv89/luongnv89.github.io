@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Star, ExternalLink, RotateCcw, GitFork } from 'lucide-react'
+import { Star, ExternalLink, RotateCcw, GitFork, Info } from 'lucide-react'
 
 interface PortfolioProject {
   name: string
@@ -31,63 +31,81 @@ const languageColors: Record<string, string> = {
 export function PortfolioCard({ project }: { project: PortfolioProject }) {
   const [flipped, setFlipped] = useState(false)
   const title = project.displayName ?? project.name
+  const primaryLink = project.showLink === false ? undefined : (project.landingPage ?? project.url)
 
   return (
-    <div
-      className="perspective-card cursor-pointer"
-      onClick={() => setFlipped(!flipped)}
-      onKeyDown={(e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault()
-          setFlipped(!flipped)
-        }
-      }}
-      tabIndex={0}
-      role="button"
-      aria-label={title}
-    >
+    <div className="perspective-card relative">
+      {!flipped && (
+        <button
+          onClick={() => setFlipped(true)}
+          className="absolute top-2 right-2 z-20 flex h-7 w-7 items-center justify-center rounded-full text-[var(--text-muted)] hover:text-accent hover:bg-[var(--bg-tertiary)] transition-colors focus-ring"
+          aria-label={`Show details for ${title}`}
+        >
+          <Info size={14} />
+        </button>
+      )}
       <div className={`flip-card-inner ${flipped ? 'rotate-y-180' : ''}`}>
-        {/* Front — Logo */}
-        <div className="flip-card-face rounded-xl border border-[var(--border)] bg-[var(--bg-secondary)] flex flex-col items-center justify-center p-6 hover:border-[var(--accent)] transition-colors duration-200">
+        {/* Front — logo, name, description; whole card links to the project */}
+        <a
+          href={primaryLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={primaryLink ? `${title} — visit project` : title}
+          aria-hidden={flipped}
+          tabIndex={!flipped && primaryLink ? 0 : -1}
+          className="flip-card-face rounded-xl border border-[var(--border)] bg-[var(--bg-secondary)] flex flex-col items-center justify-center gap-2 p-4 text-center hover:border-[var(--accent)] transition-colors duration-200 focus-ring"
+        >
           <div
-            className="relative w-28 h-24 flex items-center justify-center"
+            className="relative w-16 h-16 flex items-center justify-center"
             style={{
               backgroundImage: 'radial-gradient(circle, var(--border) 1px, transparent 1px)',
-              backgroundSize: '12px 12px',
+              backgroundSize: '10px 10px',
             }}
           >
             <img
               src={project.logo}
-              alt={title}
-              className="w-24 h-24 object-contain relative z-10 drop-shadow-md"
+              alt=""
+              loading="lazy"
+              className="w-14 h-14 object-contain relative z-10 drop-shadow-md"
             />
           </div>
-          <span className="mt-3 text-sm font-medium text-[var(--text-primary)]">
+
+          <span className="text-sm font-medium text-[var(--text-primary)]">
             {title}
           </span>
-          {(project.stars > 0 || (project.forks !== undefined && project.forks >= 0)) && (
-            <div className="mt-3 flex items-center gap-4 text-xs">
-              <span className="flex items-center gap-1.5 text-accent font-medium">
-                <Star size={14} className="text-accent" />
-                {project.stars}
-              </span>
-              {project.forks !== undefined && (
+
+          <p className="text-xs text-[var(--text-muted)] leading-snug line-clamp-2 px-1">
+            {project.description}
+          </p>
+
+          {(project.stars > 0 || (project.forks !== undefined && project.forks > 0)) && (
+            <div className="flex items-center gap-4 text-xs">
+              {project.stars > 0 && (
                 <span className="flex items-center gap-1.5 text-accent font-medium">
-                  <GitFork size={14} className="text-accent" />
+                  <Star size={13} className="text-accent" />
+                  {project.stars}
+                </span>
+              )}
+              {project.forks !== undefined && project.forks > 0 && (
+                <span className="flex items-center gap-1.5 text-accent font-medium">
+                  <GitFork size={13} className="text-accent" />
                   {project.forks}
                 </span>
               )}
             </div>
           )}
-        </div>
+        </a>
 
-        {/* Back — Details */}
-        <div className="flip-card-face flip-card-back rounded-xl border border-[var(--accent)] bg-[var(--bg-secondary)] p-5 flex flex-col justify-between">
+        {/* Back — full details */}
+        <div
+          aria-hidden={!flipped}
+          className="flip-card-face flip-card-back rounded-xl border border-[var(--accent)] bg-[var(--bg-secondary)] p-5 flex flex-col justify-between"
+        >
           <div>
             <h3 className="text-sm font-semibold text-[var(--text-primary)] mb-2">
               {title}
             </h3>
-            <p className="text-xs text-[var(--text-secondary)] leading-relaxed line-clamp-3">
+            <p className="text-xs text-[var(--text-secondary)] leading-relaxed line-clamp-4">
               {project.description}
             </p>
           </div>
@@ -120,7 +138,7 @@ export function PortfolioCard({ project }: { project: PortfolioProject }) {
                     href={project.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    onClick={(e) => e.stopPropagation()}
+                    tabIndex={flipped ? 0 : -1}
                     className="inline-flex items-center gap-1.5 text-xs font-medium text-accent hover:underline min-h-[24px]"
                   >
                     <ExternalLink size={12} />
@@ -132,7 +150,7 @@ export function PortfolioCard({ project }: { project: PortfolioProject }) {
                     href={project.landingPage}
                     target="_blank"
                     rel="noopener noreferrer"
-                    onClick={(e) => e.stopPropagation()}
+                    tabIndex={flipped ? 0 : -1}
                     className="inline-flex items-center gap-1.5 text-xs font-medium text-[var(--text-secondary)] hover:text-accent hover:underline min-h-[24px]"
                   >
                     <ExternalLink size={12} />
@@ -140,7 +158,15 @@ export function PortfolioCard({ project }: { project: PortfolioProject }) {
                   </a>
                 )}
               </div>
-              <RotateCcw size={14} className="text-[var(--text-muted)]" />
+              <button
+                type="button"
+                onClick={() => setFlipped(false)}
+                tabIndex={flipped ? 0 : -1}
+                className="inline-flex h-8 w-8 items-center justify-center rounded-full text-[var(--text-muted)] transition-colors hover:bg-[var(--bg-tertiary)] hover:text-accent focus-ring"
+                aria-label={`Hide details for ${title}`}
+              >
+                <RotateCcw size={14} aria-hidden="true" />
+              </button>
             </div>
           </div>
         </div>

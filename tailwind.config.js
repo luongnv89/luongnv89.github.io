@@ -9,7 +9,8 @@ export default {
     extend: {
       colors: {
         accent: {
-          DEFAULT: 'var(--accent)',
+          DEFAULT: 'var(--accent-text)',
+          visual: 'var(--accent)',
           hover: 'var(--accent-hover)',
           glow: 'var(--accent-glow)',
         },

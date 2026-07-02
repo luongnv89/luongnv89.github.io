@@ -1,7 +1,13 @@
-import { Github, Linkedin, Twitter, Star, Users, FolderGit2, Loader2 } from 'lucide-react'
+import { Github, Linkedin, Twitter, Star, Users, FolderGit2, Loader2, ArrowDown, BookOpen } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { fetchGitHubStats, type GitHubStats } from '@/lib/github'
 import { useMatrixPause } from '@/hooks/useMatrixPause'
+import portfolioData from '@/data/portfolio.json'
+
+// Kept fresh by the daily stats cron that rewrites portfolio.json
+const claudeHowtoStarsK = Math.floor(
+  (portfolioData.projects.find((p) => p.name === 'claude-howto')?.stars ?? 39000) / 1000
+)
 
 // Bluesky icon component (not in lucide-react)
 function BlueskyIcon({ size = 18 }: { size?: number }) {
@@ -37,7 +43,7 @@ export function Hero() {
   }, [])
 
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center py-20 px-4">
+    <section id="home" className="relative min-h-screen flex flex-col items-center justify-center py-24 px-4">
       <button
         onClick={() => setIsPaused(!isPaused)}
         onMouseEnter={() => setIsPaused(true)}
@@ -45,7 +51,7 @@ export function Hero() {
         onFocus={() => setIsPaused(true)}
         onBlur={() => setIsPaused(false)}
         className="focus-ring rounded-full"
-        aria-label="Toggle matrix animation"
+        aria-label="Pause or resume the background animation"
       >
         <img
           src="/img/cool.jpg"
@@ -59,13 +65,16 @@ export function Hero() {
       </button>
 
       <h1 className="mt-6 text-4xl md:text-5xl font-bold text-center">
-        <span className="text-accent">@</span>luongnv89
+        Luong Nguyen
       </h1>
+      <p className="mt-2 font-mono text-accent text-center">@luongnv89</p>
 
-      <p className="mt-4 text-lg text-[var(--text-secondary)] max-w-md text-center leading-relaxed">
-        Software Engineer - AI, Cybersecurity
-        <br />
-        Learn, Build, Share and Connect
+      <p className="mt-4 text-lg text-[var(--text-primary)] max-w-xl text-center leading-relaxed font-medium">
+        AI &amp; Cybersecurity Engineer at Montimage, Paris
+      </p>
+      <p className="mt-2 text-[var(--text-secondary)] max-w-xl text-center leading-relaxed">
+        I secure networks by day and ship AI developer tools used by thousands —
+        including a {claudeHowtoStarsK}k-star Claude Code guide. Learn, Build, Share and Connect.
       </p>
 
       {/* GitHub Stats */}
@@ -91,6 +100,23 @@ export function Hero() {
             </div>
           </>
         ) : null}
+      </div>
+
+      {/* CTAs */}
+      <div className="flex flex-wrap justify-center gap-4 mt-8">
+        <a href="#products" className="btn-primary inline-flex items-center gap-2">
+          See my work
+          <ArrowDown size={16} />
+        </a>
+        <a
+          href="https://luongnv.com/claude-howto"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn-secondary inline-flex items-center gap-2"
+        >
+          <BookOpen size={16} />
+          Read the Claude Code guide
+        </a>
       </div>
 
       {/* Social Links */}

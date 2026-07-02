@@ -1,14 +1,15 @@
 import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { ThemeToggle } from './components/ThemeToggle'
 import { MatrixBackground } from './components/MatrixBackground'
 import { ScrollToTop } from './components/ScrollToTop'
 import { Hero } from './components/Hero'
 import { About } from './components/About'
+import { Products } from './components/Products'
 import { Portfolio } from './components/Portfolio'
 import { Skills } from './components/Skills'
 import { Blog } from './components/Blog'
 import { Contact } from './components/Contact'
+import { Nav } from './components/layout/Nav'
 import { Footer } from './components/layout/Footer'
 import { MatrixPauseContext } from './hooks/useMatrixPause'
 
@@ -18,6 +19,7 @@ function HomePage() {
       <main className="relative z-10">
         <Hero />
         <About />
+        <Products />
         <Portfolio />
         <Skills />
         <Blog />
@@ -36,7 +38,7 @@ function App() {
       <BrowserRouter>
         <div className="min-h-screen bg-[var(--bg-primary)] relative">
           <MatrixBackground />
-          <ThemeToggle />
+          <Nav />
           <ScrollToTop />
           <Routes>
             <Route path="/" element={<HomePage />} />
