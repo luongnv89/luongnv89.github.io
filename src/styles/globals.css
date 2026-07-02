@@ -35,9 +35,9 @@
     scroll-behavior: smooth;
   }
 
-  /* Scroll margin for anchor links */
+  /* Scroll margin for anchor links (clears the fixed nav) */
   section[id] {
-    scroll-margin-top: 2rem;
+    scroll-margin-top: 4.5rem;
   }
 
   body {
@@ -78,6 +78,17 @@
   .btn-primary:hover {
     background-color: var(--accent);
     color: #000000;
+  }
+
+  .btn-secondary {
+    @apply px-4 py-2 rounded-lg border font-medium transition-all duration-200;
+    border-color: var(--border-hover);
+    color: var(--text-secondary);
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--accent);
+    color: var(--accent);
   }
 
   .icon-btn {
