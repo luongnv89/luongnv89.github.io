@@ -77,7 +77,7 @@ export function Products() {
                   src={product.screenshot}
                   alt={`${product.name} website screenshot`}
                   loading="lazy"
-                  className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+                  className="h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.03]"
                 />
               </div>
 

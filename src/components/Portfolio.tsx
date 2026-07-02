@@ -62,7 +62,7 @@ export function Portfolio() {
                   src={project.screenshot}
                   alt={`${project.displayName} screenshot`}
                   loading="lazy"
-                  className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+                  className="h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.02]"
                 />
               </a>
 

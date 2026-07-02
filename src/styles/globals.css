@@ -195,11 +195,18 @@ html.transitioning *::after {
   aspect-ratio: 1;
 }
 
+@media (max-width: 639px) {
+  .perspective-card {
+    aspect-ratio: auto;
+    min-height: 15rem;
+  }
+}
+
 .flip-card-inner {
   position: relative;
   width: 100%;
   height: 100%;
-  transition: transform 600ms ease;
+  transition: transform 300ms ease;
   transform-style: preserve-3d;
   -webkit-transform-style: preserve-3d;
   will-change: transform;
@@ -228,4 +235,15 @@ html.transitioning *::after {
 .rotate-y-180 {
   transform: rotateY(180deg);
   -webkit-transform: rotateY(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
