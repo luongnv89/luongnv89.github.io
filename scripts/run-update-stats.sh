@@ -11,11 +11,20 @@ set -euo pipefail
 # - treat GitHub/master as source of truth for this generated repo
 # - retry once if push is rejected by a non-fast-forward
 
-ENV_FILE="$HOME/.config/devstats/api.env"
-REPO_DIR="/home/luongnv/workspace/luongnv89.github.io"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
+ENV_FILE="${DEVSTATS_ENV_FILE:-$HOME/.config/devstats/api.env}"
 LOG_DIR="$REPO_DIR/logs"
 LOCK_FILE="$LOG_DIR/update-stats.lock"
-SSH_CMD="ssh -i /home/luongnv/.ssh/blogs_deploy -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new"
+
+# Prefer an explicit deploy key if present; otherwise use the user's default SSH agent/key.
+if [[ -n "${GIT_SSH_COMMAND:-}" ]]; then
+  :
+elif [[ -f "${HOME}/.ssh/blogs_deploy" ]]; then
+  export GIT_SSH_COMMAND="ssh -i ${HOME}/.ssh/blogs_deploy -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new"
+else
+  export GIT_SSH_COMMAND="ssh -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new"
+fi
 
 mkdir -p "$LOG_DIR"
 
@@ -36,25 +45,31 @@ fi
 
 if [[ "$AUTH_SOURCE" != "gh" && -f "$ENV_FILE" ]]; then
   set -a
+  # shellcheck disable=SC1090
   source "$ENV_FILE"
   set +a
   AUTH_SOURCE="env"
 fi
 
-export GIT_SSH_COMMAND="$SSH_CMD"
+export PATH="${HOME}/.local/bin:/usr/local/bin:/usr/bin:/bin:${PATH:-}"
 echo "[AUTH] Using ${AUTH_SOURCE} authentication"
+echo "[REPO] ${REPO_DIR}"
 
 cd "$REPO_DIR"
 
-# Ensure deps (assumes already installed; uncomment if needed)
-# npm ci
+# Ensure deps once if missing (safe for fresh clones on a new host)
+if [[ ! -d node_modules ]]; then
+  echo "[DEPS] Installing npm dependencies"
+  npm ci || npm install
+fi
 
 (git rebase --abort >/dev/null 2>&1 || true)
 (git merge --abort >/dev/null 2>&1 || true)
 
 git fetch origin
 git reset --hard origin/master
-git clean -fd logs
+# Keep local logs; only clean other untracked junk if needed
+git clean -fd -e logs -e node_modules
 
 npm run update-stats
 
