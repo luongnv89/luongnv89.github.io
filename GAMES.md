@@ -63,6 +63,10 @@ looks finished.
 - `public/sitemap.xml` — add `https://luongnv.com/games/<slug>/`
 - `public/llms.txt` — add a line under `## Games`
 
+Per-game URLs only, in both files. Do **not** list `https://luongnv.com/games` itself: it is
+not a static 200 — GitHub Pages serves it as a real 404 that `404.html` recovers client-side,
+and the crawlers that read these files generally do not run JS. See the note in `sitemap.xml`.
+
 ## Analytics (automatic)
 
 You do **not** add tracking to a game by hand. The `inject-games-analytics` plugin in
@@ -79,6 +83,47 @@ own `gtag.js` (Codex of Duty does) keeps it: the plugin reuses that loader and a
 call, so both properties receive data and the script is fetched once.
 
 To verify after a build: `grep -c G-FZV5YX8YPT dist/games/<slug>/index.html`.
+
+## Provenance and licensing
+
+Everything under `public/games/` is redistributed publicly, so anything third-party in it needs
+attribution. `public/games/LICENSES.md` is that notice — it is copied to `dist/games/` with the games, so it
+travels with every copy of them. (The analytics plugin skips it: it only descends into
+directories.)
+
+When you add or refresh a game, record in `LICENSES.md` where its code came from and what it
+carries: every third-party project, its license, and its upstream URL. Today that is three.js
+(MIT) plus Draco, Basis Universal and Rapier (all Apache-2.0, whose §4(d) requires attribution
+notices to travel with a redistribution). A copyleft scan of the shipped bundles is clean.
+
+**Prefer vendoring over a CDN.** Open Skies pins three.js r185 under
+`public/games/open-skies/vendor/` and its import map points at a relative `./vendor/` path, so no
+third-party code is fetched at runtime into this origin. Note that three.js ships as a split
+bundle — `three.module.min.js` imports `./three.core.min.js` from the same folder, and neither
+half works alone. Record the size and SHA-256 of anything you vendor so the copy can be checked
+against upstream later.
+
+## Accepted risks and known limitations
+
+Deliberate choices, recorded so they read as chosen rather than overlooked.
+
+- **Repo weight.** `public/games/` is ~5 MB and git keeps those blobs forever. ~3.0 MB is
+  `codex-of-duty/assets/index-B9vSaKso.js`, of which 2,092,784 bytes is a single base64-inlined
+  Rapier wasm module (~1.57 MB decoded — a ~33% penalty over shipping it as a separate `.wasm`),
+  plus Draco decoders shipped twice in each format. Emitting Rapier's wasm as its own asset would
+  save ~750 KB and allow independent caching and streaming compilation. That is upstream work in
+  the `codex-of-duty` repo, not here.
+- **Dual GA4 properties.** `public/games/codex-of-duty/index.html` carries its own upstream GA4
+  property (`G-5HKPB8C162`) alongside the site's (`G-FZV5YX8YPT`), so visitors to that one page are
+  measured by two properties. Intentional — the `inject-games-analytics` plugin reuses the existing
+  loader rather than fetching `gtag.js` twice. Worth remembering for any privacy or consent
+  statement.
+- **Upstream drift.** Codex of Duty is a copy of <https://github.com/luongnv89/codex-of-duty> and
+  will drift until it is refreshed. Refreshing means rebuilding it against the right base path —
+  see "If the game is a bundler build" above.
+- **Mobile navigation.** The site header hides its nav links below 768px (`hidden md:flex`) and
+  there is no mobile menu, so on a phone the footer link is the only route to `/games`. This is a
+  pre-existing, site-wide gap, left as-is here rather than fixed as a side effect of the catalog.
 
 ## Where things live
 

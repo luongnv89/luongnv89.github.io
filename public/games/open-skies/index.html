@@ -4,7 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Open Skies</title>
-<script type="importmap">{"imports":{"three":"https://unpkg.com/three@0.185.1/build/three.module.min.js","three/":"https://unpkg.com/three@0.185.1/"}}</script>
+<!-- three.js r185 is vendored under vendor/ (MIT — see /games/LICENSES.md) rather than
+     pulled from a CDN at runtime. The path is relative, so it resolves against this
+     document's base URL and works at /games/open-skies/ and under the dev server alike.
+     three.module.min.js imports ./three.core.min.js from the same folder.
+     The former "three/" prefix entry is gone: nothing here imports a submodule, and
+     keeping it would have left unpkg inside the trust boundary for no benefit. -->
+<script type="importmap">{"imports":{"three":"./vendor/three.module.min.js"}}</script>
 <style>
   html, body { margin:0; padding:0; height:100%; overflow:hidden; background:#12181d; }
   canvas { display:block; position:fixed; inset:0; width:100%; height:100%; }

@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { fileURLToPath } from 'url'
-import { dirname, resolve } from 'path'
+import { dirname, resolve, sep } from 'path'
 import { execSync } from 'child_process'
 import { existsSync, readdirSync, readFileSync, writeFileSync } from 'fs'
 
@@ -62,7 +62,9 @@ export default defineConfig({
           const path = (req.url ?? '').split('?')[0]
           if (path.length > 1 && path.endsWith('/')) {
             const file = resolve(publicDir, `.${path}index.html`)
-            if (file.startsWith(publicDir) && existsSync(file)) {
+            // `+ sep` matters: a bare prefix test also accepts a sibling
+            // directory whose name merely starts with "public".
+            if (file.startsWith(publicDir + sep) && existsSync(file)) {
               req.url = `${path}index.html`
             }
           }
