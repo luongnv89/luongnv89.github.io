@@ -35,9 +35,12 @@ export function GamesPage() {
     <>
       <main className="relative z-10 pt-24 pb-16 md:pt-28 md:pb-24">
         <div className="container-custom">
+          {/* `-my-3 py-3` lifts the hit area from ~20px to 44px without moving
+              anything: with nav links hidden below 768px this is the primary
+              in-page way back on mobile. */}
           <Link
             to="/"
-            className="inline-flex items-center gap-2 text-sm text-[var(--text-secondary)] transition-colors hover:text-accent focus-ring rounded-md"
+            className="-my-3 inline-flex items-center gap-2 py-3 text-sm text-[var(--text-secondary)] transition-colors hover:text-accent focus-ring rounded-md"
           >
             <ArrowLeft size={16} aria-hidden="true" />
             Back to home
@@ -64,7 +67,7 @@ export function GamesPage() {
                     type="button"
                     onClick={() => setActiveTag(tag)}
                     aria-pressed={isActive}
-                    className={`rounded-full border px-3 py-1 text-sm transition-colors focus-ring ${
+                    className={`inline-flex min-h-[44px] items-center rounded-full border px-4 py-2 text-sm transition-colors focus-ring ${
                       isActive
                         ? 'border-[var(--accent)] text-accent'
                         : 'border-[var(--border)] text-[var(--text-secondary)] hover:border-[var(--border-hover)] hover:text-[var(--text-primary)]'
@@ -76,32 +79,55 @@ export function GamesPage() {
               })}
             </div>
           )}
-
-          {visible.length > 0 ? (
-            <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {visible.map((game) => (
-                <GameCard key={game.slug} game={game} />
-              ))}
-            </div>
-          ) : (
-            <div className="mt-10 rounded-2xl border border-[var(--border)] bg-[var(--bg-secondary)] p-10 text-center">
-              <p className="text-[var(--text-primary)]">
-                {games.length === 0
-                  ? 'No games published yet — check back soon.'
-                  : `No games tagged "${activeTag}".`}
-              </p>
-              {games.length > 0 && (
-                <button
-                  type="button"
-                  onClick={() => setActiveTag(ALL)}
-                  className="btn-secondary mt-4 focus-ring"
-                >
-                  Show all games
-                </button>
-              )}
-            </div>
-          )}
         </div>
+
+        {/* GameCard is --bg-primary, same as the page, so on its own the grid is
+            delineated only by a 1.10:1 border. The homepage gives that card a
+            --bg-secondary section (Products, Games); this band is the same
+            one-step separation. It wraps only the grid rather than <main> so the
+            matrix canvas still shows through behind the page header. */}
+        <section className="mt-10 bg-[var(--bg-secondary)] py-10 md:py-12">
+          <div className="container-custom">
+            {/* The page h1 is "Games" and the cards are h3 — without this the
+                heading outline skips a level. */}
+            <h2 className="sr-only">All games</h2>
+
+            {/* Filtering swaps the grid silently; this is the only feedback a
+                screen-reader user gets. Kept outside the branch below so
+                switching between grid and empty state doesn't remount it — a
+                remounted live region never announces. */}
+            <p aria-live="polite" className="sr-only">
+              {`${visible.length} ${visible.length === 1 ? 'game' : 'games'}${
+                activeTag === ALL ? '' : ` tagged "${activeTag}"`
+              }`}
+            </p>
+
+            {visible.length > 0 ? (
+              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                {visible.map((game) => (
+                  <GameCard key={game.slug} game={game} />
+                ))}
+              </div>
+            ) : (
+              <div className="rounded-2xl border border-[var(--border)] bg-[var(--bg-primary)] p-10 text-center">
+                <p className="text-[var(--text-primary)]">
+                  {games.length === 0
+                    ? 'No games published yet — check back soon.'
+                    : `No games tagged "${activeTag}".`}
+                </p>
+                {games.length > 0 && (
+                  <button
+                    type="button"
+                    onClick={() => setActiveTag(ALL)}
+                    className="btn-secondary mt-4 focus-ring"
+                  >
+                    Show all games
+                  </button>
+                )}
+              </div>
+            )}
+          </div>
+        </section>
       </main>
       <Footer className="relative z-10" />
     </>

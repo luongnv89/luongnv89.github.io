@@ -14,8 +14,8 @@ export function Games() {
   return (
     <section id="games" className="section bg-[var(--bg-secondary)]">
       <div className="container-custom">
-        <h2 className="section-title mb-2">Games</h2>
-        <p className="section-subtitle mb-8 max-w-2xl">
+        <h2 className="section-title">Games</h2>
+        <p className="section-subtitle max-w-2xl">
           Games I built for fun — they run in the browser, nothing to install. Free to play and share.
         </p>
 
