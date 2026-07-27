@@ -36,4 +36,28 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <!--
+    Note: do NOT list https://luongnv.com/games here. GitHub Pages serves it as
+    a 404 (the SPA route is recovered client-side via 404.html), so submitting it
+    would just register as a crawl error. Only the games themselves are real
+    static 200s. The catalog stays discoverable via links from the homepage.
+  -->
+  <url>
+    <loc>https://luongnv.com/games/codex-of-duty/</loc>
+    <lastmod>2026-07-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://luongnv.com/games/open-skies/</loc>
+    <lastmod>2026-07-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://luongnv.com/games/neon-snake/</loc>
+    <lastmod>2026-07-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
 </urlset>

@@ -1,15 +1,21 @@
+import { Link } from 'react-router-dom'
+
 interface NavLink {
   label: string
   href: string
+  /** True for in-app router paths (client-side nav); false/absent for hash anchors. */
+  route?: boolean
 }
 
+/** Root-relative so they work from non-home routes (e.g. /games) too. */
 const links: NavLink[] = [
-  { label: 'About', href: '#about' },
-  { label: 'Products', href: '#products' },
-  { label: 'Open Source', href: '#oss' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Writing', href: '#blog' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'About', href: '/#about' },
+  { label: 'Products', href: '/#products' },
+  { label: 'Open Source', href: '/#oss' },
+  { label: 'Games', href: '/games', route: true },
+  { label: 'Skills', href: '/#skills' },
+  { label: 'Writing', href: '/#blog' },
+  { label: 'Contact', href: '/#contact' },
 ]
 
 const externalLinks: NavLink[] = [
@@ -57,15 +63,25 @@ export function Footer({ className = '' }: FooterProps) {
           </div>
 
           <nav className="flex flex-wrap items-center gap-x-6 gap-y-2">
-            {links.map(({ label, href }) => (
-              <a
-                key={label}
-                href={href}
-                className="text-sm text-[var(--text-secondary)] hover:text-accent transition-colors"
-              >
-                {label}
-              </a>
-            ))}
+            {links.map(({ label, href, route }) =>
+              route ? (
+                <Link
+                  key={label}
+                  to={href}
+                  className="text-sm text-[var(--text-secondary)] hover:text-accent transition-colors"
+                >
+                  {label}
+                </Link>
+              ) : (
+                <a
+                  key={label}
+                  href={href}
+                  className="text-sm text-[var(--text-secondary)] hover:text-accent transition-colors"
+                >
+                  {label}
+                </a>
+              )
+            )}
           </nav>
 
           <p className="text-xs text-[var(--text-muted)]">
