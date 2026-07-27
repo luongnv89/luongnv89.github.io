@@ -63,6 +63,23 @@ looks finished.
 - `public/sitemap.xml` — add `https://luongnv.com/games/<slug>/`
 - `public/llms.txt` — add a line under `## Games`
 
+## Analytics (automatic)
+
+You do **not** add tracking to a game by hand. The `inject-games-analytics` plugin in
+`vite.config.ts` injects the site's GA4 tag into every `dist/games/*/index.html` after each build:
+
+- `page_view` — each game has its own URL and `<title>`, so GA separates them in the Pages report
+  with no extra setup
+- `game_open` with a `game_slug` parameter — register `game_slug` as a custom dimension in GA if you
+  want to segment on it directly
+
+Sources under `public/games/` are left untouched, which matters because several games are vendored
+copies or bundler output — an edit there would be lost on the next rebuild. A game that ships its
+own `gtag.js` (Codex of Duty does) keeps it: the plugin reuses that loader and adds only the config
+call, so both properties receive data and the script is fetched once.
+
+To verify after a build: `grep -c G-FZV5YX8YPT dist/games/<slug>/index.html`.
+
 ## Where things live
 
 | Path                          | What                                           |
