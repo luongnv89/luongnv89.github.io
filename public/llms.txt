@@ -20,6 +20,7 @@ Luong Nguyen (luongnv89) is a Senior Engineer at Montimage specializing in AI ag
 
 Browser games, no install — click and play. Free to share.
 
+- [Arcade Bloodline](https://luongnv.com/games/mortal-combat/): 3D side-on arcade fighter — best-of-three rounds and a finishing strike
 - [Codex of Duty](https://luongnv.com/games/codex-of-duty/): Three.js + Rapier FPS with a streaming open world and tactical enemy AI
 - [Open Skies](https://luongnv.com/games/open-skies/): Cockpit-view combat flight sim — strafing runs and graded landings
 - [Neon Snake](https://luongnv.com/games/neon-snake/): Classic snake with a glowing trail and a speed ramp

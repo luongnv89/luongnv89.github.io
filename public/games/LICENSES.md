@@ -10,7 +10,7 @@ code. Everything below is permissive.
 
 | Project | License | Where it ships | Upstream |
 | --- | --- | --- | --- |
-| three.js (r185) | MIT | `open-skies/vendor/`, bundled into `codex-of-duty/assets/index-*.js` | <https://github.com/mrdoob/three.js> |
+| three.js (r185) | MIT | `open-skies/vendor/`, `mortal-combat/vendor/`, bundled into `codex-of-duty/assets/index-*.js` | <https://github.com/mrdoob/three.js> |
 | Google Draco | Apache-2.0 | `codex-of-duty/assets/draco_*` | <https://github.com/google/draco> |
 | Basis Universal | Apache-2.0 | `codex-of-duty/assets/basis_transcoder-*` | <https://github.com/BinomialLLC/basis_universal> |
 | Rapier (dimforge) | Apache-2.0 | `rapier_wasm3d_bg.wasm`, base64-inlined into `codex-of-duty/assets/index-*.js` | <https://github.com/dimforge/rapier> |
@@ -21,9 +21,10 @@ and their generated JavaScript loaders.
 
 ## Vendored three.js
 
-`open-skies/vendor/` holds three.js r185, downloaded from
-`https://unpkg.com/three@0.185.1/build/` and served from this origin rather than fetched
-from a CDN at runtime. Both files retain their upstream `@license` banner.
+`open-skies/vendor/` and `mortal-combat/vendor/` hold identical copies of three.js r185,
+downloaded from `https://unpkg.com/three@0.185.1/build/` and served from this origin
+rather than fetched from a CDN at runtime. Both files retain their upstream `@license`
+banner.
 
 | File | Bytes | SHA-256 |
 | --- | --- | --- |
@@ -67,5 +68,7 @@ The game code itself is the repository owner's own work.
 
 - **Codex of Duty** — built from <https://github.com/luongnv89/codex-of-duty>. The
   vendored dependencies above are its build output, not hand-added files.
+- **Arcade Bloodline** (`mortal-combat`) — written for this site; a single file plus
+  vendored three.js.
 - **Open Skies** — written for this site; a single file plus vendored three.js.
 - **Neon Snake** — written for this site; self-contained, no third-party code.

@@ -1,6 +1,18 @@
 {
   "games": [
     {
+      "slug": "mortal-combat",
+      "title": "Arcade Bloodline",
+      "blurb": "A 3D side-on arcade fighter where precise spacing, blocks, special moves, and a final finishing strike decide a best-of-three duel.",
+      "tags": [
+        "Fighter",
+        "3D",
+        "1 Player"
+      ],
+      "addedAt": "2026-07-28",
+      "controls": "Arrows move / crouch / jump \u00b7 A punch \u00b7 S kick \u00b7 D block \u00b7 \u2193+A uppercut \u00b7 \u2193 then \u2192+A projectile"
+    },
+    {
       "slug": "codex-of-duty",
       "title": "Codex of Duty",
       "blurb": "A browser FPS with a streaming open world — city chunks load in as you explore, backed by Rapier 3D physics and tactical enemy AI.",
