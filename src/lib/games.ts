@@ -17,6 +17,7 @@ export interface Game {
 /**
  * Single source of truth for game ordering — newest first, so the home section
  * and the catalog page can never disagree about what "3 most recent" means.
+ * Sort is stable, so games sharing an `addedAt` keep their order in games.json.
  */
 export function getGames(): Game[] {
   return [...(gamesData.games as Game[])].sort((a, b) => b.addedAt.localeCompare(a.addedAt))

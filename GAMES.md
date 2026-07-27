@@ -12,8 +12,17 @@ public/games/<slug>/index.html
 `<slug>` is the URL segment, so keep it lowercase and hyphenated. The game is then live at
 `https://luongnv.com/games/<slug>/`.
 
-The file must be fully self-contained (inline CSS/JS, or extra assets alongside it in the same
-folder referenced with **relative** paths — `./sprite.png`, not `/sprite.png`).
+The file must be self-contained (inline CSS/JS, or extra assets alongside it in the same folder).
+
+**If the game is a bundler build, its base path must match where it is hosted.** A Vite game built
+with `base: '/my-game/'` will request `/my-game/assets/...` and 404 under `/games/my-game/`. Rebuild
+it against the right base rather than hand-patching the minified output:
+
+```bash
+npx vite build --base=/games/<slug>/ --outDir /tmp/<slug> --emptyOutDir
+```
+
+Then verify nothing stale survived: `grep -r '"/<slug>/' public/games/<slug>/` should find nothing.
 
 ## 2. Register it in `src/data/games.json`
 
@@ -39,8 +48,9 @@ folder referenced with **relative** paths — `./sprite.png`, not `/sprite.png`)
 | `thumb`    | no       | 16:10 screenshot in `public/images/games/`. Omitted → monogram tile       |
 | `controls` | no       | One-line control hint on the card                                          |
 
-Order in the JSON file does not matter — `getGames()` sorts by `addedAt` descending, and both the
-homepage section and the catalog page use it, so they can never disagree about "most recent".
+`getGames()` sorts by `addedAt` descending, and both the homepage section and the catalog page use
+it, so they can never disagree about "most recent". The sort is stable, so games sharing the same
+`addedAt` fall back to their order in this file — put the one you want featured first.
 
 ## 3. Optional: add a screenshot
 

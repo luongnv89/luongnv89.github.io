@@ -47,8 +47,7 @@ export function GamesPage() {
             Games
           </h1>
           <p className="section-subtitle mt-3 mb-0 max-w-2xl">
-            Small browser games, each a single HTML file. Nothing to install — click one and play.
-            Free to share.
+            Games that run in the browser. Nothing to install — click one and play. Free to share.
           </p>
 
           {showFilter && (

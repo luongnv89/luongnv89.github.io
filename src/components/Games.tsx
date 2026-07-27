@@ -16,7 +16,7 @@ export function Games() {
       <div className="container-custom">
         <h2 className="section-title mb-2">Games</h2>
         <p className="section-subtitle mb-8 max-w-2xl">
-          Small browser games I built for fun — one file, no install, free to play and share.
+          Games I built for fun — they run in the browser, nothing to install. Free to play and share.
         </p>
 
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
