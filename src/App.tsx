@@ -8,6 +8,7 @@ import { Products } from './components/Products'
 import { Portfolio } from './components/Portfolio'
 import { Games } from './components/Games'
 import { GamesPage } from './components/GamesPage'
+import { NotFound } from './components/NotFound'
 import { Skills } from './components/Skills'
 import { Blog } from './components/Blog'
 import { Contact } from './components/Contact'
@@ -62,6 +63,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/games" element={<GamesPage />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
       </BrowserRouter>

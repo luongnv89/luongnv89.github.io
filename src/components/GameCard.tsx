@@ -39,8 +39,15 @@ export function GameCard({ game }: { game: Game }) {
           </div>
         )}
 
-        {/* Hover affordance — makes "this is playable" unmissable. */}
-        <span className="pointer-events-none absolute inset-0 flex items-center justify-center bg-[var(--bg-primary)]/0 opacity-0 transition-all duration-300 group-hover:bg-[var(--bg-primary)]/70 group-hover:opacity-100 group-focus-visible:bg-[var(--bg-primary)]/70 group-focus-visible:opacity-100">
+        {/* Hover affordance — makes "this is playable" unmissable. The scrim is an
+            inline `color-mix` rather than a `bg-[var(--…)]/70` utility: Tailwind v3
+            silently emits nothing for an alpha modifier on an arbitrary var() color,
+            which left the "Play" pill unreadable over the screenshot. `color-mix`
+            re-reads --bg-primary per theme, so light and dark both dim correctly. */}
+        <span
+          className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-0 transition-all duration-300 group-hover:opacity-100 group-focus-visible:opacity-100"
+          style={{ backgroundColor: 'color-mix(in srgb, var(--bg-primary) 70%, transparent)' }}
+        >
           <span className="flex items-center gap-2 rounded-full border-2 border-[var(--accent)] px-4 py-2 text-sm font-semibold text-accent">
             <Play size={16} aria-hidden="true" />
             Play
