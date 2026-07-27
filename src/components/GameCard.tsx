@@ -5,17 +5,21 @@ import { formatAdded, monogram, playUrl, type Game } from '@/lib/games'
 /**
  * Stand-in for a missing or broken screenshot: scanlines over a dot grid, so a
  * game without a usable thumbnail still reads as an arcade cabinet rather than
- * a gap. The pattern paints `--border-hover`, not `--border`: against
- * `--bg-secondary` the latter is 1.04:1 in light theme, i.e. an invisible
- * texture on a blank grey box.
+ * a gap. The pattern is a low-alpha mix of `--text-muted` rather than a border
+ * token: on `--bg-secondary`, `--border` lands at 1.04:1 in light theme and
+ * `--border-hover` only reaches 1.24:1, both of which are imperceptible on most
+ * displays. Mixing the muted text token down to 45% gives a texture that reads
+ * in both themes while staying well short of a harsh stripe.
  */
+const TILE_PATTERN = 'color-mix(in srgb, var(--text-muted) 45%, transparent)'
+
 function MonogramTile({ title }: { title: string }) {
   return (
     <div
       className="flex h-full w-full items-center justify-center bg-[var(--bg-secondary)] transition-transform duration-300 group-hover:scale-[1.03]"
       style={{
         backgroundImage:
-          'repeating-linear-gradient(0deg, var(--border-hover) 0px, var(--border-hover) 1px, transparent 1px, transparent 4px), radial-gradient(circle, var(--border-hover) 1px, transparent 1px)',
+          `repeating-linear-gradient(0deg, ${TILE_PATTERN} 0px, ${TILE_PATTERN} 1px, transparent 1px, transparent 4px), radial-gradient(circle, ${TILE_PATTERN} 1px, transparent 1px)`,
         backgroundSize: '100% 4px, 14px 14px',
       }}
       aria-hidden="true"

@@ -29,14 +29,14 @@ export function NotFound() {
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <Link
               to="/"
-              className="inline-flex items-center gap-2 text-sm text-[var(--text-secondary)] transition-colors hover:text-accent focus-ring rounded-md"
+              className="-my-3 inline-flex items-center gap-2 py-3 text-sm text-[var(--text-secondary)] transition-colors hover:text-accent focus-ring rounded-md"
             >
               <ArrowLeft size={16} aria-hidden="true" />
               Back to home
             </Link>
             <Link
               to="/games"
-              className="inline-flex items-center gap-2 text-sm text-[var(--text-secondary)] transition-colors hover:text-accent focus-ring rounded-md"
+              className="-my-3 inline-flex items-center gap-2 py-3 text-sm text-[var(--text-secondary)] transition-colors hover:text-accent focus-ring rounded-md"
             >
               <Gamepad2 size={16} aria-hidden="true" />
               Browse games
