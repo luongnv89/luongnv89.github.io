@@ -1,0 +1,12 @@
+{
+  "games": [
+    {
+      "slug": "neon-snake",
+      "title": "Neon Snake",
+      "blurb": "The classic, rebuilt with a glowing trail and a speed ramp that punishes greed. Arrow keys or swipe.",
+      "tags": ["Arcade", "1 Player"],
+      "addedAt": "2026-07-27",
+      "controls": "Arrow keys / WASD / swipe"
+    }
+  ]
+}

@@ -16,6 +16,13 @@ Luong Nguyen (luongnv89) is a Senior Engineer at Montimage specializing in AI ag
 - [vscode-markdown-preview](https://luongnv.com/vscode-markdown-preview): Clean markdown preview for VS Code
 - [skills](https://github.com/luongnv89/skills): Reusable skill library for AI agents
 
+## Games
+
+Small, self-contained browser games — one HTML file each, no install, free to play and share.
+
+- Catalog: https://luongnv.com/games
+- [Neon Snake](https://luongnv.com/games/neon-snake/): Classic snake with a glowing trail and a speed ramp
+
 ## Writing
 
 Latest articles on AI, Claude Code, and software engineering:
