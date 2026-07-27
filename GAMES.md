@@ -107,12 +107,17 @@ against upstream later.
 
 Deliberate choices, recorded so they read as chosen rather than overlooked.
 
-- **Repo weight.** `public/games/` is ~5 MB and git keeps those blobs forever. ~3.0 MB is
+- **Repo weight.** `public/games/` is ~5.7 MB and git keeps those blobs forever. ~3.0 MB is
   `codex-of-duty/assets/index-B9vSaKso.js`, of which 2,092,784 bytes is a single base64-inlined
   Rapier wasm module (~1.57 MB decoded — a ~33% penalty over shipping it as a separate `.wasm`),
   plus Draco decoders shipped twice in each format. Emitting Rapier's wasm as its own asset would
   save ~750 KB and allow independent caching and streaming compilation. That is upstream work in
   the `codex-of-duty` repo, not here.
+
+  A further 740 KB of that total is the vendored three.js (see *Provenance and licensing*). That
+  cost was accepted deliberately: it buys removing a third-party CDN from the site's own origin,
+  which is a security boundary, whereas the ~750 KB above is pure packaging waste that buys
+  nothing. The two are not in tension — weight is worth spending on trust, not on inlining.
 - **Dual GA4 properties.** `public/games/codex-of-duty/index.html` carries its own upstream GA4
   property (`G-5HKPB8C162`) alongside the site's (`G-FZV5YX8YPT`), so visitors to that one page are
   measured by two properties. Intentional — the `inject-games-analytics` plugin reuses the existing
