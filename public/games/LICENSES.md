@@ -11,13 +11,17 @@ code. Everything below is permissive.
 | Project | License | Where it ships | Upstream |
 | --- | --- | --- | --- |
 | three.js (r185) | MIT | `open-skies/vendor/`, `mortal-combat/vendor/`, bundled into `codex-of-duty/assets/index-*.js` | <https://github.com/mrdoob/three.js> |
-| Google Draco | Apache-2.0 | `codex-of-duty/assets/draco_*` | <https://github.com/google/draco> |
-| Basis Universal | Apache-2.0 | `codex-of-duty/assets/basis_transcoder-*` | <https://github.com/BinomialLLC/basis_universal> |
 | Rapier (dimforge) | Apache-2.0 | `rapier_wasm3d_bg.wasm`, base64-inlined into `codex-of-duty/assets/index-*.js` | <https://github.com/dimforge/rapier> |
 
 The full Apache License 2.0 text is at <https://www.apache.org/licenses/LICENSE-2.0>.
-Draco, Basis Universal and Rapier are redistributed unmodified, as compiled WebAssembly
-and their generated JavaScript loaders.
+Rapier is redistributed unmodified, as compiled WebAssembly and its generated
+JavaScript loader.
+
+Google Draco and Basis Universal were previously listed here. Codex of Duty imported
+three.js's `DRACOLoader` and `KTX2Loader` without ever wiring them to a loader or
+shipping any compressed asset, so the build emitted ~1.84 MB of decoder blobs that
+were never fetched at runtime. Those imports are gone and neither project's code is
+redistributed here any more.
 
 ## Vendored three.js
 

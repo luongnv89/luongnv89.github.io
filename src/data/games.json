@@ -15,7 +15,7 @@
     {
       "slug": "codex-of-duty",
       "title": "Codex of Duty",
-      "blurb": "A browser FPS with a streaming open world — city chunks load in as you explore, backed by Rapier 3D physics and tactical enemy AI.",
+      "blurb": "A browser FPS with a streaming open world — city chunks load in as you explore, backed by Rapier 3D physics and tactical enemy AI. Plays on a phone too, with on-screen controls.",
       "tags": [
         "FPS",
         "3D",
@@ -23,7 +23,7 @@
       ],
       "addedAt": "2026-07-27",
       "thumb": "/images/games/codex-of-duty.jpg",
-      "controls": "WASD + mouse · 1–5 weapons · R reload"
+      "controls": "WASD + mouse · 1–5 weapons · R reload · on-screen stick on mobile"
     },
     {
       "slug": "open-skies",
