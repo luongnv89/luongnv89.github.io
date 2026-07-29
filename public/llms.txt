@@ -20,6 +20,8 @@ Luong Nguyen (luongnv89) is a Senior Engineer at Montimage specializing in AI ag
 
 Browser games, no install — click and play. Free to share.
 
+- [Orbital Linefall](https://luongnv.com/games/orbital-linefall/): Space-themed falling-block puzzle — clear 20 glowing layers in an angled orbital well
+- [Switch Heist](https://luongnv.com/games/santos-chaos/): Top-down heist — switch between three crooks to crack the vault and outrun the heat
 - [Arcade Bloodline](https://luongnv.com/games/mortal-combat/): 3D side-on arcade fighter — best-of-three rounds and a finishing strike
 - [Codex of Duty](https://luongnv.com/games/codex-of-duty/): Three.js + Rapier FPS with a streaming open world and tactical enemy AI
 - [Open Skies](https://luongnv.com/games/open-skies/): Cockpit combat flight sim — guns, fighters, graded landings; phone stick controls, offline

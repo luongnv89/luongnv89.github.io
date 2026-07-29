@@ -12,6 +12,7 @@ code. Everything below is permissive.
 | --- | --- | --- | --- |
 | three.js (r185) | MIT | `open-skies/vendor/`, `mortal-combat/vendor/`, bundled into `codex-of-duty/assets/index-*.js` | <https://github.com/mrdoob/three.js> |
 | Rapier (dimforge) | Apache-2.0 | `rapier_wasm3d_bg.wasm`, base64-inlined into `codex-of-duty/assets/index-*.js` | <https://github.com/dimforge/rapier> |
+| Phaser (3.90.0) | MIT | bundled into `santos-chaos/assets/index-*.js` and `orbital-linefall/assets/index-*.js` | <https://github.com/phaserjs/phaser> |
 
 The full Apache License 2.0 text is at <https://www.apache.org/licenses/LICENSE-2.0>.
 Rapier is redistributed unmodified, as compiled WebAssembly and its generated
@@ -66,6 +67,36 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ```
 
+### Phaser — MIT License
+
+Phaser 3.90.0 is bundled into `santos-chaos/assets/index-*.js` and
+`orbital-linefall/assets/index-*.js` by Vite. The build strips its `@license`
+banner during minification, so this notice is the only copy of it that travels
+with the redistribution.
+
+```
+The MIT License (MIT)
+
+Copyright (c) 2024 Richard Davey, Phaser Studio Inc.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+```
+
 ## Game sources
 
 The game code itself is the repository owner's own work.
@@ -76,3 +107,8 @@ The game code itself is the repository owner's own work.
   vendored three.js.
 - **Open Skies** — written for this site; a single file plus vendored three.js.
 - **Neon Snake** — written for this site; self-contained, no third-party code.
+- **Switch Heist** (`santos-chaos`) — written for this site with game-forge; a Vite
+  build whose only third-party dependency is Phaser, bundled into the JS asset above.
+- **Orbital Linefall** (`orbital-linefall`) — written for this site with game-forge;
+  same shape as Switch Heist, Phaser its only third-party dependency. Built from a
+  source folder named `tetris`; the game carries no Tetris code, assets or branding.

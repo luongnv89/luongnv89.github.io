@@ -1,6 +1,30 @@
 {
   "games": [
     {
+      "slug": "orbital-linefall",
+      "title": "Orbital Linefall",
+      "blurb": "Falling-block puzzle in an angled orbital well — slide, rotate and drop crystal cargo to clear 20 glowing layers before the stack reaches the top.",
+      "tags": [
+        "Puzzle",
+        "3D",
+        "1 Player"
+      ],
+      "addedAt": "2026-07-29",
+      "controls": "← → / A D slide · ↑ / W / E rotate · Q / Z rotate back · ↓ / S soft drop · Space hard drop · touch stick + buttons on phone (portrait)"
+    },
+    {
+      "slug": "santos-chaos",
+      "title": "Switch Heist",
+      "blurb": "Top-down night-LA bank job with a three-crook crew — switch mid-heist to crack the vault, hold the lobby, or drive, then outrun the stars to the safehouse.",
+      "tags": [
+        "Action",
+        "Heist",
+        "1 Player"
+      ],
+      "addedAt": "2026-07-29",
+      "controls": "WASD / arrows move · Space fire · E enter car · F crack vault · 1–3 switch crook · touch stick on phone (landscape)"
+    },
+    {
       "slug": "mortal-combat",
       "title": "Arcade Bloodline",
       "blurb": "A 3D side-on arcade fighter where precise spacing, blocks, special moves, and a final finishing strike decide a best-of-three duel.",

@@ -93,8 +93,10 @@ directories.)
 
 When you add or refresh a game, record in `LICENSES.md` where its code came from and what it
 carries: every third-party project, its license, and its upstream URL. Today that is three.js
-(MIT) plus Draco, Basis Universal and Rapier (all Apache-2.0, whose §4(d) requires attribution
-notices to travel with a redistribution). A copyleft scan of the shipped bundles is clean.
+and Phaser (both MIT) plus Rapier (Apache-2.0, whose §4(d) requires attribution notices to
+travel with a redistribution). A copyleft scan of the shipped bundles is clean. Note that a
+minified bundle drops the upstream `@license` banner — neither Phaser copy has one — so for
+bundler builds `LICENSES.md` is the only notice that ships.
 
 **Prefer vendoring over a CDN.** Open Skies pins three.js r185 under
 `public/games/open-skies/vendor/` and its import map points at a relative `./vendor/` path, so no
