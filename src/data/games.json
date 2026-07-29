@@ -28,7 +28,7 @@
     {
       "slug": "open-skies",
       "title": "Open Skies",
-      "blurb": "Fly a two-gun fighter from the cockpit over a contested island — strafe the garrison, then bring it home. Every landing graded on descent rate, centreline and threshold.",
+      "blurb": "Cockpit combat flight sim over a contested island — guns, rockets, bombs, fighters, flak, graded landings. Phone stick controls; runs fully offline.",
       "tags": [
         "Flight Sim",
         "Combat",
@@ -36,7 +36,7 @@
       ],
       "addedAt": "2026-07-27",
       "thumb": "/images/games/open-skies.jpg",
-      "controls": "WASD / arrows · Q E rudder · Shift Ctrl throttle · Space fire"
+      "controls": "WASD / arrows · Shift Ctrl throttle · Space fire · phone: stick + THR/GUN (landscape)"
     },
     {
       "slug": "neon-snake",

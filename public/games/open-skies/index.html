@@ -2,25 +2,127 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<meta name="theme-color" content="#12181d">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2312181d'/%3E%3Cpath d='M6 18 L16 10 L26 18 L22 18 L22 24 L10 24 L10 18 Z' fill='%237fb2d8'/%3E%3C/svg%3E">
 <title>Open Skies</title>
-<!-- three.js r185 is vendored under vendor/ (MIT — see /games/LICENSES.md) rather than
-     pulled from a CDN at runtime. The path is relative, so it resolves against this
-     document's base URL and works at /games/open-skies/ and under the dev server alike.
-     three.module.min.js imports ./three.core.min.js from the same folder.
-     The former "three/" prefix entry is gone: nothing here imports a submodule, and
-     keeping it would have left unpkg inside the trust boundary for no benefit. -->
+<!-- Three is vendored under vendor/ so the game runs offline (USB stick, plane mode). -->
 <script type="importmap">{"imports":{"three":"./vendor/three.module.min.js"}}</script>
 <style>
-  html, body { margin:0; padding:0; height:100%; overflow:hidden; background:#12181d; }
-  canvas { display:block; position:fixed; inset:0; width:100%; height:100%; }
-  #hud { pointer-events:none; z-index:2; }
-  #scene { z-index:1; }
+  :root {
+    --safe-t: env(safe-area-inset-top, 0px);
+    --safe-r: env(safe-area-inset-right, 0px);
+    --safe-b: env(safe-area-inset-bottom, 0px);
+    --safe-l: env(safe-area-inset-left, 0px);
+    --line: rgba(160, 205, 238, 0.35);
+    --surface: rgba(9, 13, 17, 0.55);
+    --accent: #7fb2d8;
+    --gold: #f5c542;
+    --ink: #e8eef3;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0; height: 100%; overflow: hidden; background: #12181d;
+    touch-action: none; overscroll-behavior: none;
+    -webkit-user-select: none; user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  canvas { display: block; position: fixed; inset: 0; width: 100%; height: 100%; touch-action: none; }
+  #hud { pointer-events: none; z-index: 2; }
+  #scene { z-index: 1; }
+
+  /* Top panel buttons — always reachable without a keyboard */
+  #topbar {
+    position: fixed; z-index: 5; top: 0; left: 0; right: 0;
+    display: none; justify-content: center; flex-wrap: wrap; gap: 6px;
+    padding: calc(var(--safe-t) + 6px) calc(var(--safe-r) + 8px) 6px calc(var(--safe-l) + 8px);
+    pointer-events: none;
+  }
+  #topbar.on { display: flex; }
+  #topbar button {
+    pointer-events: auto; touch-action: none; cursor: pointer;
+    min-width: 44px; min-height: 38px; padding: 0 10px;
+    border-radius: 10px; border: 1px solid var(--line);
+    background: var(--surface); color: var(--ink);
+    font: 700 11px/1 system-ui, sans-serif; letter-spacing: 0.04em;
+  }
+  #topbar button:active, #topbar button.on {
+    background: rgba(127, 178, 216, 0.35); border-color: var(--accent); color: #fff;
+  }
+
+  /* Stick + action pad */
+  #touch {
+    position: fixed; z-index: 4; inset: auto 0 0 0; height: 48%;
+    pointer-events: none; transition: opacity 0.15s; display: none;
+  }
+  #touch.on { display: block; }
+  #touch.faded { opacity: 0; pointer-events: none !important; }
+  #touch.faded * { pointer-events: none !important; }
+
+  .stick {
+    position: absolute;
+    left: calc(var(--safe-l) + 18px);
+    bottom: calc(var(--safe-b) + 18px);
+    width: 128px; height: 128px; border-radius: 50%;
+    background: rgba(9, 13, 17, 0.48); border: 1px solid var(--line);
+    pointer-events: auto; touch-action: none;
+  }
+  .knob {
+    position: absolute; left: 50%; top: 50%;
+    width: 54px; height: 54px; margin: -27px 0 0 -27px; border-radius: 50%;
+    background: rgba(127, 178, 216, 0.45); border: 1px solid var(--accent);
+    transition: transform 0.05s linear;
+  }
+  .pad {
+    position: absolute;
+    right: calc(var(--safe-r) + 14px);
+    bottom: calc(var(--safe-b) + 14px);
+    display: grid;
+    grid-template-columns: repeat(3, 60px);
+    grid-auto-rows: 60px;
+    gap: 10px;
+    pointer-events: auto;
+  }
+  .pad button {
+    width: 60px; height: 60px; border-radius: 50%;
+    border: 1px solid var(--line); background: rgba(9, 13, 17, 0.55);
+    color: var(--ink); font: 700 11px/1.1 system-ui, sans-serif;
+    touch-action: none; cursor: pointer; padding: 0;
+  }
+  .pad button.wide { grid-column: span 1; }
+  .pad button.fire { background: rgba(176, 58, 40, 0.55); border-color: rgba(255, 140, 100, 0.55); }
+  .pad button.ord { background: rgba(245, 197, 66, 0.28); border-color: rgba(245, 197, 66, 0.55); color: #ffe6a0; }
+  .pad button:active { background: rgba(127, 178, 216, 0.4); }
+
+  #rotate {
+    position: fixed; inset: 0; z-index: 20; display: none;
+    place-content: center; text-align: center; gap: 8px;
+    background: #0c1116; color: var(--ink);
+    font: 600 18px/1.35 system-ui, sans-serif; padding: 24px;
+  }
+  #rotate.on { display: grid; }
+  #rotate .dim { color: #8aa0b2; font-size: 14px; }
+
+  @media (max-height: 460px) {
+    .stick { width: 104px; height: 104px; }
+    .knob { width: 44px; height: 44px; margin: -22px 0 0 -22px; }
+    .pad { grid-template-columns: repeat(3, 52px); grid-auto-rows: 52px; gap: 8px; }
+    .pad button { width: 52px; height: 52px; font-size: 10px; }
+    #topbar button { min-height: 36px; font-size: 11px; }
+  }
 </style>
 </head>
 <body>
 <canvas id="scene"></canvas>
 <canvas id="hud"></canvas>
+<nav id="topbar" aria-label="Game panels"></nav>
+<div id="touch" aria-hidden="true"></div>
+<div id="rotate" aria-live="polite">
+  <p>Rotate your device</p>
+  <p class="dim">Open Skies wants landscape — more sky, less thumb on the instruments.</p>
+</div>
 <script type="module">
 import * as THREE from 'three';
 
@@ -39,6 +141,186 @@ const clamp = (v, a, b) => v < a ? a : (v > b ? b : v);
 const lerp = (a, b, t) => a + (b - a) * t;
 function smoothstep(e0, e1, x) { const t = clamp((x - e0) / (e1 - e0), 0, 1); return t * t * (3 - 2 * t); }
 function gauss(dx, dz, r) { return Math.exp(-(dx * dx + dz * dz) / (r * r)); }
+
+/* Touch chrome boots before WebGL so a phone still gets buttons if the
+   renderer throws, and so ?touch=1 can be inspected without the whole island. */
+const forceTouch = /(?:\?|&)touch=1(?:&|$)/.test(location.search);
+const isTouchDevice = forceTouch
+  || (typeof matchMedia === 'function' && matchMedia('(pointer: coarse)').matches)
+  || (navigator.maxTouchPoints > 0 && typeof matchMedia === 'function' && matchMedia('(hover: none)').matches);
+const keys = {};
+const pad = { x: 0, y: 0, active: false };
+const DEADZONE = 0.12;
+// Filled in once the sim exists; the chrome only talks through this bag.
+const touchAPI = {
+  audioStart() {},
+  toggleHelp() {},
+  toggleStory() {},
+  closePanels() {},
+  togglePause() {},
+  toggleView() {},
+  toggleMute() {},
+  resetRun() {},
+  cycleFlaps() {},
+  cycleOrd() {},
+  setPanelVisible() {},
+  syncTopbar() {},
+  helpOpen: () => false,
+  storyOpen: () => false,
+  paused: () => false,
+  muted: () => false
+};
+
+function buildTouchUI() {
+  if (!isTouchDevice) return;
+  const bar = document.getElementById('topbar');
+  const layer = document.getElementById('touch');
+  if (!bar || !layer || layer.dataset.built) return;
+  layer.dataset.built = '1';
+  bar.classList.add('on');
+  layer.classList.add('on');
+
+  const tabs = [
+    { act: 'help',  label: 'GUIDE' },
+    { act: 'story', label: 'STORY' },
+    { act: 'pause', label: 'PAUSE' },
+    { act: 'view',  label: 'VIEW' },
+    { act: 'mute',  label: 'MUTE' },
+    { act: 'reset', label: 'RESET' }
+  ];
+  for (const t of tabs) {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.dataset.act = t.act;
+    b.textContent = t.label;
+    b.addEventListener('pointerdown', (e) => {
+      e.preventDefault(); e.stopPropagation();
+      touchAPI.audioStart();
+      if (t.act === 'help') touchAPI.toggleHelp();
+      else if (t.act === 'story') touchAPI.toggleStory();
+      else if (t.act === 'pause') { touchAPI.closePanels(); touchAPI.togglePause(); }
+      else if (t.act === 'view') touchAPI.toggleView();
+      else if (t.act === 'mute') touchAPI.toggleMute();
+      else if (t.act === 'reset') touchAPI.resetRun();
+    });
+    bar.append(b);
+  }
+
+  const base = document.createElement('div');
+  base.className = 'stick';
+  const knob = document.createElement('div');
+  knob.className = 'knob';
+  base.append(knob);
+  layer.append(base);
+  let stickId = null;
+  const stickRadius = () => Math.max(1, base.getBoundingClientRect().width / 2);
+  const moveStick = (event) => {
+    if (stickId !== event.pointerId) return;
+    const box = base.getBoundingClientRect();
+    const radius = stickRadius();
+    const dx = event.clientX - (box.left + box.width / 2);
+    const dy = event.clientY - (box.top + box.height / 2);
+    const distance = Math.hypot(dx, dy) || 1;
+    const clamped = Math.min(distance, radius) / radius;
+    pad.x = (dx / distance) * clamped;
+    pad.y = (dy / distance) * clamped;
+    pad.active = clamped > DEADZONE;
+    knob.style.transform = `translate(${pad.x * radius}px, ${pad.y * radius}px)`;
+  };
+  base.addEventListener('pointerdown', (event) => {
+    event.preventDefault();
+    touchAPI.audioStart();
+    stickId = event.pointerId;
+    base.setPointerCapture(event.pointerId);
+    moveStick(event);
+  });
+  base.addEventListener('pointermove', moveStick);
+  const dropStick = (event) => {
+    if (stickId !== event.pointerId) return;
+    stickId = null;
+    pad.x = 0; pad.y = 0; pad.active = false;
+    knob.style.transform = '';
+  };
+  base.addEventListener('pointerup', dropStick);
+  base.addEventListener('pointercancel', dropStick);
+
+  const padEl = document.createElement('div');
+  padEl.className = 'pad';
+  const btns = [
+    { key: 'shift',   label: 'THR\n▲', hold: true },
+    { key: 'control', label: 'THR\n▼', hold: true },
+    { key: 'b',       label: 'BRAKE',  hold: true },
+    { key: ' ',       label: 'GUN',    hold: true, cls: 'fire' },
+    { key: 'x',       label: 'ORD',    hold: true, cls: 'ord' },
+    { tap: 'z',       label: 'LOAD' },
+    { tap: 'f',       label: 'FLAPS' }
+  ];
+  for (const spec of btns) {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = spec.cls || '';
+    b.innerHTML = spec.label.replace('\n', '<br>');
+    if (spec.hold) {
+      let pid = null;
+      const down = (e) => {
+        e.preventDefault(); e.stopPropagation();
+        touchAPI.audioStart();
+        pid = e.pointerId;
+        try { b.setPointerCapture(e.pointerId); } catch (_) { /* older WebKit */ }
+        keys[spec.key] = true;
+      };
+      const up = (e) => {
+        if (pid !== null && e.pointerId !== pid) return;
+        e.preventDefault();
+        pid = null;
+        keys[spec.key] = false;
+      };
+      b.addEventListener('pointerdown', down);
+      b.addEventListener('pointerup', up);
+      b.addEventListener('pointercancel', up);
+    } else {
+      b.addEventListener('pointerdown', (e) => {
+        e.preventDefault(); e.stopPropagation();
+        touchAPI.audioStart();
+        if (spec.tap === 'z') touchAPI.cycleOrd();
+        else if (spec.tap === 'f') touchAPI.cycleFlaps();
+      });
+    }
+    padEl.append(b);
+  }
+  layer.append(padEl);
+
+  // Fade flight controls while a panel is open; top bar stays live.
+  touchAPI.setPanelVisible = () => {
+    const open = touchAPI.helpOpen() || touchAPI.storyOpen();
+    layer.classList.toggle('faded', open);
+    touchAPI.syncTopbar();
+  };
+  touchAPI.syncTopbar = () => {
+    if (!bar.classList.contains('on')) return;
+    for (const btn of bar.querySelectorAll('button')) {
+      const id = btn.dataset.act;
+      btn.classList.toggle('on',
+        (id === 'help' && touchAPI.helpOpen()) ||
+        (id === 'story' && touchAPI.storyOpen()) ||
+        (id === 'pause' && touchAPI.paused()) ||
+        (id === 'mute' && touchAPI.muted()));
+      if (id === 'mute') btn.textContent = touchAPI.muted() ? 'SOUND' : 'MUTE';
+    }
+  };
+  touchAPI.setPanelVisible();
+}
+
+function updateOrientation() {
+  const el = document.getElementById('rotate');
+  if (!el) return;
+  const wrong = isTouchDevice && innerHeight > innerWidth * 1.05;
+  el.classList.toggle('on', wrong);
+}
+addEventListener('resize', updateOrientation);
+addEventListener('orientationchange', updateOrientation);
+buildTouchUI();
+updateOrientation();
 
 /* --------------------------------------------------------------------------
    Terrain — a single analytic height function, shared by the mesh and by
@@ -1331,45 +1613,104 @@ function placeOnStrip(s) {
   WAR.rearm = 0; WAR.spawned = 0; WAR.live = 0; WAR.spawnT = 8;
   WAR.dropT = 34; WAR.medevac = false;
   for (let i = 0; i < PKMAX; i++) { drops[i].on = false; drops[i].group.visible = false; }
-  ac.msg = 'READY AT ' + s.name + ' — HOLD SHIFT FOR THROTTLE'; ac.msgTime = clock;
+  ac.msg = isTouchDevice
+    ? 'READY AT ' + s.name + ' — HOLD THR ▲ · STICK TO FLY'
+    : 'READY AT ' + s.name + ' — HOLD SHIFT FOR THROTTLE';
+  ac.msgTime = clock;
 }
 
 /* Input ------------------------------------------------------------------- */
-const keys = {};
+// keys, pad, isTouchDevice and the touch chrome boot at the top of the file
+// so a phone still sees controls if WebGL fails later.
 let paused = false, view = 'cockpit';
 // The guide is up when the page opens and can be called back at any time with
 // H. While it is up the simulation is frozen, so reading it mid-flight does not
 // cost you the aeroplane.
 let helpOpen = true, storyOpen = false;
 const frozen = () => paused || helpOpen || storyOpen;
+
+function setPanelVisible() { touchAPI.setPanelVisible(); }
+function toggleHelp() {
+  helpOpen = !helpOpen;
+  if (helpOpen) storyOpen = false;
+  setPanelVisible();
+}
+function toggleStory() {
+  storyOpen = !storyOpen;
+  if (storyOpen) helpOpen = false;
+  setPanelVisible();
+}
+function closePanels() {
+  if (!helpOpen && !storyOpen) return;
+  helpOpen = false; storyOpen = false;
+  ac.msgTime = clock;
+  setPanelVisible();
+}
+function togglePause() { paused = !paused; touchAPI.syncTopbar(); }
+function toggleView() { view = view === 'cockpit' ? 'chase' : 'cockpit'; }
+function cycleFlaps() {
+  ac.flap = (ac.flap + 1) % FLAPS.length;
+  flash('FLAPS ' + FLAPS[ac.flap].deg + '°');
+}
+function cycleOrd() {
+  ac.ord = (ac.ord + 1) % ORD.length;
+  flash('SELECTED ' + ORD[ac.ord].name + ' — ' + ac.ordAmmo[ac.ord] + ' LEFT   [X TO FIRE]');
+}
+function resetRun() { placeOnStrip(ac.departure); }
+
+// Wire the early chrome to the live sim once these exist.
+// toggleMute is assigned after the audio IIFE (audio lives further down the file).
+let toggleMute = () => false;
+
+touchAPI.toggleHelp = toggleHelp;
+touchAPI.toggleStory = toggleStory;
+touchAPI.closePanels = closePanels;
+touchAPI.togglePause = togglePause;
+touchAPI.toggleView = toggleView;
+touchAPI.toggleMute = () => toggleMute();
+touchAPI.resetRun = resetRun;
+touchAPI.cycleFlaps = cycleFlaps;
+touchAPI.cycleOrd = cycleOrd;
+touchAPI.helpOpen = () => helpOpen;
+touchAPI.storyOpen = () => storyOpen;
+touchAPI.paused = () => paused;
+setPanelVisible();
+
 addEventListener('keydown', (e) => {
   if (e.repeat) { e.preventDefault(); return; }
   const k = e.key.toLowerCase();
   audio.start();
   if ([' ', 'arrowup', 'arrowdown', 'arrowleft', 'arrowright'].includes(k)) e.preventDefault();
 
-  if (k === 'h' || k === '?') { helpOpen = !helpOpen; storyOpen = false; return; }
+  if (k === 'h' || k === '?') { toggleHelp(); return; }
   // The story panel, on its own key, frozen like the guide is.
-  if (k === 't') { storyOpen = !storyOpen; helpOpen = false; return; }
+  if (k === 't') { toggleStory(); return; }
+  if (k === 'm') { toggleMute(); return; }
   // Any other key closes either panel and still counts as that key, so holding
   // SHIFT to dismiss one opens the throttle rather than doing nothing.
   // Closing it also re-shows the standing order, which is otherwise the one
   // message a player never gets to read.
-  if (helpOpen || storyOpen) { helpOpen = false; storyOpen = false; ac.msgTime = clock; }
+  if (helpOpen || storyOpen) { closePanels(); }
 
   keys[k] = true;
-  if (k === 'f') { ac.flap = (ac.flap + 1) % FLAPS.length; flash('FLAPS ' + FLAPS[ac.flap].deg + '°'); }
-  if (k === 'v') { view = view === 'cockpit' ? 'chase' : 'cockpit'; }
-  if (k === 'p') { paused = !paused; }
-  if (k === 'r') { placeOnStrip(ac.departure); }
-  if (k === 'z') {
-    ac.ord = (ac.ord + 1) % ORD.length;
-    flash('SELECTED ' + ORD[ac.ord].name + ' — ' + ac.ordAmmo[ac.ord] + ' LEFT   [X TO FIRE]');
-  }
+  if (k === 'f') cycleFlaps();
+  if (k === 'v') toggleView();
+  if (k === 'p') togglePause();
+  if (k === 'r') resetRun();
+  if (k === 'z') cycleOrd();
 });
 addEventListener('keyup', (e) => { keys[e.key.toLowerCase()] = false; });
-addEventListener('pointerdown', () => audio.start());
-addEventListener('blur', () => { for (const k in keys) keys[k] = false; });
+addEventListener('pointerdown', (e) => {
+  audio.start();
+  // Tap the glass (not a control) to dismiss the guide or story on a phone.
+  if ((helpOpen || storyOpen) && !e.target.closest('#topbar, #touch button, .stick')) {
+    closePanels();
+  }
+});
+addEventListener('blur', () => {
+  for (const k in keys) keys[k] = false;
+  pad.x = 0; pad.y = 0; pad.active = false;
+});
 
 function flash(text) { ac.msg = text; ac.msgTime = clock; }
 
@@ -1383,9 +1724,16 @@ const _e2 = new THREE.Euler(0, 0, 0, 'XYZ'), _eye = new THREE.Vector3(), _hudE =
 const _vdir = new THREE.Vector3();
 
 function step(dt) {
-  const elev = (keys['s'] || keys['arrowdown'] ? 1 : 0) - (keys['w'] || keys['arrowup'] ? 1 : 0);
-  const ail = (keys['d'] || keys['arrowright'] ? 1 : 0) - (keys['a'] || keys['arrowleft'] ? 1 : 0);
-  const rud = (keys['e'] ? 1 : 0) - (keys['q'] ? 1 : 0);
+  // Keyboard is binary; the stick is analog. Stick wins while the thumb is on it.
+  const elevKey = (keys['s'] || keys['arrowdown'] ? 1 : 0) - (keys['w'] || keys['arrowup'] ? 1 : 0);
+  const ailKey = (keys['d'] || keys['arrowright'] ? 1 : 0) - (keys['a'] || keys['arrowleft'] ? 1 : 0);
+  const rudKey = (keys['e'] ? 1 : 0) - (keys['q'] ? 1 : 0);
+  // Stick: y+ = pull back = nose up; x+ = roll right. Auto-rudder rides the
+  // stick so a phone never needs a third axis for a coordinated turn or a
+  // straight takeoff roll.
+  const elev = pad.active ? pad.y : elevKey;
+  const ail = pad.active ? pad.x : ailKey;
+  const rud = pad.active ? pad.x * 0.55 : rudKey;
   const brake = !!keys['b'];
 
   if (!ac.crashed) {
@@ -1732,6 +2080,13 @@ const KINDS = {
   aa: { hp: 24, r: 6.0, score: 45, blast: 0.95, name: 'AA GUN' },
   tank: { hp: 32, r: 4.8, score: 60, blast: 1.05, name: 'TANK' }
 };
+
+// Slack added to a target's radius when *your* fire is tested against it, in
+// metres. Aiming error is angular, so it hurts the small stuff far more than
+// the hangars — an additive bonus is what actually helps. It widens the hit
+// sphere only: blast falloff, scorch, debris and the bomb sight all keep
+// reading the true `r`.
+const AIM_FORGIVE = 2.5;
 
 const TARGETS = [];
 
@@ -2470,8 +2825,8 @@ function stepOrd(dt) {
       const t = TARGETS[g];
       if (!t.alive) continue;
       if (Math.abs(nx - t.x) > 300 || Math.abs(nz - t.z) > 300) continue;
-      const rr = (t.r + 1.5) * (t.r + 1.5);
-      if (segMiss(px, py, pz, dx, dy, dz, t.x, t.y + t.r * 0.45, t.z) < rr) hit = 1;
+      const cr = t.r + 1.5 + AIM_FORGIVE;
+      if (segMiss(px, py, pz, dx, dy, dz, t.x, t.y + t.r * 0.45, t.z) < cr * cr) hit = 1;
     }
     for (let e = 0; e < EMAX && !hit; e++) {
       const f = foes[e];
@@ -2810,8 +3165,8 @@ function stepBullets(dt) {
           const t = TARGETS[g];
           if (!t.alive) continue;
           if (Math.abs(nx - t.x) > 220 || Math.abs(nz - t.z) > 220) continue;
-          const rr = t.r * t.r;
-          if (segMiss(px, py, pz, dx, dy, dz, t.x, t.y + t.r * 0.45, t.z) < rr) {
+          const gr = t.r + AIM_FORGIVE;
+          if (segMiss(px, py, pz, dx, dy, dz, t.x, t.y + t.r * 0.45, t.z) < gr * gr) {
             t.hp -= bD[i];
             t.hitT = clock;
             sparks(nx, ny, nz, 3);
@@ -3098,6 +3453,8 @@ const audio = (() => {
   let foeOsc, foeOsc2, foeGain, foeFilt, alarmOsc, alarmGain;
   let noise = null;                 // one noise buffer, shared by every burst
   let lastGun = -1, lastFar = -1, lastImp = -1, lastAA = -1;
+  let muted = false;
+  try { muted = !!JSON.parse(localStorage.getItem('openSkies.settings') || '{}').muted; } catch (e) { muted = false; }
   function noiseBuffer(c, secs) {
     const buf = c.createBuffer(1, Math.round(c.sampleRate * secs), c.sampleRate);
     const d = buf.getChannelData(0);
@@ -3107,12 +3464,29 @@ const audio = (() => {
   // Loudness with range. Gunfire and explosions a mile off should be a rumble,
   // not the same bang as one under the wing.
   function fall(d, r) { const u = clamp(1 - d / r, 0, 1); return u * u; }
+  function applyMute() {
+    if (!master) return;
+    const v = muted ? 0 : 0.5;
+    if (ctx) master.gain.setTargetAtTime(v, ctx.currentTime, 0.03);
+    else master.gain.value = v;
+  }
+  function setMuted(m) {
+    muted = !!m;
+    applyMute();
+    try {
+      const prev = JSON.parse(localStorage.getItem('openSkies.settings') || '{}');
+      prev.muted = muted;
+      localStorage.setItem('openSkies.settings', JSON.stringify(prev));
+    } catch (e) { /* private mode */ }
+  }
+  function toggleMute() { setMuted(!muted); return muted; }
+  function isMuted() { return muted; }
   function start() {
     if (ctx) { if (ctx.state === 'suspended') ctx.resume(); return; }
     const AC = window.AudioContext || window.webkitAudioContext;
     if (!AC) return;
     ctx = new AC();
-    master = ctx.createGain(); master.gain.value = 0.5; master.connect(ctx.destination);
+    master = ctx.createGain(); master.gain.value = muted ? 0 : 0.5; master.connect(ctx.destination);
 
     engGain = ctx.createGain(); engGain.gain.value = 0;
     engFilt = ctx.createBiquadFilter(); engFilt.type = 'lowpass'; engFilt.frequency.value = 900;
@@ -3227,7 +3601,7 @@ const audio = (() => {
     return now - last < gap ? -1 : now;
   }
   return {
-    start, update,
+    start, update, toggleMute, setMuted, isMuted,
     chirp: (vs) => burst(1300, 2.5, Math.min(0.5, 0.06 + vs * 0.09), 0.22),
     thud: () => burst(120, 0.8, 0.55, 0.9),
     // your own guns: a dry crack and a thump through the airframe
@@ -3269,6 +3643,17 @@ const audio = (() => {
     }
   };
 })();
+
+// Bind mute/audio after the IIFE so the early touch chrome can call them safely.
+toggleMute = () => {
+  const nowMuted = audio.toggleMute();
+  flash(nowMuted ? 'SOUND OFF' : 'SOUND ON');
+  touchAPI.syncTopbar();
+  return nowMuted;
+};
+touchAPI.audioStart = () => audio.start();
+touchAPI.muted = () => audio.isMuted();
+touchAPI.syncTopbar();
 
 /* --------------------------------------------------------------------------
    Instrument panel — a 2D overlay. Static parts are cached; only the moving
@@ -3698,7 +4083,10 @@ function drawHud(t) {
     hc.fillText('KILLS  ' + WAR.kills + '   ·   TARGETS LEFT  ' + WAR.targetsLeft, tx, rowY(y, 1));
     hc.fillText('BEST LANDING HERE  ' + (bs === undefined ? '—' : bs), tx, rowY(y, 2));
     hc.fillText(view === 'cockpit' ? 'COCKPIT  [V]' : 'CHASE  [V]', tx, rowY(y, 3));
-    hc.fillStyle = '#a8cbe4'; hc.fillText('H — HOW TO PLAY   ·   T — THE STORY', tx, rowY(y, 4));
+    hc.fillStyle = '#a8cbe4';
+    hc.fillText(isTouchDevice
+      ? 'GUIDE · STORY · PAUSE  (top bar)'
+      : 'H — HOW TO PLAY   ·   T — THE STORY', tx, rowY(y, 4));
     if (paused) { hc.fillStyle = '#f0c24a'; hc.fillText('PAUSED  [P]', tx, rowY(y, 5)); }
   }
 
@@ -4078,7 +4466,9 @@ function drawHud(t) {
     hc.font = '600 ' + Math.round(clamp(W * 0.014, 13, 20)) + 'px sans-serif';
     hc.fillText(ac.crashMsg, W / 2, panelTop * 0.54);
     hc.fillStyle = DIM;
-    hc.fillText('PRESS  R  TO RETURN TO ' + ac.departure.name, W / 2, panelTop * 0.64);
+    hc.fillText(isTouchDevice
+      ? 'TAP RESET  ·  OR PRESS R  ·  BACK TO ' + ac.departure.name
+      : 'PRESS  R  TO RETURN TO ' + ac.departure.name, W / 2, panelTop * 0.64);
   } else if (ac.lastGrade && t - ac.gradeTime < 7) {
     const g = ac.lastGrade, age = t - ac.gradeTime;
     const fade = clamp(1 - (age - 5.4) / 1.6, 0, 1) * clamp(age / 0.25, 0, 1);
@@ -4131,28 +4521,30 @@ function drawHud(t) {
    -------------------------------------------------------------------------- */
 
 const STEPS = [
-  ['1', 'TAKE OFF', 'Hold SHIFT for power, keep straight with Q and E, and at 60 kt ease back on S (or ↓).'],
+  ['1', 'TAKE OFF', 'Hold SHIFT (or THR ▲) for power, keep straight with Q/E or the stick, and at 60 kt ease back on S (or ↓ / stick back).'],
   ['2', 'THE TARGET', 'The panel on the left names the garrison and bears you to it. Fly there — fighters scramble to meet you, and the scope bottom right is where you find them.'],
-  ['3', 'SHOOT', 'SPACE fires the guns — 320 m convergence, seven seconds of trigger before they overheat. Z picks a pylon load and X fires it: cannon for fighters, rockets for gun pits, bombs for hangars.'],
+  ['3', 'SHOOT', 'SPACE or GUN fires the guns — 320 m convergence, seven seconds of trigger before they overheat. Z or LOAD picks a pylon load; X or ORD fires it: cannon for fighters, rockets for gun pits, bombs for hangars.'],
   ['4', 'ENERGY', 'Height and speed are ammunition. Dive to close, zoom to break off — a fighter that follows you up runs out of wing and cannot turn.'],
-  ['5', 'GO HOME', 'The strip named top left; F twice for flap; cross the threshold slow and low. Stopping on a strip rearms and repairs you.']
+  ['5', 'GO HOME', 'The strip named top left; F or FLAPS twice for flap; cross the threshold slow and low. Stopping on a strip rearms and repairs you.']
 ];
 const SCORE_INTRO = 'Kills and wrecked installations score. So does every touchdown — graded on descent rate, centreline and threshold distance:';
-const SCORE_END = 'Arrive above 5 m/s, land off the strip, run out of airframe or fly into the ground and the run ends — R to go again.';
+const SCORE_END = 'Arrive above 5 m/s, land off the strip, run out of airframe or fly into the ground and the run ends — R or RESET to go again.';
 const CONTROLS_L = [
   ['W / S   or   ↑ / ↓', 'nose down / nose up'],
   ['A / D   or   ← / →', 'roll left / right'],
-  ['Q / E', 'rudder left / right'],
-  ['SHIFT / CTRL', 'throttle up / down'],
-  ['SPACE', 'fire the guns'],
-  ['Z  ·  X', 'select ordnance · fire it']
+  ['Q / E   ·  stick', 'rudder · auto-rudder'],
+  ['SHIFT / CTRL · THR', 'throttle up / down'],
+  ['SPACE · GUN', 'fire the guns'],
+  ['Z / X · LOAD / ORD', 'select · fire ordnance']
 ];
 const CONTROLS_R = [
-  ['F', 'flaps 0° → 10° → 30°'],
-  ['B', 'wheel brakes, on the ground'],
-  ['V', 'cockpit / chase view'],
-  ['P  ·  R', 'pause · back to the runway'],
-  ['H  ·  T', 'this guide · the story']
+  ['F · FLAPS', 'flaps 0° → 10° → 30°'],
+  ['B · BRAKE', 'wheel brakes, on the ground'],
+  ['V · VIEW', 'cockpit / chase view'],
+  ['P / R · PAUSE / RESET', 'pause · back to the runway'],
+  ['H / T · GUIDE / STORY', 'this guide · the story'],
+  ['M · MUTE', 'sound on / off (kept)'],
+  ['left stick', 'pitch + roll (phone)']
 ];
 const ARMS = [
   ['GUNS', '450 rounds, 12 a hit — everything, if you have the angle'],
@@ -4189,7 +4581,7 @@ const STORY = [
   'Your objective, sortie by sortie: hit what the panel on the left names, get past whatever they scramble to stop you, and bring the aeroplane home. Take the guns to a fighter, rockets to a gun pit, bombs to a hangar. Height and speed are the only things you own that they cannot take off you — spend them deliberately.',
   'Landing is not the end of the sortie, it is the price of the next one. Put the wheels down well, stop on the strip, and they will patch the airframe, fill the magazines, hang fresh ordnance and give you the next set of orders. Put them down badly and the run is over.'
 ];
-const STORY_FOOT = 'T closes this  ·  H is how to play';
+const STORY_FOOT = 'T or STORY closes this  ·  H or GUIDE is how to play';
 
 function drawStory() {
   const avail = panelTop;
@@ -4355,7 +4747,9 @@ function drawGuide() {
 
   hc.fillStyle = '#f5c542'; hc.font = 'bold ' + Math.round(fs * 0.95) + 'px sans-serif';
   hc.textAlign = 'center';
-  hc.fillText('Press any key to fly  ·  H brings this back', x + bw / 2, cy);
+  hc.fillText(isTouchDevice
+    ? 'Tap the glass to fly  ·  GUIDE brings this back'
+    : 'Press any key to fly  ·  H brings this back', x + bw / 2, cy);
   hc.restore();
 }
 
