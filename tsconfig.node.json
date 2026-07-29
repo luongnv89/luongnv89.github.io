@@ -5,7 +5,14 @@
     "module": "ESNext",
     "moduleResolution": "bundler",
     "allowSyntheticDefaultImports": true,
-    "strict": true
+    "strict": true,
+    // `composite` forces an emit, so send it somewhere harmless. Emitting in
+    // place drops a compiled vite.config.js beside vite.config.ts — and Vite
+    // resolves .js before .ts, so that artifact, not the source, is the config
+    // that actually runs. It stays correct only while `tsc -b` runs first;
+    // `vite build` on its own would silently use a stale compile.
+    "outDir": "./node_modules/.tmp/tsconfig-node",
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig-node/tsconfig.node.tsbuildinfo"
   },
   "include": ["vite.config.ts"]
 }

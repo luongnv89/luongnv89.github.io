@@ -22,8 +22,10 @@ Thumbs.db
 
 # TypeScript build info
 *.tsbuildinfo
-vite.config.js
-vite.config.d.ts
+# vite.config.js / vite.config.d.ts were listed here because `tsc -b` used to
+# emit them beside vite.config.ts. They are no longer produced — tsconfig.node.json
+# now emits to node_modules/.tmp — and the entries are deliberately not restored:
+# ignoring them is what let a compiled config silently shadow the real one.
 
 # Generated CV files (copied from submodule during build)
 public/cv/
