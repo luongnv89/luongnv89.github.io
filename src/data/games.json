@@ -10,6 +10,7 @@
         "1 Player"
       ],
       "addedAt": "2026-07-29",
+      "thumb": "/images/games/orbital-linefall.jpg",
       "controls": "← → / A D slide · ↑ / W / E rotate · Q / Z rotate back · ↓ / S soft drop · Space hard drop · touch stick + buttons on phone (portrait)"
     },
     {
@@ -22,6 +23,7 @@
         "1 Player"
       ],
       "addedAt": "2026-07-29",
+      "thumb": "/images/games/santos-chaos.jpg",
       "controls": "WASD / arrows move · Space fire · E enter car · F crack vault · 1–3 switch crook · touch stick on phone (landscape)"
     },
     {
@@ -34,7 +36,8 @@
         "1 Player"
       ],
       "addedAt": "2026-07-28",
-      "controls": "Arrows move / crouch / jump \u00b7 A punch \u00b7 S kick \u00b7 D block \u00b7 \u2193+A uppercut \u00b7 \u2193 then \u2192+A projectile"
+      "thumb": "/images/games/mortal-combat.jpg",
+      "controls": "Arrows move / crouch / jump · A punch · S kick · D block · ↓+A uppercut · ↓ then →+A projectile"
     },
     {
       "slug": "codex-of-duty",
@@ -71,6 +74,7 @@
         "1 Player"
       ],
       "addedAt": "2026-07-27",
+      "thumb": "/images/games/neon-snake.jpg",
       "controls": "Arrow keys / WASD / swipe"
     }
   ]
