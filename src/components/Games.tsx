@@ -3,7 +3,12 @@ import { ArrowRight } from 'lucide-react'
 import { GameCard } from './GameCard'
 import { getGames } from '@/lib/games'
 
-const HOME_PREVIEW_COUNT = 3
+/**
+ * The grid is 3-wide at `lg`, so 6 fills exactly two rows with no ragged tail.
+ * It happens to be the whole catalog today; the "View all" link below still
+ * adapts, so a 7th game truncates here rather than growing the homepage.
+ */
+const HOME_PREVIEW_COUNT = 6
 
 export function Games() {
   const games = getGames()

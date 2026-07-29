@@ -154,7 +154,7 @@ Deliberate choices, recorded so they read as chosen rather than overlooked.
 | `src/data/games.json`         | Catalog metadata                               |
 | `src/lib/games.ts`            | Types, sort order, URL + monogram helpers      |
 | `src/components/GameCard.tsx` | The card, shared by both views                 |
-| `src/components/Games.tsx`    | Homepage section — 3 most recent               |
+| `src/components/Games.tsx`    | Homepage section — 6 most recent               |
 | `src/components/GamesPage.tsx`| `/games` catalog page                          |
 
 ## Gotcha
