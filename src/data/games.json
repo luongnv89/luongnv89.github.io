@@ -1,6 +1,19 @@
 {
   "games": [
     {
+      "slug": "night-spin",
+      "title": "Night Spin",
+      "blurb": "Party roulette for social nights — spin for numbers, Truth or Dare, xúc xắc, or your own action list. Physics ease-out, tick sounds, and timestamped history.",
+      "tags": [
+        "Party",
+        "Casual",
+        "Multiplayer"
+      ],
+      "addedAt": "2026-07-29",
+      "thumb": "/images/games/night-spin.jpg",
+      "controls": "Space / SPIN · 1–3 modes · ← → pick preset or N · ⚙ duration & history · phone-ready (any orientation)"
+    },
+    {
       "slug": "orbital-linefall",
       "title": "Orbital Linefall",
       "blurb": "Falling-block puzzle in an angled orbital well — slide, rotate and drop crystal cargo to clear 20 glowing layers before the stack reaches the top.",

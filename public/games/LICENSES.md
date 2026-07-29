@@ -112,3 +112,6 @@ The game code itself is the repository owner's own work.
 - **Orbital Linefall** (`orbital-linefall`) — written for this site with game-forge;
   same shape as Switch Heist, Phaser its only third-party dependency. Built from a
   source folder named `tetris`; the game carries no Tetris code, assets or branding.
+- **Night Spin** (`night-spin`) — written for this site with game-forge; party
+  roulette tool (numbers, actions, presets). Phaser is its only third-party
+  dependency, bundled into the JS asset.

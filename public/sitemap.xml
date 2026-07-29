@@ -43,6 +43,12 @@
     static 200s. The catalog stays discoverable via links from the homepage.
   -->
   <url>
+    <loc>https://luongnv.com/games/night-spin/</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://luongnv.com/games/orbital-linefall/</loc>
     <lastmod>2026-07-29</lastmod>
     <changefreq>monthly</changefreq>
