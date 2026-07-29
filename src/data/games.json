@@ -3,7 +3,7 @@
     {
       "slug": "night-spin",
       "title": "Night Spin",
-      "blurb": "Party roulette for social nights — spin for numbers, Truth or Dare, xúc xắc, or your own action list. Physics ease-out, tick sounds, and timestamped history.",
+      "blurb": "Party roulette for social nights \u2014 numbers, Truth or Dare, x\u00fac x\u1eafc, or your own action list. All modes open; physics spin and timestamped history.",
       "tags": [
         "Party",
         "Casual",
@@ -11,12 +11,12 @@
       ],
       "addedAt": "2026-07-29",
       "thumb": "/images/games/night-spin.jpg",
-      "controls": "Space / SPIN · 1–3 modes · ← → pick preset or N · ⚙ duration & history · phone-ready (any orientation)"
+      "controls": "Space / SPIN \u00b7 1\u20133 modes \u00b7 \u2190 \u2192 pick preset or N \u00b7 \u2699 duration & history \u00b7 phone-ready (any orientation)"
     },
     {
       "slug": "orbital-linefall",
       "title": "Orbital Linefall",
-      "blurb": "Falling-block puzzle in an angled orbital well — slide, rotate and drop crystal cargo to clear 20 glowing layers before the stack reaches the top.",
+      "blurb": "Falling-block puzzle in an angled orbital well \u2014 slide, rotate and drop crystal cargo to clear 20 glowing layers before the stack reaches the top.",
       "tags": [
         "Puzzle",
         "3D",
@@ -24,12 +24,12 @@
       ],
       "addedAt": "2026-07-29",
       "thumb": "/images/games/orbital-linefall.jpg",
-      "controls": "← → / A D slide · ↑ / W / E rotate · Q / Z rotate back · ↓ / S soft drop · Space hard drop · touch stick + buttons on phone (portrait)"
+      "controls": "\u2190 \u2192 / A D slide \u00b7 \u2191 / W / E rotate \u00b7 Q / Z rotate back \u00b7 \u2193 / S soft drop \u00b7 Space hard drop \u00b7 touch stick + buttons on phone (portrait)"
     },
     {
       "slug": "santos-chaos",
       "title": "Switch Heist",
-      "blurb": "Top-down night-LA bank job with a three-crook crew — switch mid-heist to crack the vault, hold the lobby, or drive, then outrun the stars to the safehouse.",
+      "blurb": "Top-down night-LA bank job with a three-crook crew \u2014 switch mid-heist to crack the vault, hold the lobby, or drive, then outrun the stars to the safehouse.",
       "tags": [
         "Action",
         "Heist",
@@ -37,7 +37,7 @@
       ],
       "addedAt": "2026-07-29",
       "thumb": "/images/games/santos-chaos.jpg",
-      "controls": "WASD / arrows move · Space fire · E enter car · F crack vault · 1–3 switch crook · touch stick on phone (landscape)"
+      "controls": "WASD / arrows move \u00b7 Space fire \u00b7 E enter car \u00b7 F crack vault \u00b7 1\u20133 switch crook \u00b7 touch stick on phone (landscape)"
     },
     {
       "slug": "mortal-combat",
@@ -50,12 +50,12 @@
       ],
       "addedAt": "2026-07-28",
       "thumb": "/images/games/mortal-combat.jpg",
-      "controls": "Arrows move / crouch / jump · A punch · S kick · D block · ↓+A uppercut · ↓ then →+A projectile"
+      "controls": "Arrows move / crouch / jump \u00b7 A punch \u00b7 S kick \u00b7 D block \u00b7 \u2193+A uppercut \u00b7 \u2193 then \u2192+A projectile"
     },
     {
       "slug": "codex-of-duty",
       "title": "Codex of Duty",
-      "blurb": "A browser FPS with a streaming open world — city chunks load in as you explore, backed by Rapier 3D physics and tactical enemy AI. Plays on a phone too, with on-screen controls.",
+      "blurb": "A browser FPS with a streaming open world \u2014 city chunks load in as you explore, backed by Rapier 3D physics and tactical enemy AI. Plays on a phone too, with on-screen controls.",
       "tags": [
         "FPS",
         "3D",
@@ -63,12 +63,12 @@
       ],
       "addedAt": "2026-07-27",
       "thumb": "/images/games/codex-of-duty.jpg",
-      "controls": "WASD + mouse · 1–5 weapons · R reload · on-screen stick on mobile"
+      "controls": "WASD + mouse \u00b7 1\u20135 weapons \u00b7 R reload \u00b7 on-screen stick on mobile"
     },
     {
       "slug": "open-skies",
       "title": "Open Skies",
-      "blurb": "Cockpit combat flight sim over a contested island — guns, rockets, bombs, fighters, flak, graded landings. Phone stick controls; runs fully offline.",
+      "blurb": "Cockpit combat flight sim over a contested island \u2014 guns, rockets, bombs, fighters, flak, graded landings. Phone stick controls; runs fully offline.",
       "tags": [
         "Flight Sim",
         "Combat",
@@ -76,7 +76,7 @@
       ],
       "addedAt": "2026-07-27",
       "thumb": "/images/games/open-skies.jpg",
-      "controls": "WASD / arrows · Shift Ctrl throttle · Space fire · phone: stick + THR/GUN (landscape)"
+      "controls": "WASD / arrows \u00b7 Shift Ctrl throttle \u00b7 Space fire \u00b7 phone: stick + THR/GUN (landscape)"
     },
     {
       "slug": "neon-snake",
