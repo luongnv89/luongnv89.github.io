@@ -3,7 +3,7 @@
     {
       "slug": "night-spin",
       "title": "Night Spin",
-      "blurb": "Party roulette for social nights \u2014 numbers, Truth or Dare, x\u00fac x\u1eafc, or your own action list. All modes open; physics spin and timestamped history.",
+      "blurb": "Party roulette for social nights \u2014 numbers, Truth or Dare, x\u00fac x\u1eafc, or your own dares. A real bowl: the ball rides the track, drops off a diamond and rattles into a pocket.",
       "tags": [
         "Party",
         "Casual",
@@ -11,7 +11,7 @@
       ],
       "addedAt": "2026-07-29",
       "thumb": "/images/games/night-spin.jpg",
-      "controls": "Space / SPIN \u00b7 1\u20133 modes \u00b7 \u2190 \u2192 pick preset or N \u00b7 \u2699 duration & history \u00b7 phone-ready (any orientation)"
+      "controls": "Space or SPIN \u00b7 \u2191 \u2193 switch mode \u00b7 \u2190 \u2192 preset or N \u00b7 cog for duration, action list & history \u00b7 phone-ready (any orientation)"
     },
     {
       "slug": "orbital-linefall",
