@@ -3,7 +3,7 @@
     {
       "slug": "night-spin",
       "title": "Night Spin",
-      "blurb": "Party roulette for social nights \u2014 numbers, Truth or Dare, x\u00fac x\u1eafc, or your own dares. A real bowl: the ball rides the track, drops off a diamond and rattles into a pocket.",
+      "blurb": "Party roulette for social nights — numbers, Truth or Dare, xúc xắc, or your own dares. A real bowl: the ball rides the track, drops off a diamond and rattles into a pocket.",
       "tags": [
         "Party",
         "Casual",
@@ -11,12 +11,12 @@
       ],
       "addedAt": "2026-07-29",
       "thumb": "/images/games/night-spin.jpg",
-      "controls": "Space or SPIN \u00b7 \u2191 \u2193 switch mode \u00b7 \u2190 \u2192 preset or N \u00b7 cog for duration, action list & history \u00b7 phone-ready (any orientation)"
+      "controls": "Space or SPIN · ↑ ↓ switch mode · ← → preset or N · cog for duration, action list & history · phone-ready (any orientation)"
     },
     {
       "slug": "orbital-linefall",
-      "title": "Orbital Linefall",
-      "blurb": "Falling-block puzzle in an angled orbital well \u2014 slide, rotate and drop crystal cargo to clear 20 glowing layers before the stack reaches the top.",
+      "title": "Orbital Linefall: Sector Run",
+      "blurb": "Space-themed Tetris with 5 escalating sectors, T-spin mini/full adjudication, guideline DAS/ARR, comet salvage, and a 3D glass-and-neon command deck. Stabilize all five sectors by clearing 20 layers.",
       "tags": [
         "Puzzle",
         "3D",
@@ -24,12 +24,12 @@
       ],
       "addedAt": "2026-07-29",
       "thumb": "/images/games/orbital-linefall.jpg",
-      "controls": "\u2190 \u2192 / A D slide \u00b7 \u2191 / W / E rotate \u00b7 Q / Z rotate back \u00b7 \u2193 / S soft drop \u00b7 Space hard drop \u00b7 touch stick + buttons on phone (portrait)"
+      "controls": "← → / A D slide · ↑ / W / X rotate · Q / Z rotate back · ↓ / S soft drop · C / Shift hold · Space hard drop · 5 sectors escalate gravity & lock pressure · touch stick + buttons (portrait)"
     },
     {
       "slug": "santos-chaos",
       "title": "Switch Heist",
-      "blurb": "Top-down night-LA bank job with a three-crook crew \u2014 switch mid-heist to crack the vault, hold the lobby, or drive, then outrun the stars to the safehouse.",
+      "blurb": "Top-down night-LA bank job with a three-crook crew — switch mid-heist to crack the vault, hold the lobby, or drive, then outrun the stars to the safehouse.",
       "tags": [
         "Action",
         "Heist",
@@ -37,7 +37,7 @@
       ],
       "addedAt": "2026-07-29",
       "thumb": "/images/games/santos-chaos.jpg",
-      "controls": "WASD / arrows move \u00b7 Space fire \u00b7 E enter car \u00b7 F crack vault \u00b7 1\u20133 switch crook \u00b7 touch stick on phone (landscape)"
+      "controls": "WASD / arrows move · Space fire · E enter car · F crack vault · 1–3 switch crook · touch stick on phone (landscape)"
     },
     {
       "slug": "mortal-combat",
@@ -50,12 +50,12 @@
       ],
       "addedAt": "2026-07-28",
       "thumb": "/images/games/mortal-combat.jpg",
-      "controls": "Arrows move / crouch / jump \u00b7 A punch \u00b7 S kick \u00b7 D block \u00b7 \u2193+A uppercut \u00b7 \u2193 then \u2192+A projectile"
+      "controls": "Arrows move / crouch / jump · A punch · S kick · D block · ↓+A uppercut · ↓ then →+A projectile"
     },
     {
       "slug": "codex-of-duty",
       "title": "Codex of Duty",
-      "blurb": "A browser FPS with a streaming open world \u2014 city chunks load in as you explore, backed by Rapier 3D physics and tactical enemy AI. Plays on a phone too, with on-screen controls.",
+      "blurb": "A browser FPS with a streaming open world — city chunks load in as you explore, backed by Rapier 3D physics and tactical enemy AI. Plays on a phone too, with on-screen controls.",
       "tags": [
         "FPS",
         "3D",
@@ -63,12 +63,12 @@
       ],
       "addedAt": "2026-07-27",
       "thumb": "/images/games/codex-of-duty.jpg",
-      "controls": "WASD + mouse \u00b7 1\u20135 weapons \u00b7 R reload \u00b7 on-screen stick on mobile"
+      "controls": "WASD + mouse · 1–5 weapons · R reload · on-screen stick on mobile"
     },
     {
       "slug": "open-skies",
       "title": "Open Skies",
-      "blurb": "Cockpit combat flight sim over a living low-poly island \u2014 clear six escalating sorties, survive hostile fighters and flak, then earn each advance with a safe landing.",
+      "blurb": "Cockpit combat flight sim over a living low-poly island — clear six escalating sorties, survive hostile fighters and flak, then earn each advance with a safe landing.",
       "tags": [
         "Flight Sim",
         "Combat",
@@ -76,12 +76,12 @@
       ],
       "addedAt": "2026-07-27",
       "thumb": "/images/games/open-skies.jpg",
-      "controls": "WASD / arrows fly \u00b7 I/O throttle \u00b7 Q/E rudder \u00b7 Space guns \u00b7 Z/X ordnance \u00b7 phone stick + flight pad (landscape)"
+      "controls": "WASD / arrows fly · I/O throttle · Q/E rudder · Space guns · Z/X ordnance · phone stick + flight pad (landscape)"
     },
     {
       "slug": "neon-snake",
-      "title": "Neon Snake \u2014 Maze Runner",
-      "blurb": "Clear 8 neon mazes before three lives run out \u2014 cores, Hunters, power-ups, and a continuous neon trail on a classic Snake chassis.",
+      "title": "Neon Snake — Maze Runner",
+      "blurb": "Clear 8 neon mazes before three lives run out — cores, Hunters, power-ups, and a continuous neon trail on a classic Snake chassis.",
       "tags": [
         "Arcade",
         "Maze",
@@ -89,7 +89,7 @@
       ],
       "addedAt": "2026-07-30",
       "thumb": "/images/games/neon-snake.jpg",
-      "controls": "\u2190\u2192\u2191\u2193 / WASD steer \u00b7 left stick on phone \u00b7 P pause \u00b7 H guide \u00b7 K scores \u00b7 M mute \u00b7 R restart \u00b7 collect cores to open each gate"
+      "controls": "←→↑↓ / WASD steer · left stick on phone · P pause · H guide · K scores · M mute · R restart · collect cores to open each gate"
     }
   ]
 }
