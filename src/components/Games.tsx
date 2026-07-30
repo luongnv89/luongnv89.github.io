@@ -26,7 +26,7 @@ export function Games() {
 
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {recent.map((game) => (
-            <GameCard key={game.slug} game={game} />
+            <GameCard key={game.slug} game={game} surface="home" />
           ))}
         </div>
 

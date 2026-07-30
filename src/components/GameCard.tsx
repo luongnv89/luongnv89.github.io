@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Play } from 'lucide-react'
 import { formatAdded, monogram, playUrl, type Game } from '@/lib/games'
+import { trackGameCardClick, type GameSurface } from '@/lib/analytics'
 
 /**
  * Stand-in for a missing or broken screenshot: scanlines over a dot grid, so a
@@ -36,7 +37,7 @@ function MonogramTile({ title }: { title: string }) {
  * files under `public/games/`, so the link is a plain anchor — a router <Link>
  * would swallow it and never reach the real HTML file.
  */
-export function GameCard({ game }: { game: Game }) {
+export function GameCard({ game, surface }: { game: Game; surface: GameSurface }) {
   // A thumb listed in games.json can still 404 or fail to decode. Without this
   // flag the frame renders the browser's broken-image glyph plus alt text, so
   // "no thumb" and "thumb broke" have to land on the same fallback tile.
@@ -47,6 +48,10 @@ export function GameCard({ game }: { game: Game }) {
     <a
       href={playUrl(game)}
       aria-label={`Play ${game.title}`}
+      // The game page fires `game_open` on arrival; this says which listing
+      // sent them. gtag uses sendBeacon, so the navigation is not delayed and
+      // the link needs no preventDefault.
+      onClick={() => trackGameCardClick(game.slug, surface)}
       className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--bg-primary)] transition-all duration-300 hover:-translate-y-1 hover:border-[var(--accent)] hover:shadow-[0_18px_40px_-22px_var(--accent-glow)] focus-ring"
     >
       <div className="relative aspect-[16/10] overflow-hidden border-b border-[var(--border)]">
