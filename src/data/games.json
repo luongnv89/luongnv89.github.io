@@ -68,7 +68,7 @@
     {
       "slug": "open-skies",
       "title": "Open Skies",
-      "blurb": "Cockpit combat flight sim over a living low-poly island — clear six escalating sorties, survive hostile fighters and flak, then earn each advance with a safe landing.",
+      "blurb": "Cockpit combat flight sim over a living low-poly island \u2014 clear six escalating sorties, survive hostile fighters and flak, then earn each advance with a safe landing.",
       "tags": [
         "Flight Sim",
         "Combat",
@@ -76,19 +76,20 @@
       ],
       "addedAt": "2026-07-27",
       "thumb": "/images/games/open-skies.jpg",
-      "controls": "WASD / arrows fly · I/O throttle · Q/E rudder · Space guns · Z/X ordnance · phone stick + flight pad (landscape)"
+      "controls": "WASD / arrows fly \u00b7 I/O throttle \u00b7 Q/E rudder \u00b7 Space guns \u00b7 Z/X ordnance \u00b7 phone stick + flight pad (landscape)"
     },
     {
       "slug": "neon-snake",
-      "title": "Neon Snake",
-      "blurb": "The classic, rebuilt with a glowing trail and a speed ramp that punishes greed. Arrow keys or swipe.",
+      "title": "Neon Snake \u2014 Maze Runner",
+      "blurb": "Clear 8 neon mazes before three lives run out \u2014 cores, Hunters, power-ups, and a continuous neon trail on a classic Snake chassis.",
       "tags": [
         "Arcade",
+        "Maze",
         "1 Player"
       ],
-      "addedAt": "2026-07-27",
+      "addedAt": "2026-07-30",
       "thumb": "/images/games/neon-snake.jpg",
-      "controls": "Arrow keys / WASD / swipe"
+      "controls": "\u2190\u2192\u2191\u2193 / WASD steer \u00b7 left stick on phone \u00b7 P pause \u00b7 H guide \u00b7 K scores \u00b7 M mute \u00b7 R restart \u00b7 collect cores to open each gate"
     }
   ]
 }
