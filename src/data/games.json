@@ -68,7 +68,7 @@
     {
       "slug": "open-skies",
       "title": "Open Skies",
-      "blurb": "Cockpit combat flight sim over a contested island \u2014 guns, rockets, bombs, fighters, flak, graded landings. Phone stick controls; runs fully offline.",
+      "blurb": "Cockpit combat flight sim over a living low-poly island — clear six escalating sorties, survive hostile fighters and flak, then earn each advance with a safe landing.",
       "tags": [
         "Flight Sim",
         "Combat",
@@ -76,7 +76,7 @@
       ],
       "addedAt": "2026-07-27",
       "thumb": "/images/games/open-skies.jpg",
-      "controls": "WASD / arrows \u00b7 Shift Ctrl throttle \u00b7 Space fire \u00b7 phone: stick + THR/GUN (landscape)"
+      "controls": "WASD / arrows fly · I/O throttle · Q/E rudder · Space guns · Z/X ordnance · phone stick + flight pad (landscape)"
     },
     {
       "slug": "neon-snake",

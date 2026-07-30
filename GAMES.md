@@ -98,12 +98,11 @@ travel with a redistribution). A copyleft scan of the shipped bundles is clean. 
 minified bundle drops the upstream `@license` banner — neither Phaser copy has one — so for
 bundler builds `LICENSES.md` is the only notice that ships.
 
-**Prefer vendoring over a CDN.** Open Skies pins three.js r185 under
-`public/games/open-skies/vendor/` and its import map points at a relative `./vendor/` path, so no
-third-party code is fetched at runtime into this origin. Note that three.js ships as a split
-bundle — `three.module.min.js` imports `./three.core.min.js` from the same folder, and neither
-half works alone. Record the size and SHA-256 of anything you vendor so the copy can be checked
-against upstream later.
+**Prefer local bundles over a CDN.** Open Skies pins three.js r185 as a build dependency and
+Vite emits it inside `public/games/open-skies/assets/open-skies-*.js`, so no third-party code is
+fetched at runtime into this origin. Mortal Combat still vendors the split upstream build under
+`public/games/mortal-combat/vendor/`. Record the size and SHA-256 of anything vendored directly;
+record bundled dependencies in `LICENSES.md` because minification can remove license banners.
 
 ## Accepted risks and known limitations
 

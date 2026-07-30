@@ -10,7 +10,7 @@ code. Everything below is permissive.
 
 | Project | License | Where it ships | Upstream |
 | --- | --- | --- | --- |
-| three.js (r185) | MIT | `open-skies/vendor/`, `mortal-combat/vendor/`, bundled into `codex-of-duty/assets/index-*.js` | <https://github.com/mrdoob/three.js> |
+| three.js (r185) | MIT | bundled into `open-skies/assets/open-skies-*.js` and `codex-of-duty/assets/index-*.js`; vendored under `mortal-combat/vendor/` | <https://github.com/mrdoob/three.js> |
 | Rapier (dimforge) | Apache-2.0 | `rapier_wasm3d_bg.wasm`, base64-inlined into `codex-of-duty/assets/index-*.js` | <https://github.com/dimforge/rapier> |
 | Phaser (3.90.0) | MIT | bundled into `santos-chaos/assets/index-*.js` and `orbital-linefall/assets/index-*.js` | <https://github.com/phaserjs/phaser> |
 
@@ -26,10 +26,10 @@ redistributed here any more.
 
 ## Vendored three.js
 
-`open-skies/vendor/` and `mortal-combat/vendor/` hold identical copies of three.js r185,
-downloaded from `https://unpkg.com/three@0.185.1/build/` and served from this origin
-rather than fetched from a CDN at runtime. Both files retain their upstream `@license`
-banner.
+`mortal-combat/vendor/` holds a pinned copy of three.js r185, downloaded from
+`https://unpkg.com/three@0.185.1/build/` and served from this origin rather than fetched
+from a CDN at runtime. The Open Skies Vite build bundles the same release into its local
+`assets/open-skies-*.js` chunk. Nothing is fetched from a third-party runtime origin.
 
 | File | Bytes | SHA-256 |
 | --- | --- | --- |
@@ -105,7 +105,7 @@ The game code itself is the repository owner's own work.
   vendored dependencies above are its build output, not hand-added files.
 - **Arcade Bloodline** (`mortal-combat`) — written for this site; a single file plus
   vendored three.js.
-- **Open Skies** — written for this site; a single file plus vendored three.js.
+- **Open Skies** — written for this site with game-forge; a Vite/Three.js build with six escalating combat sorties, bundled locally for offline play.
 - **Neon Snake** — written for this site; self-contained, no third-party code.
 - **Switch Heist** (`santos-chaos`) — written for this site with game-forge; a Vite
   build whose only third-party dependency is Phaser, bundled into the JS asset above.
