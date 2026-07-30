@@ -15,8 +15,8 @@
     },
     {
       "slug": "orbital-linefall",
-      "title": "Orbital Linefall",
-      "blurb": "Falling-block puzzle in an angled orbital well \u2014 slide, rotate and drop crystal cargo to clear 20 glowing layers before the stack reaches the top.",
+      "title": "Orbital Linefall: Sector Run",
+      "blurb": "Space-themed Tetris with 5 escalating sectors, T-spin mini/full adjudication, guideline DAS/ARR, comet salvage, and a 3D glass-and-neon command deck. Stabilize all five sectors by clearing 20 layers.",
       "tags": [
         "Puzzle",
         "3D",
@@ -24,7 +24,7 @@
       ],
       "addedAt": "2026-07-29",
       "thumb": "/images/games/orbital-linefall.jpg",
-      "controls": "\u2190 \u2192 / A D slide \u00b7 \u2191 / W / E rotate \u00b7 Q / Z rotate back \u00b7 \u2193 / S soft drop \u00b7 Space hard drop \u00b7 touch stick + buttons on phone (portrait)"
+      "controls": "\u2190 \u2192 / A D slide \u00b7 \u2191 / W / X rotate \u00b7 Q / Z rotate back \u00b7 \u2193 / S soft drop \u00b7 C / Shift hold \u00b7 Space hard drop \u00b7 5 sectors escalate gravity & lock pressure \u00b7 touch stick + buttons (portrait)"
     },
     {
       "slug": "santos-chaos",
