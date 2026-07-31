@@ -11,7 +11,7 @@ export function useScrollSectionVisibility(
       threshold: 0.1,
       ...options,
     }),
-    [options?.threshold, options?.root, options?.rootMargin]
+    [options]
   )
 
   useEffect(() => {

@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { MatrixBackground } from './components/MatrixBackground'
 import { ScrollToTop } from './components/ScrollToTop'
 import { Hero } from './components/Hero'
@@ -15,6 +14,7 @@ import { Contact } from './components/Contact'
 import { Nav } from './components/layout/Nav'
 import { Footer } from './components/layout/Footer'
 import { MatrixPauseContext } from './hooks/useMatrixPause'
+import { usePathname } from './lib/router'
 
 /**
  * A cold load of `/#oss` — e.g. following a nav link from /games, or the
@@ -52,21 +52,21 @@ function HomePage() {
 
 function App() {
   const [isPaused, setIsPaused] = useState(false)
+  const pathname = usePathname()
+  const page = pathname === '/'
+    ? <HomePage />
+    : pathname === '/games'
+      ? <GamesPage />
+      : <NotFound />
 
   return (
     <MatrixPauseContext.Provider value={{ isPaused, setIsPaused }}>
-      <BrowserRouter>
-        <div className="min-h-screen bg-[var(--bg-primary)] relative">
-          <MatrixBackground />
-          <Nav />
-          <ScrollToTop />
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/games" element={<GamesPage />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </div>
-      </BrowserRouter>
+      <div className="min-h-screen bg-[var(--bg-primary)] relative">
+        <MatrixBackground />
+        <Nav />
+        <ScrollToTop />
+        {page}
+      </div>
     </MatrixPauseContext.Provider>
   )
 }

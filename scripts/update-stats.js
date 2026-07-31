@@ -10,7 +10,7 @@
  * Optimization: Deduplicates repos across data files, batches user repo fetch
  */
 
-import { readFileSync, writeFileSync, existsSync } from 'fs';
+import { readFileSync, writeFileSync } from 'fs';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 import { execSync } from 'child_process';
@@ -41,7 +41,9 @@ function getGitHubToken() {
       .toString()
       .trim();
     if (token) return { token, source: 'gh CLI' };
-  } catch (_) {}
+  } catch {
+    // Fall through to environment-based or unauthenticated access.
+  }
 
   // 2. Fall back to environment variable
   if (process.env.GITHUB_TOKEN) {
@@ -217,7 +219,7 @@ async function main() {
   console.log(`  Fetching stats for ${repos.length} unique repos...\n`);
 
   for (let i = 0; i < repos.length; i++) {
-    const [key, { owner, repo, entries }] = repos[i];
+    const [, { owner, repo, entries }] = repos[i];
     printProgress(i + 1, repos.length, `${owner}/${repo}`);
 
     const stats = await fetchRepoStats(owner, repo, headers);
@@ -253,13 +255,11 @@ async function main() {
 
   // Write updated files
   console.log('');
-  let anyWritten = false;
   for (const dataset of datasets) {
     const name = dataset.file.split('/').pop();
     if (dataset.updated) {
       writeFileSync(dataset.file, JSON.stringify(dataset.data, null, 2) + '\n');
       console.log(`  ✅ ${name} — written`);
-      anyWritten = true;
     } else {
       console.log(`  ✓  ${name} — no changes`);
     }

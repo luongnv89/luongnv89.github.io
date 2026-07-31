@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { AppLink } from '@/lib/router'
 
 interface NavLink {
   label: string
@@ -65,13 +65,13 @@ export function Footer({ className = '' }: FooterProps) {
           <nav className="flex flex-wrap items-center gap-x-6 gap-y-2">
             {links.map(({ label, href, route }) =>
               route ? (
-                <Link
+                <AppLink
                   key={label}
                   to={href}
                   className="text-sm text-[var(--text-secondary)] hover:text-accent transition-colors"
                 >
                   {label}
-                </Link>
+                </AppLink>
               ) : (
                 <a
                   key={label}

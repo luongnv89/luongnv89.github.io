@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
+import { AppLink } from '@/lib/router'
 import { GameCard } from './GameCard'
 import { getGames } from '@/lib/games'
 
@@ -31,10 +31,10 @@ export function Games() {
         </div>
 
         <div className="mt-8 flex justify-center">
-          <Link to="/games" className="btn-primary inline-flex items-center gap-2 focus-ring">
+          <AppLink to="/games" className="btn-primary inline-flex items-center gap-2 focus-ring">
             {games.length > HOME_PREVIEW_COUNT ? `View all ${games.length} games` : 'View all games'}
             <ArrowRight size={16} aria-hidden="true" />
-          </Link>
+          </AppLink>
         </div>
       </div>
     </section>

@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
-import { Link } from 'react-router-dom'
 import { ArrowLeft } from 'lucide-react'
+import { AppLink } from '@/lib/router'
 import { GameCard } from './GameCard'
 import { Footer } from './layout/Footer'
 import { getGames } from '@/lib/games'
@@ -38,13 +38,13 @@ export function GamesPage() {
           {/* `-my-3 py-3` lifts the hit area from ~20px to 44px without moving
               anything: with nav links hidden below 768px this is the primary
               in-page way back on mobile. */}
-          <Link
+          <AppLink
             to="/"
             className="-my-3 inline-flex items-center gap-2 py-3 text-sm text-[var(--text-secondary)] transition-colors hover:text-accent focus-ring rounded-md"
           >
             <ArrowLeft size={16} aria-hidden="true" />
             Back to home
-          </Link>
+          </AppLink>
 
           <h1 className="mt-6 text-3xl font-semibold text-[var(--text-primary)] md:text-4xl">
             Games

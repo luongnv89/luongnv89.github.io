@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { AppLink } from '@/lib/router'
 import { ThemeToggle } from '../ThemeToggle'
 
 /**
@@ -30,9 +30,9 @@ export function Nav() {
           <div className="hidden md:flex items-center gap-6 mr-2">
             {links.map(({ label, href, route }) =>
               route ? (
-                <Link key={label} to={href} className={linkClass}>
+                <AppLink key={label} to={href} className={linkClass}>
                   {label}
-                </Link>
+                </AppLink>
               ) : (
                 <a key={label} href={href} className={linkClass}>
                   {label}

@@ -1,11 +1,11 @@
-import { Link } from 'react-router-dom'
 import { ArrowLeft, Gamepad2 } from 'lucide-react'
+import { AppLink } from '@/lib/router'
 import { Footer } from './layout/Footer'
 
 /**
  * Catch-all view. GitHub Pages sends unknown URLs through `public/404.html`,
  * which redirects to `/?redirect=<path>`; `index.html` then restores `<path>`
- * before React Router runs. Without this route the router matches nothing and
+ * before the app runs. Without this route the router matches nothing and
  * the visitor gets a blank page under the nav — most likely from a typo'd or
  * stale `/games/<slug>/` link.
  */
@@ -27,20 +27,20 @@ export function NotFound() {
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-4">
-            <Link
+            <AppLink
               to="/"
               className="-my-3 inline-flex items-center gap-2 py-3 text-sm text-[var(--text-secondary)] transition-colors hover:text-accent focus-ring rounded-md"
             >
               <ArrowLeft size={16} aria-hidden="true" />
               Back to home
-            </Link>
-            <Link
+            </AppLink>
+            <AppLink
               to="/games"
               className="-my-3 inline-flex items-center gap-2 py-3 text-sm text-[var(--text-secondary)] transition-colors hover:text-accent focus-ring rounded-md"
             >
               <Gamepad2 size={16} aria-hidden="true" />
               Browse games
-            </Link>
+            </AppLink>
           </div>
         </div>
       </main>
