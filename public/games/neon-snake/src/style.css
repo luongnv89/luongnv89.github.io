@@ -513,12 +513,20 @@ button,
 
 .pad {
   position: absolute;
-  right: calc(var(--safe-r) + 22px);
+  left: calc(var(--safe-l) + 22px);
   bottom: calc(var(--safe-b) + 22px);
-  display: flex;
-  gap: 12px;
+  display: grid;
+  grid-template: repeat(3, 72px) / repeat(3, 72px);
+  gap: 6px;
   pointer-events: auto;
 }
+
+/* Four explicit cardinal controls match desktop's arrow keys. Their cross
+   layout makes a turn possible by position alone, without reading a label. */
+.pad .btn:nth-child(1) { grid-area: 1 / 2; }
+.pad .btn:nth-child(2) { grid-area: 2 / 1; }
+.pad .btn:nth-child(3) { grid-area: 2 / 3; }
+.pad .btn:nth-child(4) { grid-area: 3 / 2; }
 
 .btn {
   width: 72px;
@@ -600,9 +608,13 @@ button,
     width: 104px;
     height: 104px;
   }
+  .pad {
+    grid-template: repeat(3, 58px) / repeat(3, 58px);
+    gap: 4px;
+  }
   .btn {
-    width: 60px;
-    height: 60px;
+    width: 58px;
+    height: 58px;
   }
 }
 
@@ -686,7 +698,7 @@ button,
     height: 52%;
   }
 
-  .stick {
+  .pad {
     left: calc(var(--safe-l) + 12px);
     bottom: calc(var(--safe-b) + 10px);
   }

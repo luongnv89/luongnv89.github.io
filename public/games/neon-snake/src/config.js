@@ -24,9 +24,9 @@ export const META = Object.freeze({
   ],
 
   controls: [
-    { keys: '← →  /  A D', touch: 'left stick', does: 'Steer the snake' },
-    { keys: '↑  /  W', touch: 'left stick up', does: 'Steer up' },
-    { keys: '↓  /  S', touch: 'left stick down', does: 'Steer down' },
+    { keys: '← →  /  A D', touch: '← / → buttons', does: 'Steer horizontally' },
+    { keys: '↑  /  W', touch: '↑ Forward', does: 'Steer up' },
+    { keys: '↓  /  S', touch: '↓ Backward', does: 'Steer down' },
     { keys: 'P  /  Esc', touch: '❚❚', does: 'Pause and resume' },
     { keys: 'H', touch: '?', does: 'How to play / guide' },
     { keys: 'T', touch: '✦', does: 'The story' },
@@ -51,7 +51,7 @@ export const HEX = Object.fromEntries(
 
 export const VIEW = { width: 640, height: 640 };
 
-export const ORIENTATION = 'any';
+export const ORIENTATION = 'landscape';
 
 export const TUNING = {
   // Grid

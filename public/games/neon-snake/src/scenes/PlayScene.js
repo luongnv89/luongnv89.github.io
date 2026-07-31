@@ -365,10 +365,16 @@ export class PlayScene extends Phaser.Scene {
       this.impactCall?.remove(false);
     });
 
-    // Build touch first: opening the guide can now hide an existing joystick.
+    // Grid movement needs exact turns, so mobile mirrors the desktop arrows
+    // with four discrete buttons instead of an imprecise analog joystick.
     Input.buildTouchControls(document.getElementById('touch'), {
-      stick: true,
-      buttons: [],
+      stick: false,
+      buttons: [
+        { action: 'up', label: '↑', title: 'Forward / up' },
+        { action: 'left', label: '←', title: 'Left' },
+        { action: 'right', label: '→', title: 'Right' },
+        { action: 'down', label: '↓', title: 'Backward / down' },
+      ],
     });
 
     // ── Mount UI ──
