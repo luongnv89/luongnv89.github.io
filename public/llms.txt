@@ -20,6 +20,7 @@ Luong Nguyen (luongnv89) is a Senior Engineer at Montimage specializing in AI ag
 
 Browser games, no install — click and play. Free to share.
 
+- [Cờ Toán: Bàn Cờ Sống](https://luongnv.com/games/co-toan-3d/): 3D Vietnamese Math Chess — move numbered stones, form arithmetic pairs, and capture the opposing 0
 - [Night Spin](https://luongnv.com/games/night-spin/): Party roulette — numbers, Truth or Dare, xúc xắc, custom actions; physics spin and spin history
 - [Orbital Linefall](https://luongnv.com/games/orbital-linefall/): Space-themed falling-block puzzle — clear 20 glowing layers in an angled orbital well
 - [Switch Heist](https://luongnv.com/games/santos-chaos/): Top-down heist — switch between three crooks to crack the vault and outrun the heat
