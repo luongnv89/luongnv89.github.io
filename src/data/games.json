@@ -3,7 +3,7 @@
     {
       "slug": "math-chess-3d",
       "title": "Math Chess 3D",
-      "blurb": "Vietnamese math chess on a real 3D teak table. A numbered stone walks its own value; two stones side by side fire their arithmetic down a lit ray. Take the enemy 0, or out-score it.",
+      "blurb": "Vietnamese math chess on a real 3D teak table, played with a medieval set turned on a pole lathe. A numbered piece walks its own value; two pieces side by side fire their arithmetic down a lit ray. Sit anywhere from the tabletop to straight overhead. Take the enemy 0, or out-score it.",
       "tags": [
         "Board",
         "Strategy",
@@ -12,7 +12,7 @@
       ],
       "addedAt": "2026-08-05",
       "thumb": "/images/games/math-chess-3d.jpg",
-      "controls": "Tap a stone, then a lit square — or a chip and its gold ring to capture · arrows/WASD + Enter · Q/E turn the table · portrait on phones"
+      "controls": "Tap a piece, then a lit square — or a chip and its gold ring to capture · arrows/WASD + Enter · V changes the view, down to a flat 2D board · Q/E turn the table · portrait on phones"
     },
     {
       "slug": "night-spin",
