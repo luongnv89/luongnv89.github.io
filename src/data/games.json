@@ -15,19 +15,6 @@
       "controls": "Tap a stone, then a lit square — or a chip and its gold ring to capture · arrows/WASD + Enter · Q/E turn the table · portrait on phones"
     },
     {
-      "slug": "co-toan-3d",
-      "title": "Cờ Toán: Bàn Cờ Sống",
-      "blurb": "A 3D tabletop adaptation of Vietnamese Math Chess — move numbered stones, form adjacent arithmetic pairs, and capture the opposing 0.",
-      "tags": [
-        "Strategy",
-        "Math",
-        "3D",
-        "1 Player"
-      ],
-      "addedAt": "2026-08-03",
-      "controls": "Arrow keys / WASD move cursor · Enter / Space select · 1–4 choose +/−/×/÷ · phone stick + action pad (landscape)"
-    },
-    {
       "slug": "night-spin",
       "title": "Night Spin",
       "blurb": "Party roulette for social nights — numbers, Truth or Dare, xúc xắc, or your own dares. A real bowl: the ball rides the track, drops off a diamond and rattles into a pocket.",

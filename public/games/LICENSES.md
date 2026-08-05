@@ -10,9 +10,9 @@ code. Everything below is permissive.
 
 | Project | License | Where it ships | Upstream |
 | --- | --- | --- | --- |
-| three.js (r185) | MIT | bundled into `open-skies/assets/open-skies-*.js` and `codex-of-duty/assets/index-*.js`; vendored under `mortal-combat/vendor/` | <https://github.com/mrdoob/three.js> |
+| three.js (r185) | MIT | bundled into `open-skies/assets/open-skies-*.js`, `codex-of-duty/assets/index-*.js` and `math-chess-3d/assets/index-*.js`; vendored under `mortal-combat/vendor/` | <https://github.com/mrdoob/three.js> |
 | Rapier (dimforge) | Apache-2.0 | `rapier_wasm3d_bg.wasm`, base64-inlined into `codex-of-duty/assets/index-*.js` | <https://github.com/dimforge/rapier> |
-| Phaser (3.90.0) | MIT | bundled into `santos-chaos/assets/index-*.js`, `orbital-linefall/assets/index-*.js`, and `co-toan-3d/assets/index-*.js` | <https://github.com/phaserjs/phaser> |
+| Phaser (3.90.0) | MIT | bundled into `santos-chaos/assets/index-*.js` and `orbital-linefall/assets/index-*.js` | <https://github.com/phaserjs/phaser> |
 
 The full Apache License 2.0 text is at <https://www.apache.org/licenses/LICENSE-2.0>.
 Rapier is redistributed unmodified, as compiled WebAssembly and its generated
@@ -115,6 +115,6 @@ The game code itself is the repository owner's own work.
 - **Night Spin** (`night-spin`) — written for this site with game-forge; party
   roulette tool (numbers, actions, presets). Phaser is its only third-party
   dependency, bundled into the JS asset.
-- **Cờ Toán: Bàn Cờ Sống** (`co-toan-3d`) — written for this site with
-  game-forge; an angled tabletop adaptation of Cờ Toán Việt Nam. Phaser is its
-  only third-party dependency, bundled into the JS asset.
+- **Math Chess 3D** (`math-chess-3d`) — written for this site with game-forge;
+  a Vite/Three.js adaptation of Vietnamese math chess. three.js is its only
+  third-party dependency, bundled into the JS asset above.
