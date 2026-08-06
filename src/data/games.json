@@ -1,6 +1,19 @@
 {
   "games": [
     {
+      "slug": "geometry-dash-neon",
+      "title": "Geometry Dash — Neon",
+      "blurb": "One button flips gravity — ride the floor then the ceiling to thread magenta spike walls on a glowing circuit across three escalating stages.",
+      "tags": [
+        "Arcade",
+        "Rhythm",
+        "1 Player",
+        "Mobile"
+      ],
+      "addedAt": "2026-08-06",
+      "controls": "Space / Click / Tap to flip gravity · P/Esc pause · R restart · H guide · T story · K scores · M mute"
+    },
+    {
       "slug": "flappy-bird",
       "title": "Flappy Bird — Dash",
       "blurb": "One tap to flap, gravity never lets up — thread the scrolling green pipes and see how far you get before you crash.",
