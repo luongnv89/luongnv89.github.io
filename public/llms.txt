@@ -28,6 +28,7 @@ Browser games, no install — click and play. Free to share.
 - [Codex of Duty](https://luongnv.com/games/codex-of-duty/): Three.js + Rapier FPS with a streaming open world and tactical enemy AI
 - [Open Skies](https://luongnv.com/games/open-skies/): Cockpit combat flight sim — guns, fighters, graded landings; phone stick controls, offline
 - [Neon Snake](https://luongnv.com/games/neon-snake/): Classic snake with a glowing trail and a speed ramp
+- [Minecraft Style](https://luongnv.com/games/minecraft-style/): Voxel block-miner survival — mine across three escalating biomes, build a shelter, and survive the night against mobs
 
 ## Writing
 

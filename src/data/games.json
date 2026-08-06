@@ -87,6 +87,14 @@
       "controls": "WASD / arrows fly \u00b7 I/O throttle \u00b7 Q/E rudder \u00b7 Space guns \u00b7 Z/X ordnance \u00b7 phone stick + pad (landscape) \u00b7 \u26f6 Full screen hides browser chrome"
     },
     {
+      "slug": "minecraft-style",
+      "title": "Minecraft Style",
+      "blurb": "An isometric voxel-mining survival game: mine blocks across three escalating biomes (Surface, Underground, Nether border), build a shelter, and hold it against hostile mobs through the night.",
+      "tags": ["Survival", "Voxel", "Strategy", "1 Player"],
+      "addedAt": "2026-08-06",
+      "controls": "← → / A D strafe · W / Space jump & place block · S mine · Mouse aim · Shift sprint · P pause · H guide · M mute · R restart · phone stick + ⚡/🎮/🔨 buttons (landscape)"
+    },
+    {
       "slug": "neon-snake",
       "title": "Neon Snake \u2014 Maze Runner",
       "blurb": "Clear 8 neon mazes before three lives run out \u2014 cores, Hunters, power-ups, and a continuous neon trail on a classic Snake chassis.",
