@@ -18,8 +18,8 @@
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <title>Game Forge Game</title>
-    <script type="module" crossorigin src="/games/math-chess-3d/assets/index-p9V6fq0n.js"></script>
-    <link rel="stylesheet" crossorigin href="/games/math-chess-3d/assets/index-CNUHUpTp.css">
+    <script type="module" crossorigin src="/games/math-chess-3d/assets/index-DdaheGcE.js"></script>
+    <link rel="stylesheet" crossorigin href="/games/math-chess-3d/assets/index-ByLw4spT.css">
   </head>
   <body>
     <!-- Phaser mounts its canvas here. Everything else on screen is DOM: text
@@ -30,6 +30,30 @@
     <!-- The overlay is inert by default; only the controls inside it opt back
          into pointer events, so a tap on empty space reaches the game. -->
     <div id="ui">
+      <!-- The canvas stays hidden from assistive technology. This one focusable
+           controller exposes the same cursor/actions as the visible board,
+           without maintaining a second DOM board or a second rules engine. -->
+      <section id="board-accessibility" class="visually-hidden" aria-labelledby="board-controller-title">
+        <h2 id="board-controller-title">Math Chess board</h2>
+        <p id="board-controller-instructions">
+          Use arrow keys or W A S D to move the cursor, Enter or Space to select and confirm,
+          number keys to choose an attack, and U to clear a selection. Press Tab or Escape to exit.
+        </p>
+        <div
+          id="board-controller"
+          role="application"
+          tabindex="0"
+          aria-labelledby="board-controller-title"
+          aria-describedby="board-controller-instructions board-controller-state"
+        >
+          <span id="board-controller-state"></span>
+          <span id="board-controller-focus-proxy" aria-hidden="true">
+            Board keyboard active · Arrows move · Enter selects · Tab exits
+          </span>
+        </div>
+        <div id="board-controller-status" role="status" aria-live="polite" aria-atomic="true"></div>
+      </section>
+
       <!-- Objective, panel buttons and stats share one wrapping row, so a
            narrow phone stacks them instead of overlapping them. -->
       <header id="hud">
