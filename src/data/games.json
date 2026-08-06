@@ -1,6 +1,19 @@
 {
   "games": [
     {
+      "slug": "flappy-bird",
+      "title": "Flappy Bird — Dash",
+      "blurb": "One tap to flap, gravity never lets up — thread the scrolling green pipes and see how far you get before you crash.",
+      "tags": [
+        "Arcade",
+        "Endless",
+        "1 Player",
+        "Mobile"
+      ],
+      "addedAt": "2026-08-06",
+      "controls": "Space / Click / Tap to flap · P/Esc pause · R restart · H guide · T story · K scores · M mute"
+    },
+    {
       "slug": "co-toan-3d",
       "title": "Cờ Toán: Bàn Cờ Sống",
       "blurb": "A 3D tabletop adaptation of Vietnamese Math Chess — move numbered stones, form adjacent arithmetic pairs, and capture the opposing 0.",
