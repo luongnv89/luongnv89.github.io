@@ -95,6 +95,14 @@
       "controls": "← → / A D strafe · W / Space jump & place block · S mine · Mouse aim · Shift sprint · P pause · H guide · M mute · R restart · phone stick + ⚡/🎮/🔨 buttons (landscape)"
     },
     {
+      "slug": "geometry-dash-flux",
+      "title": "Geometry Dash — Flux",
+      "blurb": "A single-button rhythm platformer: hop through five music-synced tracks, shifting between Cube, Ship, Ball, UFO, and Wave forms — time every jump or crash and restart the track.",
+      "tags": ["Rhythm", "Platformer", "Arcade", "1 Player"],
+      "addedAt": "2026-08-06",
+      "controls": "Space / tap / click jump · P pause · R restart · H guide · T story · K scores · M mute · phone tap anywhere (landscape) · one input, pure timing"
+    },
+    {
       "slug": "neon-snake",
       "title": "Neon Snake \u2014 Maze Runner",
       "blurb": "Clear 8 neon mazes before three lives run out \u2014 cores, Hunters, power-ups, and a continuous neon trail on a classic Snake chassis.",

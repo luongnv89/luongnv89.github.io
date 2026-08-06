@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no"
+    />
+    <meta name="theme-color" content="#050508" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23050508'/%3E%3Cpolygon points='16,6 24,26 8,26' fill='%2300ff41'/%3E%3C/svg%3E"
+    />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <title>Geometry Dash — Flux</title>
+    <script type="module" crossorigin src="./assets/index-BUOIwmlv.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-CQ50fXFJ.css">
+  </head>
+  <body>
+    <div id="game" aria-hidden="true"></div>
+    <div id="ui">
+      <header id="hud">
+        <div id="objective-block">
+          <p id="objective">Objective: —</p>
+          <div id="level-progress" class="level-progress" role="progressbar"
+            aria-label="Level progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+            <div class="level-progress-track"><div id="level-progress-fill" class="level-progress-fill"></div></div>
+            <span id="level-progress-label" class="level-progress-label">Track —</span>
+          </div>
+        </div>
+        <nav id="tabs" aria-label="Game panels"></nav>
+        <dl id="stats"></dl>
+      </header>
+      <div id="touch" hidden></div>
+      <div id="panels"></div>
+      <div id="rotate" hidden>
+        <p>Rotate your device</p>
+        <p class="dim"></p>
+      </div>
+    </div>
+  </body>
+</html>
