@@ -3,16 +3,16 @@
     {
       "slug": "math-chess-3d",
       "title": "Math Chess 3D",
-      "blurb": "Vietnamese math chess on a real 3D teak table, played with a medieval set turned on a pole lathe. A numbered piece walks its own value; two pieces side by side fire their arithmetic down a lit ray. Sit anywhere from the tabletop to straight overhead. Take the enemy 0, or out-score it.",
+      "blurb": "Vietnamese math chess on a real 3D teak table with a medieval lathe-turned set. A numbered piece walks its own value; two pieces side by side fire their arithmetic down a lit ray. Physical hops, wood knocks, soft bloom, and a between-match briefing that names progress and the next mission. Take the enemy 0, or out-score it.",
       "tags": [
         "Board",
         "Strategy",
         "Puzzle",
         "1 Player"
       ],
-      "addedAt": "2026-08-05",
+      "addedAt": "2026-08-07",
       "thumb": "/images/games/math-chess-3d.jpg",
-      "controls": "Tap a piece, then a lit square \u2014 or a chip and its gold ring to capture \u00b7 arrows/WASD + Enter \u00b7 V changes the view, down to a flat 2D board \u00b7 Q/E turn the table \u00b7 rim files A\u2013I / ranks 1\u201311 \u00b7 desktop Match events lists every move and take-down \u00b7 portrait on phones"
+      "controls": "Tap a piece, then a lit square \u2014 or a chip and its gold ring to capture \u00b7 arrows/WASD + Enter \u00b7 V changes the view, down to a flat 2D board \u00b7 Q/E turn the table \u00b7 rim files A\u2013I / ranks 1\u201311 \u00b7 desktop Match events log \u00b7 match-clear continues to the next mission \u00b7 portrait on phones"
     },
     {
       "slug": "night-spin",
