@@ -20,14 +20,16 @@ Luong Nguyen (luongnv89) is a Senior Engineer at Montimage specializing in AI ag
 
 Browser games, no install — click and play. Free to share.
 
+- [Elemental Tetris 3D](https://luongnv.com/games/tetris-3d/): Three.js Tetris with ice/fire/snow/cold cubes, melt/quench physics and weather particles — clear 24 layers
+- [Santos Chaos 3D](https://luongnv.com/games/santos-chaos-3d/): Neon night car heist in Three.js — three crew cars, vault, getaway chase, rising stars
 - [Math Chess 3D](https://luongnv.com/games/math-chess-3d/): Vietnamese math chess on a 3D teak table — a stone walks its own number, two side by side fire their arithmetic down a ray to capture
+- [Codex of Duty: Black Relay](https://luongnv.com/games/codex-of-duty/): Three.js FPS — activate Black Relays, fight bipedal Null Guard soldiers, hold extraction
+- [Neon Snake](https://luongnv.com/games/neon-snake/): Classic snake with a glowing trail and a speed ramp
 - [Night Spin](https://luongnv.com/games/night-spin/): Party roulette — numbers, Truth or Dare, xúc xắc, custom actions; physics spin and spin history
 - [Orbital Linefall](https://luongnv.com/games/orbital-linefall/): Space-themed falling-block puzzle — clear 20 glowing layers in an angled orbital well
 - [Switch Heist](https://luongnv.com/games/santos-chaos/): Top-down heist — switch between three crooks to crack the vault and outrun the heat
 - [Arcade Bloodline](https://luongnv.com/games/mortal-combat/): 3D side-on arcade fighter — best-of-three rounds and a finishing strike
-- [Codex of Duty: Black Relay](https://luongnv.com/games/codex-of-duty/): Three.js FPS — activate Black Relays, fight bipedal Null Guard soldiers, hold extraction
 - [Open Skies](https://luongnv.com/games/open-skies/): Cockpit combat flight sim — guns, fighters, graded landings; phone stick controls, offline
-- [Neon Snake](https://luongnv.com/games/neon-snake/): Classic snake with a glowing trail and a speed ramp
 
 ## Writing
 

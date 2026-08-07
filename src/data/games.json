@@ -1,6 +1,31 @@
 {
   "games": [
     {
+      "slug": "tetris-3d",
+      "title": "Elemental Tetris 3D",
+      "blurb": "Three.js Tetris in a lit 3D well: ice, fire, snow and cold cubes with melt/quench physics, weather particles, bloom and smooth 3D motion. Clear 24 elemental layers across Frost, Ember and Storm.",
+      "tags": [
+        "Puzzle",
+        "3D",
+        "1 Player"
+      ],
+      "addedAt": "2026-08-07",
+      "controls": "← → / A D slide · ↑ / W rotate · Q/Z counter-rotate · ↓ / S soft drop · Space hard drop · phone ◀/▶/↻/▼ + ⬇⬇ hard drop · P pause · portrait"
+    },
+    {
+      "slug": "santos-chaos-3d",
+      "title": "Santos Chaos 3D",
+      "blurb": "Neon night car heist in Three.js — three crew cars, vault crack, getaway chase and radar minimap under rising wanted stars. Switch mid-scene, deliver the take, stay rolling.",
+      "tags": [
+        "Action",
+        "Heist",
+        "3D",
+        "1 Player"
+      ],
+      "addedAt": "2026-08-07",
+      "controls": "WASD / arrows drive · Space / J shoot · F vault crack / grab loot · 1–3 switch car · phone stick + ⚡/🔒/1·2·3 · landscape"
+    },
+    {
       "slug": "math-chess-3d",
       "title": "Math Chess 3D",
       "blurb": "Vietnamese math chess on a real 3D teak table with a medieval lathe-turned set. A numbered piece walks its own value; two pieces side by side fire their arithmetic down a lit ray. Physical hops, wood knocks, soft bloom, and a between-match briefing that names progress and the next mission. Take the enemy 0, or out-score it.",
@@ -12,12 +37,38 @@
       ],
       "addedAt": "2026-08-07",
       "thumb": "/images/games/math-chess-3d.jpg",
-      "controls": "Tap a piece, then a lit square \u2014 or a chip and its gold ring to capture \u00b7 arrows/WASD + Enter \u00b7 V changes the view, down to a flat 2D board \u00b7 Q/E turn the table \u00b7 rim files A\u2013I / ranks 1\u201311 \u00b7 desktop Match events log \u00b7 match-clear continues to the next mission \u00b7 portrait on phones"
+      "controls": "Tap a piece, then a lit square — or a chip and its gold ring to capture · arrows/WASD + Enter · V changes the view, down to a flat 2D board · Q/E turn the table · rim files A–I / ranks 1–11 · desktop Match events log · match-clear continues to the next mission · portrait on phones"
+    },
+    {
+      "slug": "codex-of-duty",
+      "title": "Codex of Duty: Black Relay",
+      "blurb": "Night districts of Vanta. Activate all three Black Relays, break the Black Core, and hold extraction while Null Guard soldiers close in — bipedal human enemies, smooth combat HUD, phone-ready controls.",
+      "tags": [
+        "FPS",
+        "3D",
+        "1 Player"
+      ],
+      "addedAt": "2026-08-07",
+      "thumb": "/images/games/codex-of-duty.jpg",
+      "controls": "WASD + mouse · LMB fire / RMB aim · R reload · E hold relay · Space jump · C slide · left stick + FIRE/AIM/ACT on phone"
+    },
+    {
+      "slug": "neon-snake",
+      "title": "Neon Snake — Maze Runner",
+      "blurb": "Clear 8 neon mazes before three lives run out — cores, Hunters, power-ups, and a continuous neon trail on a classic Snake chassis.",
+      "tags": [
+        "Arcade",
+        "Maze",
+        "1 Player"
+      ],
+      "addedAt": "2026-07-30",
+      "thumb": "/images/games/neon-snake.jpg",
+      "controls": "←→↑↓ / WASD steer · left stick on phone · P pause · H guide · K scores · M mute · R restart · collect cores to open each gate"
     },
     {
       "slug": "night-spin",
       "title": "Night Spin",
-      "blurb": "Party roulette for social nights \u2014 numbers, Truth or Dare, x\u00fac x\u1eafc, or your own dares. A real bowl: the ball rides the track, drops off a diamond and rattles into a pocket.",
+      "blurb": "Party roulette for social nights — numbers, Truth or Dare, xúc xắc, or your own dares. A real bowl: the ball rides the track, drops off a diamond and rattles into a pocket.",
       "tags": [
         "Party",
         "Casual",
@@ -25,7 +76,7 @@
       ],
       "addedAt": "2026-07-29",
       "thumb": "/images/games/night-spin.jpg",
-      "controls": "Space or SPIN \u00b7 \u2191 \u2193 switch mode \u00b7 \u2190 \u2192 preset or N \u00b7 cog for duration, action list & history \u00b7 phone-ready (any orientation)"
+      "controls": "Space or SPIN · ↑ ↓ switch mode · ← → preset or N · cog for duration, action list & history · phone-ready (any orientation)"
     },
     {
       "slug": "orbital-linefall",
@@ -38,12 +89,12 @@
       ],
       "addedAt": "2026-07-29",
       "thumb": "/images/games/orbital-linefall.jpg",
-      "controls": "\u2190 \u2192 / A D slide \u00b7 \u2191 / W / X rotate \u00b7 \u2193 / S soft drop \u00b7 Space hard drop \u00b7 phone D-pad \u21bb/\u25c0/\u25bc/\u25b6 + \u2b07\u2b07 hard drop \u00b7 compact mid-run HUD (portrait)"
+      "controls": "← → / A D slide · ↑ / W / X rotate · ↓ / S soft drop · Space hard drop · phone D-pad ↻/◀/▼/▶ + ⬇⬇ hard drop · compact mid-run HUD (portrait)"
     },
     {
       "slug": "santos-chaos",
       "title": "Switch Heist",
-      "blurb": "Top-down night-LA bank job with a three-crook crew \u2014 switch mid-heist to crack the vault, hold the lobby, or drive, then outrun the stars to the safehouse.",
+      "blurb": "Top-down night-LA bank job with a three-crook crew — switch mid-heist to crack the vault, hold the lobby, or drive, then outrun the stars to the safehouse.",
       "tags": [
         "Action",
         "Heist",
@@ -51,7 +102,7 @@
       ],
       "addedAt": "2026-07-29",
       "thumb": "/images/games/santos-chaos.jpg",
-      "controls": "WASD / arrows move \u00b7 Space fire \u00b7 E enter car \u00b7 F crack vault \u00b7 1\u20133 switch crook \u00b7 phone stick (landscape) \u00b7 \u26f6 Full screen hides browser chrome"
+      "controls": "WASD / arrows move · Space fire · E enter car · F crack vault · 1–3 switch crook · phone stick (landscape) · ⛶ Full screen hides browser chrome"
     },
     {
       "slug": "mortal-combat",
@@ -64,25 +115,12 @@
       ],
       "addedAt": "2026-07-28",
       "thumb": "/images/games/mortal-combat.jpg",
-      "controls": "Arrows move / crouch / jump \u00b7 A punch \u00b7 S kick \u00b7 D block \u00b7 \u2193+A uppercut \u00b7 \u2193 then \u2192+A projectile"
-    },
-    {
-      "slug": "codex-of-duty",
-      "title": "Codex of Duty: Black Relay",
-      "blurb": "Night districts of Vanta. Activate all three Black Relays, break the Black Core, and hold extraction while Null Guard soldiers close in \u2014 bipedal human enemies, smooth combat HUD, phone-ready controls.",
-      "tags": [
-        "FPS",
-        "3D",
-        "1 Player"
-      ],
-      "addedAt": "2026-08-07",
-      "thumb": "/images/games/codex-of-duty.jpg",
-      "controls": "WASD + mouse \u00b7 LMB fire / RMB aim \u00b7 R reload \u00b7 E hold relay \u00b7 Space jump \u00b7 C slide \u00b7 left stick + FIRE/AIM/ACT on phone"
+      "controls": "Arrows move / crouch / jump · A punch · S kick · D block · ↓+A uppercut · ↓ then →+A projectile"
     },
     {
       "slug": "open-skies",
       "title": "Open Skies",
-      "blurb": "Cockpit combat flight sim over a living island \u2014 atmospheric sky, Fresnel ocean, drifting cumulus, and multi-tier pines. Clear six escalating sorties, survive fighters and flak, then earn each advance with a safe landing.",
+      "blurb": "Cockpit combat flight sim over a living island — atmospheric sky, Fresnel ocean, drifting cumulus, and multi-tier pines. Clear six escalating sorties, survive fighters and flak, then earn each advance with a safe landing.",
       "tags": [
         "Flight Sim",
         "Combat",
@@ -90,20 +128,7 @@
       ],
       "addedAt": "2026-07-27",
       "thumb": "/images/games/open-skies.jpg",
-      "controls": "WASD / arrows fly \u00b7 I/O throttle \u00b7 Q/E rudder \u00b7 Space guns \u00b7 Z/X ordnance \u00b7 phone stick + pad (landscape) \u00b7 \u26f6 Full screen hides browser chrome"
-    },
-    {
-      "slug": "neon-snake",
-      "title": "Neon Snake \u2014 Maze Runner",
-      "blurb": "Clear 8 neon mazes before three lives run out \u2014 cores, Hunters, power-ups, and a continuous neon trail on a classic Snake chassis.",
-      "tags": [
-        "Arcade",
-        "Maze",
-        "1 Player"
-      ],
-      "addedAt": "2026-07-30",
-      "thumb": "/images/games/neon-snake.jpg",
-      "controls": "\u2190\u2192\u2191\u2193 / WASD steer \u00b7 left stick on phone \u00b7 P pause \u00b7 H guide \u00b7 K scores \u00b7 M mute \u00b7 R restart \u00b7 collect cores to open each gate"
+      "controls": "WASD / arrows fly · I/O throttle · Q/E rudder · Space guns · Z/X ordnance · phone stick + pad (landscape) · ⛶ Full screen hides browser chrome"
     }
   ]
 }

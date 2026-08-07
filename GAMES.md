@@ -112,9 +112,12 @@ Deliberate choices, recorded so they read as chosen rather than overlooked.
   `luongnv89/codex-of-duty` → `games/codex-of-duty` (v1.1.0). three.js only (~650 KB JS);
   no Rapier wasm. Rebuild with `npx vite build --base=/games/codex-of-duty/` before copying
   into `public/games/codex-of-duty/`.
-- **Upstream drift.** Codex of Duty is a vendored build of
-  <https://github.com/luongnv89/codex-of-duty> and will drift until it is refreshed —
-  see "If the game is a bundler build" above.
+- **Elemental Tetris 3D / Santos Chaos 3D.** Hosted from game-forge builds under
+  `luongnv89/ai-game-generator` → `games/tetris-3d` and `games/santos-chaos-3d`.
+  three.js only. Rebuild with `--base=/games/<slug>/` before copying into
+  `public/games/<slug>/`.
+- **Upstream drift.** Codex of Duty and the ai-game-generator games are vendored builds
+  and will drift until refreshed — see "If the game is a bundler build" above.
 - **Mobile navigation.** The site header hides its nav links below 768px (`hidden md:flex`) and
   there is no mobile menu, so on a phone the footer link is the only route to `/games`. This is a
   pre-existing, site-wide gap, left as-is here rather than fixed as a side effect of the catalog.
