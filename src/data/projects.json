@@ -13,10 +13,10 @@
       "name": "claude-howto",
       "description": "Visual, example-driven guide to Claude Code — from basic concepts to advanced agents, with 50+ copy-paste templates",
       "language": "Python",
-      "stars": 40863,
+      "stars": 40878,
       "url": "https://github.com/luongnv89/claude-howto",
       "icon": "/images/projects/claude-howto.svg",
-      "forks": 4984
+      "forks": 4989
     },
     {
       "name": "cc-context-stats",
@@ -34,7 +34,7 @@
       "stars": 80,
       "url": "https://github.com/luongnv89/music-cli",
       "icon": "/images/projects/music-cli.svg",
-      "forks": 28
+      "forks": 27
     },
     {
       "name": "agent-skill-manager",
@@ -43,7 +43,7 @@
       "stars": 785,
       "url": "https://github.com/luongnv89/agent-skill-manager",
       "icon": "/images/projects/agent-skill-manager.svg",
-      "forks": 71
+      "forks": 72
     },
     {
       "name": "voice-cast",
@@ -117,7 +117,7 @@
       "name": "sleek-ui",
       "description": "Modern, minimal UI component library — accessible, themeable, and designed for developers who want beautiful defaults without the bloat",
       "language": "TypeScript",
-      "stars": 128,
+      "stars": 129,
       "url": "https://github.com/luongnv89/sleek-ui",
       "forks": 12,
       "icon": "/images/projects/sleek-ui.svg"
