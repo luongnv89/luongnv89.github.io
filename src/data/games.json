@@ -68,16 +68,16 @@
     },
     {
       "slug": "codex-of-duty",
-      "title": "Codex of Duty",
-      "blurb": "A browser FPS with a streaming open world \u2014 city chunks load in as you explore, backed by Rapier 3D physics and tactical enemy AI. Plays on a phone too, with on-screen controls.",
+      "title": "Codex of Duty: Black Relay",
+      "blurb": "Night districts of Vanta. Activate all three Black Relays, break the Black Core, and hold extraction while Null Guard soldiers close in \u2014 bipedal human enemies, smooth combat HUD, phone-ready controls.",
       "tags": [
         "FPS",
         "3D",
         "1 Player"
       ],
-      "addedAt": "2026-07-27",
+      "addedAt": "2026-08-07",
       "thumb": "/images/games/codex-of-duty.jpg",
-      "controls": "WASD + mouse \u00b7 1\u20135 weapons \u00b7 R reload \u00b7 on-screen stick on mobile"
+      "controls": "WASD + mouse \u00b7 LMB fire / RMB aim \u00b7 R reload \u00b7 E hold relay \u00b7 Space jump \u00b7 C slide \u00b7 left stick + FIRE/AIM/ACT on phone"
     },
     {
       "slug": "open-skies",

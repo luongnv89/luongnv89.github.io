@@ -11,18 +11,11 @@ code. Everything below is permissive.
 | Project | License | Where it ships | Upstream |
 | --- | --- | --- | --- |
 | three.js (r185) | MIT | bundled into `open-skies/assets/open-skies-*.js`, `codex-of-duty/assets/index-*.js` and `math-chess-3d/assets/index-*.js`; vendored under `mortal-combat/vendor/` | <https://github.com/mrdoob/three.js> |
-| Rapier (dimforge) | Apache-2.0 | `rapier_wasm3d_bg.wasm`, base64-inlined into `codex-of-duty/assets/index-*.js` | <https://github.com/dimforge/rapier> |
 | Phaser (3.90.0) | MIT | bundled into `santos-chaos/assets/index-*.js` and `orbital-linefall/assets/index-*.js` | <https://github.com/phaserjs/phaser> |
 
-The full Apache License 2.0 text is at <https://www.apache.org/licenses/LICENSE-2.0>.
-Rapier is redistributed unmodified, as compiled WebAssembly and its generated
-JavaScript loader.
-
-Google Draco and Basis Universal were previously listed here. Codex of Duty imported
-three.js's `DRACOLoader` and `KTX2Loader` without ever wiring them to a loader or
-shipping any compressed asset, so the build emitted ~1.84 MB of decoder blobs that
-were never fetched at runtime. Those imports are gone and neither project's code is
-redistributed here any more.
+Rapier (Apache-2.0) and Google Draco/Basis were previously redistributed with an
+older Codex of Duty build. The current Black Relay build is three.js-only and
+ships no wasm physics module or mesh-decoder blobs.
 
 ## Vendored three.js
 
@@ -101,8 +94,9 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 The game code itself is the repository owner's own work.
 
-- **Codex of Duty** — built from <https://github.com/luongnv89/codex-of-duty>. The
-  vendored dependencies above are its build output, not hand-added files.
+- **Codex of Duty: Black Relay** (`codex-of-duty`) — built from
+  <https://github.com/luongnv89/codex-of-duty> (`games/codex-of-duty`, v1.1.0).
+  three.js is its only third-party dependency, bundled into the JS asset.
 - **Arcade Bloodline** (`mortal-combat`) — written for this site; a single file plus
   vendored three.js.
 - **Open Skies** — written for this site with game-forge; a Vite/Three.js build with six escalating combat sorties, bundled locally for offline play.

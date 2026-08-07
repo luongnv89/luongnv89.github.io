@@ -108,38 +108,12 @@ record bundled dependencies in `LICENSES.md` because minification can remove lic
 
 Deliberate choices, recorded so they read as chosen rather than overlooked.
 
-- **Repo weight.** ~3.1 MB of `public/games/` is `codex-of-duty/assets/index-*.js`, of which
-  2,092,784 bytes is a single base64-inlined Rapier wasm module (~1.57 MB decoded — a ~33% penalty
-  over shipping it as a separate `.wasm`). Emitting it as its own asset would save ~750 KB and
-  allow independent caching and streaming compilation.
-
-  **Attempted upstream, currently blocked.** Swapping `@dimforge/rapier3d-compat` for the
-  non-compat `@dimforge/rapier3d` does produce that split — bundle 3,116 → 1,068 kB with the wasm
-  emitted separately (1,570 kB raw, 592 kB gzipped, streaming-compiled and cached on its own). But
-  the resulting build never boots. The non-compat package is wasm-bindgen ESM: `rapier_wasm3d.js`
-  imports the `.wasm`, and the `.wasm` imports back out of `rapier_wasm3d_bg.js`. Vite 8's built-in
-  wasm fallback deadlocks on that cycle — the entry module silently never executes, with no error
-  raised and the wasm fetched 200. `vite-plugin-top-level-await` is outright incompatible with
-  rolldown (`MODULE_NOT_FOUND`), and `vite-plugin-wasm` does not take effect under it. Revisit when
-  Vite/rolldown ships first-class wasm ESM support.
-
-  The Draco and Basis decoders that used to ship alongside it — ~1.84 MB across 7 files — are gone.
-  `ResourceLoader` imported three.js's `DRACOLoader` and `KTX2Loader` but never attached either to
-  the GLTF loader, and the project ships no compressed assets at all, so those decoders were emitted
-  and never fetched at runtime. Dropping the two imports removes the files from the repo and the
-  deploy; first-load transfer is essentially unchanged (bundle 3,116 → 3,109 kB).
-
-  A further 740 KB of that total is the vendored three.js (see *Provenance and licensing*). That
-  cost was accepted deliberately: it buys removing a third-party CDN from the site's own origin,
-  which is a security boundary, whereas the ~750 KB above is pure packaging waste that buys
-  nothing. The two are not in tension — weight is worth spending on trust, not on inlining.
-- **Dual GA4 properties.** `public/games/codex-of-duty/index.html` carries its own upstream GA4
-  property (`G-5HKPB8C162`) alongside the site's (`G-FZV5YX8YPT`), so visitors to that one page are
-  measured by two properties. Intentional — the `inject-games-analytics` plugin reuses the existing
-  loader rather than fetching `gtag.js` twice. Worth remembering for any privacy or consent
-  statement.
-- **Upstream drift.** Codex of Duty is a copy of <https://github.com/luongnv89/codex-of-duty> and
-  will drift until it is refreshed. Refreshing means rebuilding it against the right base path —
+- **Codex of Duty: Black Relay.** Hosted from the game-forge build at
+  `luongnv89/codex-of-duty` → `games/codex-of-duty` (v1.1.0). three.js only (~650 KB JS);
+  no Rapier wasm. Rebuild with `npx vite build --base=/games/codex-of-duty/` before copying
+  into `public/games/codex-of-duty/`.
+- **Upstream drift.** Codex of Duty is a vendored build of
+  <https://github.com/luongnv89/codex-of-duty> and will drift until it is refreshed —
   see "If the game is a bundler build" above.
 - **Mobile navigation.** The site header hides its nav links below 768px (`hidden md:flex`) and
   there is no mobile menu, so on a phone the footer link is the only route to `/games`. This is a
