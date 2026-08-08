@@ -1,0 +1,55 @@
+# Luong Nguyen
+
+> AI & Cybersecurity Engineer based in Paris, France. 10+ years building secure backend systems and AI/LLM-powered tools. Creator of claude-howto (17k+ GitHub stars), agent-skill-manager, and sleek-ui.
+
+## About
+
+Luong Nguyen (luongnv89) is a Senior Engineer at Montimage specializing in AI agent workflows, LLM applications, and network security (deep packet inspection). Active open-source contributor and technical writer focused on Claude Code and AI tooling.
+
+## OSS Projects
+
+- [claude-howto](https://github.com/luongnv89/claude-howto): Visual, example-driven guide to Claude Code — 17k+ stars
+- [agent-skill-manager](https://luongnv.com/asm): Universal skill manager for AI coding agents (Claude Code, Codex, etc.)
+- [sleek-ui](https://luongnv.com/sleek-ui): Modern, minimal UI component library
+- [cc-context-stats](https://github.com/luongnv89/cc-context-stats): Real-time Claude Code context usage monitoring
+- [music-cli](https://music-cli.luongnv.com): Command-line music player for coders
+- [vscode-markdown-preview](https://luongnv.com/vscode-markdown-preview): Clean markdown preview for VS Code
+- [skills](https://github.com/luongnv89/skills): Reusable skill library for AI agents
+
+## Games
+
+Browser games, no install — click and play. Free to share.
+
+- [Cờ Toán: Bàn Cờ Sống](https://luongnv.com/games/co-toan-3d/): 3D Vietnamese Math Chess — move numbered stones, form arithmetic pairs, and capture the opposing 0
+- [Night Spin](https://luongnv.com/games/night-spin/): Party roulette — numbers, Truth or Dare, xúc xắc, custom actions; physics spin and spin history
+- [Orbital Linefall](https://luongnv.com/games/orbital-linefall/): Space-themed falling-block puzzle — clear 20 glowing layers in an angled orbital well
+- [Switch Heist](https://luongnv.com/games/santos-chaos/): Top-down heist — switch between three crooks to crack the vault and outrun the heat
+- [Arcade Bloodline](https://luongnv.com/games/mortal-combat/): 3D side-on arcade fighter — best-of-three rounds and a finishing strike
+- [Codex of Duty](https://luongnv.com/games/codex-of-duty/): Three.js + Rapier FPS with a streaming open world and tactical enemy AI
+- [Open Skies](https://luongnv.com/games/open-skies/): Cockpit combat flight sim — guns, fighters, graded landings; phone stick controls, offline
+- [Neon Snake](https://luongnv.com/games/neon-snake/): Classic snake with a glowing trail and a speed ramp
+- [Free Fire — Royale](https://luongnv.com/games/free-fire-royale/): Top-down battle-royale shooter — drop in, loot crates, fight AI survivors, survive the shrinking zone
+- [Geometry Dash — Neon](https://luongnv.com/games/geometry-dash-neon/): One-button gravity-flip dash — ride floor and ceiling to dodge neon spikes across three stages
+- [Flappy Bird — Dash](https://luongnv.com/games/flappy-bird/): One-tap flap arcade — thread the scrolling green pipes and survive as long as you can
+- [Geometry Dash — Flux](https://luongnv.com/games/geometry-dash-flux/): Single-button rhythm platformer
+- [Minecraft Style](https://luongnv.com/games/minecraft-style/): Voxel block-miner survival — mine across three escalating biomes, build a shelter, and survive the night against mobs
+
+## Writing
+
+Latest articles on AI, Claude Code, and software engineering:
+
+- [How I Debugged Claude Code's 9% Cache Spike in One Prompt](https://x.com/luongnv89/status/2039682376708637046) — Apr 2026
+- [How to Use gstack to Build a MVP Step by Step](https://medium.com/@luongnv89/how-to-use-gstack-to-build-a-mvp-step-by-step-ceedb6d53f8c) — Mar 2026
+- [gstack Is Not a Dev Tool. It's Garry Tan's Brain on AI](https://medium.com/@luongnv89/gstack-is-not-a-dev-tool-its-garry-tan-s-brain-on-ai-b813e09b32c7) — Mar 2026
+
+Full archive: https://medium.com/@luongnv89 | https://luongnv89.substack.com
+
+## Contact & Social
+
+- Website: https://luongnv.com
+- GitHub: https://github.com/luongnv89
+- LinkedIn: https://linkedin.com/in/luongnv89
+- X / Twitter: https://twitter.com/luongnv89
+- Bluesky: https://bsky.app/profile/luongnv89.bsky.social
+- Medium: https://medium.com/@luongnv89
+- Substack: https://luongnv89.substack.com

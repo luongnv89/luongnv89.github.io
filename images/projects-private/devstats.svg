@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <rect width="512" height="512" rx="112" fill="#0A0A0A"/>
+
+  <!-- GitHub contribution grid -->
+  <g transform="translate(100, 120)">
+    <!-- Row 1 -->
+    <rect x="0" y="0" width="20" height="20" rx="4" fill="#22C55E" opacity="0.2"/>
+    <rect x="28" y="0" width="20" height="20" rx="4" fill="#22C55E" opacity="0.6"/>
+    <rect x="56" y="0" width="20" height="20" rx="4" fill="#22C55E" opacity="0.9"/>
+    <rect x="84" y="0" width="20" height="20" rx="4" fill="#22C55E" opacity="0.4"/>
+    <rect x="112" y="0" width="20" height="20" rx="4" fill="#22C55E" opacity="0.1"/>
+    <rect x="140" y="0" width="20" height="20" rx="4" fill="#22C55E" opacity="0.7"/>
+    <rect x="168" y="0" width="20" height="20" rx="4" fill="#22C55E" opacity="0.3"/>
+    <rect x="196" y="0" width="20" height="20" rx="4" fill="#22C55E" opacity="0.8"/>
+    <rect x="224" y="0" width="20" height="20" rx="4" fill="#22C55E" opacity="0.5"/>
+    <rect x="252" y="0" width="20" height="20" rx="4" fill="#22C55E" opacity="0.2"/>
+    <rect x="280" y="0" width="20" height="20" rx="4" fill="#22C55E" opacity="0.6"/>
+    <!-- Row 2 -->
+    <rect x="0" y="28" width="20" height="20" rx="4" fill="#22C55E" opacity="0.8"/>
+    <rect x="28" y="28" width="20" height="20" rx="4" fill="#22C55E" opacity="0.3"/>
+    <rect x="56" y="28" width="20" height="20" rx="4" fill="#22C55E" opacity="0.1"/>
+    <rect x="84" y="28" width="20" height="20" rx="4" fill="#22C55E" opacity="0.7"/>
+    <rect x="112" y="28" width="20" height="20" rx="4" fill="#22C55E" opacity="0.9"/>
+    <rect x="140" y="28" width="20" height="20" rx="4" fill="#22C55E" opacity="0.4"/>
+    <rect x="168" y="28" width="20" height="20" rx="4" fill="#22C55E" opacity="0.6"/>
+    <rect x="196" y="28" width="20" height="20" rx="4" fill="#22C55E" opacity="0.2"/>
+    <rect x="224" y="28" width="20" height="20" rx="4" fill="#22C55E" opacity="0.9"/>
+    <rect x="252" y="28" width="20" height="20" rx="4" fill="#22C55E" opacity="0.5"/>
+    <rect x="280" y="28" width="20" height="20" rx="4" fill="#22C55E" opacity="0.8"/>
+    <!-- Row 3 -->
+    <rect x="0" y="56" width="20" height="20" rx="4" fill="#22C55E" opacity="0.5"/>
+    <rect x="28" y="56" width="20" height="20" rx="4" fill="#22C55E" opacity="0.9"/>
+    <rect x="56" y="56" width="20" height="20" rx="4" fill="#22C55E" opacity="0.7"/>
+    <rect x="84" y="56" width="20" height="20" rx="4" fill="#22C55E" opacity="0.2"/>
+    <rect x="112" y="56" width="20" height="20" rx="4" fill="#22C55E" opacity="0.5"/>
+    <rect x="140" y="56" width="20" height="20" rx="4" fill="#22C55E" opacity="0.8"/>
+    <rect x="168" y="56" width="20" height="20" rx="4" fill="#22C55E" opacity="0.1"/>
+    <rect x="196" y="56" width="20" height="20" rx="4" fill="#22C55E" opacity="0.6"/>
+    <rect x="224" y="56" width="20" height="20" rx="4" fill="#22C55E" opacity="0.3"/>
+    <rect x="252" y="56" width="20" height="20" rx="4" fill="#22C55E" opacity="0.7"/>
+    <rect x="280" y="56" width="20" height="20" rx="4" fill="#22C55E" opacity="0.4"/>
+    <!-- Row 4 -->
+    <rect x="0" y="84" width="20" height="20" rx="4" fill="#22C55E" opacity="0.3"/>
+    <rect x="28" y="84" width="20" height="20" rx="4" fill="#22C55E" opacity="0.7"/>
+    <rect x="56" y="84" width="20" height="20" rx="4" fill="#22C55E" opacity="0.4"/>
+    <rect x="84" y="84" width="20" height="20" rx="4" fill="#22C55E" opacity="0.9"/>
+    <rect x="112" y="84" width="20" height="20" rx="4" fill="#22C55E" opacity="0.3"/>
+    <rect x="140" y="84" width="20" height="20" rx="4" fill="#22C55E" opacity="0.6"/>
+    <rect x="168" y="84" width="20" height="20" rx="4" fill="#22C55E" opacity="0.9"/>
+    <rect x="196" y="84" width="20" height="20" rx="4" fill="#22C55E" opacity="0.4"/>
+    <rect x="224" y="84" width="20" height="20" rx="4" fill="#22C55E" opacity="0.7"/>
+    <rect x="252" y="84" width="20" height="20" rx="4" fill="#22C55E" opacity="0.1"/>
+    <rect x="280" y="84" width="20" height="20" rx="4" fill="#22C55E" opacity="0.5"/>
+  </g>
+
+  <!-- Stats line chart below -->
+  <polyline points="100,320 160,300 220,340 280,290 340,310 400,270" stroke="#22C55E" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Stat dots -->
+  <circle cx="100" cy="320" r="6" fill="#22C55E"/>
+  <circle cx="160" cy="300" r="6" fill="#22C55E"/>
+  <circle cx="220" cy="340" r="6" fill="#22C55E"/>
+  <circle cx="280" cy="290" r="6" fill="#22C55E"/>
+  <circle cx="340" cy="310" r="6" fill="#22C55E"/>
+  <circle cx="400" cy="270" r="6" fill="#22C55E"/>
+
+  <!-- Label -->
+  <rect x="160" y="400" width="192" height="36" rx="8" fill="#111111" stroke="#22C55E" stroke-width="2"/>
+  <text x="256" y="424" text-anchor="middle" fill="#22C55E" font-family="monospace" font-size="16" font-weight="bold">DEVSTATS</text>
+</svg>
