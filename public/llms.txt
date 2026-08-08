@@ -20,6 +20,11 @@ Luong Nguyen (luongnv89) is a Senior Engineer at Montimage specializing in AI ag
 
 Browser games, no install — click and play. Free to share.
 
+- [Geometry Dash — Flux](https://luongnv.com/games/geometry-dash-flux/): One-button rhythm platformer — five tracks, mode portals (cube/ship/ball/UFO/wave), beat-synced spikes
+- [Geometry Dash — Neon](https://luongnv.com/games/geometry-dash-neon/): Neon gravity-flip dash — one tap switches floor/ceiling through spike walls
+- [Free Fire — Royale](https://luongnv.com/games/free-fire-royale/): Top-down battle royale — loot, fight AI survivors, survive the closing zone
+- [Flappy Bird — Dash](https://luongnv.com/games/flappy-bird/): One-tap flap through scrolling pipes — three escalating stages
+- [Minecraft Style](https://luongnv.com/games/minecraft-style/): Voxel mining survival — mine, build a shelter, survive three nights
 - [Elemental Tetris 3D](https://luongnv.com/games/tetris-3d/): Three.js Tetris with ice/fire/snow/cold cubes, melt/quench physics and weather particles — clear 24 layers
 - [Santos Chaos 3D](https://luongnv.com/games/santos-chaos-3d/): Neon night car heist in Three.js — three crew cars, vault, getaway chase, rising stars
 - [Math Chess 3D](https://luongnv.com/games/math-chess-3d/): Vietnamese math chess on a 3D teak table — a stone walks its own number, two side by side fire their arithmetic down a ray to capture

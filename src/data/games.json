@@ -1,6 +1,71 @@
 {
   "games": [
     {
+      "slug": "geometry-dash-flux",
+      "title": "Geometry Dash — Flux",
+      "blurb": "One-button rhythm platformer: five escalating tracks, mode-shifting portals (cube, ship, ball, UFO, wave), and spike-jump timing locked to the beat.",
+      "tags": [
+        "Arcade",
+        "Rhythm",
+        "1 Player"
+      ],
+      "addedAt": "2026-08-08",
+      "thumb": "/images/games/geometry-dash-flux.jpg",
+      "controls": "Space / tap jump or hold to fly · portals change form · P pause · H guide · M mute · R restart · phone: tap anywhere"
+    },
+    {
+      "slug": "geometry-dash-neon",
+      "title": "Geometry Dash — Neon",
+      "blurb": "Neon arrow cube auto-runs a dark track — one tap flips gravity between floor and ceiling. Thread spike walls and gaps across three escalating stages.",
+      "tags": [
+        "Arcade",
+        "Rhythm",
+        "1 Player"
+      ],
+      "addedAt": "2026-08-08",
+      "thumb": "/images/games/geometry-dash-neon.jpg",
+      "controls": "Space / click / tap flip gravity · P pause · H guide · M mute · R restart · phone: tap anywhere"
+    },
+    {
+      "slug": "free-fire-royale",
+      "title": "Free Fire — Royale",
+      "blurb": "Top-down battle-royale homage: drop into a tiny island, loot crates for better guns, fight AI survivors, and outlast the shrinking safe zone.",
+      "tags": [
+        "Action",
+        "Shooter",
+        "1 Player"
+      ],
+      "addedAt": "2026-08-08",
+      "thumb": "/images/games/free-fire-royale.jpg",
+      "controls": "WASD / arrows move · mouse aim · LMB / Space shoot · Shift sprint · phone stick + fire · P pause"
+    },
+    {
+      "slug": "flappy-bird",
+      "title": "Flappy Bird — Dash",
+      "blurb": "One-tap flap through scrolling green pipes. Gravity never lets up — thread the gaps across three escalating stages of speed and tighter windows.",
+      "tags": [
+        "Arcade",
+        "Casual",
+        "1 Player"
+      ],
+      "addedAt": "2026-08-08",
+      "thumb": "/images/games/flappy-bird.jpg",
+      "controls": "Space / click / tap to flap · P pause · H guide · M mute · R restart · phone: tap anywhere · portrait"
+    },
+    {
+      "slug": "minecraft-style",
+      "title": "Minecraft Style",
+      "blurb": "Voxel mining survival across Surface, Underground and Nether-border biomes — mine blocks, build a three-level shelter, and survive the night.",
+      "tags": [
+        "Sandbox",
+        "Survival",
+        "1 Player"
+      ],
+      "addedAt": "2026-08-08",
+      "thumb": "/images/games/minecraft-style.jpg",
+      "controls": "← → / A D move · W / Space jump & place · S mine · mouse aim · Shift sprint · phone stick + place/mine · landscape"
+    },
+    {
       "slug": "tetris-3d",
       "title": "Elemental Tetris 3D",
       "blurb": "Three.js Tetris in a lit 3D well: ice, fire, snow and cold cubes with melt/quench physics, weather particles, bloom and smooth 3D motion. Clear 24 elemental layers across Frost, Ember and Storm.",
@@ -10,6 +75,7 @@
         "1 Player"
       ],
       "addedAt": "2026-08-07",
+      "thumb": "/images/games/tetris-3d.jpg",
       "controls": "← → / A D slide · ↑ / W rotate · Q/Z counter-rotate · ↓ / S soft drop · Space hard drop · phone ◀/▶/↻/▼ + ⬇⬇ hard drop · P pause · portrait"
     },
     {
@@ -23,6 +89,7 @@
         "1 Player"
       ],
       "addedAt": "2026-08-07",
+      "thumb": "/images/games/santos-chaos-3d.jpg",
       "controls": "WASD / arrows drive · Space / J shoot · F vault crack / grab loot · 1–3 switch car · phone stick + ⚡/🔒/1·2·3 · landscape"
     },
     {

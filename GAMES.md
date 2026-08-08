@@ -116,6 +116,11 @@ Deliberate choices, recorded so they read as chosen rather than overlooked.
   `luongnv89/ai-game-generator` → `games/tetris-3d` and `games/santos-chaos-3d`.
   three.js only. Rebuild with `--base=/games/<slug>/` before copying into
   `public/games/<slug>/`.
+- **ai-game-generator catalog.** Source of truth for most games lives in
+  `luongnv89/ai-game-generator` → `games/<slug>/`. On this site: rebuild each
+  with `npx vite build --base=/games/<slug>/` and copy `dist/` into
+  `public/games/<slug>/`. Special case: source folder `tetris` ships here as
+  `orbital-linefall` (`--base=/games/orbital-linefall/`).
 - **Upstream drift.** Codex of Duty and the ai-game-generator games are vendored builds
   and will drift until refreshed — see "If the game is a bundler build" above.
 - **Mobile navigation.** The site header hides its nav links below 768px (`hidden md:flex`) and
