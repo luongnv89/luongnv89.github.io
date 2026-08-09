@@ -4,8 +4,8 @@
       "name": "claude-howto",
       "description": "A visual, example-driven guide to Claude Code — from basic concepts to advanced agents, with copy-paste templates that bring immediate value",
       "language": "Python",
-      "stars": 40905,
-      "forks": 4994,
+      "stars": 40929,
+      "forks": 5002,
       "url": "https://github.com/luongnv89/claude-howto",
       "landingPage": "https://luongnv.com/claude-howto",
       "logo": "/images/projects/claude-howto.svg"
@@ -14,11 +14,11 @@
       "name": "agent-skill-manager",
       "description": "The universal skill manager for AI coding agents — install, audit, and manage reusable skills across Claude Code, Codex, and more",
       "language": "TypeScript",
-      "stars": 785,
+      "stars": 786,
       "url": "https://github.com/luongnv89/agent-skill-manager",
       "landingPage": "https://luongnv.com/asm",
       "logo": "/images/projects/agent-skill-manager.svg",
-      "forks": 72
+      "forks": 71
     },
     {
       "name": "skills",
@@ -27,7 +27,7 @@
       "stars": 103,
       "url": "https://github.com/luongnv89/skills",
       "logo": "/images/projects/skills.svg",
-      "forks": 16
+      "forks": 15
     },
     {
       "name": "cc-context-stats",
@@ -63,7 +63,7 @@
       "name": "sleek-ui",
       "description": "Modern, minimal UI component library — accessible, themeable, and designed for developers who want beautiful defaults without the bloat",
       "language": "TypeScript",
-      "stars": 129,
+      "stars": 130,
       "url": "https://github.com/luongnv89/sleek-ui",
       "landingPage": "https://luongnv.com/sleek-ui",
       "logo": "/images/projects/sleek-ui.svg",
@@ -73,7 +73,7 @@
       "name": "idd",
       "description": "Turn GitHub Issues into structured, agent-ready work orders",
       "language": "Shell",
-      "stars": 2,
+      "stars": 3,
       "url": "https://github.com/luongnv89/idd",
       "landingPage": "https://luongnv.com/idd",
       "logo": "/images/projects/idd.svg",
