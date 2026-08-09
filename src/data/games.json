@@ -134,6 +134,14 @@
       "controls": "← → / A D strafe · W / Space jump & place block · S mine · Mouse aim · Shift sprint · P pause · H guide · M mute · R restart · phone stick + ⚡/🎮/🔨 buttons (landscape)"
     },
     {
+      "slug": "plants-vs-zombies",
+      "title": "Plants vs Zombies",
+      "blurb": "A 5-lane lawn defense: bank sun, plant sunflowers, peashooters, wall-nuts and cherry bombs, and survive three escalating waves of zombies before they reach the house.",
+      "tags": ["Tower Defense", "Strategy", "Arcade", "1 Player"],
+      "addedAt": "2026-08-09",
+      "controls": "Click/tap a seed then a cell to plant · click/tap falling sun to collect · P pause · H guide · T story · K scores · M mute · R restart · phone tap seed + cell (landscape)"
+    },
+    {
       "slug": "geometry-dash-flux",
       "title": "Geometry Dash — Flux",
       "blurb": "A single-button rhythm platformer: hop through five music-synced tracks, shifting between Cube, Ship, Ball, UFO, and Wave forms — time every jump or crash and restart the track.",
