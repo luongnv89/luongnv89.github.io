@@ -12,6 +12,7 @@ code. Everything below is permissive.
 | --- | --- | --- | --- |
 | three.js (r185 / r160) | MIT | bundled into `open-skies/assets/open-skies-*.js`, `codex-of-duty/assets/index-*.js`, `math-chess-3d/assets/index-*.js`, `tetris-3d/assets/index-*.js`, `santos-chaos-3d/assets/index-*.js` and `free-fire-royale/assets/index-*.js`; vendored under `mortal-combat/vendor/` | <https://github.com/mrdoob/three.js> |
 | Phaser (3.90.0) | MIT | bundled into `santos-chaos/assets/index-*.js`, `orbital-linefall/assets/index-*.js`, `night-spin/assets/index-*.js`, `flappy-bird/assets/index-*.js`, `geometry-dash-flux/assets/index-*.js`, `geometry-dash-neon/assets/index-*.js` and `minecraft-style/assets/index-*.js` | <https://github.com/phaserjs/phaser> |
+| MediaPipe Tasks Vision + Hand Landmarker (0.10.14) | Apache-2.0 | fetched at runtime from jsDelivr CDN by `magic-webcam/` — JS, WASM and the `hand_landmarker.task` model | <https://github.com/google-ai-edge/mediapipe> |
 
 Rapier (Apache-2.0) and Google Draco/Basis were previously redistributed with an
 older Codex of Duty build. The current Black Relay build is three.js-only and
@@ -129,3 +130,7 @@ The game code itself is the repository owner's own work.
   neon gravity-flip dash. Phaser only.
 - **Minecraft Style** (`minecraft-style`) — written with game-forge; voxel
   mining survival across three biomes. Phaser only.
+- **Magic Webcam** (`magic-webcam`) — written for this site; a live webcam
+  effects app (finger-frame gesture). No bundler; MediaPipe Hand Landmarker
+  (Apache-2.0) is its only third-party dependency, fetched from CDN at runtime.
+  Works without a camera via `?demo`.

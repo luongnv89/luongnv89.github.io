@@ -20,6 +20,7 @@ Luong Nguyen (luongnv89) is a Senior Engineer at Montimage specializing in AI ag
 
 Browser games, no install — click and play. Free to share.
 
+- [Magic Webcam — Finger Frame](https://luongnv.com/games/magic-webcam/): Frame the world with your hands — both hands up, thumbs and index fingers spread, and a live effect (pixelate, blur, invert, noir, glitch, toon, Van Gogh) renders inside the quad you trace, in real time
 - [Geometry Dash — Flux](https://luongnv.com/games/geometry-dash-flux/): One-button rhythm platformer — five tracks, mode portals (cube/ship/ball/UFO/wave), beat-synced spikes
 - [Geometry Dash — Neon](https://luongnv.com/games/geometry-dash-neon/): Neon gravity-flip dash — one tap switches floor/ceiling through spike walls
 - [Free Fire — Royale](https://luongnv.com/games/free-fire-royale/): Top-down battle royale — loot, fight AI survivors, survive the closing zone

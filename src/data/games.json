@@ -1,6 +1,19 @@
 {
   "games": [
     {
+      "slug": "magic-webcam",
+      "title": "Magic Webcam — Finger Frame",
+      "blurb": "Frame the world with your fingers: hold up both hands, pinch an L with thumbs and index fingers, and a live effect (pixelate, blur, invert, noir, glitch, toon, Van Gogh) renders inside the quad you trace — in real time.",
+      "tags": [
+        "Camera",
+        "Creative",
+        "1 Player"
+      ],
+      "addedAt": "2026-08-11",
+      "thumb": "/images/games/magic-webcam.jpg",
+      "controls": "Hold both hands up, thumbs and index fingers spread to frame · keys 1–7 or toolbar switch effect · needs a camera · ?demo mode runs headless"
+    },
+    {
       "slug": "geometry-dash-flux",
       "title": "Geometry Dash — Flux",
       "blurb": "One-button rhythm platformer: five escalating tracks, mode-shifting portals (cube, ship, ball, UFO, wave), and spike-jump timing locked to the beat.",
