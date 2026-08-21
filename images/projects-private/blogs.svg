@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="96" fill="#0A0A0A" />
+  <g transform="translate(136, 56)">
+    <!-- Pen nib -->
+    <path d="M90 30 L150 30 L165 75 L120 370 L75 75 Z" fill="#FFFFFF" />
+    <!-- Pen tip -->
+    <path d="M105 270 L120 370 L135 270" fill="#22C55E" />
+    <!-- Code brackets -->
+    <path d="M40 110 L10 180 L40 250" stroke="#22C55E" stroke-width="16" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M200 110 L230 180 L200 250" stroke="#22C55E" stroke-width="16" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+</svg>

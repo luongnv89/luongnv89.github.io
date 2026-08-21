@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <rect width="512" height="512" rx="112" fill="#0A0A0A"/>
+
+  <!-- Sound wave / vibe lines -->
+  <path d="M100 256 Q140 180 180 256 Q220 332 260 256 Q300 180 340 256 Q380 332 420 256" stroke="#22C55E" stroke-width="8" fill="none" stroke-linecap="round"/>
+  <path d="M100 256 Q140 210 180 256 Q220 302 260 256 Q300 210 340 256 Q380 302 420 256" stroke="#22C55E" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.5"/>
+
+  <!-- Code brackets -->
+  <text x="120" y="180" fill="#374151" font-family="monospace" font-size="60" font-weight="bold">{</text>
+  <text x="360" y="180" fill="#374151" font-family="monospace" font-size="60" font-weight="bold">}</text>
+
+  <!-- Sparkles -->
+  <circle cx="160" cy="140" r="6" fill="#22C55E"/>
+  <circle cx="350" cy="150" r="4" fill="#22C55E" opacity="0.6"/>
+  <circle cx="256" cy="120" r="5" fill="#22C55E" opacity="0.8"/>
+  <circle cx="200" cy="380" r="4" fill="#22C55E" opacity="0.5"/>
+  <circle cx="320" cy="370" r="5" fill="#22C55E" opacity="0.7"/>
+
+  <!-- Music note -->
+  <circle cx="256" cy="400" r="16" fill="none" stroke="#22C55E" stroke-width="4"/>
+  <line x1="272" y1="400" x2="272" y2="360" stroke="#22C55E" stroke-width="4"/>
+  <path d="M272 360 Q290 350 280 370" stroke="#22C55E" stroke-width="3" fill="none"/>
+</svg>

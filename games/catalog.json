@@ -1,0 +1,18 @@
+[
+  {
+    "id": "1785402639593-8attk6",
+    "slug": "neon-snake",
+    "title": "Neon Snake — Maze Runner",
+    "description": "Clear 8 neon mazes before three lives run out — cores, Hunters, and power-ups on a classic Snake chassis.",
+    "path": "neon-snake/dist/index.html",
+    "createdAt": "2026-07-30T09:10:39Z"
+  },
+  {
+    "id": "1786292430193-gaaxdj",
+    "slug": "plants-vs-zombies",
+    "title": "Plants vs Zombies",
+    "description": "A 5-lane lawn defense: bank sun, plant sunflowers, peashooters, wall-nuts and cherry bombs, and survive three escalating waves of zombies before they reach the house.",
+    "path": "plants-vs-zombies/index.html",
+    "createdAt": "2026-08-09T16:20:30Z"
+  }
+]
