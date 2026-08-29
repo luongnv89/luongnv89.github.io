@@ -4,8 +4,8 @@
       "name": "claude-howto",
       "description": "A visual, example-driven guide to Claude Code — from basic concepts to advanced agents, with copy-paste templates that bring immediate value",
       "language": "Python",
-      "stars": 41146,
-      "forks": 5028,
+      "stars": 41250,
+      "forks": 5047,
       "url": "https://github.com/luongnv89/claude-howto",
       "landingPage": "https://luongnv.com/claude-howto",
       "logo": "/images/projects/claude-howto.svg"
@@ -14,20 +14,20 @@
       "name": "agent-skill-manager",
       "description": "The universal skill manager for AI coding agents — install, audit, and manage reusable skills across Claude Code, Codex, and more",
       "language": "TypeScript",
-      "stars": 890,
+      "stars": 901,
       "url": "https://github.com/luongnv89/agent-skill-manager",
       "landingPage": "https://luongnv.com/asm",
       "logo": "/images/projects/agent-skill-manager.svg",
-      "forks": 82
+      "forks": 84
     },
     {
       "name": "skills",
       "description": "Supercharge your AI agents/bots with reusable skills",
       "language": "Python",
-      "stars": 117,
+      "stars": 120,
       "url": "https://github.com/luongnv89/skills",
       "logo": "/images/projects/skills.svg",
-      "forks": 16
+      "forks": 17
     },
     {
       "name": "cc-context-stats",
@@ -43,11 +43,11 @@
       "name": "music-cli",
       "description": "A command-line music player for coders — background daemon with radio streaming, local MP3s, and AI-generated music",
       "language": "Python",
-      "stars": 81,
+      "stars": 84,
       "url": "https://github.com/luongnv89/music-cli",
       "landingPage": "https://music-cli.luongnv.com",
       "logo": "/images/projects/music-cli.svg",
-      "forks": 27
+      "forks": 28
     },
     {
       "name": "ccl",
@@ -63,7 +63,7 @@
       "name": "sleek-ui",
       "description": "Modern, minimal UI component library — accessible, themeable, and designed for developers who want beautiful defaults without the bloat",
       "language": "TypeScript",
-      "stars": 131,
+      "stars": 132,
       "url": "https://github.com/luongnv89/sleek-ui",
       "landingPage": "https://luongnv.com/sleek-ui",
       "logo": "/images/projects/sleek-ui.svg",
@@ -73,7 +73,7 @@
       "name": "idd",
       "description": "Turn GitHub Issues into structured, agent-ready work orders",
       "language": "Shell",
-      "stars": 4,
+      "stars": 6,
       "url": "https://github.com/luongnv89/idd",
       "landingPage": "https://luongnv.com/idd",
       "logo": "/images/projects/idd.svg",
@@ -102,7 +102,7 @@
       "name": "repo-insights",
       "description": "Generate comprehensive GitHub repo insights — real users vs bots, traffic, referrers, package stats",
       "language": "Shell",
-      "stars": 4,
+      "stars": 5,
       "url": "https://github.com/luongnv89/repo-insights",
       "logo": "/images/projects/repo-insights.svg",
       "forks": 0
