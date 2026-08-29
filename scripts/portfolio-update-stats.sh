@@ -85,8 +85,21 @@ git fetch origin
 git reset --hard "origin/${BRANCH}"
 git clean -fd -e logs -e node_modules
 
-# Run the worker (Node stdlib only — no npm install required)
-node scripts/update-stats.js
+# Run the worker (Node stdlib only — no npm install required).
+# Retry on transient GitHub API / network failures so a single flaky call
+# (rate-limit, timeout, intermittent auth) doesn't fail the whole cron run.
+run_worker() {
+  local attempt
+  for attempt in 1 2 3; do
+    if node scripts/update-stats.js; then
+      return 0
+    fi
+    echo "[RETRY] update-stats.js failed (attempt $attempt/3); backing off 30s" >&2
+    sleep 30
+  done
+  return 1
+}
+run_worker
 
 # Commit + push only if the data files actually changed
 if ! git diff --quiet -- "${DATA_FILES[@]}"; then
