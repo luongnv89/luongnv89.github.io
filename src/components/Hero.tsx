@@ -77,10 +77,10 @@ export function Hero() {
         including a {claudeHowtoStarsK}k-star Claude Code guide. Learn, Build, Share and Connect.
       </p>
 
-      {/* GitHub Stats — open-source impact */}
+      {/* GitHub Stats */}
       <div className="flex flex-col items-center gap-2 mt-6">
         <span className="text-xs uppercase tracking-[0.2em] text-[var(--text-muted)] font-mono">
-          Open-source impact
+          GitHub Stats
         </span>
         {isLoading ? (
           <div className="flex items-center gap-2">
