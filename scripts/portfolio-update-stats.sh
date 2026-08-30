@@ -21,6 +21,17 @@
 
 set -euo pipefail
 
+# ── Diagnostics (surfaces cron-env failures; harmless in normal runs) ──────────
+DIAG="/tmp/portfolio-cron-diag.log"
+{
+  echo "[diag $(date -u +%Y-%m-%dT%H:%M:%SZ)] whoami=$(whoami) HOME=$HOME SSH_AUTH_SOCK=${SSH_AUTH_SOCK:-<unset>}"
+  echo "[diag] PATH=$PATH"
+  id 2>/dev/null
+} > "$DIAG" 2>&1 || true
+
+# Surface the failing command on any error (first line delivered to Telegram).
+trap 'echo "[FAIL] command failed: $BASH_COMMAND (line $LINENO)"; echo "[FAIL] whoami=$(whoami) HOME=$HOME SSH_AUTH_SOCK=${SSH_AUTH_SOCK:-<unset>}" >&2' ERR
+
 # Retry a command up to N times on transient failure (network/API blips) so a
 # single flaky call during the scheduled run doesn't fail the whole cron job.
 retry() {
@@ -53,13 +64,15 @@ ENV_FILE="${DEVSTATS_ENV_FILE:-$HOME/.config/devstats/api.env}"
 # ── Toolchain PATH (mise-managed node + gh) ────────────────────────────────────
 export PATH="$HOME/.local/share/mise/shims:$HOME/.local/share/mise/installs/node/26.7.0/bin:$HOME/.local/bin:/usr/local/bin:/usr/bin:/bin:${PATH:-}"
 
-# ── SSH auth for push (use the portfolio deploy key if present) ────────────────
-if [[ -z "${GIT_SSH_COMMAND:-}" ]]; then
-  if [[ -f "$HOME/.ssh/blogs_deploy" ]]; then
-    export GIT_SSH_COMMAND="ssh -i $HOME/.ssh/blogs_deploy -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new"
-  else
-    export GIT_SSH_COMMAND="ssh -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new"
-  fi
+# ── SSH auth for push ──────────────────────────────────────────────────────────
+# Prefer the blogs_deploy key ONLY when an ssh-agent is available to supply its
+# passphrase. The cron scheduler runs detached without SSH_AUTH_SOCK, where an
+# encrypted key is unusable and the push would fail. In that case fall back to
+# the default (passwordless) SSH key, which works without an agent.
+if [[ -n "${SSH_AUTH_SOCK:-}" && -f "$HOME/.ssh/blogs_deploy" ]]; then
+  export GIT_SSH_COMMAND="ssh -i $HOME/.ssh/blogs_deploy -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new"
+else
+  export GIT_SSH_COMMAND="ssh -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new"
 fi
 
 # ── Single-instance lock ────────────────────────────────────────────────────────
