@@ -21,16 +21,18 @@
 
 set -euo pipefail
 
-# ── Diagnostics (surfaces cron-env failures; harmless in normal runs) ──────────
-DIAG="/tmp/portfolio-cron-diag.log"
+# ── Diagnostics (surfaces cron-env failures; written to a REAL, readable path) ──
+DIAG="/home/omachi/workspace/luongnv89.github.io/logs/cron-diag.log"
+mkdir -p "$(dirname "$DIAG")"
 {
   echo "[diag $(date -u +%Y-%m-%dT%H:%M:%SZ)] whoami=$(whoami) HOME=$HOME SSH_AUTH_SOCK=${SSH_AUTH_SOCK:-<unset>}"
   echo "[diag] PATH=$PATH"
+  echo "[diag] GIT_SSH_COMMAND=${GIT_SSH_COMMAND:-<unset>}"
   id 2>/dev/null
 } > "$DIAG" 2>&1 || true
 
-# Surface the failing command on any error (first line delivered to Telegram).
-trap 'echo "[FAIL] command failed: $BASH_COMMAND (line $LINENO)"; echo "[FAIL] whoami=$(whoami) HOME=$HOME SSH_AUTH_SOCK=${SSH_AUTH_SOCK:-<unset>}" >&2' ERR
+# Surface the failing command on any error (also appended to the diag log).
+trap 'echo "[FAIL] command failed: $BASH_COMMAND (line $LINENO)"; echo "[FAIL] whoami=$(whoami) HOME=$HOME SSH_AUTH_SOCK=${SSH_AUTH_SOCK:-<unset>} GIT_SSH_COMMAND=${GIT_SSH_COMMAND:-<unset>}" >> "$DIAG" 2>&1' ERR
 
 # Retry a command up to N times on transient failure (network/API blips) so a
 # single flaky call during the scheduled run doesn't fail the whole cron job.
