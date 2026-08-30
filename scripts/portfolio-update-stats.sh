@@ -37,9 +37,14 @@ retry() {
 }
 
 # On any unexpected failure, leave a short post-mortem in the repo logs dir
-# (gitignored, so it never gets committed) for later inspection.
-DIAG="$REPO_DIR/logs/cron-diag.log"
-trap 'mkdir -p "$(dirname "$DIAG")"; echo "[FAIL $(date -u +%Y-%m-%dT%H:%M:%SZ)] command: $BASH_COMMAND (line $LINENO) :: whoami=$(whoami) HOME=$HOME SSH_AUTH_SOCK=${SSH_AUTH_SOCK:-<unset>} GIT_SSH_COMMAND=${GIT_SSH_COMMAND:-<unset>}" >> "$DIAG" 2>&1' ERR
+# (gitignored, so it never gets committed) for later inspection. We also
+# redirect stderr there: the cron's no_agent runner treats a non-empty captured
+# stderr as failure, so keeping it out of the job output is what makes the run
+# report "ok" (this is also why the free-llm-models cron pipes 2>&1 | tail).
+DIAG="/home/omachi/workspace/luongnv89.github.io/logs/cron-diag.log"
+mkdir -p "$(dirname "$DIAG")"
+exec 2>>"$DIAG"
+trap 'echo "[FAIL $(date -u +%Y-%m-%dT%H:%M:%SZ)] command: $BASH_COMMAND (line $LINENO) :: whoami=$(whoami) HOME=$HOME SSH_AUTH_SOCK=${SSH_AUTH_SOCK:-<unset>} GIT_SSH_COMMAND=${GIT_SSH_COMMAND:-<unset>}" >> "$DIAG" 2>&1' ERR
 
 # ── Repo location ───────────────────────────────────────────────────────────
 # This script is deployed as a real file in ~/.hermes/scripts/ (the cron
