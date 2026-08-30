@@ -21,6 +21,21 @@
 
 set -euo pipefail
 
+# Retry a command up to N times on transient failure (network/API blips) so a
+# single flaky call during the scheduled run doesn't fail the whole cron job.
+retry() {
+  local max="$1"; shift
+  local attempt
+  for attempt in $(seq 1 "$max"); do
+    if "$@"; then
+      return 0
+    fi
+    echo "[RETRY] '$*' failed (attempt $attempt/$max); backing off 20s" >&2
+    sleep 20
+  done
+  return 1
+}
+
 # ── Locate this script (follow symlink so it works from ~/.hermes/scripts) ──────
 SRC="${BASH_SOURCE[0]}"
 if [[ -L "$SRC" ]]; then
@@ -81,7 +96,7 @@ git rebase --abort >/dev/null 2>&1 || true
 git merge --abort  >/dev/null 2>&1 || true
 
 # Treat GitHub as source of truth for this generated repo
-git fetch origin
+retry 3 git fetch origin
 git reset --hard "origin/${BRANCH}"
 git clean -fd -e logs -e node_modules
 
@@ -106,15 +121,15 @@ if ! git diff --quiet -- "${DATA_FILES[@]}"; then
   git add "${DATA_FILES[@]}"
   git commit -m "chore(portfolio): update GitHub stats"
 
-  if ! git push origin "${BRANCH}"; then
-    echo "[WARN] Push rejected (non-fast-forward); resetting and retrying once"
+  if ! retry 3 git push origin "${BRANCH}"; then
+    # Last-resort: reset to remote and re-run once more before giving up.
     git fetch origin
     git reset --hard "origin/${BRANCH}"
     node scripts/update-stats.js
     if ! git diff --quiet -- "${DATA_FILES[@]}"; then
       git add "${DATA_FILES[@]}"
       git commit -m "chore(portfolio): update GitHub stats"
-      git push origin "${BRANCH}"
+      retry 3 git push origin "${BRANCH}"
     else
       echo "[OK] No net change after retry"
     fi
