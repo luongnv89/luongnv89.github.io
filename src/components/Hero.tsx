@@ -1,4 +1,4 @@
-import { Github, Linkedin, Twitter, Star, Users, FolderGit2, Loader2, ArrowDown, BookOpen } from 'lucide-react'
+import { Github, Linkedin, Twitter, Star, Users, FolderGit2, GitFork, Loader2, ArrowDown, BookOpen } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { fetchGitHubStats, type GitHubStats } from '@/lib/github'
 import { useMatrixPause } from '@/hooks/useMatrixPause'
@@ -89,6 +89,10 @@ export function Hero() {
             <div className="flex items-center gap-1.5">
               <Star size={16} className="text-accent" />
               <span>{stats.totalStars} stars</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <GitFork size={16} />
+              <span>{stats.totalForks} forks</span>
             </div>
             <div className="flex items-center gap-1.5">
               <Users size={16} />
