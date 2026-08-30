@@ -49,13 +49,14 @@ retry() {
   return 1
 }
 
-# ── Locate this script (follow symlink so it works from ~/.hermes/scripts) ──────
-SRC="${BASH_SOURCE[0]}"
-if [[ -L "$SRC" ]]; then
-  SRC="$(readlink -f "$SRC")"
-fi
-SCRIPT_DIR="$(cd "$(dirname "$SRC")" && pwd)"
-REPO_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
+# ── Repo location ───────────────────────────────────────────────────────────
+# This script is deployed as a real file in ~/.hermes/scripts/ (the cron
+# executor rejects symlinks that escape that dir), but its source of truth
+# lives in the repo below. Hardcode the repo path — matching how the
+# free-llm-models cron resolves its repo — so it works regardless of where the
+# wrapper copy resides.
+REPO_DIR="/home/omachi/workspace/luongnv89.github.io"
+SCRIPT_DIR="$REPO_DIR/scripts"
 
 BRANCH="main"
 LOG_DIR="$REPO_DIR/logs"
