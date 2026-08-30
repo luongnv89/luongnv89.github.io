@@ -32,7 +32,7 @@ mkdir -p "$(dirname "$DIAG")"
 } > "$DIAG" 2>&1 || true
 
 # Surface the failing command on any error (also appended to the diag log).
-trap 'echo "[FAIL] command failed: $BASH_COMMAND (line $LINENO)"; echo "[FAIL] whoami=$(whoami) HOME=$HOME SSH_AUTH_SOCK=${SSH_AUTH_SOCK:-<unset>} GIT_SSH_COMMAND=${GIT_SSH_COMMAND:-<unset>}" >> "$DIAG" 2>&1' ERR
+trap 'echo "[FAIL] command failed: $BASH_COMMAND (line $LINENO)"; echo "[FAIL] command: $BASH_COMMAND (line $LINENO) :: whoami=$(whoami) HOME=$HOME SSH_AUTH_SOCK=${SSH_AUTH_SOCK:-<unset>} GIT_SSH_COMMAND=${GIT_SSH_COMMAND:-<unset>}" >> "$DIAG" 2>&1' ERR
 
 # Retry a command up to N times on transient failure (network/API blips) so a
 # single flaky call during the scheduled run doesn't fail the whole cron job.
