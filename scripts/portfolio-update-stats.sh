@@ -6,8 +6,8 @@
 #
 # This is the entry point referenced by the Hermes cron job
 # `portfolio-github-stats-daily` (script: "portfolio-update-stats.sh",
-# resolved from ~/.hermes/scripts/). It is symlinked there from this repo so
-# the two stay in sync.
+# resolved from ~/.hermes/scripts/). It is deployed there as a real file copied
+# from this repo (the cron executor rejects symlinks), so the two stay in sync.
 #
 # What it does:
 #   1. Locks itself with flock (no overlapping runs).
@@ -20,19 +20,6 @@
 # Everything written to stdout becomes the Telegram message the cron delivers.
 
 set -euo pipefail
-
-# ── Diagnostics (surfaces cron-env failures; written to a REAL, readable path) ──
-DIAG="/home/omachi/workspace/luongnv89.github.io/logs/cron-diag.log"
-mkdir -p "$(dirname "$DIAG")"
-{
-  echo "[diag $(date -u +%Y-%m-%dT%H:%M:%SZ)] whoami=$(whoami) HOME=$HOME SSH_AUTH_SOCK=${SSH_AUTH_SOCK:-<unset>}"
-  echo "[diag] PATH=$PATH"
-  echo "[diag] GIT_SSH_COMMAND=${GIT_SSH_COMMAND:-<unset>}"
-  id 2>/dev/null
-} > "$DIAG" 2>&1 || true
-# Capture the full command trace (set -x) + stderr to the diag file for post-mortem.
-exec 2>>"$DIAG"
-set -x
 
 # Retry a command up to N times on transient failure (network/API blips) so a
 # single flaky call during the scheduled run doesn't fail the whole cron job.
@@ -48,6 +35,11 @@ retry() {
   done
   return 1
 }
+
+# On any unexpected failure, leave a short post-mortem in the repo logs dir
+# (gitignored, so it never gets committed) for later inspection.
+DIAG="$REPO_DIR/logs/cron-diag.log"
+trap 'mkdir -p "$(dirname "$DIAG")"; echo "[FAIL $(date -u +%Y-%m-%dT%H:%M:%SZ)] command: $BASH_COMMAND (line $LINENO) :: whoami=$(whoami) HOME=$HOME SSH_AUTH_SOCK=${SSH_AUTH_SOCK:-<unset>} GIT_SSH_COMMAND=${GIT_SSH_COMMAND:-<unset>}" >> "$DIAG" 2>&1' ERR
 
 # ── Repo location ───────────────────────────────────────────────────────────
 # This script is deployed as a real file in ~/.hermes/scripts/ (the cron
