@@ -77,32 +77,39 @@ export function Hero() {
         including a {claudeHowtoStarsK}k-star Claude Code guide. Learn, Build, Share and Connect.
       </p>
 
-      {/* GitHub Stats */}
-      <div className="flex gap-6 mt-6 text-sm text-[var(--text-muted)] h-6">
+      {/* GitHub Stats — open-source impact */}
+      <div className="flex flex-col items-center gap-2 mt-6">
+        <span className="text-xs uppercase tracking-[0.2em] text-[var(--text-muted)] font-mono">
+          Open-source impact
+        </span>
         {isLoading ? (
           <div className="flex items-center gap-2">
             <Loader2 size={16} className="animate-spin text-accent" />
             <span>Loading stats...</span>
           </div>
         ) : stats ? (
-          <>
-            <div className="flex items-center gap-1.5">
-              <Star size={16} className="text-accent" />
-              <span>{stats.totalStars} stars</span>
+          <div className="impact-stats">
+            <div className="impact-stat">
+              <Star size={16} />
+              <span className="stat-num">{stats.totalStars.toLocaleString()}</span>
+              <span className="stat-label">stars</span>
             </div>
-            <div className="flex items-center gap-1.5">
+            <div className="impact-stat">
               <GitFork size={16} />
-              <span>{stats.totalForks} forks</span>
+              <span className="stat-num">{stats.totalForks.toLocaleString()}</span>
+              <span className="stat-label">forks</span>
             </div>
-            <div className="flex items-center gap-1.5">
+            <div className="impact-stat">
               <Users size={16} />
-              <span>{stats.followers} followers</span>
+              <span className="stat-num">{stats.followers.toLocaleString()}</span>
+              <span className="stat-label">followers</span>
             </div>
-            <div className="flex items-center gap-1.5">
+            <div className="impact-stat">
               <FolderGit2 size={16} />
-              <span>{stats.publicRepos} repos</span>
+              <span className="stat-num">{stats.publicRepos.toLocaleString()}</span>
+              <span className="stat-label">repos</span>
             </div>
-          </>
+          </div>
         ) : null}
       </div>
 
