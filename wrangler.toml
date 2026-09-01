@@ -1,0 +1,9 @@
+name = "luongnv-markdown-negotiation"
+main = "worker/index.ts"
+compatibility_date = "2025-01-01"
+
+# Route to luongnv.com zone
+routes = ["luongnv.com/*"]
+
+# Workers AI is not needed, but keep the config minimal
+# Deploy with: npx wrangler deploy
