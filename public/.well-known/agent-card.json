@@ -1,0 +1,22 @@
+{
+  "name": "Luong Nguyen — AI & Cybersecurity",
+  "version": "1.0.0",
+  "description": "Personal portfolio and lab of Luong Nguyen — AI & Cybersecurity Engineer at Montimage, Paris. Agentic interface to projects, games, and writing.",
+  "url": "https://luongnv.com",
+  "provider": { "organization": "luongnv89", "url": "https://luongnv.com" },
+  "supportedInterfaces": [
+    { "url": "https://luongnv.com", "protocol": "https", "transport": "https" }
+  ],
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false,
+    "stateTransitionHistory": false
+  },
+  "skills": [
+    { "id": "portfolio-search", "name": "Portfolio Search", "description": "Search OSS projects, products, and blog posts" },
+    { "id": "game-launcher", "name": "Game Launcher", "description": "Launch any of 16 browser games by slug" },
+    { "id": "contact", "name": "Contact", "description": "Return contact and social links" }
+  ],
+  "defaultInputModes": ["text"],
+  "defaultOutputModes": ["text"]
+}

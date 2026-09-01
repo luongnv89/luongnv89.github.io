@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "skills": [
+    {
+      "name": "webmcp-tools",
+      "type": "skill-md",
+      "description": "Browser tools for searching the portfolio, launching games, and getting contact info via WebMCP",
+      "url": "https://luongnv.com/webmcp.js",
+      "digest": "sha256:7c225d9141226619a7918867f86331db0392c8d9106287cb56409d88711195b4"
+    },
+    {
+      "name": "portfolio-markdown",
+      "type": "skill-md",
+      "description": "Machine-readable markdown of the homepage for agents (Accept: text/markdown)",
+      "url": "https://luongnv.com/index.md",
+      "digest": "sha256:bed91a3f33b12ae98d3fff4a4409dc68cc4220f397b0a44add93732c63e4ee88"
+    },
+    {
+      "name": "llms-txt",
+      "type": "skill-md",
+      "description": "Curated link list for LLMs per llmstxt.org v2",
+      "url": "https://luongnv.com/llms.txt",
+      "digest": "sha256:2841b6a49f9d679eee8f0a00141ecd4a108b57998a033b1f641a46c8e75ce992"
+    }
+  ]
+}

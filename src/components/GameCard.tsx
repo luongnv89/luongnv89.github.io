@@ -58,8 +58,11 @@ export function GameCard({ game, surface }: { game: Game; surface: GameSurface }
         {showThumb ? (
           <img
             src={game.thumb}
-            alt={`${game.title} gameplay screenshot`}
+            alt={`${game.title} — browser game by Luong Nguyen, play free at luongnv.com, ${game.blurb.slice(0, 80)}`}
+            width={640}
+            height={400}
             loading="lazy"
+            decoding="async"
             onError={() => setThumbFailed(true)}
             className="h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-[1.03]"
           />

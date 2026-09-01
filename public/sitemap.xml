@@ -2,139 +2,103 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://luongnv.com/</loc>
-    <lastmod>2026-04-03</lastmod>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://luongnv.com/#about</loc>
-    <lastmod>2026-04-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://luongnv.com/#projects</loc>
-    <lastmod>2026-04-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://luongnv.com/#skills</loc>
-    <lastmod>2026-04-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://luongnv.com/#blog</loc>
-    <lastmod>2026-04-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://luongnv.com/#contact</loc>
-    <lastmod>2026-04-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <!--
-    Note: do NOT list https://luongnv.com/games here. GitHub Pages serves it as
-    a 404 (the SPA route is recovered client-side via 404.html), so submitting it
-    would just register as a crawl error. Only the games themselves are real
-    static 200s. The catalog stays discoverable via links from the homepage.
-  -->
-  <url>
     <loc>https://luongnv.com/games/magic-webcam/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://luongnv.com/games/geometry-dash-flux/</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://luongnv.com/games/geometry-dash-neon/</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://luongnv.com/games/free-fire-royale/</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://luongnv.com/games/flappy-bird/</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://luongnv.com/games/minecraft-style/</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://luongnv.com/games/tetris-3d/</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://luongnv.com/games/santos-chaos-3d/</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://luongnv.com/games/math-chess-3d/</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://luongnv.com/games/codex-of-duty/</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://luongnv.com/games/neon-snake/</loc>
-    <lastmod>2026-07-30</lastmod>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://luongnv.com/games/night-spin/</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://luongnv.com/games/orbital-linefall/</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://luongnv.com/games/santos-chaos/</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://luongnv.com/games/mortal-combat/</loc>
-    <lastmod>2026-07-28</lastmod>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://luongnv.com/games/open-skies/</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

@@ -1,0 +1,18 @@
+{
+  "issuer": "https://auth.luongnv.com",
+  "authorization_endpoint": "https://auth.luongnv.com/authorize",
+  "token_endpoint": "https://auth.luongnv.com/token",
+  "jwks_uri": "https://auth.luongnv.com/.well-known/jwks.json",
+  "registration_endpoint": "https://auth.luongnv.com/register",
+  "scopes_supported": ["openid", "profile", "email", "read:public", "agent_auth"],
+  "response_types_supported": ["code", "token", "id_token"],
+  "grant_types_supported": ["authorization_code", "refresh_token", "client_credentials", "urn:ietf:params:oauth:grant-type:device_code"],
+  "token_endpoint_auth_methods_supported": ["client_secret_basic", "client_secret_post", "none"],
+  "code_challenge_methods_supported": ["S256", "plain"],
+  "bearer_methods_supported": ["header"],
+  "agent_auth": {
+    "skill": "auth.md",
+    "register_uri": "https://auth.luongnv.com/register",
+    "methods": ["authorization_code", "client_credentials"]
+  }
+}

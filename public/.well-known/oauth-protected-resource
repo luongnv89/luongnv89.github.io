@@ -1,0 +1,6 @@
+{
+  "resource": "https://luongnv.com",
+  "authorization_servers": ["https://auth.luongnv.com"],
+  "scopes_supported": ["read:public", "agent_auth", "openid", "profile"],
+  "bearer_methods_supported": ["header"]
+}

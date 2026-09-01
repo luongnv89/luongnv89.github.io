@@ -1,0 +1,16 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "luongnv.com — Portfolio API",
+    "version": "1.0.0",
+    "description": "Static portfolio of Luong Nguyen. This spec describes discoverable resources for agents (projects, games, markdown).",
+    "contact": { "name": "Luong Nguyen", "url": "https://luongnv.com", "email": "via https://luongnv.com/#contact" }
+  },
+  "servers": [{ "url": "https://luongnv.com" }],
+  "paths": {
+    "/sitemap.xml": { "get": { "summary": "Sitemap", "responses": { "200": { "description": "XML sitemap" } } } },
+    "/llms.txt": { "get": { "summary": "LLMs.txt", "responses": { "200": { "description": "Markdown curation for LLMs" } } } },
+    "/.well-known/agent-card.json": { "get": { "summary": "A2A Agent Card", "responses": { "200": { "description": "Agent card" } } } },
+    "/games/{slug}/": { "get": { "summary": "Game page", "parameters": [{ "name": "slug", "in": "path", "required": true, "schema": { "type": "string" } }], "responses": { "200": { "description": "Game" } } } }
+  }
+}

@@ -1,0 +1,22 @@
+# DNS for AI Discovery (DNS-AID) — luongnv.com
+# Publish these records at your authoritative DNS (Cloudflare, Route53, etc.) with DNSSEC enabled.
+# Scanner validates via DoH (Cloudflare + Google fallback). GitHub Pages cannot publish DNS — configure at your registrar.
+
+# A2A agent discovery
+_a2a._agents.luongnv.com. 3600 IN SVCB 1 luongnv.com. alpn="a2a" port=443 mandatory=alpn,port
+
+# Agent index
+_index._agents.luongnv.com. 3600 IN SVCB 1 luongnv.com. alpn="http/1.1,h2" port=443
+
+# Catalog discovery
+_catalog._agents.luongnv.com. 3600 IN TXT "url=https://luongnv.com/.well-known/ai-catalog.json"
+
+# Search delegation (optional SRV)
+_search._agents.luongnv.com. 3600 IN SRV 0 0 443 luongnv.com.
+
+# HTTPS alias for agent endpoints (alternative to SVCB when only HTTPS needed)
+# _agents.luongnv.com. 3600 IN HTTPS 1 . alpn="h3,h2" port=443
+
+# DNSSEC: enable at registrar (Cloudflare DNSSEC one-click, or DS record).
+# Verify: dig SVCB _a2a._agents.luongnv.com @1.1.1.1 +dnssec
+# Fallback: scanner uses https://cloudflare-dns.com/dns-query with Google fallback.

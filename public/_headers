@@ -1,0 +1,14 @@
+# Cloudflare / Netlify compatible headers — also served via HTML <link> fallback for GitHub Pages
+# Link headers for agent discovery per RFC 8288 + RFC 9727 Section 3
+# GitHub Pages ignores this file; configure the same headers at your CDN (Cloudflare Transform Rules / Workers) for live effect.
+
+/*
+  Link: </.well-known/api-catalog>; rel="api-catalog",
+        </.well-known/agent-card.json>; rel="describedby"; type="application/json",
+        </.well-known/ai-catalog.json>; rel="ai-catalog",
+        </.well-known/agent-skills/index.json>; rel="service-desc",
+        </openapi.json>; rel="service-desc"; type="application/vnd.oai.openapi",
+        </llms.txt>; rel="alternate"; type="text/markdown",
+        </sitemap.xml>; rel="sitemap"
+  Content-Signal: ai-train=no, search=yes, ai-input=no
+  X-Markdown-Tokens: approximate

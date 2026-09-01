@@ -60,8 +60,11 @@ export function Portfolio() {
               >
                 <img
                   src={project.screenshot}
-                  alt={`${project.displayName} screenshot`}
+                  alt={`${project.displayName} — AI-powered developer tool by Luong Nguyen, open-source on GitHub`}
+                  width={640}
+                  height={360}
                   loading="lazy"
+                  decoding="async"
                   className="h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.02]"
                 />
               </a>
@@ -71,7 +74,10 @@ export function Portfolio() {
                   <img
                     src={project.logo}
                     alt=""
+                    width={40}
+                    height={40}
                     loading="lazy"
+                    decoding="async"
                     className="h-10 w-10 rounded-lg object-contain"
                   />
                   <h3 className="text-xl font-semibold text-[var(--text-primary)]">

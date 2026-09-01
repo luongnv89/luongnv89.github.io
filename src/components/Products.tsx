@@ -75,8 +75,11 @@ export function Products() {
               <div className="relative aspect-[16/10] overflow-hidden border-b border-[var(--border)]">
                 <img
                   src={product.screenshot}
-                  alt={`${product.name} website screenshot`}
+                  alt={`${product.name} — ${product.tagline} by Luong Nguyen, available at ${product.url.replace(/^https?:\/\//, '')}`}
+                  width={640}
+                  height={400}
                   loading="lazy"
+                  decoding="async"
                   className="h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.03]"
                 />
               </div>
@@ -88,7 +91,10 @@ export function Products() {
                     <img
                       src={product.logo}
                       alt=""
+                      width={28}
+                      height={28}
                       loading="lazy"
+                      decoding="async"
                       className="h-7 w-7 rounded-md object-contain"
                     />
                   </span>

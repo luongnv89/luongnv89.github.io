@@ -1,0 +1,15 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://luongnv.com",
+      "service-desc": [{ "href": "https://luongnv.com/openapi.json", "type": "application/vnd.oai.openapi" }],
+      "service-doc": [{ "href": "https://luongnv.com/llms.txt", "type": "text/markdown" }],
+      "describedby": [{ "href": "https://luongnv.com/.well-known/agent-card.json", "type": "application/json" }]
+    },
+    {
+      "anchor": "https://luongnv.com/games/",
+      "service-desc": [{ "href": "https://luongnv.com/openapi.json", "type": "application/vnd.oai.openapi" }],
+      "service-doc": [{ "href": "https://luongnv.com/sitemap.xml", "type": "application/xml" }]
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "Luong Nguyen — luongnv.com",
+    "identifier": "did:web:luongnv.com"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:luongnv.com:server:portfolio-mcp",
+      "displayName": "Portfolio MCP Server",
+      "type": "application/mcp-server-card+json",
+      "url": "https://luongnv.com/.well-known/mcp/server-card.json",
+      "representativeQueries": [
+        "show me Luong Nguyen open source projects",
+        "launch the flappy bird game",
+        "what games are available on luongnv.com",
+        "get contact for Luong Nguyen"
+      ]
+    },
+    {
+      "identifier": "urn:air:luongnv.com:agent:portfolio-a2a",
+      "displayName": "Portfolio A2A Agent",
+      "type": "application/a2a-agent-card+json",
+      "url": "https://luongnv.com/.well-known/agent-card.json",
+      "representativeQueries": [
+        "what does Luong Nguyen do",
+        "list AI projects by luongnv89",
+        "open a game on luongnv.com"
+      ]
+    },
+    {
+      "identifier": "urn:air:luongnv.com:api:portfolio",
+      "displayName": "Portfolio OpenAPI",
+      "type": "application/vnd.oai.openapi+json",
+      "url": "https://luongnv.com/openapi.json",
+      "representativeQueries": [
+        "fetch sitemap for luongnv.com",
+        "get markdown version of homepage",
+        "list games via API"
+      ]
+    }
+  ]
+}

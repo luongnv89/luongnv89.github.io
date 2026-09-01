@@ -24,7 +24,7 @@
     <!-- Primary Meta Tags -->
     <title>Luong Nguyen | AI & Cybersecurity Engineer</title>
     <meta name="title" content="Luong Nguyen | AI & Cybersecurity Engineer" />
-    <meta name="description" content="AI & Cybersecurity Engineer at Montimage, Paris. Creator of claude-howto (%CLAUDE_HOWTO_STARS%+ GitHub stars), asm, Milo & TextWiz. Building AI developer tools and network security software." />
+    <meta name="description" content="AI & Cybersecurity Engineer at Montimage, Paris. Creator of claude-howto (%CLAUDE_HOWTO_STARS%+ stars). Building AI agent tools, open-source & network security software." />
     <meta name="author" content="Luong Nguyen" />
     <meta name="keywords" content="Luong Nguyen, luongnv89, AI Engineer, Cybersecurity, LLM, Claude Code, claude-howto, agent-skill-manager, sleek-ui, gstack, Python, Backend Developer, Paris, France, Open Source, Network Security, DPI" />
     <meta name="robots" content="index, follow" />
@@ -34,7 +34,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://luongnv.com/" />
     <meta property="og:title" content="Luong Nguyen | AI & Cybersecurity Engineer" />
-    <meta property="og:description" content="AI & Cybersecurity Engineer at Montimage, Paris. Creator of claude-howto (%CLAUDE_HOWTO_STARS%+ GitHub stars), asm, Milo & TextWiz. Building AI developer tools and network security software." />
+    <meta property="og:description" content="AI & Cybersecurity Engineer at Montimage, Paris. Creator of claude-howto (%CLAUDE_HOWTO_STARS%+ stars). Building AI agent tools, open-source & network security software." />
     <meta property="og:image" content="https://luongnv.com/img/og-card.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -45,7 +45,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://luongnv.com/" />
     <meta name="twitter:title" content="Luong Nguyen | AI & Cybersecurity Engineer" />
-    <meta name="twitter:description" content="AI & Cybersecurity Engineer at Montimage, Paris. Creator of claude-howto (%CLAUDE_HOWTO_STARS%+ GitHub stars), asm, Milo & TextWiz. Building AI developer tools and network security software." />
+    <meta name="twitter:description" content="AI & Cybersecurity Engineer at Montimage, Paris. Creator of claude-howto (%CLAUDE_HOWTO_STARS%+ stars). Building AI agent tools, open-source & network security software." />
     <meta name="twitter:image" content="https://luongnv.com/img/og-card.jpg" />
     <meta name="twitter:site" content="@luongnv89" />
     <meta name="twitter:creator" content="@luongnv89" />
@@ -119,6 +119,55 @@
       ],
       "description": "AI & Cybersecurity Engineer at Montimage with 10+ years of experience. Creator of claude-howto (%CLAUDE_HOWTO_STARS%+ GitHub stars), agent-skill-manager (asm), and the Milo & TextWiz apps. Builds AI developer tools and network security software."
     }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Luong Nguyen — AI & Cybersecurity Engineer",
+      "url": "https://luongnv.com/",
+      "publisher": {
+        "@type": "Person",
+        "name": "Luong Nguyen",
+        "url": "https://luongnv.com"
+      },
+      "inLanguage": "en",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://luongnv.com/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://luongnv.com/" },
+        { "@type": "ListItem", "position": 2, "name": "About", "item": "https://luongnv.com/#about" },
+        { "@type": "ListItem", "position": 3, "name": "Projects", "item": "https://luongnv.com/#projects" },
+        { "@type": "ListItem", "position": 4, "name": "Skills", "item": "https://luongnv.com/#skills" },
+        { "@type": "ListItem", "position": 5, "name": "Blog", "item": "https://luongnv.com/#blog" },
+        { "@type": "ListItem", "position": 6, "name": "Games", "item": "https://luongnv.com/games/" }
+      ]
+    }
+    </script>
+    <!-- Agent discovery links (Link header fallback for GitHub Pages) -->
+    <link rel="ai-catalog" href="/.well-known/ai-catalog.json" />
+    <link rel="alternate" type="text/markdown" href="/llms.txt" title="LLMs.txt" />
+    <link rel="alternate" type="text/markdown" href="/index.md" title="Markdown" />
+    <link rel="api-catalog" href="/.well-known/api-catalog" title="API Catalog" />
+    <link rel="describedby" href="/.well-known/agent-card.json" type="application/json" title="A2A Agent Card" />
+    <link rel="service-desc" href="/.well-known/agent-skills/index.json" title="Agent Skills" />
+    <link rel="sitemap" href="/sitemap.xml" />
+    <!-- WebMCP + Markdown negotiation (browser side) -->
+    <script type="module" src="/webmcp.js"></script>
+    <script>
+      // Register service worker for Accept: text/markdown negotiation (GitHub Pages has no server-side negotiation)
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js').catch(() => {});
+      }
     </script>
   </head>
   <body>

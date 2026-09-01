@@ -79,6 +79,69 @@ export default defineConfig({
       },
     },
     {
+      name: 'inject-games-seo',
+      apply: 'build',
+      closeBundle() {
+        const gamesData = JSON.parse(readFileSync(resolve(__dirname, 'src/data/games.json'), 'utf-8')) as {
+          games: Array<{ slug: string; title: string; blurb: string; thumb?: string }>
+        }
+        const bySlug = new Map(gamesData.games.map((g) => [g.slug, g]))
+        const gamesDir = resolve(__dirname, 'dist/games')
+        if (!existsSync(gamesDir)) return
+        for (const entry of readdirSync(gamesDir, { withFileTypes: true })) {
+          if (!entry.isDirectory()) continue
+          const slug = entry.name
+          const file = resolve(gamesDir, slug, 'index.html')
+          if (!existsSync(file)) continue
+          const game = bySlug.get(slug)
+          if (!game) continue
+          let html = readFileSync(file, 'utf-8')
+          // Idempotency: skip if canonical already injected
+          if (html.includes(`rel="canonical"`) && html.includes(`property="og:title"`)) {
+            // still need to ensure analytics; fall through to next plugin
+            // but don't re-inject SEO
+          } else {
+            const canonical = `https://luongnv.com/games/${slug}/`
+            // Build 150-char description from blurb
+            const raw = game.blurb.replace(/\s+/g, ' ').trim()
+            const desc = raw.length > 155 ? `${raw.slice(0, 152)}...` : raw
+            const esc = (s: string) => s.replace(/"/g, '&quot;')
+            const ogImage = game.thumb ? `https://luongnv.com${game.thumb}` : 'https://luongnv.com/img/og-card.jpg'
+            const seo = [
+              `<meta name="description" content="${esc(desc)}" />`,
+              `<link rel="canonical" href="${canonical}" />`,
+              `<meta property="og:type" content="website" />`,
+              `<meta property="og:url" content="${canonical}" />`,
+              `<meta property="og:title" content="${esc(game.title)}" />`,
+              `<meta property="og:description" content="${esc(desc)}" />`,
+              `<meta property="og:image" content="${ogImage}" />`,
+              `<meta property="og:image:width" content="1200" />`,
+              `<meta property="og:image:height" content="630" />`,
+              `<meta name="twitter:card" content="summary_large_image" />`,
+              `<meta name="twitter:title" content="${esc(game.title)}" />`,
+              `<meta name="twitter:description" content="${esc(desc)}" />`,
+              `<meta name="twitter:image" content="${ogImage}" />`,
+            ].join('\n')
+            if (html.includes('</head>')) {
+              html = html.replace('</head>', `${seo}\n</head>`)
+            } else {
+              const m = html.match(/<head[^>]*>/i)
+              if (m) html = html.replace(m[0], `${m[0]}\n${seo}`)
+            }
+            // Ensure exactly one h1 — if none, inject hidden h1 after body open for SEO
+            const h1Count = (html.match(/<h1[\s>]/gi) || []).length
+            if (h1Count === 0) {
+              const bodyMatch = html.match(/<body[^>]*>/i)
+              if (bodyMatch) {
+                html = html.replace(bodyMatch[0], `${bodyMatch[0]}\n<h1 style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">${esc(game.title)}</h1>`)
+              }
+            }
+            writeFileSync(file, html)
+          }
+        }
+      },
+    },
+    {
       // Runs on the built output, after public/ has been copied to dist/.
       name: 'inject-games-analytics',
       apply: 'build',

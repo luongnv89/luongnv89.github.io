@@ -1,0 +1,14 @@
+{
+  "serverInfo": { "name": "luongnv-portfolio-mcp", "version": "1.0.0" },
+  "endpoint": "https://luongnv.com/mcp",
+  "capabilities": {
+    "tools": [
+      { "name": "search_site", "description": "Search portfolio site" },
+      { "name": "open_game", "description": "Open a game by slug" },
+      { "name": "get_contact", "description": "Contact links" },
+      { "name": "list_projects", "description": "List OSS projects" }
+    ],
+    "resources": [{ "uri": "https://luongnv.com/sitemap.xml", "name": "sitemap" }],
+    "prompts": []
+  }
+}

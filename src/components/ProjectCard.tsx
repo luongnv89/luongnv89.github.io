@@ -67,6 +67,10 @@ export function ProjectCard({ project }: ProjectCardProps) {
           <img
             src={icon}
             alt={`${name} logo`}
+            width={64}
+            height={64}
+            loading="lazy"
+            decoding="async"
             className="relative w-16 h-16 object-contain drop-shadow-lg transition-transform duration-300 group-hover:scale-110"
           />
         ) : (

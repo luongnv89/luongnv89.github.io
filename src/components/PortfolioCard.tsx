@@ -65,7 +65,10 @@ export function PortfolioCard({ project }: { project: PortfolioProject }) {
             <img
               src={project.logo}
               alt=""
+              width={56}
+              height={56}
               loading="lazy"
+              decoding="async"
               className="w-14 h-14 object-contain relative z-10 drop-shadow-md"
             />
           </div>
