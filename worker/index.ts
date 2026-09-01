@@ -1,9 +1,13 @@
 /**
- * Cloudflare Worker: Markdown Content Negotiation
+ * Cloudflare Worker: Markdown Content Negotiation + Link Headers (RFC 8288)
  *
  * Serves markdown versions of pages when `Accept: text/markdown` is requested.
  * Follows the Markdown for Agents specification:
  * https://isitagentready.com/.well-known/agent-skills/markdown-negotiation/SKILL.md
+ *
+ * Also adds HTTP Link response headers for agent discovery per
+ * RFC 8288 and RFC 9727 Section 3:
+ * https://isitagentready.com/.well-known/agent-skills/link-headers/SKILL.md
  *
  * When Accept: text/markdown is present:
  *   - Fetches the .md file from GitHub Pages origin
@@ -15,6 +19,20 @@
  */
 
 const GITHUB_PAGES_ORIGIN = 'https://luongnv89.github.io'
+
+/**
+ * HTTP Link headers for agent discovery per RFC 8288 + RFC 9727 Section 3.
+ * These point agents to machine-readable resource descriptions.
+ */
+const LINK_HEADERS = [
+  '</.well-known/api-catalog>; rel="api-catalog"',
+  '</.well-known/agent-card.json>; rel="describedby"; type="application/json"',
+  '</.well-known/ai-catalog.json>; rel="ai-catalog"',
+  '</.well-known/agent-skills/index.json>; rel="service-desc"',
+  '</openapi.json>; rel="service-desc"; type="application/vnd.oai.openapi"',
+  '</llms.txt>; rel="alternate"; type="text/markdown"',
+  '</sitemap.xml>; rel="sitemap"',
+].join(', ')
 
 /**
  * Count tokens approximately (4 chars per token is a common heuristic).
@@ -65,6 +83,7 @@ export default {
               'X-Markdown-Tokens': String(tokenCount),
               'Cache-Control': 'public, max-age=3600, s-maxage=86400',
               'Vary': 'Accept',
+              'Link': LINK_HEADERS,
             },
           })
         }
@@ -73,7 +92,7 @@ export default {
       }
     }
 
-    // Default: proxy to GitHub Pages (HTML)
+    // Default: proxy to GitHub Pages (HTML) with Link headers
     const originUrl = `${GITHUB_PAGES_ORIGIN}${url.pathname}${url.search}`
 
     const response = await fetch(originUrl, {
@@ -84,6 +103,14 @@ export default {
       },
     })
 
-    return response
+    // Clone the response so we can add headers
+    const modifiedHeaders = new Headers(response.headers)
+    modifiedHeaders.set('Link', LINK_HEADERS)
+
+    return new Response(response.body, {
+      status: response.status,
+      statusText: response.statusText,
+      headers: modifiedHeaders,
+    })
   },
 }
