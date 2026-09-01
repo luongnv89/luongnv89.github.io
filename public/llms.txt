@@ -41,8 +41,7 @@
 
 - [Claude Code 9% Cache Spike](https://x.com/luongnv89/status/2039682376708637046): Debugging Claude Code cache in one prompt
 - [gstack MVP Step by Step](https://medium.com/@luongnv89/how-to-use-gstack-to-build-a-mvp-step-by-step-ceedb6d53f8c): Build an MVP with gstack
-- [Medium Archive](https://medium.com/@luongnv89)
-  Articles on AI, Claude Code and engineering
+- [Medium Archive](https://medium.com/@luongnv89): Articles on AI, Claude Code and engineering
 - [Substack](https://luongnv89.substack.com): Newsletter on AI tooling
 
 ## Contact
