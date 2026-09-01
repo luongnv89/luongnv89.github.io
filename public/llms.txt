@@ -6,86 +6,52 @@
 
 - [Luong Nguyen](https://luongnv.com/)
   Portfolio of AI & Cybersecurity Engineer at Montimage, Paris
-- [About](https://luongnv.com/#about)
-  Background, experience and focus areas
-- [GitHub](https://github.com/luongnv89)
-  Open-source projects and contributions
+- [About](https://luongnv.com/#about): Background, experience and focus areas
+- [GitHub](https://github.com/luongnv89): Open-source projects and contributions
 
 ## OSS Projects
 
-- [claude-howto](https://github.com/luongnv89/claude-howto)
-  Visual guide to Claude Code — 17k+ stars
-- [agent-skill-manager](https://github.com/luongnv89/skills)
-  Skill manager for Claude Code, Codex and Cursor
-- [sleek-ui](https://luongnv.com/sleek-ui)
-  Minimal UI component library
-- [cc-context-stats](https://github.com/luongnv89/cc-context-stats)
-  Claude Code context usage monitor
-- [music-cli](https://music-cli.luongnv.com)
-  CLI music player for coders
-- [gstack](https://github.com/luongnv89/gstack)
-  Garry Tan-inspired AI MVP builder
+- [claude-howto](https://github.com/luongnv89/claude-howto): Visual guide to Claude Code — 17k+ stars
+- [agent-skill-manager](https://github.com/luongnv89/skills): Skill manager for Claude Code, Codex and Cursor
+- [sleek-ui](https://luongnv.com/sleek-ui): Minimal UI component library
+- [cc-context-stats](https://github.com/luongnv89/cc-context-stats): Claude Code context usage monitor
+- [music-cli](https://music-cli.luongnv.com): CLI music player for coders
+- [gstack](https://github.com/luongnv89/gstack): Garry Tan-inspired AI MVP builder
 
 ## Games
 
-- [Magic Webcam — Finger Frame](https://luongnv.com/games/magic-webcam/)
-  Hand-tracked live effects in a finger quad
-- [Geometry Dash — Flux](https://luongnv.com/games/geometry-dash-flux/)
-  One-button rhythm platformer with 5 tracks
-- [Geometry Dash — Neon](https://luongnv.com/games/geometry-dash-neon/)
-  Gravity-flip neon dash platformer
-- [Free Fire — Royale](https://luongnv.com/games/free-fire-royale/)
-  Top-down battle royale with AI survivors
-- [Flappy Bird — Dash](https://luongnv.com/games/flappy-bird/)
-  One-tap flap through pipes, 3 stages
-- [Minecraft Style](https://luongnv.com/games/minecraft-style/)
-  Voxel mining survival, build and survive
-- [Elemental Tetris 3D](https://luongnv.com/games/tetris-3d/)
-  3D Tetris with elemental physics
-- [Santos Chaos 3D](https://luongnv.com/games/santos-chaos-3d/)
-  Neon night car heist in Three.js
-- [Math Chess 3D](https://luongnv.com/games/math-chess-3d/)
-  3D Vietnamese math chess with arithmetic capture
-- [Codex of Duty: Black Relay](https://luongnv.com/games/codex-of-duty/)
-  Three.js FPS — activate relays, extract
-- [Neon Snake](https://luongnv.com/games/neon-snake/)
-  Classic snake with glowing trail
-- [Night Spin](https://luongnv.com/games/night-spin/)
-  Party roulette — numbers, Truth or Dare, dice
-- [Orbital Linefall](https://luongnv.com/games/orbital-linefall/)
-  Space falling-block puzzle, 20 layers
-- [Santos Chaos](https://luongnv.com/games/santos-chaos/)
-  Top-down heist with three crooks
-- [Mortal Combat](https://luongnv.com/games/mortal-combat/)
-  3D arcade fighter, best-of-three
-- [Open Skies](https://luongnv.com/games/open-skies/)
-  Cockpit flight sim with fighters and landings
+- [Magic Webcam — Finger Frame](https://luongnv.com/games/magic-webcam/): Hand-tracked live effects in a finger quad
+- [Geometry Dash — Flux](https://luongnv.com/games/geometry-dash-flux/): One-button rhythm platformer with 5 tracks
+- [Geometry Dash — Neon](https://luongnv.com/games/geometry-dash-neon/): Gravity-flip neon dash platformer
+- [Free Fire — Royale](https://luongnv.com/games/free-fire-royale/): Top-down battle royale with AI survivors
+- [Flappy Bird — Dash](https://luongnv.com/games/flappy-bird/): One-tap flap through pipes, 3 stages
+- [Minecraft Style](https://luongnv.com/games/minecraft-style/): Voxel mining survival, build and survive
+- [Elemental Tetris 3D](https://luongnv.com/games/tetris-3d/): 3D Tetris with elemental physics
+- [Santos Chaos 3D](https://luongnv.com/games/santos-chaos-3d/): Neon night car heist in Three.js
+- [Math Chess 3D](https://luongnv.com/games/math-chess-3d/): 3D Vietnamese math chess with arithmetic capture
+- [Codex of Duty: Black Relay](https://luongnv.com/games/codex-of-duty/): Three.js FPS — activate relays, extract
+- [Neon Snake](https://luongnv.com/games/neon-snake/): Classic snake with glowing trail
+- [Night Spin](https://luongnv.com/games/night-spin/): Party roulette — numbers, Truth or Dare, dice
+- [Orbital Linefall](https://luongnv.com/games/orbital-linefall/): Space falling-block puzzle, 20 layers
+- [Santos Chaos](https://luongnv.com/games/santos-chaos/): Top-down heist with three crooks
+- [Mortal Combat](https://luongnv.com/games/mortal-combat/): 3D arcade fighter, best-of-three
+- [Open Skies](https://luongnv.com/games/open-skies/): Cockpit flight sim with fighters and landings
 
 ## Writing
 
-- [Claude Code 9% Cache Spike](https://x.com/luongnv89/status/2039682376708637046)
-  Debugging Claude Code cache in one prompt
-- [gstack MVP Step by Step](https://medium.com/@luongnv89/how-to-use-gstack-to-build-a-mvp-step-by-step-ceedb6d53f8c)
-  Build an MVP with gstack
-- [Medium Archive](https://medium.com/@luongnv89)
-  Articles on AI, Claude Code and engineering
-- [Substack](https://luongnv89.substack.com)
-  Newsletter on AI tooling
+- [Claude Code 9% Cache Spike](https://x.com/luongnv89/status/2039682376708637046): Debugging Claude Code cache in one prompt
+- [gstack MVP Step by Step](https://medium.com/@luongnv89/how-to-use-gstack-to-build-a-mvp-step-by-step-ceedb6d53f8c): Build an MVP with gstack
+- [Medium Archive](https://medium.com/@luongnv89): Articles on AI, Claude Code and engineering
+- [Substack](https://luongnv89.substack.com): Newsletter on AI tooling
 
 ## Contact
 
-- [Website](https://luongnv.com)
-  https://luongnv.com
-- [LinkedIn](https://linkedin.com/in/luongnv89)
-  Professional profile and updates
-- [X / Twitter](https://twitter.com/luongnv89)
-  Short updates on AI and tooling
+- [Website](https://luongnv.com): https://luongnv.com
+- [LinkedIn](https://linkedin.com/in/luongnv89): Professional profile and updates
+- [X / Twitter](https://twitter.com/luongnv89): Short updates on AI and tooling
 
 ## Optional
 
-- [Sitemap](https://luongnv.com/sitemap.xml)
-  Full URL list for crawling
-- [Robots](https://luongnv.com/robots.txt)
-  Crawl preferences and AI content signals
-- [Agent Catalog](https://luongnv.com/.well-known/ai-catalog.json)
-  Agentic resource discovery manifest
+- [Sitemap](https://luongnv.com/sitemap.xml): Full URL list for crawling
+- [Robots](https://luongnv.com/robots.txt): Crawl preferences and AI content signals
+- [Agent Catalog](https://luongnv.com/.well-known/ai-catalog.json): Agentic resource discovery manifest
