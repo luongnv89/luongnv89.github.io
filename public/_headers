@@ -8,7 +8,7 @@
         </.well-known/ai-catalog.json>; rel="ai-catalog",
         </.well-known/agent-skills/index.json>; rel="service-desc",
         </openapi.json>; rel="service-desc"; type="application/vnd.oai.openapi",
-        </llms.txt>; rel="alternate"; type="text/markdown",
+        </llms.txt>; rel="describedby",
         </sitemap.xml>; rel="sitemap"
   Content-Signal: ai-train=no, search=yes, ai-input=no
   X-Markdown-Tokens: approximate
