@@ -21,6 +21,7 @@
 const GITHUB_PAGES_ORIGIN = 'https://luongnv89.github.io'
 
 /**
+/**
  * HTTP Link headers for agent discovery per RFC 8288 + RFC 9727 Section 3.
  * These point agents to machine-readable resource descriptions.
  */
