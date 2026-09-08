@@ -4,8 +4,8 @@
       "name": "claude-howto",
       "description": "A visual, example-driven guide to Claude Code — from basic concepts to advanced agents, with copy-paste templates that bring immediate value",
       "language": "Python",
-      "stars": 41402,
-      "forks": 5073,
+      "stars": 41413,
+      "forks": 5078,
       "url": "https://github.com/luongnv89/claude-howto",
       "landingPage": "https://luongnv.com/claude-howto",
       "logo": "/images/projects/claude-howto.svg"
@@ -120,7 +120,7 @@
       "name": "bluetooth-diagnostic",
       "description": "macOS Bluetooth diagnostic tool — connection quality, signal strength, congestion analysis, and health scoring for all paired devices",
       "language": "Shell",
-      "stars": 0,
+      "stars": 1,
       "url": "https://github.com/luongnv89/bluetooth-diagnostic",
       "logo": "/images/projects/bluetooth-diagnostic.svg",
       "forks": 0
@@ -184,7 +184,7 @@
       "name": "llm-cli",
       "description": "A wrapper of llama.cpp for easier use: find, download a model from Hugging Face, chat, get info, benchmark it",
       "language": "Shell",
-      "stars": 1,
+      "stars": 2,
       "url": "https://github.com/luongnv89/llm-cli",
       "logo": "/images/projects/llm-cli.svg",
       "forks": 1

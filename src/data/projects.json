@@ -13,10 +13,10 @@
       "name": "claude-howto",
       "description": "Visual, example-driven guide to Claude Code — from basic concepts to advanced agents, with 50+ copy-paste templates",
       "language": "Python",
-      "stars": 41402,
+      "stars": 41413,
       "url": "https://github.com/luongnv89/claude-howto",
       "icon": "/images/projects/claude-howto.svg",
-      "forks": 5073
+      "forks": 5078
     },
     {
       "name": "cc-context-stats",
@@ -84,9 +84,10 @@
       "name": "bluetooth-diagnostic",
       "description": "macOS Bluetooth diagnostic tool — connection quality, signal strength, congestion analysis, and health scoring for all paired devices",
       "language": "Shell",
-      "stars": 0,
+      "stars": 1,
       "url": "https://github.com/luongnv89/bluetooth-diagnostic",
-      "icon": "/images/projects/bluetooth-diagnostic.svg"
+      "icon": "/images/projects/bluetooth-diagnostic.svg",
+      "forks": 0
     },
     {
       "name": "vscode-theme-neon-green",
@@ -159,7 +160,7 @@
       "name": "llm-cli",
       "description": "Modular CLI for managing and running local LLMs with llama.cpp — search, download, chat, benchmark, and serve models",
       "language": "Shell",
-      "stars": 1,
+      "stars": 2,
       "url": "https://github.com/luongnv89/llm-cli",
       "forks": 1,
       "icon": "/images/projects/llm-cli.svg"
