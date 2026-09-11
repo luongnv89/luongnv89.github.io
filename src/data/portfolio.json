@@ -4,8 +4,8 @@
       "name": "claude-howto",
       "description": "A visual, example-driven guide to Claude Code — from basic concepts to advanced agents, with copy-paste templates that bring immediate value",
       "language": "Python",
-      "stars": 41432,
-      "forks": 5083,
+      "stars": 41442,
+      "forks": 5084,
       "url": "https://github.com/luongnv89/claude-howto",
       "landingPage": "https://luongnv.com/claude-howto",
       "logo": "/images/projects/claude-howto.svg"
@@ -14,7 +14,7 @@
       "name": "agent-skill-manager",
       "description": "The universal skill manager for AI coding agents — install, audit, and manage reusable skills across Claude Code, Codex, and more",
       "language": "TypeScript",
-      "stars": 916,
+      "stars": 928,
       "url": "https://github.com/luongnv89/agent-skill-manager",
       "landingPage": "https://luongnv.com/asm",
       "logo": "/images/projects/agent-skill-manager.svg",
@@ -120,7 +120,7 @@
       "name": "bluetooth-diagnostic",
       "description": "macOS Bluetooth diagnostic tool — connection quality, signal strength, congestion analysis, and health scoring for all paired devices",
       "language": "Shell",
-      "stars": 1,
+      "stars": 2,
       "url": "https://github.com/luongnv89/bluetooth-diagnostic",
       "logo": "/images/projects/bluetooth-diagnostic.svg",
       "forks": 0
