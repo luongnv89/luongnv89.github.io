@@ -1,22 +1,28 @@
 # Luong Nguyen
 
-> AI & Cybersecurity Engineer in Paris. 10+ years building secure backends and LLM tools. Creator of claude-howto (17k+ stars).
+> AI & Cybersecurity engineer at Montimage, Paris, with 15+ years of experience. Focus: AI agents, agent skills and network security (DPI). Creator of claude-howto (40k+ stars) and asm; builds apps with Intention-Driven Development (IDD) run by agents.
 
 ## About
 
 - [Luong Nguyen](https://luongnv.com/)
-  Portfolio of AI & Cybersecurity Engineer at Montimage, Paris
+  Portfolio of AI & Cybersecurity engineer at Montimage, Paris
 - [About](https://luongnv.com/#about)
-  Background, experience and focus areas
+  Background, 15+ years of experience, research engineer at Montimage
+- [Focus](https://luongnv.com/#skills)
+  AI Agents · Agent Skills · Cybersecurity, and the IDD method used to build the apps
 - [GitHub](https://github.com/luongnv89)
   Open-source projects and contributions
 
 ## OSS Projects
 
 - [claude-howto](https://github.com/luongnv89/claude-howto)
-  Visual guide to Claude Code — 17k+ stars
-- [agent-skill-manager](https://github.com/luongnv89/skills)
-  Skill manager for Claude Code, Codex and Cursor
+  Visual guide to Claude Code — 40k+ stars
+- [asm — agent-skill-manager](https://github.com/luongnv89/agent-skill-manager)
+  Universal skill manager for Claude Code, Codex, Cursor and other coding agents
+- [idd — Intention-Driven Development](https://luongnv.com/idd)
+  Turn intentions into structured, agent-ready GitHub issues; skills triage, resolve, review and ship PRs
+- [skills](https://github.com/luongnv89/skills)
+  Luong's public skill set for coding agents (installable with asm)
 - [sleek-ui](https://luongnv.com/sleek-ui)
   Minimal UI component library
 - [cc-context-stats](https://github.com/luongnv89/cc-context-stats)
@@ -25,6 +31,19 @@
   CLI music player for coders
 - [gstack](https://github.com/luongnv89/gstack)
   Garry Tan-inspired AI MVP builder
+
+## Products
+
+- [Milo](https://askmilo.pro)
+  Hands-free voice AI for Siri & CarPlay — routes to GPT, Claude, Gemini or 200+ models
+- [TextWiz](https://www.textwiz.pro)
+  Local-first macOS app running AI "wizards" on selected text via a global hotkey
+- [custats](https://custats.info)
+  Claude + Codex usage tracking in the macOS menu bar and on iOS
+- [devstats](https://devstats.info)
+  GitHub stats dashboard with contribution graphs, leaderboards and profile cards
+- [music](https://music-cli.luongnv.com)
+  Terminal-native music player with radio streaming and playlists
 
 ## Games
 
@@ -63,6 +82,8 @@
 
 ## Writing
 
+- [DeepSeek V4 Flash & GLM 5.3 Flash for Free](https://medium.com/@luongnv89/how-i-use-deepseek-v4-flash-and-glm-5-3-flash-for-free-everyday-3ebd9c60331a)
+  Free daily tokens via Cline + 9router, wired into any harness
 - [Claude Code 9% Cache Spike](https://x.com/luongnv89/status/2039682376708637046)
   Debugging Claude Code cache in one prompt
 - [gstack MVP Step by Step](https://medium.com/@luongnv89/how-to-use-gstack-to-build-a-mvp-step-by-step-ceedb6d53f8c)
