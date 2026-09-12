@@ -34,3 +34,6 @@ public/cv/
 .env
 .env.local
 .gstack/
+
+# agent-readiness scan scratch
+.agent-ready/
