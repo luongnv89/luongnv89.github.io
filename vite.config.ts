@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 import { fileURLToPath } from 'url'
 import { dirname, resolve, sep } from 'path'
 import { execSync } from 'child_process'
-import { existsSync, readdirSync, readFileSync, writeFileSync } from 'fs'
+import { existsSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'fs'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -75,7 +75,52 @@ export default defineConfig({
     {
       name: 'inject-portfolio-stats',
       transformIndexHtml(html: string) {
-        return html.replace(/%CLAUDE_HOWTO_STARS%/g, claudeHowtoStarsK)
+        return html
+          .replace(/%CLAUDE_HOWTO_STARS%/g, claudeHowtoStarsK)
+          .replace(/%BUILD_DATE%/g, commitDate.slice(0, 10))
+      },
+    },
+    {
+      // Game sources ship dev artifacts (src/, node_modules/, index.dev.html,
+      // design docs) that must never be deployed. Remove them from dist only —
+      // public/games/ stays the untouched source of truth. Runs before the
+      // SEO/analytics injectors so they never see index.dev.html.
+      name: 'strip-games-dev-files',
+      apply: 'build',
+      closeBundle() {
+        const gamesDir = resolve(__dirname, 'dist/games')
+        if (!existsSync(gamesDir)) return
+        const devFiles = [
+          'src',
+          'node_modules',
+          'dist',
+          'index.dev.html',
+          'package.json',
+          'package-lock.json',
+          'vite.config.js',
+          'vite.config.ts',
+        ]
+        for (const entry of readdirSync(gamesDir, { withFileTypes: true })) {
+          if (!entry.isDirectory()) continue
+          const dir = resolve(gamesDir, entry.name)
+          const removed: string[] = []
+          for (const name of devFiles) {
+            const target = resolve(dir, name)
+            if (existsSync(target)) {
+              rmSync(target, { recursive: true, force: true })
+              removed.push(name)
+            }
+          }
+          for (const f of readdirSync(dir, { withFileTypes: true })) {
+            if (f.isFile() && f.name.endsWith('.md')) {
+              rmSync(resolve(dir, f.name), { force: true })
+              removed.push(f.name)
+            }
+          }
+          if (removed.length > 0) {
+            console.log(`[strip-games-dev-files] ${entry.name}: removed ${removed.join(', ')}`)
+          }
+        }
       },
     },
     {

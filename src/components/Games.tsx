@@ -1,40 +1,63 @@
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Gamepad2 } from 'lucide-react'
 import { AppLink } from '@/lib/router'
-import { GameCard } from './GameCard'
-import { getGames } from '@/lib/games'
-
-/**
- * The grid is 3-wide at `lg`, so 6 fills exactly two rows with no ragged tail.
- * The catalog is larger; the "View all N games" link below adapts to the rest.
- */
-const HOME_PREVIEW_COUNT = 6
+import { getGames, monogram } from '@/lib/games'
 
 export function Games() {
   const games = getGames()
   if (games.length === 0) return null
 
-  const recent = games.slice(0, HOME_PREVIEW_COUNT)
+  const thumbs = games.slice(0, 3)
 
   return (
-    <section id="games" className="section bg-[var(--bg-secondary)]">
+    <section id="games" className="section-slim">
       <div className="container-custom">
-        <h2 className="section-title">Games</h2>
-        <p className="section-subtitle max-w-2xl">
-          Games I built for fun — they run in the browser, nothing to install. Free to play and share.
-        </p>
+        <AppLink
+          to="/games"
+          className="group card flex flex-col gap-4 p-5 sm:flex-row sm:items-center focus-ring hover:border-[var(--border-hover)]"
+        >
+          <div className="flex items-center gap-4 min-w-0">
+            <div className="h-10 w-10 shrink-0 rounded-lg border border-[var(--border)] flex items-center justify-center">
+              <Gamepad2 size={18} className="text-accent" />
+            </div>
+            <div className="min-w-0">
+              <p className="text-sm font-medium text-[var(--text-primary)]">Games</p>
+              <p className="text-sm text-[var(--text-secondary)]">
+                {games.length} browser games I built for fun — nothing to install.
+              </p>
+            </div>
+          </div>
 
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {recent.map((game) => (
-            <GameCard key={game.slug} game={game} surface="home" />
-          ))}
-        </div>
-
-        <div className="mt-8 flex justify-center">
-          <AppLink to="/games" className="btn-primary inline-flex items-center gap-2 focus-ring">
-            {games.length > HOME_PREVIEW_COUNT ? `View all ${games.length} games` : 'View all games'}
-            <ArrowRight size={16} aria-hidden="true" />
-          </AppLink>
-        </div>
+          <div className="sm:ml-auto flex items-center gap-4">
+            <div className="flex -space-x-2">
+              {thumbs.map((game) =>
+                game.thumb ? (
+                  <img
+                    key={game.slug}
+                    src={game.thumb}
+                    alt=""
+                    width={36}
+                    height={36}
+                    loading="lazy"
+                    decoding="async"
+                    className="h-9 w-9 rounded-md border border-[var(--border)] object-cover"
+                  />
+                ) : (
+                  <span
+                    key={game.slug}
+                    aria-hidden
+                    className="h-9 w-9 rounded-md border border-[var(--border)] bg-[var(--bg-tertiary)] flex items-center justify-center font-mono text-[10px] text-[var(--text-muted)]"
+                  >
+                    {monogram(game.title)}
+                  </span>
+                )
+              )}
+            </div>
+            <span className="btn-link text-sm">
+              Play
+              <ArrowRight size={16} />
+            </span>
+          </div>
+        </AppLink>
       </div>
     </section>
   )

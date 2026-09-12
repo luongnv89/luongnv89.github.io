@@ -15,7 +15,7 @@ Personal portfolio website for **Luong Nguyen** - Senior AI & Cybersecurity Engi
 ## Features
 
 - Dark/Light mode with system preference detection
-- Matrix rain background animation (pause by hovering avatar)
+- Ambient background (gradient glow, dot grid & grain — pure CSS, no canvas)
 - Live GitHub stats fetching
 - Responsive design (mobile, tablet, desktop)
 - SEO optimized with Schema.org structured data

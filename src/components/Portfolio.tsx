@@ -1,11 +1,13 @@
 import { Star, GitFork, ExternalLink, Github } from 'lucide-react'
-import { PortfolioCard } from './PortfolioCard'
+import { PortfolioRow } from './PortfolioCard'
+import { SectionHeader } from './ui/SectionHeader'
+import { formatCount } from '@/lib/utils'
 import portfolioData from '@/data/portfolio.json'
 
 /** Repos rendered as large flagship cards with screenshots. */
 const FLAGSHIP_NAMES = ['claude-howto', 'agent-skill-manager']
 
-/** First N remaining entries form the featured grid; the rest go in "More OSS projects". */
+/** First N remaining entries are shown in the list; the rest hide behind "Show more". */
 const FEATURED_OSS_LIMIT = 8
 
 const flagshipMeta: Record<string, { headline: string; screenshot: string }> = {
@@ -17,10 +19,6 @@ const flagshipMeta: Record<string, { headline: string; screenshot: string }> = {
     headline: "One tool to manage every AI agent's skills — install, audit, and organize 4,000+ skills across Claude Code, Codex, Cursor, and more.",
     screenshot: '/images/projects/screenshots/asm.jpg',
   },
-}
-
-function formatCount(n: number): string {
-  return n >= 1000 ? `${(n / 1000).toFixed(1).replace(/\.0$/, '')}k` : `${n}`
 }
 
 export function Portfolio() {
@@ -39,17 +37,19 @@ export function Portfolio() {
   return (
     <section id="oss" className="section">
       <div className="container-custom">
-        <h2 className="section-title">Open Source</h2>
-        <p className="section-subtitle max-w-2xl mb-8">
-          Tools I build in the open — for AI agent workflows, developer productivity, and everything in between.
-        </p>
+        <SectionHeader
+          index="04"
+          label="Open Source"
+          title="Built in the open"
+          lede="Tools I build in the open — for AI agent workflows, developer productivity, and everything in between."
+        />
 
         {/* Flagship projects */}
-        <div className="grid md:grid-cols-2 gap-6 mb-12">
+        <div className="grid md:grid-cols-2 gap-6 mb-8">
           {flagships.map((project) => (
             <div
               key={project.name}
-              className="group flex flex-col overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--bg-secondary)] transition-all duration-300 hover:border-[var(--accent)] hover:shadow-[0_18px_40px_-22px_var(--accent-glow)]"
+              className="group flex flex-col overflow-hidden rounded-xl border border-[var(--border)] bg-[var(--bg-secondary)] transition-all duration-200 hover:border-[var(--border-hover)] hover:shadow-[0_24px_48px_-28px_rgba(0,0,0,.7)]"
             >
               <a
                 href={project.landingPage ?? project.url}
@@ -105,7 +105,7 @@ export function Portfolio() {
                       href={project.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 font-medium text-[var(--text-secondary)] hover:text-accent transition-colors"
+                      className="inline-flex items-center gap-1.5 font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
                     >
                       <Github size={15} />
                       GitHub
@@ -115,7 +115,7 @@ export function Portfolio() {
                         href={project.landingPage}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 font-medium text-[var(--text-secondary)] hover:text-accent transition-colors"
+                        className="inline-flex items-center gap-1.5 font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
                       >
                         <ExternalLink size={15} />
                         Website
@@ -128,28 +128,26 @@ export function Portfolio() {
           ))}
         </div>
 
-        {/* Featured grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+        {/* Project list */}
+        <div className="rounded-xl border border-[var(--border)] bg-[var(--bg-secondary)] divide-y divide-[var(--border)] overflow-hidden">
           {featuredOssProjects.map((project) => (
-            <PortfolioCard key={`oss-${project.name}`} project={project} />
+            <PortfolioRow key={`oss-${project.name}`} project={project} />
           ))}
-        </div>
 
-        {remainingOssProjects.length > 0 && (
-          <details className="mt-6 rounded-xl border border-[var(--border)] bg-[var(--bg-secondary)]/40">
-            <summary className="cursor-pointer list-none px-4 py-3 text-sm font-medium text-[var(--text-primary)] flex items-center justify-between">
-              <span>More OSS projects</span>
-              <span className="text-[var(--text-muted)]">Open to expand</span>
-            </summary>
-            <div className="px-4 pb-4">
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+          {remainingOssProjects.length > 0 && (
+            <details>
+              <summary className="px-4 py-3 text-sm font-medium text-[var(--text-primary)] cursor-pointer list-none flex items-center justify-between hover:bg-[var(--bg-tertiary)] transition-colors focus-ring">
+                <span>Show {remainingOssProjects.length} more projects</span>
+                <span className="font-mono text-xs text-[var(--text-muted)]">+</span>
+              </summary>
+              <div className="divide-y divide-[var(--border)] border-t border-[var(--border)]">
                 {remainingOssProjects.map((project) => (
-                  <PortfolioCard key={`oss-more-${project.name}`} project={project} />
+                  <PortfolioRow key={`oss-more-${project.name}`} project={project} />
                 ))}
               </div>
-            </div>
-          </details>
-        )}
+            </details>
+          )}
+        </div>
       </div>
     </section>
   )

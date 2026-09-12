@@ -2,7 +2,8 @@
 
 **Author**: Luong Nguyen (@luongnv89)
 **Stack**: React (Vite + Bun), Tailwind CSS, shadcn/ui, lucide-icons
-**Theme**: Clean, professional, 3D depth with neon green highlights
+**Theme**: Quiet Terminal — dark graphite, editorial and refined.
+**Accent**: neon `#00ff41` reserved for ≤2 highlights per section; never a fill.
 
 ---
 
@@ -26,22 +27,24 @@
 
 | Token | Light Mode | Dark Mode | Usage |
 |-------|-----------|-----------|-------|
-| `--bg-primary` | `#ffffff` | `#0a0a0a` | Page background |
-| `--bg-secondary` | `#f9fafb` | `#111111` | Card backgrounds, sections |
-| `--bg-tertiary` | `#f3f4f6` | `#1a1a1a` | Hover states, code blocks |
-| `--text-primary` | `#111111` | `#fafafa` | Headings, body text |
-| `--text-secondary` | `#6b7280` | `#a1a1a1` | Muted text, labels |
-| `--text-muted` | `#9ca3af` | `#737373` | Placeholders, captions |
-| `--border` | `#e5e7eb` | `#262626` | Card borders, dividers |
-| `--border-hover` | `#d1d5db` | `#404040` | Hover border state |
+| `--bg-primary` | `#f7f7f4` | `#0b0d10` | Page background |
+| `--bg-secondary` | `#ffffff` | `#11141a` | Card backgrounds |
+| `--bg-tertiary` | `#eeeeea` | `#181c23` | Hover states |
+| `--text-primary` | `#101214` | `#f2f3f0` | Headings, body text |
+| `--text-secondary` | `#4a5058` | `#a7adb3` | Muted text, labels |
+| `--text-muted` | `#6b7280` | `#7d848c` | Placeholders, captions |
+| `--border` | `#e3e4df` | `#1f242c` | Card borders, hairlines |
+| `--border-hover` | `#cfd1cb` | `#2e353f` | Hover border state |
 
 ### Accent Colors
 
-| Token | Value | Usage |
-|-------|-------|-------|
-| `--accent` | `#00ff41` | Highlights (text, borders, icons) |
-| `--accent-hover` | `#00cc33` | Hover state for accent |
-| `--accent-glow` | `rgba(0,255,65,0.15)` | Subtle glow/shadow |
+| Token | Light | Dark | Usage |
+|-------|-------|------|-------|
+| `--accent` | `#059033` | `#00ff41` | Dots, hairlines, icons (never a fill) |
+| `--accent-text` | `#046c25` | `#00ff41` | Accent text/numbers |
+| `--accent-hover` | `#047528` | `#33ff66` | Hover state for accent |
+| `--accent-glow` | `rgba(5,144,51,0.12)` | `rgba(0,255,65,0.12)` | Ambient glow |
+| `--accent-dim` | `rgba(5,144,51,0.06)` | `rgba(0,255,65,0.07)` | Button hover wash |
 
 ### Status Colors (Text Only)
 
@@ -113,8 +116,9 @@
 ### Font Stack
 
 ```css
---font-sans: 'Inter', system-ui, sans-serif;
---font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+--font-sans: 'IBM Plex Sans', system-ui, sans-serif;
+--font-display: 'Instrument Serif', Georgia, serif;
+--font-mono: 'IBM Plex Mono', 'JetBrains Mono', monospace;
 ```
 
 ### Scale
@@ -343,7 +347,7 @@ export function Hero() {
         @luongnv89
       </h1>
       <p className="mt-4 text-lg text-secondary max-w-md text-center">
-        Software Engineer with 10+ years building secure, scalable systems
+        Software Engineer with 15+ years building secure, scalable systems
         and AI-powered applications.
       </p>
       <div className="flex gap-4 mt-8">

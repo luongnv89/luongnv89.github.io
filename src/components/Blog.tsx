@@ -1,6 +1,17 @@
-import { ArrowRight, Calendar } from 'lucide-react'
+import { ArrowUpRight } from 'lucide-react'
+import { SectionHeader } from './ui/SectionHeader'
 
 const posts = [
+  {
+    title: 'How I Use DeepSeek V4 Flash and GLM 5.3 Flash for Free (Every Day)',
+    date: '2026-09-09',
+    excerpt: 'A step-by-step setup — free Cline account, 9router, and your favourite harness — that gives you 15M tokens per model per day of GLM 5.3 Flash, DeepSeek V4 Flash and Longcat 2.0, wired into Claude Code, Codex or Pi.',
+    url: 'https://medium.com/@luongnv89/how-i-use-deepseek-v4-flash-and-glm-5-3-flash-for-free-everyday-3ebd9c60331a',
+    extraLinks: [
+      { label: 'Substack', url: 'https://luongnv89.substack.com/p/how-i-use-deepseek-v4-flash-and-glm' },
+      { label: 'X', url: 'https://x.com/luongnv89/status/2097437792007758032' },
+    ],
+  },
   {
     title: 'How to Run Claude Code & Codex with Local Models via llama.cpp, Ollama, LM Studio, and vLLM (2026)',
     date: '2026-04-15',
@@ -95,80 +106,75 @@ const posts = [
 
 export function Blog() {
   return (
-    <section id="blog" className="section bg-[var(--bg-secondary)]">
-      <div className="container-custom">
-        <h2 className="section-title">Latest Writing</h2>
-        <p className="section-subtitle max-w-2xl">
-          Thoughts on AI, security, and software engineering.
-        </p>
+    <section id="blog" className="section">
+      <div className="container-custom grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <div className="lg:col-span-4">
+          <SectionHeader
+            index="05"
+            label="Writing"
+            title="Latest writing"
+            lede="Notes on AI agents, security and the craft of shipping software."
+            className="mb-0"
+          />
+          <a
+            className="btn-link mt-8 text-sm"
+            href="https://medium.com/@luongnv89"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            All articles on Medium
+            <ArrowUpRight size={16} />
+          </a>
+        </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {posts.slice(0, 6).map((post) => (
-            <div
-              key={post.title}
-              className="group card p-6 flex flex-col"
-            >
-              <div className="flex items-center gap-2 text-sm text-[var(--text-muted)] mb-3">
-                <Calendar size={14} />
-                <time dateTime={post.date}>
+        <div className="lg:col-span-8">
+          <ol className="divide-y divide-[var(--border)] border-y border-[var(--border)]">
+            {posts.slice(0, 6).map((post) => (
+              <li key={post.title} className="py-5 grid sm:grid-cols-[7rem_1fr] gap-x-6 gap-y-2">
+                <time
+                  dateTime={post.date}
+                  className="font-mono text-xs text-[var(--text-muted)] pt-1"
+                >
                   {new Date(post.date).toLocaleDateString('en-US', {
                     month: 'short',
                     day: 'numeric',
                     year: 'numeric',
                   })}
                 </time>
-              </div>
-
-              <a
-                href={post.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="focus-ring"
-              >
-                <h3 className="font-semibold text-[var(--text-primary)] group-hover:text-accent transition-colors">
-                  {post.title}
-                </h3>
-              </a>
-
-              <p className="text-sm text-[var(--text-secondary)] mt-2 flex-1">
-                {post.excerpt}
-              </p>
-
-              <div className="mt-4 flex items-center gap-2 text-sm">
-                <a
-                  href={post.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-accent hover:underline font-medium"
-                  aria-label={`Read more about ${post.title}`}
-                >
-                  Read more <ArrowRight size={14} />
-                </a>
-                {post.extraLinks?.map((link) => (
+                <div>
                   <a
-                    key={link.label}
-                    href={link.url}
+                    href={post.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[var(--text-muted)] hover:text-accent transition-colors hover:underline"
+                    className="text-base md:text-lg font-medium leading-snug text-[var(--text-primary)] hover:underline decoration-[var(--border-hover)] underline-offset-4 focus-ring"
                   >
-                    {link.label}
+                    {post.title}
                   </a>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-12 text-center">
-          <a
-            href="https://medium.com/@luongnv89"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary inline-flex items-center gap-2"
-          >
-            View All Articles on Medium
-          </a>
+                  <p className="mt-1.5 text-sm text-[var(--text-secondary)] line-clamp-2">
+                    {post.excerpt}
+                  </p>
+                  {post.extraLinks && (
+                    <p className="mt-2 font-mono text-xs text-[var(--text-muted)]">
+                      Also on:{' '}
+                      {post.extraLinks.map((link, i) => (
+                        <span key={link.label}>
+                          {i > 0 && ' · '}
+                          <a
+                            href={link.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="hover:underline decoration-[var(--border-hover)] underline-offset-2"
+                          >
+                            {link.label}
+                          </a>
+                        </span>
+                      ))}
+                    </p>
+                  )}
+                </div>
+              </li>
+            ))}
+          </ol>
         </div>
       </div>
     </section>

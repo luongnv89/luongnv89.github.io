@@ -1,7 +1,7 @@
-import { Github, Linkedin, Twitter, Star, Users, FolderGit2, GitFork, Loader2, ArrowDown, BookOpen } from 'lucide-react'
+import { ArrowDown, ArrowUpRight, Github, Linkedin, Twitter } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { fetchGitHubStats, type GitHubStats } from '@/lib/github'
-import { useMatrixPause } from '@/hooks/useMatrixPause'
+import { cn } from '@/lib/utils'
 import portfolioData from '@/data/portfolio.json'
 
 // Kept fresh by the daily stats cron that rewrites portfolio.json
@@ -26,15 +26,21 @@ function BlueskyIcon({ size = 18 }: { size?: number }) {
 
 const socials = [
   { icon: Linkedin, url: 'https://linkedin.com/in/luongnv89', label: 'LinkedIn' },
-  { icon: Twitter, url: 'https://twitter.com/luongnv89', label: 'Twitter' },
+  { icon: Twitter, url: 'https://x.com/luongnv89', label: 'X' },
   { icon: BlueskyIcon, url: 'https://bsky.app/profile/luongnv89.bsky.social', label: 'Bluesky' },
   { icon: Github, url: 'https://github.com/luongnv89', label: 'GitHub' },
+]
+
+const statCells: Array<{ key: keyof GitHubStats; label: string; accent?: boolean }> = [
+  { key: 'totalStars', label: 'stars', accent: true },
+  { key: 'totalForks', label: 'forks' },
+  { key: 'followers', label: 'followers' },
+  { key: 'publicRepos', label: 'repos' },
 ]
 
 export function Hero() {
   const [stats, setStats] = useState<GitHubStats | null>(null)
   const [isLoading, setIsLoading] = useState(true)
-  const { isPaused, setIsPaused } = useMatrixPause()
 
   useEffect(() => {
     fetchGitHubStats('luongnv89')
@@ -43,79 +49,90 @@ export function Hero() {
   }, [])
 
   return (
-    <section id="home" className="relative min-h-screen flex flex-col items-center justify-center py-24 px-4">
-      <button
-        onClick={() => setIsPaused(!isPaused)}
-        onMouseEnter={() => setIsPaused(true)}
-        onMouseLeave={() => setIsPaused(false)}
-        onFocus={() => setIsPaused(true)}
-        onBlur={() => setIsPaused(false)}
-        className="focus-ring rounded-full"
-        aria-label="Pause or resume the background animation"
-      >
-        <img
-          src="/img/cool.jpg"
-          alt="Luong Nguyen"
-          width={160}
-          height={160}
-          fetchPriority="high"
-          className="w-32 h-32 md:w-40 md:h-40 rounded-full border-2 border-[var(--border)]
-                     hover:border-accent transition-all duration-300 cursor-pointer"
+    <section
+      id="home"
+      className="relative flex min-h-screen flex-col items-center justify-center px-4 pt-24 pb-24 text-center"
+    >
+      <span className="reveal reveal-1 relative inline-block">
+        <span
+          aria-hidden
+          className="absolute -inset-2 rounded-full border"
+          style={{ borderColor: 'var(--accent-glow)' }}
         />
-      </button>
+        <picture>
+          <source
+            type="image/webp"
+            srcSet="/avatar-160.webp 160w, /avatar-320.webp 320w"
+            sizes="(min-width: 768px) 160px, 128px"
+          />
+          <img
+            src="/img/cool.jpg"
+            alt="Luong Nguyen"
+            width={160}
+            height={160}
+            {...({ fetchpriority: 'high' } as Record<string, string>)}
+            className="h-32 w-32 md:h-40 md:w-40 rounded-full border border-[var(--border)] shadow-[0_30px_60px_-30px_rgba(0,0,0,.7)]"
+          />
+        </picture>
+      </span>
 
-      <h1 className="mt-6 text-4xl md:text-5xl font-bold text-center">
+      <h1 className="display reveal reveal-2 mt-8 text-5xl md:text-6xl leading-none tracking-tight">
         Luong Nguyen
       </h1>
-      <p className="mt-2 font-mono text-accent text-center">@luongnv89</p>
+      <p className="reveal reveal-2 mt-3 font-mono text-sm text-[var(--text-muted)]">@luongnv89</p>
 
-      <p className="mt-4 text-lg text-[var(--text-primary)] max-w-xl text-center leading-relaxed font-medium">
+      <p className="reveal reveal-3 eyebrow mt-6 flex items-center justify-center gap-3 whitespace-nowrap text-[10px] sm:text-xs">
+        <span className="relative flex h-2 w-2 shrink-0">
+          <span className="absolute inline-flex h-full w-full rounded-full bg-[var(--accent)] opacity-60 animate-ping" />
+          <span className="relative inline-flex h-2 w-2 rounded-full bg-[var(--accent)]" />
+        </span>
+        AI Agents · Agent Skills · Cybersecurity
+      </p>
+
+      <p className="reveal reveal-3 mt-4 text-lg md:text-xl font-medium text-[var(--text-primary)]">
         AI &amp; Cybersecurity Engineer at Montimage, Paris
       </p>
-      <p className="mt-2 text-[var(--text-secondary)] max-w-xl text-center leading-relaxed">
-        I secure networks by day and ship AI developer tools used by thousands —
-        including a {claudeHowtoStarsK}k-star Claude Code guide. Learn, Build, Share and Connect.
+
+      <p className="reveal reveal-4 mt-3 max-w-xl text-base md:text-lg leading-relaxed text-[var(--text-secondary)]">
+        I secure networks by day and build open-source tooling for AI agents — including{' '}
+        <a
+          href="https://luongnv.com/claude-howto"
+          className="text-[var(--text-primary)] underline decoration-[var(--border-hover)] underline-offset-4 hover:decoration-[var(--accent)]"
+        >
+          claude-howto
+        </a>
+        , a {claudeHowtoStarsK}k-star guide to Claude Code. Learn, build, share, connect.
       </p>
 
-      {/* GitHub Stats */}
-      <div className="flex flex-col items-center gap-2 mt-6">
-        <span className="text-xs uppercase tracking-[0.2em] text-[var(--text-muted)] font-mono">
-          GitHub Stats
-        </span>
-        {isLoading ? (
-          <div className="flex items-center gap-2">
-            <Loader2 size={16} className="animate-spin text-accent" />
-            <span>Loading stats...</span>
-          </div>
-        ) : stats ? (
-          <div className="impact-stats">
-            <div className="impact-stat">
-              <Star size={16} />
-              <span className="stat-num">{stats.totalStars.toLocaleString()}</span>
-              <span className="stat-label">stars</span>
-            </div>
-            <div className="impact-stat">
-              <GitFork size={16} />
-              <span className="stat-num">{stats.totalForks.toLocaleString()}</span>
-              <span className="stat-label">forks</span>
-            </div>
-            <div className="impact-stat">
-              <Users size={16} />
-              <span className="stat-num">{stats.followers.toLocaleString()}</span>
-              <span className="stat-label">followers</span>
-            </div>
-            <div className="impact-stat">
-              <FolderGit2 size={16} />
-              <span className="stat-num">{stats.publicRepos.toLocaleString()}</span>
-              <span className="stat-label">repos</span>
-            </div>
-          </div>
-        ) : null}
-      </div>
+      {isLoading ? (
+        <div className="reveal reveal-5 mt-8 flex items-center justify-center gap-x-6">
+          {statCells.map(({ label }) => (
+            <span
+              key={label}
+              className="h-4 w-16 animate-pulse rounded bg-[var(--bg-tertiary)]"
+            />
+          ))}
+        </div>
+      ) : stats ? (
+        <div className="reveal reveal-5 mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 font-mono text-sm text-[var(--text-secondary)]">
+          {statCells.map(({ key, label, accent }) => (
+            <span key={key}>
+              <span
+                className={cn(
+                  'tabular-nums',
+                  accent ? 'text-accent' : 'text-[var(--text-primary)]'
+                )}
+              >
+                {stats[key].toLocaleString()}
+              </span>{' '}
+              <span className="text-[var(--text-muted)]">{label}</span>
+            </span>
+          ))}
+        </div>
+      ) : null}
 
-      {/* CTAs */}
-      <div className="flex flex-wrap justify-center gap-4 mt-8">
-        <a href="#products" className="btn-primary inline-flex items-center gap-2">
+      <div className="reveal reveal-5 mt-10 flex flex-wrap justify-center gap-4">
+        <a href="#products" className="btn-primary">
           See my work
           <ArrowDown size={16} />
         </a>
@@ -123,15 +140,14 @@ export function Hero() {
           href="https://luongnv.com/claude-howto"
           target="_blank"
           rel="noopener noreferrer"
-          className="btn-secondary inline-flex items-center gap-2"
+          className="btn-link"
         >
-          <BookOpen size={16} />
           Read the Claude Code guide
+          <ArrowUpRight size={16} />
         </a>
       </div>
 
-      {/* Social Links */}
-      <div className="flex gap-4 mt-8">
+      <div className="reveal reveal-6 mt-10 flex justify-center gap-3">
         {socials.map(({ icon: Icon, url, label }) => (
           <a
             key={label}
@@ -146,15 +162,14 @@ export function Hero() {
         ))}
       </div>
 
-      {/* Scroll indicator */}
       <a
         href="#about"
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 group"
         aria-label="Scroll to about section"
+        className="group absolute bottom-8 left-1/2 -translate-x-1/2"
       >
-        <div className="w-6 h-10 rounded-full border-2 border-[var(--border)] flex items-start justify-center p-2 group-hover:border-accent transition-colors">
-          <div className="w-1 h-2 bg-accent rounded-full animate-bounce" />
-        </div>
+        <span className="flex h-10 w-6 items-start justify-center rounded-full border border-[var(--border)] p-2 transition-colors group-hover:border-[var(--border-hover)]">
+          <span className="h-2 w-1 rounded-full bg-[var(--accent)] animate-bounce" />
+        </span>
       </a>
     </section>
   )

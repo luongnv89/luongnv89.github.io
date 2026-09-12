@@ -52,7 +52,7 @@ export function GameCard({ game, surface }: { game: Game; surface: GameSurface }
       // sent them. gtag uses sendBeacon, so the navigation is not delayed and
       // the link needs no preventDefault.
       onClick={() => trackGameCardClick(game.slug, surface)}
-      className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--bg-primary)] transition-all duration-300 hover:-translate-y-1 hover:border-[var(--accent)] hover:shadow-[0_18px_40px_-22px_var(--accent-glow)] focus-ring"
+      className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-[var(--border)] bg-[var(--bg-secondary)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--border-hover)] hover:shadow-[0_24px_48px_-28px_rgba(0,0,0,.7)] focus-ring"
     >
       <div className="relative aspect-[16/10] overflow-hidden border-b border-[var(--border)]">
         {showThumb ? (

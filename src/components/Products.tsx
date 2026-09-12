@@ -1,4 +1,6 @@
 import { ArrowUpRight } from 'lucide-react'
+import { SectionHeader } from './ui/SectionHeader'
+import { cn } from '@/lib/utils'
 
 interface Product {
   name: string
@@ -54,25 +56,35 @@ const products: Product[] = [
 
 export function Products() {
   return (
-    <section id="products" className="section bg-[var(--bg-secondary)]">
+    <section id="products" className="section">
       <div className="container-custom">
-        <h2 className="section-title">Products</h2>
-        <p className="section-subtitle max-w-2xl">
-          Apps and services I've designed, built, and shipped — click through to try them.
-        </p>
+        <SectionHeader
+          index="03"
+          label="Products"
+          title="Apps I've shipped"
+          lede="Designed, built and shipped end to end — click through to try them."
+        />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {products.map((product) => (
+          {products.map((product, i) => (
             <a
               key={product.name}
               href={product.url}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`${product.name} — visit website`}
-              className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--bg-primary)] transition-all duration-300 hover:-translate-y-1 hover:border-[var(--accent)] hover:shadow-[0_18px_40px_-22px_var(--accent-glow)] focus-ring"
+              className={cn(
+                'group relative flex h-full flex-col overflow-hidden rounded-xl border border-[var(--border)] bg-[var(--bg-secondary)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--border-hover)] hover:shadow-[0_24px_48px_-28px_rgba(0,0,0,.7)] focus-ring',
+                i === 0 && 'lg:col-span-2 lg:flex-row'
+              )}
             >
               {/* Live screenshot */}
-              <div className="relative aspect-[16/10] overflow-hidden border-b border-[var(--border)]">
+              <div
+                className={cn(
+                  'relative aspect-[16/10] overflow-hidden border-b border-[var(--border)]',
+                  i === 0 && 'lg:aspect-auto lg:w-[58%] lg:shrink-0 lg:border-b-0 lg:border-r'
+                )}
+              >
                 <img
                   src={product.screenshot}
                   alt={`${product.name} — ${product.tagline} by Luong Nguyen, available at ${product.url.replace(/^https?:\/\//, '')}`}
@@ -80,14 +92,17 @@ export function Products() {
                   height={400}
                   loading="lazy"
                   decoding="async"
-                  className="h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.03]"
+                  className={cn(
+                    'h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]',
+                    i === 0 ? 'object-left-top' : 'object-top'
+                  )}
                 />
               </div>
 
-              <div className="flex flex-grow flex-col p-5">
+              <div className={cn('flex flex-grow flex-col p-5', i === 0 && 'lg:min-w-0 lg:justify-center lg:p-8')}>
                 {/* Header: logo tile + name + tagline */}
                 <div className="flex items-center gap-3">
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-[var(--border)] bg-[var(--bg-secondary)]">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-[var(--border)] bg-[var(--bg-primary)]">
                     <img
                       src={product.logo}
                       alt=""
@@ -109,18 +124,18 @@ export function Products() {
                 </div>
 
                 {/* Description */}
-                <p className="mt-3 flex-grow text-sm leading-relaxed text-[var(--text-secondary)]">
+                <p className={cn('mt-3 flex-grow text-sm leading-relaxed text-[var(--text-secondary)]', i === 0 && 'lg:flex-grow-0 lg:mt-5 lg:text-base')}>
                   {product.description}
                 </p>
 
                 {/* Footer: domain + arrow */}
-                <div className="mt-4 flex items-center justify-between border-t border-[var(--border)] pt-3">
-                  <span className="truncate font-mono text-sm font-medium text-accent">
+                <div className={cn('mt-4 flex items-center justify-between border-t border-[var(--border)] pt-3', i === 0 && 'lg:mt-8')}>
+                  <span className="truncate font-mono text-xs text-[var(--text-muted)]">
                     {product.url.replace(/^https?:\/\//, '').replace(/\/$/, '')}
                   </span>
                   <ArrowUpRight
-                    size={18}
-                    className="shrink-0 text-[var(--text-muted)] transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[var(--accent)]"
+                    size={16}
+                    className="shrink-0 text-[var(--text-muted)] transition-all duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[var(--text-primary)]"
                   />
                 </div>
               </div>

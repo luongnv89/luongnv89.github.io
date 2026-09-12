@@ -16,8 +16,9 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
+        sans: ['IBM Plex Sans', 'system-ui', 'sans-serif'],
+        display: ['Instrument Serif', 'Georgia', 'serif'],
+        mono: ['IBM Plex Mono', 'JetBrains Mono', 'monospace'],
       },
       boxShadow: {
         'accent': '0 0 20px var(--accent-glow)',

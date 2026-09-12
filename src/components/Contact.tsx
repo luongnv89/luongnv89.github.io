@@ -1,4 +1,5 @@
 import { Mail, Github, Linkedin, Twitter, MapPin, FileText, Download } from 'lucide-react'
+import { SectionHeader } from './ui/SectionHeader'
 
 // Bluesky icon component (not in lucide-react)
 function BlueskyIcon({ size = 20 }: { size?: number }) {
@@ -44,59 +45,59 @@ export function Contact() {
   return (
     <section id="contact" className="section">
       <div className="container-custom">
-        <div className="max-w-2xl mx-auto text-center">
-          <h2 className="section-title">Get In Touch</h2>
-          <p className="section-subtitle">
-            Have a project in mind or just want to say hi? I'd love to hear from you.
-          </p>
-
-          <div className="flex items-center justify-center gap-2 text-[var(--text-secondary)] mb-8">
-            <MapPin size={16} className="text-accent" />
-            <span>Paris, France</span>
-          </div>
+        <div className="max-w-3xl mx-auto text-center">
+          <SectionHeader
+            index="06"
+            label="Contact"
+            title="Let's build something secure and useful."
+            lede="Consulting, collaboration on AI agent tooling or network security, or just a hello — my inbox is open."
+            align="center"
+            className="mb-8"
+          />
 
           <a
             href="mailto:luongnv89@gmail.com"
-            className="btn-primary inline-flex items-center gap-2 text-lg"
+            className="font-mono text-lg md:text-xl text-[var(--text-primary)] underline decoration-[var(--border-hover)] underline-offset-8 hover:decoration-[var(--accent)]"
           >
-            <Mail size={18} />
-            Say Hello
+            luongnv89@gmail.com
           </a>
 
-          {/* CV Links */}
-          <div className="flex justify-center gap-4 mt-6 flex-wrap">
+          <div className="mt-10 flex flex-wrap justify-center gap-4">
+            <a href="mailto:luongnv89@gmail.com" className="btn-primary">
+              <Mail size={16} />
+              Say hello
+            </a>
             <a
               href="/cv/cv.html"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-secondary inline-flex items-center gap-2"
-              aria-label="View CV"
+              className="btn-secondary"
             >
-              <FileText size={18} />
+              <FileText size={16} />
               View CV
             </a>
-            <a
-              href="/cv/Luong_NGUYEN_CV.pdf"
-              download
-              className="btn-secondary inline-flex items-center gap-2"
-              aria-label="Download PDF"
-            >
-              <Download size={18} />
+            <a href="/cv/Luong_NGUYEN_CV.pdf" download className="btn-secondary">
+              <Download size={16} />
               Download PDF
             </a>
           </div>
 
-          <div className="flex justify-center gap-4 mt-12">
+          <p className="mt-8 flex justify-center items-center gap-2 font-mono text-xs uppercase tracking-[0.14em] text-[var(--text-muted)]">
+            <MapPin size={14} />
+            Paris, France · CET
+          </p>
+
+          <div className="mt-6 flex justify-center gap-3">
             {socials.map(({ icon: Icon, url, label }) => (
               <a
                 key={label}
                 href={url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="icon-btn w-12 h-12 focus-ring"
+                className="icon-btn focus-ring"
                 aria-label={label}
               >
-                <Icon size={20} />
+                <Icon size={18} />
               </a>
             ))}
           </div>

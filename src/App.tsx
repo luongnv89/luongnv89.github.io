@@ -1,19 +1,18 @@
-import { useEffect, useState } from 'react'
-import { MatrixBackground } from './components/MatrixBackground'
+import { useEffect } from 'react'
+import { AmbientBackground } from './components/AmbientBackground'
 import { ScrollToTop } from './components/ScrollToTop'
 import { Hero } from './components/Hero'
 import { About } from './components/About'
+import { Focus } from './components/Focus'
 import { Products } from './components/Products'
 import { Portfolio } from './components/Portfolio'
 import { Games } from './components/Games'
 import { GamesPage } from './components/GamesPage'
 import { NotFound } from './components/NotFound'
-import { Skills } from './components/Skills'
 import { Blog } from './components/Blog'
 import { Contact } from './components/Contact'
 import { Nav } from './components/layout/Nav'
 import { Footer } from './components/layout/Footer'
-import { MatrixPauseContext } from './hooks/useMatrixPause'
 import { usePathname } from './lib/router'
 
 /**
@@ -38,10 +37,10 @@ function HomePage() {
       <main className="relative z-10">
         <Hero />
         <About />
+        <Focus />
         <Products />
         <Portfolio />
         <Games />
-        <Skills />
         <Blog />
         <Contact />
       </main>
@@ -51,7 +50,6 @@ function HomePage() {
 }
 
 function App() {
-  const [isPaused, setIsPaused] = useState(false)
   const pathname = usePathname()
   const page = pathname === '/'
     ? <HomePage />
@@ -60,14 +58,12 @@ function App() {
       : <NotFound />
 
   return (
-    <MatrixPauseContext.Provider value={{ isPaused, setIsPaused }}>
-      <div className="min-h-screen bg-[var(--bg-primary)] relative">
-        <MatrixBackground />
-        <Nav />
-        <ScrollToTop />
-        {page}
-      </div>
-    </MatrixPauseContext.Provider>
+    <div className="min-h-screen bg-[var(--bg-primary)] relative">
+      <AmbientBackground />
+      <Nav />
+      <ScrollToTop />
+      {page}
+    </div>
   )
 }
 

@@ -40,16 +40,16 @@ export function GamesPage() {
               in-page way back on mobile. */}
           <AppLink
             to="/"
-            className="-my-3 inline-flex items-center gap-2 py-3 text-sm text-[var(--text-secondary)] transition-colors hover:text-accent focus-ring rounded-md"
+            className="-my-3 inline-flex items-center gap-2 py-3 text-sm text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)] focus-ring rounded-md"
           >
             <ArrowLeft size={16} aria-hidden="true" />
             Back to home
           </AppLink>
 
-          <h1 className="mt-6 text-3xl font-semibold text-[var(--text-primary)] md:text-4xl">
+          <h1 className="display mt-6 text-4xl md:text-5xl text-[var(--text-primary)]">
             Games
           </h1>
-          <p className="section-subtitle mt-3 mb-0 max-w-2xl">
+          <p className="mt-4 max-w-2xl text-base md:text-lg leading-relaxed text-[var(--text-secondary)]">
             Games that run in the browser. Nothing to install — click one and play. Free to share.
           </p>
 
@@ -81,12 +81,10 @@ export function GamesPage() {
           )}
         </div>
 
-        {/* GameCard is --bg-primary, same as the page, so on its own the grid is
-            delineated only by a 1.10:1 border. The homepage gives that card a
-            --bg-secondary section (Products, Games); this band is the same
-            one-step separation. It wraps only the grid rather than <main> so the
-            matrix canvas still shows through behind the page header. */}
-        <section className="mt-10 bg-[var(--bg-secondary)] py-10 md:py-12">
+        {/* The grid band is separated from the header by a hairline only —
+            sections no longer alternate backgrounds. It wraps just the grid so
+            the ambient background still shows through behind the page header. */}
+        <section className="mt-10 border-t border-[var(--border)] py-10 md:py-12">
           <div className="container-custom">
             {/* The page h1 is "Games" and the cards are h3 — without this the
                 heading outline skips a level. */}
@@ -109,7 +107,7 @@ export function GamesPage() {
                 ))}
               </div>
             ) : (
-              <div className="rounded-2xl border border-[var(--border)] bg-[var(--bg-primary)] p-10 text-center">
+              <div className="rounded-xl border border-[var(--border)] bg-[var(--bg-secondary)] p-10 text-center">
                 <p className="text-[var(--text-primary)]">
                   {games.length === 0
                     ? 'No games published yet — check back soon.'

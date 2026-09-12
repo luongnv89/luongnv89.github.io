@@ -8,23 +8,26 @@ interface NavLink {
 }
 
 /** Root-relative so they work from non-home routes (e.g. /games) too. */
-const links: NavLink[] = [
+const siteLinks: NavLink[] = [
   { label: 'About', href: '/#about' },
+  { label: 'Focus', href: '/#skills' },
   { label: 'Products', href: '/#products' },
   { label: 'Open Source', href: '/#oss' },
   { label: 'Games', href: '/games', route: true },
-  { label: 'Skills', href: '/#skills' },
   { label: 'Writing', href: '/#blog' },
   { label: 'Contact', href: '/#contact' },
 ]
 
-const externalLinks: NavLink[] = [
+const elsewhereLinks: NavLink[] = [
   { label: 'GitHub', href: 'https://github.com/luongnv89' },
   { label: 'LinkedIn', href: 'https://linkedin.com/in/luongnv89' },
+  { label: 'X', href: 'https://x.com/luongnv89' },
   { label: 'Medium', href: 'https://medium.com/@luongnv89' },
   { label: 'Substack', href: 'https://luongnv89.substack.com/' },
   { label: 'Bluesky', href: 'https://bsky.app/profile/luongnv89.bsky.social' },
 ]
+
+const linkClass = 'text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors'
 
 interface FooterProps {
   className?: string
@@ -32,68 +35,73 @@ interface FooterProps {
 
 export function Footer({ className = '' }: FooterProps) {
   const currentYear = new Date().getFullYear()
-  const lastUpdated = typeof __COMMIT_DATE__ !== 'undefined'
-    ? new Date(__COMMIT_DATE__).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })
-    : 'dev'
 
   return (
-    <footer className={`py-8 border-t border-[var(--border)] ${className}`}>
+    <footer className={`border-t border-[var(--border)] py-12 ${className}`}>
       <div className="container-custom">
-        <div className="space-y-6">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-            <div className="flex items-center gap-3 text-sm text-[var(--text-muted)]">
-              <span>&copy; {currentYear} Luong Nguyen</span>
-              <span className="text-[var(--text-muted)] opacity-50">•</span>
-              <span className="font-mono text-xs">v1.1.0-{typeof __COMMIT_HASH__ !== 'undefined' ? __COMMIT_HASH__ : 'dev'} ({lastUpdated})</span>
-            </div>
-
-            <div className="flex flex-wrap items-center gap-3">
-              {externalLinks.map(({ label, href }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-[var(--text-secondary)] hover:text-accent transition-colors"
-                >
-                  {label}
-                </a>
-              ))}
-            </div>
+        <div className="grid md:grid-cols-12 gap-10">
+          <div className="md:col-span-5">
+            <p className="flex items-center gap-2">
+              <span className="inline-block h-2 w-2 rounded-full bg-[var(--accent)]" aria-hidden />
+              <span className="font-medium text-[var(--text-primary)]">Luong Nguyen</span>
+            </p>
+            <p className="mt-3 max-w-xs text-sm text-[var(--text-secondary)]">
+              AI &amp; Cybersecurity engineer in Paris. Building tooling for AI agents and
+              securing the networks they run on.
+            </p>
           </div>
 
-          <nav className="flex flex-wrap items-center gap-x-6 gap-y-2">
-            {links.map(({ label, href, route }) =>
-              route ? (
-                <AppLink
-                  key={label}
-                  to={href}
-                  className="text-sm text-[var(--text-secondary)] hover:text-accent transition-colors"
-                >
-                  {label}
-                </AppLink>
-              ) : (
-                <a
-                  key={label}
-                  href={href}
-                  className="text-sm text-[var(--text-secondary)] hover:text-accent transition-colors"
-                >
-                  {label}
-                </a>
-              )
-            )}
+          <nav className="md:col-span-3" aria-label="Site">
+            <p className="eyebrow">Site</p>
+            <ul className="mt-4 flex flex-col gap-2.5">
+              {siteLinks.map(({ label, href, route }) => (
+                <li key={label}>
+                  {route ? (
+                    <AppLink to={href} className={linkClass}>
+                      {label}
+                    </AppLink>
+                  ) : (
+                    <a href={href} className={linkClass}>
+                      {label}
+                    </a>
+                  )}
+                </li>
+              ))}
+            </ul>
           </nav>
 
-          <p className="text-xs text-[var(--text-muted)]">
+          <nav className="md:col-span-4" aria-label="Elsewhere">
+            <p className="eyebrow">Elsewhere</p>
+            <ul className="mt-4 flex flex-col gap-2.5">
+              {elsewhereLinks.map(({ label, href }) => (
+                <li key={label}>
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={linkClass}
+                  >
+                    {label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
+
+        <div className="mt-12 pt-6 border-t border-[var(--border)] flex flex-col sm:flex-row sm:justify-between gap-3 text-xs text-[var(--text-muted)]">
+          <p>&copy; {currentYear} Luong Nguyen</p>
+          <p>
             All project logos were generated by the <code>logo-designer</code> skill in my{' '}
             <a
               href="https://github.com/luongnv89/skills"
               target="_blank"
               rel="noopener noreferrer"
-              className="underline hover:text-accent transition-colors"
+              className="underline decoration-[var(--border-hover)] underline-offset-2 hover:text-[var(--text-primary)] transition-colors"
             >
               skills repository
-            </a>.
+            </a>
+            .
           </p>
         </div>
       </div>
