@@ -7,7 +7,7 @@
  *   node scripts/update-stats.js
  *
  * Auth: Uses `gh` CLI token automatically (no .env needed)
- * Optimization: Deduplicates repos across data files, batches user repo fetch
+ * Optimization: Fetches each portfolio repo once and batches user repo fetch
  */
 
 import { readFileSync, writeFileSync } from 'fs';
@@ -20,7 +20,6 @@ const __dirname = dirname(__filename);
 
 const GITHUB_USERNAME = 'luongnv89';
 const DATA_FILES = [
-  join(__dirname, '../src/data/projects.json'),
   join(__dirname, '../src/data/portfolio.json'),
 ];
 

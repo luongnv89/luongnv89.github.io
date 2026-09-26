@@ -4,8 +4,8 @@
       "name": "claude-howto",
       "description": "A visual, example-driven guide to Claude Code — from basic concepts to advanced agents, with copy-paste templates that bring immediate value",
       "language": "Python",
-      "stars": 41442,
-      "forks": 5084,
+      "stars": 41669,
+      "forks": 5113,
       "url": "https://github.com/luongnv89/claude-howto",
       "landingPage": "https://luongnv.com/claude-howto",
       "logo": "/images/projects/claude-howto.svg"
@@ -14,26 +14,26 @@
       "name": "agent-skill-manager",
       "description": "The universal skill manager for AI coding agents — install, audit, and manage reusable skills across Claude Code, Codex, and more",
       "language": "TypeScript",
-      "stars": 928,
+      "stars": 943,
       "url": "https://github.com/luongnv89/agent-skill-manager",
       "landingPage": "https://luongnv.com/asm",
       "logo": "/images/projects/agent-skill-manager.svg",
-      "forks": 83
+      "forks": 82
     },
     {
       "name": "skills",
       "description": "Supercharge your AI agents/bots with reusable skills",
       "language": "Python",
-      "stars": 123,
+      "stars": 125,
       "url": "https://github.com/luongnv89/skills",
       "logo": "/images/projects/skills.svg",
-      "forks": 17
+      "forks": 18
     },
     {
       "name": "cc-context-stats",
       "description": "Know your zone. Ship with confidence — real-time Claude Code context usage monitoring across three operational zones",
       "language": "Python",
-      "stars": 117,
+      "stars": 118,
       "url": "https://github.com/luongnv89/cc-context-stats",
       "landingPage": "https://luongnv.com/context-stats",
       "logo": "/images/projects/cc-context-stats.svg",
@@ -53,11 +53,11 @@
       "name": "ccl",
       "description": "Hit your limit? Need privacy? Just swap the model, everything else stays",
       "language": "Python",
-      "stars": 38,
+      "stars": 39,
       "url": "https://github.com/luongnv89/ccl",
       "landingPage": "https://luongnv.com/ccl",
       "logo": "/images/projects/ccl.svg",
-      "forks": 0
+      "forks": 1
     },
     {
       "name": "sleek-ui",
@@ -73,7 +73,7 @@
       "name": "idd",
       "description": "Turn GitHub Issues into structured, agent-ready work orders",
       "language": "Shell",
-      "stars": 6,
+      "stars": 7,
       "url": "https://github.com/luongnv89/idd",
       "landingPage": "https://luongnv.com/idd",
       "logo": "/images/projects/idd.svg",
@@ -148,7 +148,7 @@
       "name": "mdoctor",
       "description": "Keep your Mac healthy — comprehensive CLI to diagnose, clean, fix, and benchmark macOS",
       "language": "Shell",
-      "stars": 3,
+      "stars": 5,
       "url": "https://github.com/luongnv89/mdoctor",
       "logo": "/images/projects/mdoctor.svg",
       "forks": 0
