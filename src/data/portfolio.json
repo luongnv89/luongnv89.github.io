@@ -4,8 +4,8 @@
       "name": "claude-howto",
       "description": "A visual, example-driven guide to Claude Code — from basic concepts to advanced agents, with copy-paste templates that bring immediate value",
       "language": "Python",
-      "stars": 41669,
-      "forks": 5113,
+      "stars": 41678,
+      "forks": 5115,
       "url": "https://github.com/luongnv89/claude-howto",
       "landingPage": "https://luongnv.com/claude-howto",
       "logo": "/images/projects/claude-howto.svg"
@@ -24,7 +24,7 @@
       "name": "skills",
       "description": "Supercharge your AI agents/bots with reusable skills",
       "language": "Python",
-      "stars": 125,
+      "stars": 127,
       "url": "https://github.com/luongnv89/skills",
       "logo": "/images/projects/skills.svg",
       "forks": 18
@@ -43,7 +43,7 @@
       "name": "music-cli",
       "description": "A command-line music player for coders — background daemon with radio streaming, local MP3s, and AI-generated music",
       "language": "Python",
-      "stars": 84,
+      "stars": 85,
       "url": "https://github.com/luongnv89/music-cli",
       "landingPage": "https://music-cli.luongnv.com",
       "logo": "/images/projects/music-cli.svg",
@@ -63,7 +63,7 @@
       "name": "sleek-ui",
       "description": "Modern, minimal UI component library — accessible, themeable, and designed for developers who want beautiful defaults without the bloat",
       "language": "TypeScript",
-      "stars": 132,
+      "stars": 133,
       "url": "https://github.com/luongnv89/sleek-ui",
       "landingPage": "https://luongnv.com/sleek-ui",
       "logo": "/images/projects/sleek-ui.svg",
@@ -77,7 +77,7 @@
       "url": "https://github.com/luongnv89/idd",
       "landingPage": "https://luongnv.com/idd",
       "logo": "/images/projects/idd.svg",
-      "forks": 1
+      "forks": 2
     },
     {
       "name": "voice-cast",
