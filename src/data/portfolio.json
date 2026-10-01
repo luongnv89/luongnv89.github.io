@@ -4,8 +4,8 @@
       "name": "claude-howto",
       "description": "A visual, example-driven guide to Claude Code — from basic concepts to advanced agents, with copy-paste templates that bring immediate value",
       "language": "Python",
-      "stars": 41720,
-      "forks": 5121,
+      "stars": 41728,
+      "forks": 5120,
       "url": "https://github.com/luongnv89/claude-howto",
       "landingPage": "https://luongnv.com/claude-howto",
       "logo": "/images/projects/claude-howto.svg"
@@ -18,7 +18,7 @@
       "url": "https://github.com/luongnv89/agent-skill-manager",
       "landingPage": "https://luongnv.com/asm",
       "logo": "/images/projects/agent-skill-manager.svg",
-      "forks": 82
+      "forks": 83
     },
     {
       "name": "skills",
@@ -67,13 +67,13 @@
       "url": "https://github.com/luongnv89/sleek-ui",
       "landingPage": "https://luongnv.com/sleek-ui",
       "logo": "/images/projects/sleek-ui.svg",
-      "forks": 11
+      "forks": 12
     },
     {
       "name": "idd",
       "description": "Turn GitHub Issues into structured, agent-ready work orders",
       "language": "Shell",
-      "stars": 7,
+      "stars": 8,
       "url": "https://github.com/luongnv89/idd",
       "landingPage": "https://luongnv.com/idd",
       "logo": "/images/projects/idd.svg",
