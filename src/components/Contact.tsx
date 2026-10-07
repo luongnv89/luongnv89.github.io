@@ -56,14 +56,14 @@ export function Contact() {
           />
 
           <a
-            href="mailto:luongnv89@gmail.com"
+            href="mailto:contact@luongnv.com"
             className="font-mono text-lg md:text-xl text-[var(--text-primary)] underline decoration-[var(--border-hover)] underline-offset-8 hover:decoration-[var(--accent)]"
           >
-            luongnv89@gmail.com
+            contact@luongnv.com
           </a>
 
           <div className="mt-10 flex flex-wrap justify-center gap-4">
-            <a href="mailto:luongnv89@gmail.com" className="btn-primary">
+            <a href="mailto:contact@luongnv.com" className="btn-primary">
               <Mail size={16} />
               Say hello
             </a>
