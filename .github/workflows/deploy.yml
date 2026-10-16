@@ -55,7 +55,6 @@ jobs:
           cp -r img dist/ 2>/dev/null || true
           cp -r font-awesome dist/ 2>/dev/null || true
           cp -r blogs dist/ 2>/dev/null || true
-          cp -r cv dist/ 2>/dev/null || true
 
       - name: Setup Pages
         uses: actions/configure-pages@v4

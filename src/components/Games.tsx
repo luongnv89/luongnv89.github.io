@@ -12,7 +12,7 @@ export function Games() {
     <section id="games" className="section-slim">
       <div className="container-custom">
         <AppLink
-          to="/games"
+          to="/games/"
           className="group card flex flex-col gap-4 p-5 sm:flex-row sm:items-center focus-ring hover:border-[var(--border-hover)]"
         >
           <div className="flex items-center gap-4 min-w-0">

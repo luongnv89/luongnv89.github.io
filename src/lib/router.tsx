@@ -5,9 +5,27 @@ function subscribe(onChange: () => void) {
   return () => window.removeEventListener('popstate', onChange)
 }
 
+/** Path rendered by scripts/prerender.mjs; the browser always reads window.location. */
+let prerenderPathname = '/'
+
+export function setPrerenderPathname(pathname: string) {
+  prerenderPathname = pathname
+}
+
+/** `/games/` and `/games` are the same route: GitHub Pages serves the folder URL. */
+export function normalizePathname(pathname: string) {
+  return pathname.length > 1 ? pathname.replace(/\/+$/, '') || '/' : pathname
+}
+
+function getPathname() {
+  return normalizePathname(window.location.pathname)
+}
+
 /** Current client-side path, kept in sync with browser back/forward navigation. */
 export function usePathname() {
-  return useSyncExternalStore(subscribe, () => window.location.pathname, () => '/')
+  return useSyncExternalStore(subscribe, getPathname, () =>
+    typeof window === 'undefined' ? prerenderPathname : getPathname()
+  )
 }
 
 interface AppLinkProps extends Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'href'> {

@@ -33,7 +33,7 @@ export function NotFound() {
               Back to home
             </AppLink>
             <AppLink
-              to="/games"
+              to="/games/"
               className="-my-3 inline-flex items-center gap-2 py-3 text-sm text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)] focus-ring rounded-md"
             >
               <Gamepad2 size={16} aria-hidden="true" />
