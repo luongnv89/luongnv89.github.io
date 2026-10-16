@@ -47,8 +47,8 @@ export function Footer({ className = '' }: FooterProps) {
               <span className="font-medium text-[var(--text-primary)]">Luong Nguyen</span>
             </p>
             <p className="mt-3 max-w-xs text-sm text-[var(--text-secondary)]">
-              AI &amp; Cybersecurity engineer in Paris. Building tooling for AI agents and
-              securing the networks they run on.
+              Agentic AI &amp; Security Engineer in Paris. Building tooling for AI agents
+              and security R&amp;D at Montimage.
             </p>
           </div>
 
