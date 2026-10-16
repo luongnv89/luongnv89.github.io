@@ -14,7 +14,7 @@ const siteLinks: NavLink[] = [
   { label: 'Research', href: '/#research' },
   { label: 'Products', href: '/#products' },
   { label: 'Open Source', href: '/#oss' },
-  { label: 'Games', href: '/games', route: true },
+  { label: 'Games', href: '/games/', route: true },
   { label: 'Writing', href: '/#blog' },
   { label: 'Contact', href: '/#contact' },
 ]

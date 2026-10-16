@@ -10,5 +10,5 @@
         </openapi.json>; rel="service-desc"; type="application/vnd.oai.openapi",
         </llms.txt>; rel="describedby",
         </sitemap.xml>; rel="sitemap"
-  Content-Signal: ai-train=no, search=yes, ai-input=no
+  Content-Signal: search=yes, ai-input=yes, ai-train=yes
   X-Markdown-Tokens: approximate

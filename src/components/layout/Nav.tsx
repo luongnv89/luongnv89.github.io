@@ -13,7 +13,7 @@ const links = [
   { label: 'Products', href: '/#products' },
   { label: 'Open Source', href: '/#oss' },
   { label: 'Writing', href: '/#blog' },
-  { label: 'Games', href: '/games', route: true },
+  { label: 'Games', href: '/games/', route: true },
   { label: 'Contact', href: '/#contact' },
 ]
 

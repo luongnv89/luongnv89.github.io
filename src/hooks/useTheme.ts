@@ -1,15 +1,28 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useSyncExternalStore } from 'react'
 
 type Theme = 'light' | 'dark'
 
+const listeners = new Set<() => void>()
+
+function subscribe(onChange: () => void) {
+  listeners.add(onChange)
+  return () => {
+    listeners.delete(onChange)
+  }
+}
+
+// Default to dark mode
+const readTheme = (): Theme => (localStorage.getItem('theme') as Theme | null) ?? 'dark'
+
+function writeTheme(theme: Theme) {
+  localStorage.setItem('theme', theme)
+  listeners.forEach((onChange) => onChange())
+}
+
 export function useTheme() {
-  const [theme, setTheme] = useState<Theme>(() => {
-    if (typeof window === 'undefined') return 'dark'
-    const saved = localStorage.getItem('theme') as Theme | null
-    if (saved) return saved
-    // Default to dark mode
-    return 'dark'
-  })
+  // The server snapshot matches the prerendered HTML (dark), so hydration never
+  // mismatches; React then re-renders with the saved theme before paint.
+  const theme = useSyncExternalStore(subscribe, readTheme, () => 'dark' as Theme)
 
   useEffect(() => {
     const root = document.documentElement
@@ -22,8 +35,6 @@ export function useTheme() {
     } else {
       root.classList.remove('dark')
     }
-
-    localStorage.setItem('theme', theme)
 
     // Remove transitioning class after animation
     const timeout = setTimeout(() => {
@@ -40,7 +51,7 @@ export function useTheme() {
     const handleChange = (e: MediaQueryListEvent) => {
       // Only auto-switch if user hasn't set a preference
       if (!localStorage.getItem('theme')) {
-        setTheme(e.matches ? 'dark' : 'light')
+        writeTheme(e.matches ? 'dark' : 'light')
       }
     }
 
@@ -49,7 +60,7 @@ export function useTheme() {
   }, [])
 
   const toggleTheme = () => {
-    setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'))
+    writeTheme(theme === 'dark' ? 'light' : 'dark')
   }
 
   return { theme, toggleTheme }

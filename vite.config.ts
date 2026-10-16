@@ -124,6 +124,43 @@ export default defineConfig({
       },
     },
     {
+      // The CV pages come from the cv submodule (scripts/copy-cv-files.js), so
+      // their <head> is not ours to edit. Add search metadata in dist only.
+      // cv.html is a byte-for-byte copy kept for old links: point it at the
+      // canonical page instead of letting it compete in search.
+      name: 'inject-cv-seo',
+      apply: 'build',
+      closeBundle() {
+        const canonical = 'https://luongnv.com/cv/Luong_NGUYEN_CV.html'
+        const desc =
+          'CV of Luong Nguyen, Agentic AI & Security Engineer in Paris: 15+ years of security R&D at Montimage, AI agents, agent skills and MCP servers.'
+        const tags: Record<string, string> = {
+          'Luong_NGUYEN_CV.html': [
+            `<meta name="description" content="${desc}" />`,
+            `<link rel="canonical" href="${canonical}" />`,
+            `<meta property="og:type" content="profile" />`,
+            `<meta property="og:url" content="${canonical}" />`,
+            `<meta property="og:title" content="Luong Nguyen | CV" />`,
+            `<meta property="og:description" content="${desc}" />`,
+            `<meta property="og:image" content="https://luongnv.com/img/og-card.jpg" />`,
+            `<meta name="twitter:card" content="summary_large_image" />`,
+          ].join('\n'),
+          'cv.html': `<link rel="canonical" href="${canonical}" />`,
+        }
+        for (const [name, seo] of Object.entries(tags)) {
+          const file = resolve(__dirname, 'dist/cv', name)
+          if (!existsSync(file)) continue
+          const html = readFileSync(file, 'utf-8')
+          if (html.includes('rel="canonical"')) continue
+          if (!html.includes('</head>')) {
+            console.warn(`[inject-cv-seo] skipped ${name}: no </head>`)
+            continue
+          }
+          writeFileSync(file, html.replace('</head>', `${seo}\n</head>`))
+        }
+      },
+    },
+    {
       name: 'inject-games-seo',
       apply: 'build',
       closeBundle() {

@@ -3,7 +3,7 @@
 
 User-agent: *
 Allow: /
-Content-Signal: ai-train=no, search=yes, ai-input=no
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 
 # Sitemap
 Sitemap: https://luongnv.com/sitemap.xml
@@ -11,16 +11,17 @@ Sitemap: https://luongnv.com/sitemap.xml
 # Agent discovery manifest
 Agentmap: https://luongnv.com/.well-known/ai-catalog.json
 
-# ── Training crawlers — blocked (no AI training) ──
+# ── Training crawlers — allowed (so models learn who Luong is) ──
 User-agent: GPTBot
-Disallow: /
+Allow: /
 
 User-agent: ClaudeBot
-Disallow: /
+Allow: /
 
 User-agent: Google-Extended
-Disallow: /
+Allow: /
 
+# ── Training crawlers — still blocked ──
 User-agent: CCBot
 Disallow: /
 
@@ -59,8 +60,5 @@ Allow: /
 User-agent: Claude-User
 Allow: /
 
-User-agent: Claude-Web
-Allow: /
-
-User-agent: Anthropic-AI
+User-agent: Perplexity-User
 Allow: /
