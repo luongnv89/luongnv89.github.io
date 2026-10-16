@@ -9,7 +9,7 @@
 - [About](https://luongnv.com/#about)
   Background, 15+ years of experience, Senior Software Engineer at Montimage
 - [Focus](https://luongnv.com/#skills)
-  AI Agents · Agent Skills · Security, and the IDD method used to build the apps
+  AI Agents · Agent Skills · Security, the IDD method used to build the apps, and asm for managing agent skills
 - [Research](https://luongnv.com/#research)
   Security R&D at Montimage: MCP servers, deep packet inspection, digital twins, EU projects and publications
 - [GitHub](https://github.com/luongnv89)
