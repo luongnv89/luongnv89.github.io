@@ -62,11 +62,11 @@ export function Hero() {
         <picture>
           <source
             type="image/webp"
-            srcSet="/avatar-160.webp 160w, /avatar-320.webp 320w"
+            srcSet="/headshot-160.webp 160w, /headshot-320.webp 320w"
             sizes="(min-width: 768px) 160px, 128px"
           />
           <img
-            src="/img/cool.jpg"
+            src="/img/headshot.jpg"
             alt="Luong Nguyen"
             width={160}
             height={160}
