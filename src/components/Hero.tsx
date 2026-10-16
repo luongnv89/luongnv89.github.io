@@ -66,7 +66,7 @@ export function Hero() {
             sizes="(min-width: 768px) 160px, 128px"
           />
           <img
-            src="/img/cool.jpg"
+            src="/img/avatar.jpg"
             alt="Luong Nguyen"
             width={160}
             height={160}

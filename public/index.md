@@ -10,6 +10,8 @@ Luong Nguyen (luongnv89) is an Agentic AI & Security Engineer with 15+ years of 
 
 Method: **Intention-Driven Development (IDD)** — every piece of work starts as an intention captured as a structured, agent-ready GitHub issue; his skill set triages, resolves, reviews and ships a tested PR, so the pipeline can run for days unattended. Most of the products below were built this way.
 
+Tooling: **asm (agent-skill-manager)** — one skill manager for every agent: installs, audits and organizes skills across 21 coding agents (Claude Code, Codex, Cursor and more) from a catalog of 6,000+ skills, with security scanning; it is how the skill set behind IDD reaches each agent.
+
 - Website: https://luongnv.com
 - GitHub: https://github.com/luongnv89
 - LinkedIn: https://linkedin.com/in/luongnv89

@@ -50,6 +50,54 @@ const areas = [
   },
 ]
 
+const strong = 'font-medium text-[var(--text-primary)]'
+
+const highlights = [
+  {
+    eyebrow: 'Method',
+    heading: (
+      <>
+        Intention-Driven Development, run by <em className="italic">agents</em>.
+      </>
+    ),
+    body: (
+      <>
+        Every piece of work starts as an intention, captured as a structured, agent-ready GitHub
+        issue. <span className={strong}>IDD</span> turns it into a work order; my skill set
+        triages, resolves, reviews and self-checks it, and ships a tested PR. Chain that together
+        and it runs for days without me in the loop — what friends call my software factory. Most
+        of the apps below were built this way.
+      </>
+    ),
+    links: [
+      { label: 'IDD toolkit', url: 'https://luongnv.com/idd' },
+      { label: 'My skill set', url: 'https://github.com/luongnv89/skills' },
+    ],
+    footnote: 'issue → analysis → resolve → review → self-check → PR',
+  },
+  {
+    eyebrow: 'Tooling',
+    heading: (
+      <>
+        One skill manager for <em className="italic">every</em> agent.
+      </>
+    ),
+    body: (
+      <>
+        Skills are how agents learn the way a team works. <span className={strong}>asm</span>{' '}
+        installs, audits and organizes them across 21 coding agents, from a catalog of 6,000+
+        skills, with security scanning before anything lands. It is also how the skill set behind
+        IDD reaches every agent I run.
+      </>
+    ),
+    links: [
+      { label: 'asm', url: 'https://luongnv.com/asm' },
+      { label: 'GitHub', url: 'https://github.com/luongnv89/agent-skill-manager' },
+    ],
+    footnote: 'Claude Code · Codex · Cursor · +18 more agents',
+  },
+]
+
 export function Focus() {
   return (
     <section id="skills" className="section">
@@ -89,47 +137,37 @@ export function Focus() {
           ))}
         </div>
 
-        {/* Method: how the three threads combine in practice */}
-        <div className="card mt-5 grid gap-6 p-6 md:grid-cols-12 md:p-8">
-          <div className="md:col-span-5">
-            <p className="eyebrow">Method</p>
-            <h3 className="display mt-3 text-3xl leading-tight md:text-4xl">
-              Intention-Driven Development, run by <em className="italic">agents</em>.
-            </h3>
-          </div>
-          <div className="md:col-span-7">
-            <p className="text-sm leading-relaxed text-[var(--text-secondary)] md:text-base">
-              Every piece of work starts as an intention, captured as a structured, agent-ready GitHub issue.{' '}
-              <span className="font-medium text-[var(--text-primary)]">IDD</span> turns it into a
-              work order; my skill set triages, resolves, reviews and self-checks it, and ships a
-              tested PR. Chain that together and it runs for days without me in the loop — what
-              friends call my software factory. Most of the apps below were built this way.
-            </p>
-            <div className="mt-5 flex flex-wrap gap-x-6 gap-y-2">
-              <a
-                href="https://luongnv.com/idd"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-link text-sm"
-              >
-                IDD toolkit
-                <ArrowUpRight size={14} />
-              </a>
-              <a
-                href="https://github.com/luongnv89/skills"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-link text-sm"
-              >
-                My skill set
-                <ArrowUpRight size={14} />
-              </a>
+        {/* Highlights: how the three threads combine in practice */}
+        {highlights.map(({ eyebrow, heading, body, links, footnote }) => (
+          <div key={eyebrow} className="card mt-5 grid gap-6 p-6 md:grid-cols-12 md:p-8">
+            <div className="md:col-span-5">
+              <p className="eyebrow">{eyebrow}</p>
+              <h3 className="display mt-3 text-3xl leading-tight md:text-4xl">{heading}</h3>
             </div>
-            <p className="mt-5 font-mono text-xs leading-6 text-[var(--text-muted)]">
-              issue → analysis → resolve → review → self-check → PR
-            </p>
+            <div className="md:col-span-7">
+              <p className="text-sm leading-relaxed text-[var(--text-secondary)] md:text-base">
+                {body}
+              </p>
+              <div className="mt-5 flex flex-wrap gap-x-6 gap-y-2">
+                {links.map(({ label, url }) => (
+                  <a
+                    key={label}
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-link text-sm"
+                  >
+                    {label}
+                    <ArrowUpRight size={14} />
+                  </a>
+                ))}
+              </div>
+              <p className="mt-5 font-mono text-xs leading-6 text-[var(--text-muted)]">
+                {footnote}
+              </p>
+            </div>
           </div>
-        </div>
+        ))}
 
         <div className="mt-8 flex flex-wrap items-baseline gap-x-3 gap-y-2 border-t border-[var(--border)] pt-6">
           <span className="eyebrow">Toolbox</span>
