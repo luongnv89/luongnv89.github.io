@@ -11,6 +11,7 @@ interface NavLink {
 const siteLinks: NavLink[] = [
   { label: 'About', href: '/#about' },
   { label: 'Focus', href: '/#skills' },
+  { label: 'Research', href: '/#research' },
   { label: 'Products', href: '/#products' },
   { label: 'Open Source', href: '/#oss' },
   { label: 'Games', href: '/games', route: true },

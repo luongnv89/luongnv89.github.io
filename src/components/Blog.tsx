@@ -110,7 +110,7 @@ export function Blog() {
       <div className="container-custom grid grid-cols-1 lg:grid-cols-12 gap-12">
         <div className="lg:col-span-4">
           <SectionHeader
-            index="05"
+            index="06"
             label="Writing"
             title="Latest writing"
             lede="Notes on AI agents, security and the craft of shipping software."

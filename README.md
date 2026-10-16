@@ -1,6 +1,6 @@
 # luongnv.com
 
-Personal portfolio website for **Luong Nguyen** - Senior AI & Cybersecurity Engineer.
+Personal portfolio website for **Luong Nguyen** - Agentic AI & Security Engineer.
 
 **Live site:** [https://luongnv.com](https://luongnv.com)
 

@@ -8,9 +8,20 @@ const claudeHowtoStarsK = Math.floor(
 
 const facts: Array<{ term: string; value: React.ReactNode }> = [
   { term: 'Location', value: 'Paris, France' },
-  { term: 'Role', value: 'Research engineer, Montimage' },
+  { term: 'Role', value: 'Senior Software Engineer, Montimage' },
   { term: 'Experience', value: '15+ years' },
-  { term: 'Focus', value: 'AI agents · Agent skills · Network security' },
+  { term: 'Focus', value: 'Agentic AI · Agent skills · Security' },
+  {
+    term: 'Research',
+    value: (
+      <a
+        href="#research"
+        className="hover:underline decoration-[var(--border-hover)] underline-offset-4"
+      >
+        7 publications · 9 EU projects
+      </a>
+    ),
+  },
   {
     term: 'Writing',
     value: (
@@ -50,11 +61,12 @@ export function About() {
 
           <div className="space-y-5">
             <p className="text-[var(--text-secondary)] leading-relaxed">
-              I'm a research engineer at{' '}
+              I'm a senior software engineer at{' '}
               <span className="text-[var(--text-primary)] font-medium">Montimage</span> in
-              Paris, France, hardening networks through deep packet inspection and European
-              cybersecurity research. Fifteen-plus years in, I'm still an engineer who likes
-              hard problems.
+              Paris, France, where I lead development on European research projects in
+              cybersecurity, digital twins and applied AI — from deep packet inspection in C to
+              fine-tuned security models and MCP servers. Fifteen-plus years in, I'm still an
+              engineer who likes hard problems.
             </p>
             <p className="text-[var(--text-secondary)] leading-relaxed">
               My edge is the overlap of AI and security: network-security engineering paired

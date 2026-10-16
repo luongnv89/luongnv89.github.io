@@ -47,7 +47,7 @@ export function Contact() {
       <div className="container-custom">
         <div className="max-w-3xl mx-auto text-center">
           <SectionHeader
-            index="06"
+            index="07"
             label="Contact"
             title="Let's build something secure and useful."
             lede="Consulting, collaboration on AI agent tooling or network security, or just a hello — my inbox is open."

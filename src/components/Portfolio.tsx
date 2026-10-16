@@ -16,7 +16,7 @@ const flagshipMeta: Record<string, { headline: string; screenshot: string }> = {
     screenshot: '/images/projects/screenshots/claude-howto.jpg',
   },
   'agent-skill-manager': {
-    headline: "One tool to manage every AI agent's skills — install, audit, and organize 4,000+ skills across Claude Code, Codex, Cursor, and more.",
+    headline: "One tool to manage every AI agent's skills — install, audit, and organize 6,000+ skills across 21 coding agents, including Claude Code, Codex and Cursor.",
     screenshot: '/images/projects/screenshots/asm.jpg',
   },
 }
@@ -38,7 +38,7 @@ export function Portfolio() {
     <section id="oss" className="section">
       <div className="container-custom">
         <SectionHeader
-          index="04"
+          index="05"
           label="Open Source"
           title="Built in the open"
           lede="Tools I build in the open — for AI agent workflows, developer productivity, and everything in between."

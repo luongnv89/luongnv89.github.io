@@ -59,7 +59,7 @@ export function Products() {
     <section id="products" className="section">
       <div className="container-custom">
         <SectionHeader
-          index="03"
+          index="04"
           label="Products"
           title="Apps I've shipped"
           lede="Designed, built and shipped end to end — click through to try them."

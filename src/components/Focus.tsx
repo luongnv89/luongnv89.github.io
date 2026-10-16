@@ -35,21 +35,18 @@ const areas = [
   },
   {
     icon: ShieldCheck,
-    title: 'Cybersecurity',
+    title: 'Security',
     description:
-      '15+ years of network-security engineering at Montimage: deep packet inspection, monitoring and EU research projects.',
+      'Security R&D at Montimage since 2014: deep packet inspection, LLMs for security, MCP servers and cybersecurity digital twins.',
     tags: [
       'DPI',
       'MMT',
-      'Threat detection',
-      'Traffic analysis',
-      'Security monitoring',
-      '5G / IoT security',
+      'LLMs for security',
+      'MCP servers',
+      'Digital twins',
+      'Phishing defense',
     ],
-    related: {
-      name: 'MMT on macOS',
-      url: 'https://medium.com/@luongnv89/demystifying-your-network-traffic-on-macos-a-docker-based-approach-with-mmt-e9d595034c36',
-    },
+    related: { name: 'mitre-mcp', url: 'https://github.com/Montimage/mitre-mcp' },
   },
 ]
 
@@ -61,7 +58,7 @@ export function Focus() {
           index="02"
           label="Focus"
           title="What I work on"
-          lede="Three threads, one loop: agents that do real engineering work, the skills that teach them how a team works, and the network security that keeps it all honest."
+          lede="Three threads, one loop: agents that do real engineering work, the skills that teach them how a team works, and the security research that keeps it all honest."
         />
 
         <div className="grid md:grid-cols-3 gap-5">
@@ -137,7 +134,7 @@ export function Focus() {
         <div className="mt-8 flex flex-wrap items-baseline gap-x-3 gap-y-2 border-t border-[var(--border)] pt-6">
           <span className="eyebrow">Toolbox</span>
           <span className="font-mono text-sm text-[var(--text-secondary)]">
-            Python · TypeScript · Shell · Node.js · Docker · CI/CD · GitHub Actions · Linux
+            Python · C/C++ · TypeScript · Swift · LangGraph · MCP · Docker · Kubernetes · CI/CD · Linux
           </span>
         </div>
       </div>
