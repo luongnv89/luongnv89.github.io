@@ -86,15 +86,15 @@ export function Hero() {
           <span className="absolute inline-flex h-full w-full rounded-full bg-[var(--accent)] opacity-60 animate-ping" />
           <span className="relative inline-flex h-2 w-2 rounded-full bg-[var(--accent)]" />
         </span>
-        AI Agents · Agent Skills · Cybersecurity
+        Agentic AI &amp; Security Engineer
       </p>
 
       <p className="reveal reveal-3 mt-4 text-lg md:text-xl font-medium text-[var(--text-primary)]">
-        AI &amp; Cybersecurity Engineer at Montimage, Paris
+        Senior Software Engineer at Montimage, Paris
       </p>
 
       <p className="reveal reveal-4 mt-3 max-w-xl text-base md:text-lg leading-relaxed text-[var(--text-secondary)]">
-        I secure networks by day and build open-source tooling for AI agents — including{' '}
+        I lead security and AI research projects by day and build open-source tooling for AI agents — including{' '}
         <a
           href="https://luongnv.com/claude-howto"
           className="text-[var(--text-primary)] underline decoration-[var(--border-hover)] underline-offset-4 hover:decoration-[var(--accent)]"

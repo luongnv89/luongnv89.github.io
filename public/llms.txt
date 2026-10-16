@@ -1,17 +1,32 @@
 # Luong Nguyen
 
-> AI & Cybersecurity engineer at Montimage, Paris, with 15+ years of experience. Focus: AI agents, agent skills and network security (DPI). Creator of claude-howto (40k+ stars) and asm; builds apps with Intention-Driven Development (IDD) run by agents.
+> Agentic AI & Security Engineer with 15+ years of experience; Senior Software Engineer at Montimage, Paris, leading European R&D projects in cybersecurity, digital twins and applied AI. Focus: AI agents, agent skills and security. Creator of claude-howto (40k+ stars) and asm; builds apps with Intention-Driven Development (IDD) run by agents.
 
 ## About
 
 - [Luong Nguyen](https://luongnv.com/)
-  Portfolio of AI & Cybersecurity engineer at Montimage, Paris
+  Portfolio of an Agentic AI & Security Engineer in Paris
 - [About](https://luongnv.com/#about)
-  Background, 15+ years of experience, research engineer at Montimage
+  Background, 15+ years of experience, Senior Software Engineer at Montimage
 - [Focus](https://luongnv.com/#skills)
-  AI Agents · Agent Skills · Cybersecurity, and the IDD method used to build the apps
+  AI Agents · Agent Skills · Security, and the IDD method used to build the apps
+- [Research](https://luongnv.com/#research)
+  Security R&D at Montimage: MCP servers, deep packet inspection, digital twins, EU projects and publications
 - [GitHub](https://github.com/luongnv89)
   Open-source projects and contributions
+
+## Research
+
+- [mitre-mcp](https://github.com/Montimage/mitre-mcp)
+  MCP server giving AI assistants MITRE ATT&CK knowledge (PyPI, MCP Registry)
+- [sec-mcp](https://github.com/Montimage/sec-mcp)
+  MCP server for threat-intelligence checks on domains, URLs and IPs (PyPI, MCP Registry)
+- [mmt-dpi](https://github.com/Montimage/mmt-dpi)
+  Montimage's C deep packet inspection engine; Luong is lead developer
+- [LLMs in Security Testing and Monitoring: An Initial Study](https://doi.org/10.1007/978-3-032-00644-8_9)
+  ARES 2025 paper; slides at https://luongnv.com/2025-ares/
+- [DPWSim: A Simulation Toolkit for IoT Applications](https://ieeexplore.ieee.org/document/6803226)
+  IEEE WF-IoT 2014 paper
 
 ## OSS Projects
 

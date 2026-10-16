@@ -4,6 +4,7 @@ import { ScrollToTop } from './components/ScrollToTop'
 import { Hero } from './components/Hero'
 import { About } from './components/About'
 import { Focus } from './components/Focus'
+import { Research } from './components/Research'
 import { Products } from './components/Products'
 import { Portfolio } from './components/Portfolio'
 import { Games } from './components/Games'
@@ -38,6 +39,7 @@ function HomePage() {
         <Hero />
         <About />
         <Focus />
+        <Research />
         <Products />
         <Portfolio />
         <Games />

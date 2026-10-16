@@ -9,6 +9,7 @@ import { ThemeToggle } from '../ThemeToggle'
  */
 const links = [
   { label: 'About', href: '/#about' },
+  { label: 'Research', href: '/#research' },
   { label: 'Products', href: '/#products' },
   { label: 'Open Source', href: '/#oss' },
   { label: 'Writing', href: '/#blog' },
@@ -17,7 +18,7 @@ const links = [
 ]
 
 const linkClass =
-  'text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors focus-ring rounded-md'
+  'whitespace-nowrap text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors focus-ring rounded-md'
 
 const mobileLinkClass =
   'py-3 text-base text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors focus-ring rounded-md'
@@ -65,14 +66,14 @@ export function Nav() {
       <nav className="container-custom flex h-16 items-center justify-between" aria-label="Main">
         <a href="/#home" className="flex items-center gap-2 focus-ring rounded-md">
           <span className="inline-block h-2 w-2 rounded-full bg-[var(--accent)]" aria-hidden />
-          <span className="font-medium text-[var(--text-primary)]">Luong Nguyen</span>
-          <span className="hidden sm:inline font-mono text-xs text-[var(--text-muted)]">
+          <span className="whitespace-nowrap font-medium text-[var(--text-primary)]">Luong Nguyen</span>
+          <span className="hidden sm:inline md:hidden lg:inline font-mono text-xs text-[var(--text-muted)]">
             @luongnv89
           </span>
         </a>
 
         <div className="flex items-center gap-2">
-          <div className="hidden md:flex items-center gap-6 mr-2">
+          <div className="hidden md:flex items-center gap-5 lg:gap-6 mr-2">
             {links.map(({ label, href, route }) =>
               route ? (
                 <AppLink key={label} to={href} className={linkClass}>
