@@ -338,7 +338,7 @@ export function Hero() {
   return (
     <section className="min-h-screen flex flex-col items-center justify-center py-20">
       <img
-        src="/avatar.png"
+        src="/img/headshot.jpg"
         alt="Luong Nguyen"
         className="w-32 h-32 rounded-full border-2 border-border
                    grayscale hover:grayscale-0 transition-all duration-300"
