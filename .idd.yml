@@ -14,7 +14,8 @@ platform: github
 # then GitHub Pages) when the push touches the paths that workflow lists.
 commands:
   install: npm ci
-  lint: npm run lint            # eslint .
+  # eslint .
+  lint: npm run lint
   # No typecheck script in package.json. Type checking runs inside `build`
   # (tsc -b), so `build` is the typecheck gate.
   typecheck: null
