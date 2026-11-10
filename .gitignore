@@ -37,3 +37,4 @@ public/cv/
 
 # agent-readiness scan scratch
 .agent-ready/
+.idd/cache/
