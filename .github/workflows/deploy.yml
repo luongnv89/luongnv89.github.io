@@ -13,6 +13,9 @@ on:
       - 'index.html'
       - 'vite.config.ts'
       - 'tailwind.config.js'
+      # A cv submodule bump changes only the gitlink path `cv`, which 'cv/**'
+      # does not match, so list the bare path too.
+      - 'cv'
       - 'cv/**'
       - '.github/workflows/deploy.yml'
   workflow_dispatch:
