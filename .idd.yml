@@ -154,8 +154,9 @@ autopilot:
   # "aggressive":   auto-merge clean PRs AND merge partial PRs when
   #                 merge_partial=true is also set (see below). Risky —
   #                 only enable on disposable/experimental repos.
-  # Note: merging to main deploys the live site (.github/workflows/deploy.yml).
-  mode: balanced
+  # Note: merging to main deploys the live site (.github/workflows/deploy.yml),
+  # so auto-pilot only opens and reviews PRs here; Luong merges.
+  mode: conservative
 
   # Allow merging PRs that still have unresolved fixable review issues.
   # Default: false — never merge a partial PR.
