@@ -51,7 +51,8 @@ npm run build   # Build for production
 
 ## Deployment
 
-Push to `master` branch triggers automatic deployment via GitHub Actions.
+Push to `main` triggers automatic deployment via GitHub Actions when it changes
+the site sources, including a bump of the `cv` submodule.
 
 The workflow:
 1. Builds the React app
