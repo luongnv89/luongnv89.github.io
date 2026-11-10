@@ -68,7 +68,7 @@ export function Contact() {
               Say hello
             </a>
             <a
-              href="/cv/cv.html"
+              href="/cv/Luong_NGUYEN_CV.html"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-secondary"
