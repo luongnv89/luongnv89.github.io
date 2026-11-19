@@ -15,7 +15,8 @@
 #   3. Hard-resets the repo to origin/main (GitHub is source of truth for this
 #      generated repo) and cleans untracked junk (keeping logs/node_modules).
 #   4. Runs scripts/update-stats.js (Node stdlib only — no npm install needed).
-#   5. Commits + pushes src/data/portfolio.json ONLY if changed.
+#   5. Commits + pushes src/data/portfolio.json and src/data/recent-projects.json
+#      (every public repo created in the last 365 days) ONLY if changed.
 #
 # Everything written to stdout becomes the Telegram message the cron delivers.
 
@@ -58,7 +59,7 @@ SCRIPT_DIR="$REPO_DIR/scripts"
 BRANCH="main"
 LOG_DIR="$REPO_DIR/logs"
 LOCK_FILE="$LOG_DIR/update-stats.lock"
-DATA_FILES=(src/data/portfolio.json)
+DATA_FILES=(src/data/portfolio.json src/data/recent-projects.json)
 ENV_FILE="${DEVSTATS_ENV_FILE:-$HOME/.config/devstats/api.env}"
 
 # ── Toolchain PATH (mise-managed node + gh) ────────────────────────────────────

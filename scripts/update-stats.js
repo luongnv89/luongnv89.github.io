@@ -8,6 +8,10 @@
  *
  * Auth: Uses `gh` CLI token automatically (no .env needed)
  * Optimization: Fetches each portfolio repo once and batches user repo fetch
+ *
+ * Also keeps src/data/recent-projects.json: stars/forks of EVERY public,
+ * non-fork, non-archived repo created in the last RECENT_WINDOW_DAYS days,
+ * discovered automatically from the user's repo list (no manual curation).
  */
 
 import { readFileSync, writeFileSync } from 'fs';
@@ -22,6 +26,9 @@ const GITHUB_USERNAME = 'luongnv89';
 const DATA_FILES = [
   join(__dirname, '../src/data/portfolio.json'),
 ];
+
+const RECENT_FILE = join(__dirname, '../src/data/recent-projects.json');
+const RECENT_WINDOW_DAYS = 365;
 
 // Rate limiting configuration
 const RATE_LIMIT_CONFIG = {
@@ -133,6 +140,65 @@ async function fetchAllRepos(username, headers) {
     await sleep(RATE_LIMIT_CONFIG.delayBetweenRequests);
   }
   return all;
+}
+
+// ── Recent projects (created in the last RECENT_WINDOW_DAYS days) ─────────────
+
+function recentProjectsFrom(allRepos, now = new Date()) {
+  const cutoff = new Date(now.getTime() - RECENT_WINDOW_DAYS * 86_400_000);
+  return allRepos
+    .filter(r => !r.fork && !r.archived && !r.private && new Date(r.created_at) >= cutoff)
+    .map(r => ({
+      name: r.name,
+      url: r.html_url,
+      description: r.description || '',
+      language: r.language || '',
+      homepage: r.homepage || '',
+      createdAt: r.created_at.slice(0, 10),
+      stars: r.stargazers_count || 0,
+      forks: r.forks_count || 0,
+    }))
+    .sort((a, b) => b.stars - a.stars || b.forks - a.forks || b.createdAt.localeCompare(a.createdAt) || a.name.localeCompare(b.name));
+}
+
+function updateRecentProjects(allRepos, expectedCount) {
+  // A truncated repo list (API failure mid-pagination) must never shrink the file.
+  if (!allRepos.length || (expectedCount != null && allRepos.length < expectedCount)) {
+    console.log(`\n  ⚠ recent-projects.json — skipped (got ${allRepos.length} of ${expectedCount ?? '?'} public repos)`);
+    return;
+  }
+  let old = { projects: [] };
+  try { old = JSON.parse(readFileSync(RECENT_FILE, 'utf-8')); } catch { /* first run */ }
+  const before = new Map((old.projects || []).map(p => [p.name, p]));
+  const projects = recentProjectsFrom(allRepos);
+  const next = { windowDays: RECENT_WINDOW_DAYS, projects };
+
+  const added = projects.filter(p => !before.has(p.name));
+  const dropped = [...before.keys()].filter(n => !projects.some(p => p.name === n));
+  const moved = projects.filter(p => before.has(p.name) &&
+    (before.get(p.name).stars !== p.stars || before.get(p.name).forks !== p.forks));
+
+  const totalStars = projects.reduce((s, p) => s + p.stars, 0);
+  console.log(`\n  Recent projects (created in the last ${RECENT_WINDOW_DAYS} days): ${projects.length} repos, ${totalStars} stars`);
+  for (const p of moved) {
+    const o = before.get(p.name);
+    const ds = p.stars - o.stars, df = p.forks - o.forks;
+    console.log(`    ${p.name}: ⭐${p.stars} (${ds >= 0 ? '+' : ''}${ds}) 🍴${p.forks} (${df >= 0 ? '+' : ''}${df})`);
+  }
+  if (before.size) {
+    for (const p of added) console.log(`    + ${p.name} (new, created ${p.createdAt}): ⭐${p.stars} 🍴${p.forks}`);
+    for (const n of dropped) console.log(`    − ${n} (left the window, archived, made private or became a fork)`);
+  }
+
+  const text = JSON.stringify(next, null, 2) + '\n';
+  let oldText = '';
+  try { oldText = readFileSync(RECENT_FILE, 'utf-8'); } catch { /* first run */ }
+  if (text !== oldText) {
+    writeFileSync(RECENT_FILE, text);
+    console.log(`  ✅ recent-projects.json — written (${moved.length} changed, ${before.size ? added.length : projects.length} added, ${dropped.length} removed)`);
+  } else {
+    console.log('  ✓  recent-projects.json — no changes');
+  }
 }
 
 // ── Progress display ──────────────────────────────────────────────────────────
@@ -283,6 +349,8 @@ async function main() {
     console.log(`│  Total Stars : ${String(totalStars).padEnd(21)}│`);
     console.log('└──────────────────────────────────────┘');
   }
+
+  updateRecentProjects(allRepos, userStats?.public_repos);
 
   console.log('\n  🎉 Done!\n');
 }

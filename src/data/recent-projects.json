@@ -1,0 +1,675 @@
+{
+  "windowDays": 365,
+  "projects": [
+    {
+      "name": "asm",
+      "url": "https://github.com/luongnv89/asm",
+      "description": "The universal skill manager for AI coding agents.",
+      "language": "TypeScript",
+      "homepage": "https://luongnv.com/asm",
+      "createdAt": "2026-03-11",
+      "stars": 975,
+      "forks": 87
+    },
+    {
+      "name": "pi-extensions",
+      "url": "https://github.com/luongnv89/pi-extensions",
+      "description": "Collection of extensions and themes for Pi Coding Agent",
+      "language": "TypeScript",
+      "homepage": "",
+      "createdAt": "2026-05-19",
+      "stars": 165,
+      "forks": 35
+    },
+    {
+      "name": "skills",
+      "url": "https://github.com/luongnv89/skills",
+      "description": "Supercharge your AI agents/bots with reusable skills",
+      "language": "Python",
+      "homepage": "http://luongnv.com/skills/",
+      "createdAt": "2026-02-03",
+      "stars": 147,
+      "forks": 21
+    },
+    {
+      "name": "sleek-ui",
+      "url": "https://github.com/luongnv89/sleek-ui",
+      "description": "The Unsplash of design systems for AI agents — re-skin your app with one URL",
+      "language": "TypeScript",
+      "homepage": "http://luongnv.com/sleek-ui/",
+      "createdAt": "2026-03-26",
+      "stars": 138,
+      "forks": 13
+    },
+    {
+      "name": "context-stats",
+      "url": "https://github.com/luongnv89/context-stats",
+      "description": "Understand how you use Claude Code, and spend less doing it.",
+      "language": "Python",
+      "homepage": "https://luongnv.com/context-stats",
+      "createdAt": "2025-12-28",
+      "stars": 120,
+      "forks": 11
+    },
+    {
+      "name": "music-cli",
+      "url": "https://github.com/luongnv89/music-cli",
+      "description": "A command-line music player for coders. Background daemon with radio streaming, local MP3s, and AI-generated music.",
+      "language": "Python",
+      "homepage": "https://music-cli.luongnv.com",
+      "createdAt": "2025-12-29",
+      "stars": 88,
+      "forks": 28
+    },
+    {
+      "name": "ccl",
+      "url": "https://github.com/luongnv89/ccl",
+      "description": "Hit your limit? Need privacy? Just swap the model, everything else stays",
+      "language": "Python",
+      "homepage": "https://luongnv.com/ccl",
+      "createdAt": "2026-04-09",
+      "stars": 39,
+      "forks": 1
+    },
+    {
+      "name": "vscode-markdown-preview",
+      "url": "https://github.com/luongnv89/vscode-markdown-preview",
+      "description": "Clean, minimal markdown preview VS Code extension inspired by Zed editor with syntax highlighting, mermaid diagrams, math rendering, and interactive features",
+      "language": "TypeScript",
+      "homepage": "https://luongnv.com/vscode-markdown-preview/",
+      "createdAt": "2026-02-17",
+      "stars": 23,
+      "forks": 3
+    },
+    {
+      "name": "rex-extensions",
+      "url": "https://github.com/luongnv89/rex-extensions",
+      "description": "Extensions for the Rex terminal multiplexer: PR/issue panel, Claude usage panel, tab locations, same-machine ssh tabs",
+      "language": "JavaScript",
+      "homepage": "",
+      "createdAt": "2026-11-05",
+      "stars": 22,
+      "forks": 1
+    },
+    {
+      "name": "idd",
+      "url": "https://github.com/luongnv89/idd",
+      "description": "Turn GitHub Issues Into Structured, Agent-Ready Work Orders",
+      "language": "Shell",
+      "homepage": "http://luongnv.com/idd/",
+      "createdAt": "2026-03-20",
+      "stars": 15,
+      "forks": 2
+    },
+    {
+      "name": "freetokens",
+      "url": "https://github.com/luongnv89/freetokens",
+      "description": "Free AI Credits — aggregated, hand-verified free AI token/credit offers",
+      "language": "TypeScript",
+      "homepage": "https://freetokens.custats.info/",
+      "createdAt": "2026-08-21",
+      "stars": 14,
+      "forks": 3
+    },
+    {
+      "name": "awesome-cheatsheets",
+      "url": "https://github.com/luongnv89/awesome-cheatsheets",
+      "description": "AI tools and concepts cheatsheets.",
+      "language": "TypeScript",
+      "homepage": "http://luongnv.com/awesome-cheatsheets/",
+      "createdAt": "2026-05-18",
+      "stars": 10,
+      "forks": 5
+    },
+    {
+      "name": "yt-search-lib",
+      "url": "https://github.com/luongnv89/yt-search-lib",
+      "description": "A powerful, purely client-side JavaScript library for searching YouTube videos without an official API key",
+      "language": "JavaScript",
+      "homepage": "",
+      "createdAt": "2026-01-12",
+      "stars": 8,
+      "forks": 8
+    },
+    {
+      "name": "mdoctor",
+      "url": "https://github.com/luongnv89/mdoctor",
+      "description": "A comprehensive CLI to diagnose, clean, fix, and benchmark your macOS and Linux system. Pure Bash, zero dependencies.",
+      "language": "Shell",
+      "homepage": "http://luongnv.com/mdoctor/",
+      "createdAt": "2026-02-12",
+      "stars": 6,
+      "forks": 0
+    },
+    {
+      "name": "repo-insights",
+      "url": "https://github.com/luongnv89/repo-insights",
+      "description": "Generate comprehensive GitHub repo insights — real users vs bots, traffic, referrers, package stats",
+      "language": "Shell",
+      "homepage": "",
+      "createdAt": "2026-03-15",
+      "stars": 5,
+      "forks": 0
+    },
+    {
+      "name": "custats-feedback",
+      "url": "https://github.com/luongnv89/custats-feedback",
+      "description": "CUStats is a native macOS menubar app that lets you monitor your Claude AI usage limits at a glance, with real-time tracking, countdown timers, and historical usage views.",
+      "language": "",
+      "homepage": "https://custats.info",
+      "createdAt": "2026-01-04",
+      "stars": 5,
+      "forks": 0
+    },
+    {
+      "name": "mcc",
+      "url": "https://github.com/luongnv89/mcc",
+      "description": "mcc — manage multiple Claude Code profiles (accounts) from one CLI. Rust, macOS & Linux.",
+      "language": "Rust",
+      "homepage": "http://luongnv.com/mcc/",
+      "createdAt": "2026-10-09",
+      "stars": 4,
+      "forks": 0
+    },
+    {
+      "name": "cmail",
+      "url": "https://github.com/luongnv89/cmail",
+      "description": "Guided free custom-domain email setup: Cloudflare Email Routing + Gmail, automated via gddy CLI + Cloudflare API",
+      "language": "Python",
+      "homepage": "http://luongnv.com/cmail/",
+      "createdAt": "2026-10-06",
+      "stars": 3,
+      "forks": 0
+    },
+    {
+      "name": "bill-cli",
+      "url": "https://github.com/luongnv89/bill-cli",
+      "description": "extract information from bill, build for AI first",
+      "language": "Python",
+      "homepage": "",
+      "createdAt": "2026-05-04",
+      "stars": 3,
+      "forks": 0
+    },
+    {
+      "name": "llm-cli",
+      "url": "https://github.com/luongnv89/llm-cli",
+      "description": "A wrapper of llama.cpp for easier to use: find, download a model from hugging face, chat, get info, benchmark it.",
+      "language": "Shell",
+      "homepage": "",
+      "createdAt": "2025-12-09",
+      "stars": 2,
+      "forks": 2
+    },
+    {
+      "name": "herdr-github",
+      "url": "https://github.com/luongnv89/herdr-github",
+      "description": "Open GitHub pull requests and issues of the current repo, in a herdr side pane",
+      "language": "JavaScript",
+      "homepage": "",
+      "createdAt": "2026-11-01",
+      "stars": 2,
+      "forks": 0
+    },
+    {
+      "name": "francais-skills",
+      "url": "https://github.com/luongnv89/francais-skills",
+      "description": "Compétences IA pour faciliter la vie en France",
+      "language": "HTML",
+      "homepage": "",
+      "createdAt": "2026-05-13",
+      "stars": 2,
+      "forks": 0
+    },
+    {
+      "name": "bluetooth-diagnostic",
+      "url": "https://github.com/luongnv89/bluetooth-diagnostic",
+      "description": "macOS Bluetooth diagnostic tool — connection quality, signal strength, congestion analysis, and health scoring for all paired devices",
+      "language": "Shell",
+      "homepage": "",
+      "createdAt": "2026-03-16",
+      "stars": 2,
+      "forks": 0
+    },
+    {
+      "name": "free-llm-models",
+      "url": "https://github.com/luongnv89/free-llm-models",
+      "description": "List of openrouter free models",
+      "language": "TypeScript",
+      "homepage": "http://free-llm-models.custats.info/",
+      "createdAt": "2026-02-02",
+      "stars": 2,
+      "forks": 0
+    },
+    {
+      "name": "video-to-gif",
+      "url": "https://github.com/luongnv89/video-to-gif",
+      "description": "Convert video (.mp4, .mov) to gif",
+      "language": "JavaScript",
+      "homepage": "",
+      "createdAt": "2025-12-28",
+      "stars": 2,
+      "forks": 0
+    },
+    {
+      "name": "asm-registry",
+      "url": "https://github.com/luongnv89/asm-registry",
+      "description": "the skill registry for asm",
+      "language": "",
+      "homepage": "",
+      "createdAt": "2026-03-29",
+      "stars": 1,
+      "forks": 5
+    },
+    {
+      "name": "milo-website",
+      "url": "https://github.com/luongnv89/milo-website",
+      "description": "MILO landing page — give Siri the brains of GPT, Claude & Gemini. Hosted on GitHub Pages.",
+      "language": "JavaScript",
+      "homepage": "https://askmilo.pro",
+      "createdAt": "2026-06-13",
+      "stars": 1,
+      "forks": 1
+    },
+    {
+      "name": "remarkable-skills",
+      "url": "https://github.com/luongnv89/remarkable-skills",
+      "description": "Agent skills to set up a reMarkable over SSH and send X articles, blog posts and notes to it as tablet-sized reader PDFs",
+      "language": "JavaScript",
+      "homepage": "",
+      "createdAt": "2026-11-03",
+      "stars": 1,
+      "forks": 0
+    },
+    {
+      "name": "system1",
+      "url": "https://github.com/luongnv89/system1",
+      "description": "Field guide + browser playground for System One typed-judgment models (Jev/Kev, POST /v1/systemone)",
+      "language": "HTML",
+      "homepage": "",
+      "createdAt": "2026-10-01",
+      "stars": 1,
+      "forks": 0
+    },
+    {
+      "name": "eurpe",
+      "url": "https://github.com/luongnv89/eurpe",
+      "description": "EURPE — EU Research Project Proposal Expert: a fully local, agentic AI system for drafting EU research proposals",
+      "language": "Python",
+      "homepage": "",
+      "createdAt": "2026-05-14",
+      "stars": 1,
+      "forks": 0
+    },
+    {
+      "name": "mallouli-portfolio",
+      "url": "https://github.com/luongnv89/mallouli-portfolio",
+      "description": "",
+      "language": "JavaScript",
+      "homepage": "http://luongnv.com/mallouli-portfolio/",
+      "createdAt": "2026-05-07",
+      "stars": 1,
+      "forks": 0
+    },
+    {
+      "name": "telecode",
+      "url": "https://github.com/luongnv89/telecode",
+      "description": "Claude Code + Telegram",
+      "language": "TypeScript",
+      "homepage": "https://luongnv.com",
+      "createdAt": "2026-02-13",
+      "stars": 1,
+      "forks": 0
+    },
+    {
+      "name": "cv",
+      "url": "https://github.com/luongnv89/cv",
+      "description": "my cv",
+      "language": "HTML",
+      "homepage": "",
+      "createdAt": "2026-01-23",
+      "stars": 1,
+      "forks": 0
+    },
+    {
+      "name": "git-auto-switch",
+      "url": "https://github.com/luongnv89/git-auto-switch",
+      "description": "Stop pushing commits from the wrong GitHub account",
+      "language": "Shell",
+      "homepage": "https://luongnv.com",
+      "createdAt": "2025-12-28",
+      "stars": 1,
+      "forks": 0
+    },
+    {
+      "name": "time-echo-website",
+      "url": "https://github.com/luongnv89/time-echo-website",
+      "description": "Time Echo — official website, support, privacy, and release notes",
+      "language": "Python",
+      "homepage": "https://luongnv.com/time-echo-website/",
+      "createdAt": "2026-09-22",
+      "stars": 0,
+      "forks": 1
+    },
+    {
+      "name": "m-bench",
+      "url": "https://github.com/luongnv89/m-bench",
+      "description": "Not a leaderboard — a way to pick your daily driver. Benchmark model + quant + serving flags + thinking mode on your own hardware, then install the config that won. Code-gen and agentic tool-calling suites, hidden executable tests, mermaid reports.",
+      "language": "Python",
+      "homepage": "http://luongnv.com/m-bench/",
+      "createdAt": "2026-08-20",
+      "stars": 0,
+      "forks": 1
+    },
+    {
+      "name": "bettersite",
+      "url": "https://github.com/luongnv89/bettersite",
+      "description": "BetterSite — your website, rebuilt better. Free 48h sample.",
+      "language": "JavaScript",
+      "homepage": "",
+      "createdAt": "2026-05-08",
+      "stars": 0,
+      "forks": 1
+    },
+    {
+      "name": "vscode-theme-neon-green",
+      "url": "https://github.com/luongnv89/vscode-theme-neon-green",
+      "description": "A vibrant neon green VS Code theme",
+      "language": "JavaScript",
+      "homepage": "https://luongnv.com/vscode-theme-neon-green",
+      "createdAt": "2026-03-10",
+      "stars": 0,
+      "forks": 1
+    },
+    {
+      "name": "devstats-cli",
+      "url": "https://github.com/luongnv89/devstats-cli",
+      "description": "Contribution stats for every contributor across GitHub organizations — btop-style terminal tables and a self-contained HTML report",
+      "language": "Rust",
+      "homepage": "",
+      "createdAt": "2026-11-18",
+      "stars": 0,
+      "forks": 0
+    },
+    {
+      "name": "plugsquire-website",
+      "url": "https://github.com/luongnv89/plugsquire-website",
+      "description": "Website for Plugsquire, a macOS app that checks everything connected to your Mac",
+      "language": "HTML",
+      "homepage": "https://plugsquire.luongnv.com",
+      "createdAt": "2026-11-12",
+      "stars": 0,
+      "forks": 0
+    },
+    {
+      "name": "appstore-reports",
+      "url": "https://github.com/luongnv89/appstore-reports",
+      "description": "Encrypted App Store reports",
+      "language": "HTML",
+      "homepage": "",
+      "createdAt": "2026-11-10",
+      "stars": 0,
+      "forks": 0
+    },
+    {
+      "name": "buildwiz-ai-show-media",
+      "url": "https://github.com/luongnv89/buildwiz-ai-show-media",
+      "description": "Episode audio for Build Wiz AI Show on luongnv.com/podcast (release assets)",
+      "language": "",
+      "homepage": "",
+      "createdAt": "2026-11-10",
+      "stars": 0,
+      "forks": 0
+    },
+    {
+      "name": "once-upon-a-time-en-media",
+      "url": "https://github.com/luongnv89/once-upon-a-time-en-media",
+      "description": "Episode audio for Once Upon a Time Show (English) on luongnv.com/podcast (release assets)",
+      "language": "",
+      "homepage": "",
+      "createdAt": "2026-11-10",
+      "stars": 0,
+      "forks": 0
+    },
+    {
+      "name": "once-upon-a-time-fr-media",
+      "url": "https://github.com/luongnv89/once-upon-a-time-fr-media",
+      "description": "Episode audio for Once Upon a Time Show (French) on luongnv.com/podcast (release assets)",
+      "language": "",
+      "homepage": "",
+      "createdAt": "2026-11-10",
+      "stars": 0,
+      "forks": 0
+    },
+    {
+      "name": "once-upon-a-time-vi-media",
+      "url": "https://github.com/luongnv89/once-upon-a-time-vi-media",
+      "description": "Episode audio for Once Upon a Time Show (Vietnamese) on luongnv.com/podcast (release assets)",
+      "language": "",
+      "homepage": "",
+      "createdAt": "2026-11-10",
+      "stars": 0,
+      "forks": 0
+    },
+    {
+      "name": "x-post-radar-website",
+      "url": "https://github.com/luongnv89/x-post-radar-website",
+      "description": "Landing page for X Post Radar, a private-first Chrome extension that scores your X timeline",
+      "language": "HTML",
+      "homepage": "",
+      "createdAt": "2026-11-10",
+      "stars": 0,
+      "forks": 0
+    },
+    {
+      "name": "hermes-onair",
+      "url": "https://github.com/luongnv89/hermes-onair",
+      "description": "On Air: free voices and two-host audio shows for Hermes Agent (Hermes plugin)",
+      "language": "Python",
+      "homepage": "",
+      "createdAt": "2026-11-05",
+      "stars": 0,
+      "forks": 0
+    },
+    {
+      "name": "mcc-herdr-plugin",
+      "url": "https://github.com/luongnv89/mcc-herdr-plugin",
+      "description": "5-hour and weekly Claude Code usage of every mcc account, in a collapsible Herdr pane under the agent list",
+      "language": "JavaScript",
+      "homepage": "",
+      "createdAt": "2026-11-03",
+      "stars": 0,
+      "forks": 0
+    },
+    {
+      "name": "podcast",
+      "url": "https://github.com/luongnv89/podcast",
+      "description": "Build Wiz AI: podcast episodes generated with DropCast",
+      "language": "Python",
+      "homepage": "",
+      "createdAt": "2026-11-03",
+      "stars": 0,
+      "forks": 0
+    },
+    {
+      "name": "whole-herdr",
+      "url": "https://github.com/luongnv89/whole-herdr",
+      "description": "Herdr layout: project logos in Spaces and the tab bar, @machine on agents, quick split buttons, and a GitHub PR/issue panel",
+      "language": "JavaScript",
+      "homepage": "",
+      "createdAt": "2026-10-30",
+      "stars": 0,
+      "forks": 0
+    },
+    {
+      "name": "news",
+      "url": "https://github.com/luongnv89/news",
+      "description": "The AI Gazette: sourced AI news in a vintage newspaper, published twice daily",
+      "language": "HTML",
+      "homepage": "",
+      "createdAt": "2026-10-14",
+      "stars": 0,
+      "forks": 0
+    },
+    {
+      "name": "job-alerts",
+      "url": "https://github.com/luongnv89/job-alerts",
+      "description": "Daily evidence-backed AI engineering job alerts",
+      "language": "Python",
+      "homepage": "",
+      "createdAt": "2026-10-13",
+      "stars": 0,
+      "forks": 0
+    },
+    {
+      "name": "pages-publish-eval-tea",
+      "url": "https://github.com/luongnv89/pages-publish-eval-tea",
+      "description": "",
+      "language": "HTML",
+      "homepage": "",
+      "createdAt": "2026-10-13",
+      "stars": 0,
+      "forks": 0
+    },
+    {
+      "name": "homebrew-tap",
+      "url": "https://github.com/luongnv89/homebrew-tap",
+      "description": "Homebrew formulae by luongnv89",
+      "language": "Ruby",
+      "homepage": "",
+      "createdAt": "2026-10-10",
+      "stars": 0,
+      "forks": 0
+    },
+    {
+      "name": "factory-kit-website",
+      "url": "https://github.com/luongnv89/factory-kit-website",
+      "description": "Landing page for factory-kit, built by factory-kit itself (dogfood run).",
+      "language": "HTML",
+      "homepage": "https://luongnv.com/factory-kit-website/",
+      "createdAt": "2026-10-06",
+      "stars": 0,
+      "forks": 0
+    },
+    {
+      "name": "factory-kit",
+      "url": "https://github.com/luongnv89/factory-kit",
+      "description": "Hermes-native, Telegram-first engineering workflow kit for GitHub projects using IDD and reusable skills.",
+      "language": "Python",
+      "homepage": "",
+      "createdAt": "2026-10-04",
+      "stars": 0,
+      "forks": 0
+    },
+    {
+      "name": "trap-website",
+      "url": "https://github.com/luongnv89/trap-website",
+      "description": "Trap (Cạm Bẫy) — a hidden-trap platformer. Official game website.",
+      "language": "HTML",
+      "homepage": "",
+      "createdAt": "2026-09-22",
+      "stars": 0,
+      "forks": 0
+    },
+    {
+      "name": "codex-of-duty",
+      "url": "https://github.com/luongnv89/codex-of-duty",
+      "description": "A Three.js and Rapier FPS with streamed city chunks, tactical enemies, and defended relay objectives.",
+      "language": "JavaScript",
+      "homepage": "https://luongnv.com/codex-of-duty/",
+      "createdAt": "2026-07-26",
+      "stars": 0,
+      "forks": 0
+    },
+    {
+      "name": "music-cli-extension",
+      "url": "https://github.com/luongnv89/music-cli-extension",
+      "description": "Browser extension to open YouTube videos in MusicCLI",
+      "language": "JavaScript",
+      "homepage": "",
+      "createdAt": "2026-06-13",
+      "stars": 0,
+      "forks": 0
+    },
+    {
+      "name": "textwiz-website",
+      "url": "https://github.com/luongnv89/textwiz-website",
+      "description": "TextWiz marketing website (GitHub Pages)",
+      "language": "JavaScript",
+      "homepage": "https://textwiz.pro",
+      "createdAt": "2026-06-13",
+      "stars": 0,
+      "forks": 0
+    },
+    {
+      "name": "immo-evals",
+      "url": "https://github.com/luongnv89/immo-evals",
+      "description": "Sample bien-evaluator buyer reports — GitHub Pages showcase",
+      "language": "HTML",
+      "homepage": "http://luongnv.com/immo-evals/",
+      "createdAt": "2026-06-04",
+      "stars": 0,
+      "forks": 0
+    },
+    {
+      "name": "cooking-skills",
+      "url": "https://github.com/luongnv89/cooking-skills",
+      "description": "",
+      "language": "JavaScript",
+      "homepage": "http://luongnv.com/cooking-skills/",
+      "createdAt": "2026-05-09",
+      "stars": 0,
+      "forks": 0
+    },
+    {
+      "name": "nakhonthai-versailles",
+      "url": "https://github.com/luongnv89/nakhonthai-versailles",
+      "description": "Nakhon Thai restaurant website - rebuilt with Vite React",
+      "language": "JavaScript",
+      "homepage": "",
+      "createdAt": "2026-05-08",
+      "stars": 0,
+      "forks": 0
+    },
+    {
+      "name": "skills-sh",
+      "url": "https://github.com/luongnv89/skills-sh",
+      "description": "",
+      "language": "TypeScript",
+      "homepage": "",
+      "createdAt": "2026-05-07",
+      "stars": 0,
+      "forks": 0
+    },
+    {
+      "name": "happy-lunch",
+      "url": "https://github.com/luongnv89/happy-lunch",
+      "description": "Launch your Happy sessions from anywhere — one tap, zero friction.",
+      "language": "TypeScript",
+      "homepage": "",
+      "createdAt": "2026-02-16",
+      "stars": 0,
+      "forks": 0
+    },
+    {
+      "name": "image-to-text",
+      "url": "https://github.com/luongnv89/image-to-text",
+      "description": "From image to text",
+      "language": "Python",
+      "homepage": "",
+      "createdAt": "2026-01-25",
+      "stars": 0,
+      "forks": 0
+    },
+    {
+      "name": "money-mind",
+      "url": "https://github.com/luongnv89/money-mind",
+      "description": "The Free & Private way to understand your money flow",
+      "language": "TypeScript",
+      "homepage": "",
+      "createdAt": "2025-12-12",
+      "stars": 0,
+      "forks": 0
+    }
+  ]
+}
