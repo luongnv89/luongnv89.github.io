@@ -8,7 +8,7 @@ import portfolioData from '@/data/portfolio.json'
 const FLAGSHIP_NAMES = ['claude-howto', 'agent-skill-manager']
 
 /** First N remaining entries are shown in the list; the rest hide behind "Show more". */
-const FEATURED_OSS_LIMIT = 8
+const FEATURED_OSS_LIMIT = 12
 
 const flagshipMeta: Record<string, { headline: string; screenshot: string }> = {
   'claude-howto': {

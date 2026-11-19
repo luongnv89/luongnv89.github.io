@@ -26,6 +26,7 @@ const languageColors: Record<string, string> = {
   Svelte: '#FF3E00',
   Dart: '#00B4AB',
   Markdown: '#083FA1',
+  Rust: '#DEA584',
 }
 
 /**

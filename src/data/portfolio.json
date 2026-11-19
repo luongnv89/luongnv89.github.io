@@ -30,6 +30,15 @@
       "forks": 21
     },
     {
+      "name": "pi-extensions",
+      "description": "Collection of extensions and themes for Pi, the open-source coding agent",
+      "language": "TypeScript",
+      "stars": 165,
+      "forks": 35,
+      "url": "https://github.com/luongnv89/pi-extensions",
+      "logo": "/images/projects/pi-extensions.svg"
+    },
+    {
       "name": "cc-context-stats",
       "description": "Know your zone. Ship with confidence — real-time Claude Code context usage monitoring across three operational zones",
       "language": "Python",
@@ -89,6 +98,47 @@
       "forks": 3
     },
     {
+      "name": "freetokens",
+      "description": "Hand-verified free AI credits and token offers, aggregated in one catalog",
+      "language": "TypeScript",
+      "stars": 14,
+      "forks": 3,
+      "url": "https://github.com/luongnv89/freetokens",
+      "landingPage": "https://freetokens.custats.info/",
+      "logo": "/images/projects/freetokens.svg"
+    },
+    {
+      "name": "news",
+      "displayName": "The AI Gazette",
+      "description": "Sourced AI news in a vintage newspaper, researched and published twice a day by an agent",
+      "language": "HTML",
+      "stars": 0,
+      "forks": 0,
+      "url": "https://github.com/luongnv89/news",
+      "landingPage": "https://luongnv.com/news/",
+      "logo": "/images/projects/ai-gazette.svg"
+    },
+    {
+      "name": "awesome-cheatsheets",
+      "description": "Cheatsheets for AI tools and concepts: coding agents, models, prompting and more",
+      "language": "TypeScript",
+      "stars": 10,
+      "forks": 5,
+      "url": "https://github.com/luongnv89/awesome-cheatsheets",
+      "landingPage": "https://luongnv.com/awesome-cheatsheets/",
+      "logo": "/images/projects/awesome-cheatsheets.svg"
+    },
+    {
+      "name": "m-bench",
+      "description": "Benchmark local models, quants and serving flags on your own hardware, then install the config that won",
+      "language": "Python",
+      "stars": 0,
+      "forks": 1,
+      "url": "https://github.com/luongnv89/m-bench",
+      "landingPage": "https://luongnv.com/m-bench/",
+      "logo": "/images/projects/m-bench.svg"
+    },
+    {
       "name": "vscode-markdown-preview",
       "description": "Clean, minimal markdown preview for VS Code inspired by Zed — syntax highlighting, Mermaid diagrams, KaTeX math, and interactive features",
       "language": "TypeScript",
@@ -97,6 +147,72 @@
       "landingPage": "https://luongnv.com/vscode-markdown-preview",
       "logo": "/images/projects/vscode-markdown-preview.svg",
       "forks": 3
+    },
+    {
+      "name": "rex-extensions",
+      "description": "Extensions for the Rex terminal multiplexer: PR/issue panel, Claude usage panel, tab locations",
+      "language": "JavaScript",
+      "stars": 22,
+      "forks": 1,
+      "url": "https://github.com/luongnv89/rex-extensions",
+      "logo": "/images/projects/rex-extensions.svg"
+    },
+    {
+      "name": "mcc",
+      "description": "Manage multiple Claude Code profiles (accounts) from one CLI. Rust, macOS & Linux",
+      "language": "Rust",
+      "stars": 4,
+      "forks": 0,
+      "url": "https://github.com/luongnv89/mcc",
+      "landingPage": "https://luongnv.com/mcc/",
+      "logo": "/images/projects/mcc.svg"
+    },
+    {
+      "name": "free-llm-models",
+      "description": "Daily-updated list of free LLMs on OpenRouter",
+      "language": "TypeScript",
+      "stars": 2,
+      "forks": 0,
+      "url": "https://github.com/luongnv89/free-llm-models",
+      "landingPage": "https://free-llm-models.custats.info/",
+      "logo": "/images/projects/free-llm-models.svg"
+    },
+    {
+      "name": "job-alerts",
+      "description": "Daily, evidence-backed AI engineering job alerts, scouted and verified by an agent",
+      "language": "Python",
+      "stars": 0,
+      "forks": 0,
+      "url": "https://github.com/luongnv89/job-alerts",
+      "landingPage": "https://luongnv.com/job-alerts/",
+      "logo": "/images/projects/job-alerts.svg"
+    },
+    {
+      "name": "hermes-onair",
+      "description": "Free voices and two-host audio shows for Hermes Agent",
+      "language": "Python",
+      "stars": 0,
+      "forks": 0,
+      "url": "https://github.com/luongnv89/hermes-onair",
+      "logo": "/images/projects/hermes-onair.svg"
+    },
+    {
+      "name": "eurpe",
+      "description": "Fully local, agentic AI system for drafting EU research project proposals",
+      "language": "Python",
+      "stars": 1,
+      "forks": 0,
+      "url": "https://github.com/luongnv89/eurpe",
+      "logo": "/images/projects/eurpe.svg"
+    },
+    {
+      "name": "devstats-cli",
+      "description": "Contribution stats for every contributor across GitHub organizations, in the terminal and as HTML",
+      "language": "Rust",
+      "stars": 0,
+      "forks": 0,
+      "url": "https://github.com/luongnv89/devstats-cli",
+      "logo": "/images/projects/devstats-cli.svg"
     },
     {
       "name": "repo-insights",
