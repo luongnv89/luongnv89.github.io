@@ -39,6 +39,15 @@
       "logo": "/images/projects/pi-extensions.svg"
     },
     {
+      "name": "rex-extensions",
+      "description": "Extensions for the Rex terminal multiplexer: PR/issue panel, Claude usage panel, tab locations",
+      "language": "JavaScript",
+      "stars": 22,
+      "forks": 1,
+      "url": "https://github.com/luongnv89/rex-extensions",
+      "logo": "/images/projects/rex-extensions.svg"
+    },
+    {
       "name": "cc-context-stats",
       "description": "Know your zone. Ship with confidence — real-time Claude Code context usage monitoring across three operational zones",
       "language": "Python",
@@ -147,15 +156,6 @@
       "landingPage": "https://luongnv.com/vscode-markdown-preview",
       "logo": "/images/projects/vscode-markdown-preview.svg",
       "forks": 3
-    },
-    {
-      "name": "rex-extensions",
-      "description": "Extensions for the Rex terminal multiplexer: PR/issue panel, Claude usage panel, tab locations",
-      "language": "JavaScript",
-      "stars": 22,
-      "forks": 1,
-      "url": "https://github.com/luongnv89/rex-extensions",
-      "logo": "/images/projects/rex-extensions.svg"
     },
     {
       "name": "mcc",
