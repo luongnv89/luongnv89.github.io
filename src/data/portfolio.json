@@ -4,7 +4,7 @@
       "name": "claude-howto",
       "description": "A visual, example-driven guide to Claude Code — from basic concepts to advanced agents, with copy-paste templates that bring immediate value",
       "language": "Python",
-      "stars": 47423,
+      "stars": 47448,
       "forks": 5756,
       "url": "https://github.com/luongnv89/claude-howto",
       "landingPage": "https://luongnv.com/claude-howto",
@@ -42,7 +42,7 @@
       "name": "rex-extensions",
       "description": "Extensions for the Rex terminal multiplexer: PR/issue panel, Claude usage panel, tab locations",
       "language": "JavaScript",
-      "stars": 22,
+      "stars": 24,
       "forks": 1,
       "url": "https://github.com/luongnv89/rex-extensions",
       "logo": "/images/projects/rex-extensions.svg"

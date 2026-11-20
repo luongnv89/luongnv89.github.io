@@ -72,6 +72,16 @@
       "forks": 1
     },
     {
+      "name": "rex-extensions",
+      "url": "https://github.com/luongnv89/rex-extensions",
+      "description": "Extensions for the Rex terminal multiplexer: PR/issue panel, Claude usage panel, tab locations, same-machine ssh tabs",
+      "language": "JavaScript",
+      "homepage": "",
+      "createdAt": "2026-11-05",
+      "stars": 24,
+      "forks": 1
+    },
+    {
       "name": "vscode-markdown-preview",
       "url": "https://github.com/luongnv89/vscode-markdown-preview",
       "description": "Clean, minimal markdown preview VS Code extension inspired by Zed editor with syntax highlighting, mermaid diagrams, math rendering, and interactive features",
@@ -80,16 +90,6 @@
       "createdAt": "2026-02-17",
       "stars": 23,
       "forks": 3
-    },
-    {
-      "name": "rex-extensions",
-      "url": "https://github.com/luongnv89/rex-extensions",
-      "description": "Extensions for the Rex terminal multiplexer: PR/issue panel, Claude usage panel, tab locations, same-machine ssh tabs",
-      "language": "JavaScript",
-      "homepage": "",
-      "createdAt": "2026-11-05",
-      "stars": 22,
-      "forks": 1
     },
     {
       "name": "idd",
