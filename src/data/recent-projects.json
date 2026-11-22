@@ -78,7 +78,7 @@
       "language": "JavaScript",
       "homepage": "",
       "createdAt": "2026-11-05",
-      "stars": 24,
+      "stars": 25,
       "forks": 1
     },
     {
@@ -192,6 +192,16 @@
       "forks": 0
     },
     {
+      "name": "free-llm-models",
+      "url": "https://github.com/luongnv89/free-llm-models",
+      "description": "List of openrouter free models",
+      "language": "TypeScript",
+      "homepage": "http://free-llm-models.custats.info/",
+      "createdAt": "2026-02-02",
+      "stars": 3,
+      "forks": 0
+    },
+    {
       "name": "llm-cli",
       "url": "https://github.com/luongnv89/llm-cli",
       "description": "A wrapper of llama.cpp for easier to use: find, download a model from hugging face, chat, get info, benchmark it.",
@@ -228,16 +238,6 @@
       "language": "Shell",
       "homepage": "",
       "createdAt": "2026-03-16",
-      "stars": 2,
-      "forks": 0
-    },
-    {
-      "name": "free-llm-models",
-      "url": "https://github.com/luongnv89/free-llm-models",
-      "description": "List of openrouter free models",
-      "language": "TypeScript",
-      "homepage": "http://free-llm-models.custats.info/",
-      "createdAt": "2026-02-02",
       "stars": 2,
       "forks": 0
     },

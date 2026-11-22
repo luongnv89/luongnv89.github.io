@@ -4,8 +4,8 @@
       "name": "claude-howto",
       "description": "A visual, example-driven guide to Claude Code — from basic concepts to advanced agents, with copy-paste templates that bring immediate value",
       "language": "Python",
-      "stars": 47474,
-      "forks": 5758,
+      "stars": 47494,
+      "forks": 5759,
       "url": "https://github.com/luongnv89/claude-howto",
       "landingPage": "https://luongnv.com/claude-howto",
       "logo": "/images/projects/claude-howto.svg"
@@ -42,7 +42,7 @@
       "name": "rex-extensions",
       "description": "Extensions for the Rex terminal multiplexer: PR/issue panel, Claude usage panel, tab locations",
       "language": "JavaScript",
-      "stars": 24,
+      "stars": 25,
       "forks": 1,
       "url": "https://github.com/luongnv89/rex-extensions",
       "logo": "/images/projects/rex-extensions.svg"
@@ -171,7 +171,7 @@
       "name": "free-llm-models",
       "description": "Daily-updated list of free LLMs on OpenRouter",
       "language": "TypeScript",
-      "stars": 2,
+      "stars": 3,
       "forks": 0,
       "url": "https://github.com/luongnv89/free-llm-models",
       "landingPage": "https://free-llm-models.custats.info/",
