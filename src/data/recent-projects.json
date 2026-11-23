@@ -9,7 +9,7 @@
       "homepage": "https://luongnv.com/asm",
       "createdAt": "2026-03-11",
       "stars": 976,
-      "forks": 87
+      "forks": 86
     },
     {
       "name": "pi-extensions",
@@ -18,7 +18,7 @@
       "language": "TypeScript",
       "homepage": "",
       "createdAt": "2026-05-19",
-      "stars": 165,
+      "stars": 166,
       "forks": 35
     },
     {
@@ -78,7 +78,7 @@
       "language": "JavaScript",
       "homepage": "",
       "createdAt": "2026-11-05",
-      "stars": 25,
+      "stars": 26,
       "forks": 1
     },
     {
@@ -380,6 +380,16 @@
       "createdAt": "2026-03-10",
       "stars": 0,
       "forks": 1
+    },
+    {
+      "name": "printer-cli",
+      "url": "https://github.com/luongnv89/printer-cli",
+      "description": "Your printer's dashboard in the terminal: ink, paper, alerts, nozzle checks, head cleaning, printing and scanning for network printers. CLI + TUI over IPP, eSCL, SNMP and Epson ESC/P2.",
+      "language": "Python",
+      "homepage": "https://pypi.org/project/printer-cli/",
+      "createdAt": "2026-11-21",
+      "stars": 0,
+      "forks": 0
     },
     {
       "name": "devstats-cli",
