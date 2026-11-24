@@ -8,8 +8,8 @@
       "language": "TypeScript",
       "homepage": "https://luongnv.com/asm",
       "createdAt": "2026-03-11",
-      "stars": 976,
-      "forks": 86
+      "stars": 977,
+      "forks": 85
     },
     {
       "name": "pi-extensions",
@@ -119,7 +119,7 @@
       "homepage": "http://luongnv.com/awesome-cheatsheets/",
       "createdAt": "2026-05-18",
       "stars": 10,
-      "forks": 5
+      "forks": 6
     },
     {
       "name": "yt-search-lib",
@@ -380,6 +380,16 @@
       "createdAt": "2026-03-10",
       "stars": 0,
       "forks": 1
+    },
+    {
+      "name": "sfm-website",
+      "url": "https://github.com/luongnv89/sfm-website",
+      "description": "Website of sfm (SSH Fleet Monitor): every Mac and Linux machine you own, on one screen.",
+      "language": "HTML",
+      "homepage": "https://sfm.luongnv.com",
+      "createdAt": "2026-11-23",
+      "stars": 0,
+      "forks": 0
     },
     {
       "name": "printer-cli",
