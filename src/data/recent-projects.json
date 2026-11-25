@@ -119,7 +119,7 @@
       "homepage": "http://luongnv.com/awesome-cheatsheets/",
       "createdAt": "2026-05-18",
       "stars": 10,
-      "forks": 6
+      "forks": 5
     },
     {
       "name": "yt-search-lib",
@@ -172,6 +172,16 @@
       "forks": 0
     },
     {
+      "name": "free-llm-models",
+      "url": "https://github.com/luongnv89/free-llm-models",
+      "description": "List of openrouter free models",
+      "language": "TypeScript",
+      "homepage": "http://free-llm-models.custats.info/",
+      "createdAt": "2026-02-02",
+      "stars": 4,
+      "forks": 0
+    },
+    {
       "name": "cmail",
       "url": "https://github.com/luongnv89/cmail",
       "description": "Guided free custom-domain email setup: Cloudflare Email Routing + Gmail, automated via gddy CLI + Cloudflare API",
@@ -188,16 +198,6 @@
       "language": "Python",
       "homepage": "",
       "createdAt": "2026-05-04",
-      "stars": 3,
-      "forks": 0
-    },
-    {
-      "name": "free-llm-models",
-      "url": "https://github.com/luongnv89/free-llm-models",
-      "description": "List of openrouter free models",
-      "language": "TypeScript",
-      "homepage": "http://free-llm-models.custats.info/",
-      "createdAt": "2026-02-02",
       "stars": 3,
       "forks": 0
     },

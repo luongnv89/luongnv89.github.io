@@ -4,8 +4,8 @@
       "name": "claude-howto",
       "description": "A visual, example-driven guide to Claude Code — from basic concepts to advanced agents, with copy-paste templates that bring immediate value",
       "language": "Python",
-      "stars": 47544,
-      "forks": 5762,
+      "stars": 47567,
+      "forks": 5764,
       "url": "https://github.com/luongnv89/claude-howto",
       "landingPage": "https://luongnv.com/claude-howto",
       "logo": "/images/projects/claude-howto.svg"
@@ -132,7 +132,7 @@
       "description": "Cheatsheets for AI tools and concepts: coding agents, models, prompting and more",
       "language": "TypeScript",
       "stars": 10,
-      "forks": 6,
+      "forks": 5,
       "url": "https://github.com/luongnv89/awesome-cheatsheets",
       "landingPage": "https://luongnv.com/awesome-cheatsheets/",
       "logo": "/images/projects/awesome-cheatsheets.svg"
@@ -171,7 +171,7 @@
       "name": "free-llm-models",
       "description": "Daily-updated list of free LLMs on OpenRouter",
       "language": "TypeScript",
-      "stars": 3,
+      "stars": 4,
       "forks": 0,
       "url": "https://github.com/luongnv89/free-llm-models",
       "landingPage": "https://free-llm-models.custats.info/",
