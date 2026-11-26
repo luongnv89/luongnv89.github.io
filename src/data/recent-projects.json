@@ -8,7 +8,7 @@
       "language": "TypeScript",
       "homepage": "https://luongnv.com/asm",
       "createdAt": "2026-03-11",
-      "stars": 977,
+      "stars": 976,
       "forks": 85
     },
     {
@@ -76,7 +76,7 @@
       "url": "https://github.com/luongnv89/rex-extensions",
       "description": "Extensions for the Rex terminal multiplexer: PR/issue panel, Claude usage panel, tab locations, same-machine ssh tabs",
       "language": "JavaScript",
-      "homepage": "",
+      "homepage": "http://luongnv.com/rex-extensions/",
       "createdAt": "2026-11-05",
       "stars": 26,
       "forks": 1
@@ -396,7 +396,7 @@
       "url": "https://github.com/luongnv89/printer-cli",
       "description": "Your printer's dashboard in the terminal: ink, paper, alerts, nozzle checks, head cleaning, printing and scanning for network printers. CLI + TUI over IPP, eSCL, SNMP and Epson ESC/P2.",
       "language": "Python",
-      "homepage": "https://pypi.org/project/printer-cli/",
+      "homepage": "http://printer.luongnv.com/",
       "createdAt": "2026-11-21",
       "stars": 0,
       "forks": 0
@@ -415,7 +415,7 @@
       "name": "plugsquire-website",
       "url": "https://github.com/luongnv89/plugsquire-website",
       "description": "Website for Plugsquire, a macOS app that checks everything connected to your Mac",
-      "language": "HTML",
+      "language": "JavaScript",
       "homepage": "https://plugsquire.luongnv.com",
       "createdAt": "2026-11-12",
       "stars": 0,
