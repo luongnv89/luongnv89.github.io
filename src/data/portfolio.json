@@ -4,8 +4,8 @@
       "name": "claude-howto",
       "description": "A visual, example-driven guide to Claude Code — from basic concepts to advanced agents, with copy-paste templates that bring immediate value",
       "language": "Python",
-      "stars": 47594,
-      "forks": 5763,
+      "stars": 47622,
+      "forks": 5764,
       "url": "https://github.com/luongnv89/claude-howto",
       "landingPage": "https://luongnv.com/claude-howto",
       "logo": "/images/projects/claude-howto.svg"
@@ -101,7 +101,7 @@
       "name": "voice-cast",
       "description": "Your words, any voice. Voice cloning and text-to-speech with multiple TTS engines — clone any voice from a short audio sample",
       "language": "Python",
-      "stars": 23,
+      "stars": 24,
       "url": "https://github.com/luongnv89/voice-cast",
       "logo": "/images/projects/voice-cast.svg",
       "forks": 3
